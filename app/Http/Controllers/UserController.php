@@ -9,12 +9,28 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function list(){
-        $user = User::all();
-        return $user;
+    public function list(Request $request){
+        $limit = $request->query('limit') ? $request->query('limit') : 10;
+        $search =  $request->query('search');
+        if($search!=""){
+            $listUser = User::where(function ($query) use ($search){
+                $query->where('username', 'like', '%'.$search.'%')
+                    ->orWhere('email', 'like', '%'.$search.'%');
+            })
+                ->paginate($limit);
+            $listUser->appends([
+                'search' => $search,
+            ]);
+        }
+        else{
+            $listUser = User::paginate($limit);
+        }
+        return view('Admin/user/list',['list_user' => $listUser,
+            'limit' => $limit]);
     }
 
     public function create(){
+        return view('Admin/user/form',['data_user' => null]);
     }
     public function store(UserRequest $request){
         $user = new User();
@@ -22,11 +38,11 @@ class UserController extends Controller
         $hashed_password = Hash::make($request['password']);
         $user->password =$hashed_password;
         $user->save();
-        return $user;
+        return redirect()->route('listUser')->with(['status' => 'create admin success','user' => $user->username]);
     }
     public function update($id){
         $user = User::find($id);
-        return $user;
+        return view('Admin/user/form',['data_user'=>$user]);
 
     }
     public function save(UserRequest $request,$id){
@@ -39,13 +55,13 @@ class UserController extends Controller
         }
         $user->update($data);
         $user->save();
-        return $user;
+        return redirect()->route('listUser')->with(['status' => 'Update admin success','user'=>$user->username]);;
 
     }
     public function delete($id){
         $user = User::find($id);
         $user->delete();
-        return true;
+        return redirect()->route('listUser')->with(['status' => 'Delete admin success','user'=>$user->username]);
 }
     //
 }

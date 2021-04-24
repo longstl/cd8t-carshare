@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\EmailPreference;
+use App\Enums\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -36,6 +37,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_pet_allowed')->default(false);
             $table->boolean('music_preference')->default(0);
             $table->boolean('chitchat_preference')->default(0);
+            $table->integer('role')->default(Role::USER);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
