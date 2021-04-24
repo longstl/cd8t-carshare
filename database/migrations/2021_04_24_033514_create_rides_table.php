@@ -26,7 +26,6 @@ class CreateRidesTable extends Migration
             $table->integer('seats_offered');
             $table->integer('seats_available');
             $table->integer('contribution_per_head');
-            $table->integer('luggage_size');
             $table->integer('status')->default(RideStatus::PENDING);
             $table->timestamps();
             $table->softDeletes();
