@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 class UserCarController extends Controller
 {
     public function list(){
+
     }
     public function create(){
     }
     public function store(){
+
     }
     public function update(){
     }
