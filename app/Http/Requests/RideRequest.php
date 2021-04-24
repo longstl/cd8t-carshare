@@ -33,8 +33,7 @@ class RideRequest extends FormRequest
             'distance' => ['required','integer'],
             'seats_offered' => ['required','integer'],
             'seats_available' => ['required','integer'],
-            'contribution_per_head' => ['required','integer'],
-            'luggage_size' => ['required','integer']
+            'contribution_per_head' => ['required','integer']
             //
         ];
     }

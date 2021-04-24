@@ -37,6 +37,15 @@ class User extends Authenticatable
         'music_preference',
         'chitchat_preference',
     ];
+    public function userCars(){
+        return $this->hasMany(UserCar::class);
+    }
+    public function rideRequests(){
+        return $this->hasMany(RideRequest::class);
+    }
+    public function feedbacks(){
+        return $this->hasMany(Feedback::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.
