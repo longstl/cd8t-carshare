@@ -19,4 +19,12 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('Admin/user/form');
 });
+Route::get('/map', function () {
+    return view('map');
+});
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
