@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "2a0e24ae3ff99500ea086597f98d16a0",
+
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -63,6 +65,7 @@
             "time": "2021-03-11T06:42:03+00:00"
         },
         {
+
             "name": "bensampo/laravel-enum",
             "version": "v3.3.0",
             "source": {
@@ -146,6 +149,7 @@
             "time": "2021-02-16T17:27:06+00:00"
         },
         {
+
             "name": "brick/math",
             "version": "0.9.2",
             "source": {
@@ -940,6 +944,7 @@
             "time": "2021-03-21T16:25:00+00:00"
         },
         {
+
             "name": "hanneskod/classtools",
             "version": "1.2.1",
             "source": {
@@ -1185,6 +1190,7 @@
             "time": "2021-02-25T21:54:58+00:00"
         },
         {
+
             "name": "laravel/framework",
             "version": "v8.38.0",
             "source": {
