@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,16 @@ Route::get('/test', function () {
     return view('Admin/car/list');
 });
 
-Route::prefix("car")->group(function (){
+Route::prefix("admin/car")->group(function (){
     Route::get('',[CarController::class,'list'])->name('listCar');
     Route::get('create',[CarController::class,'create'])->name('createCar');
     Route::post('create',[CarController::class,'store'])->name('storeCar');
     Route::get('update/{id}',[CarController::class,'update'])->name('updateCar');
     Route::post('update/{id}',[CarController::class,'save']);
     Route::get('delete/{id}',[CarController::class,'delete'])->name('deleteCar');
+});
+Route::prefix("admin/feedback")->group(function (){
+    Route::get('',[FeedbackController::class,'list'])->name('listFeedback');
+    Route::get('delete/{id}',[FeedbackController::class,'delete'])->name('deleteFeedback');
 });
 
