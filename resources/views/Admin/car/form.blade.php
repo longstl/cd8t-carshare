@@ -72,13 +72,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Name</label>
-                                                <input type="text" value="{{$dataSize ? $dataSize->name : ''}}" name="name" class="form-control">
+                                                <input type="text" value="" name="name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Sort Number</label>
-                                                <input type="text" value="{{$dataSize ? $dataSize->sort_number :''}}" name="sort_number" class="form-control">
+                                                <label class="bmd-label-floating"> Make</label>
+                                                <input type="text" value="" name="make" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Model</label>
+                                                <input type="text" value="" name="model" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-size: 11px">Make year</label>
+                                                <input type="date" value="" name="make_year" class="form-control">
                                             </div>
                                         </div>
                                     </div>

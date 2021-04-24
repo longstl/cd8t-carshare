@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test', function () {
-    return view('Admin/user/form');
+    return view('Admin/car/list');
 });
 
