@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix("car")->group(function (){
+
+
+
+Route::prefix("admin/car")->group(function (){
     Route::get('',[CarController::class,'list'])->name('listCar');
     Route::get('create',[CarController::class,'create'])->name('createCar');
     Route::post('create',[CarController::class,'store'])->name('storeCar');
@@ -23,6 +27,11 @@ Route::prefix("car")->group(function (){
     Route::post('update/{id}',[CarController::class,'save'])->name('saveCar');
     Route::get('delete/{id}',[CarController::class,'delete'])->name('deleteCar');
 });
+
+Route::prefix("admin/feedback")->group(function (){
+    Route::get('',[FeedbackController::class,'list'])->name('listFeedback');
+    Route::get('delete/{id}',[FeedbackController::class,'delete'])->name('deleteFeedback');
+
 Route::prefix('admin/user')->group(function (){
     Route::get('',[UserController::class,'list'])->name('listUser');
     Route::get('create',[UserController::class,'create'])->name('createUser');
