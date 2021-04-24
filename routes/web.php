@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Admin/user/form');
+Route::prefix("car")->group(function (){
+    Route::get('',[CarController::class,'list'])->name('listCar');
+    Route::get('create',[CarController::class,'create'])->name('createCar');
+    Route::post('create',[CarController::class,'store'])->name('storeCar');
+    Route::get('update/{id}',[CarController::class,'update'])->name('updateCar');
+    Route::post('update/{id}',[CarController::class,'save'])->name('saveCar');
+    Route::get('delete/{id}',[CarController::class,'delete'])->name('deleteCar');
 });
 Route::prefix('admin/user')->group(function (){
     Route::get('',[UserController::class,'list'])->name('listUser');

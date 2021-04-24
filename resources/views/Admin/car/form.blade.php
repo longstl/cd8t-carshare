@@ -61,6 +61,12 @@
                 <div class="row">
                     <div class="col-md-7" style="margin: auto">
                         <div class="card">
+                            @if($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                                </div>
+                            @endif
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title ">New Size</h3>
                                 <p class="card-category"> Here is a subtitle for this table</p>
@@ -72,18 +78,29 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Name</label>
-                                                <input type="text" value="{{$dataSize ? $dataSize->name : ''}}" name="name" class="form-control">
+                                                <input type="text" value="{{$data_car ? $data_car->name :''}}" name="name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Sort Number</label>
-                                                <input type="text" value="{{$dataSize ? $dataSize->sort_number :''}}" name="sort_number" class="form-control">
+                                                <label class="bmd-label-floating"> Make</label>
+                                                <input type="text" value="{{$data_car ? $data_car->make :''}}" name="make" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Model</label>
+                                                <input type="text" value="{{$data_car ? $data_car->model :''}}" name="model" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Make year</label>
+                                                <input type="number" value="{{$data_car ? $data_car->make_year :''}}" name="make_year" class="form-control">
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="/test" class="btn btn-primary pull-right d-block">Back</a>
-                                    <button type="submit" class="btn btn-primary pull-right d-block">Create Sizes</button>
+                                    <button type="submit" class="btn btn-primary pull-right d-block">Submit</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

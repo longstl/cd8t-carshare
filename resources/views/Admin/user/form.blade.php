@@ -94,13 +94,13 @@
 
                                         <p>Is Smoking Allowed</p>
                                         <input type="radio" name="is_smoking_allowed" value="1" {{$data_user && $data_user->is_smoking_allowed === 1 ? 'checked' : ''}}> Yes
-
-
                                         <input type="radio" name="is_smoking_allowed" value="0" {{$data_user && $data_user->is_smoking_allowed === 0 ? 'checked' : ''}}> No
+
                                     </div>
                                     <div class="form-group validate">
 
                                         <p>Is Pet Allowed</p>
+
 
 
                                         <input type="radio" name="is_pet_allowed" value="1" {{$data_user && $data_user->is_pet_allowed === 1 ? 'checked' : ''}}> Yes
@@ -108,14 +108,16 @@
 
                                         <input type="radio" name="is_pet_allowed" value="0" {{$data_user && $data_user->is_pet_allowed === 0 ? 'checked' : ''}}> No
 
+                                     
+
 
                                     </div>
 
                                     <select class="form-control" name="music_preference">
                                         <option hidden selected disabled>Music Preference</option>
-                                        <option value="0">None</option>
-                                        <option value="1">Calm</option>
-                                        <option value="2">Loud</option>
+                                        <option value="0" {{$data_user && $data_user->music_preference === 0 ? 'selected' : ''}}>None</option>
+                                        <option value="1" {{$data_user && $data_user->music_preference === 1 ? 'selected' : ''}}>Calm</option>
+                                        <option value="2" {{$data_user && $data_user->music_preference === 2 ? 'selected' : ''}}>Loud</option>
                                     </select>
                                     <select class="form-control" name="chitchat_preference">
                                         <option hidden selected disabled>Chitchat Preference</option>
@@ -164,7 +166,6 @@
                                                name="driving_license_number"
                                                aria-describedby="emailHelp">
                                     </div>
-                                    <div class="form-group validate">
                                         <label class="bmd-label-floating">Driving License Valid From </label>
                                         <input type="date" class="form-control" value="{{ $data_user ? $data_user->driving_license_valid_from : ''}}"
                                                name="driving_license_valid_from"
