@@ -91,39 +91,44 @@
                                 <div class="card-body">
                                     <div class="form-group validate">
 
-                                        <select class="form-control" name="is_smoking_allowed">
-                                            <option hidden selected disabled>Is Smoking Allowed</option>
-                                            <option value="1"
-                                            >Yes
-                                            </option>
-                                            <option value="2"
-                                            >No
-                                            </option>
-                                        </select>
+
+                                        <p>Is Smoking Allowed</p>
+                                            <input type="radio" name="is_smoking_allowed"> Yes
+
+
+                                            <input type="radio" name="is_smoking_allowed"> No
                                     </div>
                                     <div class="form-group validate">
-                                        <select class="form-control" name="is_pet_allowed">
-                                            <option hidden selected disabled>Is Pet Allowed</option>
-                                            <option value="1"
-                                            >Yes
-                                            </option>
-                                            <option value="2"
-                                            >No
-                                            </option>
-                                        </select>
+
+                                        <p>Is Pet Allowed</p>
+
+
+                                            <input type="radio" name="optradio"> Yes
+
+
+                                            <input type="radio" name="optradio"> No
+
+
                                     </div>
-                                    <div class="form-group validate">
-                                        <label class="bmd-label-floating"> Music Preference</label>
-                                        <input type="text" class="form-control" value=""
-                                               name="music_preference"
-                                               aria-describedby="emailHelp">
-                                    </div>
-                                    <div class="form-group validate">
-                                        <label class="bmd-label-floating"> Chitchat Preference</label>
-                                        <input type="text" class="form-control" value=""
-                                               name="chitchat_preference"
-                                               aria-describedby="emailHelp">
-                                    </div>
+
+                                    <select class="form-control" name="music_preference">
+                                        <option hidden selected disabled>Music Preference</option>
+                                        <option value="1"
+                                        >1
+                                        </option>
+                                        <option value="2"
+                                        >2
+                                        </option>
+                                    </select>
+                                    <select class="form-control" name="chitchat_preference">
+                                        <option hidden selected disabled>Chitchat Preference</option>
+                                        <option value="1"
+                                        >1
+                                        </option>
+                                        <option value="2"
+                                        >2
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -176,13 +181,13 @@
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
-                                        <label class="bmd-label-floating">Driving License Valid From </label>
+                                        <label style="font-size: 11px">Driving License Valid From </label>
                                         <input type="date" class="form-control" value=""
                                                name="driving_license_valid_from"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
-                                        <label class="bmd-label-floating">Driving License Valid To </label>
+                                        <label style="font-size: 11px">Driving License Valid To </label>
                                         <input type="date" class="form-control" value=""
                                                name="driving_license_valid_to"
                                                aria-describedby="emailHelp">
