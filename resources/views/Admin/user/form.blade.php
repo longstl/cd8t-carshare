@@ -30,23 +30,211 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8" style="margin: auto">
-                        <div class="card">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title">New admin</h4>
-                                <p class="card-category">Complete your profile</p>
-                            </div>
-                            <div class="card-body">
+                <form method="post" id="formUser">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="card card-secondary mb-4">
+                                <div class="card-header">Log In Info</div>
+                                <div class="card-body">
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Email </label>
+                                        <input type="email" class="form-control" value=""
+                                               name="email"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-6 validate">
+                                            <label class="bmd-label-floating">Password</label>
+                                            <input type="password" class="form-control" name="password"
+                                                   id="password">
+                                        </div>
+                                        <div class="form-group col-6 validate">
+                                            <label class="bmd-label-floating">Confirm Password</label>
+                                            <input type="password" class="form-control" name="confirmPassword">
+                                        </div>
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Email Preference </label>
+                                        <input type="text" class="form-control" value=""
+                                               name="email_preference"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
 
-                                    <a href="" class="pull-right btn btn-primary">Back</a>
-                                    <button type="submit" class="back_to_profile btn btn-primary pull-right">Submit</button>
-                                </form>
+                                        <select class="form-control" name="email_preference">
+                                            <option hidden selected disabled>Email Preference</option>
+                                            <option value="1"
+                                            >User
+                                            </option>
+                                            <option value="2"
+                                            >Admin
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group validate">
+
+                                        <select class="form-control" name="role">
+                                            <option hidden selected disabled>Role</option>
+                                            <option value="1"
+                                            >User
+                                            </option>
+                                            <option value="2"
+                                            >Admin
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
+                            <div class="card card-secondary mb-4">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+                                    <div class="form-group validate">
+
+                                        <select class="form-control" name="is_smoking_allowed">
+                                            <option hidden selected disabled>Is Smoking Allowed</option>
+                                            <option value="1"
+                                            >Yes
+                                            </option>
+                                            <option value="2"
+                                            >No
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group validate">
+                                        <select class="form-control" name="is_pet_allowed">
+                                            <option hidden selected disabled>Is Pet Allowed</option>
+                                            <option value="1"
+                                            >Yes
+                                            </option>
+                                            <option value="2"
+                                            >No
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating"> Music Preference</label>
+                                        <input type="text" class="form-control" value=""
+                                               name="music_preference"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating"> Chitchat Preference</label>
+                                        <input type="text" class="form-control" value=""
+                                               name="chitchat_preference"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card card-secondary mb-4">
+                                <div class="card-header">General Information</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-6 validate">
+                                            <label class="bmd-label-floating">First Name </label>
+                                            <input type="text" class="form-control" value=""
+                                                   name="firstName">
+                                        </div>
+                                        <div class="form-group col-6 validate">
+                                            <label class="bmd-label-floating">Last Name </label>
+                                            <input type="text" class="form-control" value=""
+                                                   name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class=" validate">
+                                            <input type="date" name="dob" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-secondary mb-4">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Address </label>
+                                        <input type="text" class="form-control" value=""
+                                               name="Street"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Phone</label>
+                                        <input type="text" value="" class="form-control"
+                                               name="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-secondary mb-4">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Driving License Number </label>
+                                        <input type="text" class="form-control" value=""
+                                               name="driving_license_number"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Driving License Valid From </label>
+                                        <input type="date" class="form-control" value=""
+                                               name="driving_license_valid_from"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Driving License Valid To </label>
+                                        <input type="date" class="form-control" value=""
+                                               name="driving_license_valid_to"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+
+                                        <select class="form-control" name="identification_type">
+                                            <option hidden selected disabled>Identification Type</option>
+                                            <option value="1"
+                                            >1
+                                            </option>
+                                            <option value="2"
+                                            >2
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Identification Id </label>
+                                        <input type="text" class="form-control" value=""
+                                               name="identification_id"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                    <div>
+                        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                        <div class="modal fade" id="DeleteUser<%= dataUser.id %>" tabindex="-1"
+                             role="dialog" aria-labelledby="deleteUser"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete
+                                            <b><%= dataUser.firstName %> <%= dataUser.lastName %></b>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-primary"
+                                                data-dismiss="modal">Cancel
+                                        </button>
+                                        <a href="/admin/user/delete/<%= dataUser.id %>"
+                                           class="btn btn-primary">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
         <footer class="footer">
@@ -124,25 +312,23 @@
         ud.append('file', file)
         xhr.send(ud)
     }
-    back_to_profile.onclick = function (){
-        window.location.href = location.protocol+"/profile";
+    back_to_profile.onclick = function () {
+        window.location.href = location.protocol + "/profile";
     }
 </script>
 @include('layout.script')
 <script>
-    $(function (){
+    $(function () {
         $('#demoForm').validate({
             rules: {
                 name: {
                     required: true,
                     maxLength: 255
                 },
-                password: {
-
-                },
+                password: {},
                 email: {
                     required: true,
-                    email:true,
+                    email: true,
                     maxLength: 255,
                 },
             },
@@ -156,7 +342,7 @@
                 },
                 email: {
                     required: 'Please enter sort order',
-                    email:'Please enter the correct email format',
+                    email: 'Please enter the correct email format',
                     maxLength: 'Sort order is limiter to 255 characters',
                 },
             }
