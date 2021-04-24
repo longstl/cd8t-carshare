@@ -40,4 +40,12 @@ Route::prefix('admin/user')->group(function (){
     Route::post('update/{id}',[UserController::class,'save'])->name('saveUser');
     Route::get('delete/{id}',[UserController::class,'delete'])->name('deleteUser');
 });
+Route::get('/map', function () {
+    return view('map');
+});
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
