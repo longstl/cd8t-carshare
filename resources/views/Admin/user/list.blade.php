@@ -52,18 +52,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            @if(session()->get('status'))
-                                <div class="alert alert-success alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <strong>Success!</strong> {{ session()->get( 'user' ) }}
-                                    {{ session()->get( 'status' ) }}
-                                </div>
-                            @endif
+
                             <div class="card-header card-header-primary card-container">
                                 <h3 class="card-title ">Users</h3>
                                 <form name="filterForm">
                                     <div class="form-group no-border">
-                                        <input type="text" name="search" value="{{$search}}" placeholder="Search by keyword">
+                                        <input type="text" name="search" value="" placeholder="Search by keyword">
                                         <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                             <i class="material-icons">search</i>
                                             <div class="ripple-container"></div>
@@ -82,41 +76,40 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            <h3>ID</h3>
+                                            <h3>User Name</h3>
                                         </th>
                                         <th>
-                                            <h3>Name</h3>
+                                            <h3>Full name</h3>
                                         </th>
                                         <th>
-                                            <h3>Birthday</h3>
+                                            <h3>Email</h3>
                                         </th>
                                         <th>
-                                            <h3>Avatar</h3>
+                                            <h3>Phone</h3>
                                         </th>
 
                                         <th>
-                                            <h3>Action</h3>
+                                            <h3>Address</h3>
                                         </th>
-
                                         </thead>
                                         <tbody>
                                         <tr></tr>
-                                        @foreach ($listUser as $user)
-                                            <div class="modal fade" id="DeleteUser{{ $user->id }}" tabindex="-1"
+
+                                            <div class="modal fade" id="DeleteUse" tabindex="-1"
                                                  role="dialog" aria-labelledby="deleteUser"
                                                  aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
                                                             <p>Are you sure you want to delete
-                                                                <b> {{ $user->name }} </b>
+                                                                <b>  </b>
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-outline-primary"
                                                                     data-dismiss="modal">Cancel
                                                             </button>
-                                                            <a href="user/delete/{{ $user->id }}"
+                                                            <a href="user/delete/"
                                                                class="btn btn-primary">Delete</a>
                                                         </div>
                                                     </div>
@@ -124,22 +117,22 @@
                                             </div>
                                             <tr>
                                                 <td>
-                                                    {{ $user->id }}
+
                                                 </td>
                                                 <td>
-                                                    {{ $user->name }}
+
                                                 </td>
                                                 <td>
-                                                    {{ $user->dob }}
+
                                                 </td>
                                                 <td>
-                                                    <img class="rounded-circle avatar" src="{{ $user->avatar }}" alt="">
+                                                    <img class="rounded-circle avatar" src="" alt="">
                                                 </td>
                                                 <td>
-                                                    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser{{ $user->id }}">Delete</a>
-                                                    <a href="/user/update/{{ $user->id }}"><button class="btn btn-success">Edit</button></a>
+                                                    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser{{}}">Delete</a>
+                                                    <a href="/user/update/"><button class="btn btn-success">Edit</button></a>
                                                 </td>
-                                        @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -181,21 +174,8 @@
                     </ul>
                 </nav>
                 <div class="row">
-                    <div class="col-md-9">
-                        @if(($listUser->currentPage()) > 1)<a class="btn btn-warning" href="user?page=1"><<</a>@else @endif
-                        @if(($listUser->currentPage()-1)>0)<a class="btn btn-warning" href="user?page={{$listUser->currentPage()-1}}"><</a>@else @endif
-                        <button class="btn btn-warning">{{$listUser->currentPage()}}</button>
-                        @if(($listUser->currentPage()+1)<=($listUser->total()))<a class="btn btn-warning" href="user?page={{$listUser->currentPage()+1}}">></a>@else @endif
-                        @if (($listUser->currentPage()) != $listUser->total())<a class="btn btn-warning" href="user?page={{$listUser->total()}}">>></a>@else @endif
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-control form-control-sm" id="limit" name="limit">
-                            <option selected hidden disabled>Show entries</option>
-                            <option value="1" {{$limit == 1 ? 'selected' : ''}}>25</option>
-                            <option value="2" {{$limit == 2 ? 'selected' : ''}}>50</option>
-                            <option value="3" {{$limit == 3 ? 'selected' : ''}}>100</option>
-                        </select>
-                    </div>
+
+
                 </div>
                 <div class="copyright float-right" id="date">
                     , made with <i class="material-icons">favorite</i> by
