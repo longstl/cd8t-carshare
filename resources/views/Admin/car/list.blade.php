@@ -51,64 +51,77 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            @if(session()->get('status'))
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Success!</strong> {{ session()->get( 'user' ) }}
+                                    {{ session()->get( 'status' ) }}
+                                </div>
+                            @endif
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="display: inline-block;margin-right: 30px">Sizes</h3>
-                                <a href="/size/create" class="btn btn-warning">Add size</a>
+                                <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
+                                <a href="/car/create" class="btn btn-warning">Create</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-                                        <th>
-                                            <h3>Size ID</h3>
-                                        </th>
+
                                         <th>
                                             <h3>Name</h3>
                                         </th>
                                         <th>
-                                            <h3>Sort Number</h3>
+                                            <h3>Make</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Model</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Make Year</h3>
                                         </th>
                                         <th>
                                             <h3>Action</h3>
                                         </th>
-
                                         </thead>
                                         <tbody>
-
-                                        @foreach ($listSizes as $size)
-                                            <div class="modal fade" id="Delete{{ $size->id }}" tabindex="-1"
+                                        @foreach($list_car as $car)
+                                            <div class="modal fade" id="Delete{{$car->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="deleteUser"
                                                  aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
                                                             <p>Are you sure you want to delete
-                                                                <b> {{ $size->name }} </b>
+                                                                <b> Delete{{$car->name}} </b>
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-outline-primary"
                                                                     data-dismiss="modal">Cancel
                                                             </button>
-                                                            <a href="size/delete/{{ $size->id }}"
+                                                            <a href="{{route('deleteCar', $car->id)}}"
                                                                class="btn btn-primary">Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         <tr>
                                             <td>
-                                                <h4>{{$size->id}}</h4>
+                                                <h4>{{$car->name}}</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$size->name}}</h4>
+                                                <h4>{{$car->make}}</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$size->sort_number}}</h4>
+                                                <h4>{{$car->model}}</h4>
                                             </td>
                                             <td>
-                                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $size->id }}">Delete</a>
-                                                <a href="size/update/{{$size->id}}"><button class="btn btn-success">Edit</button></a>
+                                                <h4>{{$car->make_year}}</h4>
+                                            </td>
+                                            <td>
+                                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$car->id}}">Delete</a>
+                                                <a href="{{route('updateCar', $car->id)}}"><button class="btn btn-success">Update</button></a>
                                             </td>
                                         </tr>
                                         @endforeach

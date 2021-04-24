@@ -1,6 +1,11 @@
 <?php
 
+
 use App\Http\Controllers\RideRequestController;
+
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\UserController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +20,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
 
 Route::post('/location', [RideRequestController::class, 'getGeoLocation']);
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::prefix("user")->group(function(){
+    Route::get('',[UserController::class,'list']);
+    Route::post('',[UserController::class,'store']);
+    Route::get('{id}',[UserController::class,'update']);
+    Route::put('{id}',[UserController::class,'save']);
+    Route::delete('{id}',[UserController::class,'delete']);
+});
+Route::prefix("car")->group(function(){
+    Route::get('',[CarController::class,'list']);
+    Route::post('',[CarController::class,'store']);
+    Route::get('{id}',[CarController::class,'update']);
+    Route::put('{id}',[CarController::class,'save']);
+    Route::delete('{id}',[CarController::class,'delete']);
+});
+

@@ -6,6 +6,7 @@ use App\Enums\ChitChatPreference;
 use App\Enums\EmailPreference;
 use App\Enums\IdentificationType;
 use App\Enums\MusicPreference;
+use App\Enums\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -48,6 +49,7 @@ class UserRequest extends FormRequest
             'is_pet_allowed' => ['nullable', 'boolean'],
             'music_preference' => ['nullable', Rule::in(MusicPreference::getValues())],
             'chitchat_preference' => ['nullable', Rule::in(ChitChatPreference::getValues())],
+            'role' => ['required',Rule::in(Role::getValues())]
         ];
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class RideRequestController extends Controller
 {
+
     public function getGeoLocation(Request $request)
     {
         $start = $request['start'];
@@ -17,4 +18,7 @@ class RideRequestController extends Controller
             'units' => 'metric'
         ])->get());
     }
+
+  
+
 }

@@ -19,7 +19,6 @@ class CreateCarsTable extends Migration
             $table->string('make');
             $table->string('model');
             $table->integer('make_year');
-            $table->integer('comfort_level')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

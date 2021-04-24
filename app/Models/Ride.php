@@ -21,7 +21,6 @@ class Ride extends Model
         'seats_offered',
         'seats_available',
         'contribution_per_head',
-        'luggage_size',
     ];
     public function userCar(){
         return $this->belongsTo(UserCar::class);
