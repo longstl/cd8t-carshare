@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/test', function () {
     return view('Admin/user/form');
+});
+Route::prefix('admin/user')->group(function (){
+    Route::get('',[UserController::class,'list'])->name('listUser');
+    Route::get('create',[UserController::class,'create'])->name('createUser');
+    Route::post('create',[UserController::class,'store'])->name('storeUser');
+    Route::get('update/{id}',[UserController::class,'update'])->name('updateUser');
+    Route::post('update/{id}',[UserController::class,'save'])->name('saveUser');
+    Route::get('delete/{id}',[UserController::class,'delete'])->name('deleteUser');
 });
 
