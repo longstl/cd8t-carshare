@@ -35,69 +35,35 @@
 
 <!-- Document Wrapper
 ============================================= -->
-<div id="wrapper" class="clearfix">
-    <!-- Content
-		============================================= -->
-    <section id="content">
+<!-- Content
+    ============================================= -->
+<section id="content">
 
-        <div class="content-wrap">
+    <div class="content-wrap">
 
-            <div class="container clearfix">
+        <div class="container clearfix">
 
-                <div class="col_one_third nobottommargin">
+            <div class="col_one_third nobottommargin">
 
-                    <div class="well well-lg nobottommargin">
-                        <form id="login-form" name="login-form" class="nobottommargin" action="{{route('loginUser')}}"
-                              method="post">
-                            @csrf
-                            <h3>Login to your Account</h3>
-
-                            <div class="col_full">
-                                <label for="login-form-username">Username:</label>
-                                <input type="text" id="login-form-username" name="username" value=""
-                                       class="form-control"/>
-                            </div>
-
-                            <div class="col_full">
-                                <label for="login-form-password">Password:</label>
-                                <input type="password" id="login-form-password" name="password" value=""
-                                       class="form-control"/>
-                            </div>
-
-                            <div class="col_full">
-                                <button class="button button-3d nomargin" id="login-form-submit" value="login">Login
-                                </button>
-                                <a href="#" class="fright">Forgot Password?</a>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-
-                <div class="col_two_third col_last nobottommargin">
-
-
-                    <h3>Don't have an Account? Register Now.</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint
-                        ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus
-                        ratione.</p>
-
-                    <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+                <div class="well well-lg nobottommargin">
+                    <form id="login-form" name="login-form" class="nobottommargin" action="{{route('loginUser')}}"
+                          method="post">
+                        @csrf
+                        <h3>Login to your Account</h3>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-group">Username:</label>
                                 <input type="text" name="username" value="" class="form-control"/>
                             </div>
+
+                     
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-group">Password:</label>
                                 <input type="text" name="password" value="" class="form-control"/>
                             </div>
-
                             <div class="col-md-3">
                                 <label class="form-group">Comfirm Password:</label>
                                 <input type="text" name="password" value="" class="form-control"/>
@@ -173,6 +139,15 @@
                             <input type="text" name="identification_valid_from" value="" class="form-control"/>
                         </div>
 
+            <div class="col-ml-4">
+                <label for="register-form-password">MUSIC PREFORMENT</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option value="" hidden selected disabled></option>
+                    <option>Calm</option>
+                    <option>None</option>
+                    <option>Loud</option>
+                </select>
+            </div>
 
                         <div class="col_half">
                             <h4>IS SMOKING ALLOWED</h4>
@@ -188,23 +163,85 @@
                                 </div>
                         </div>
                         <div class="clear"></div>
-
-                        <div class="col_full nobottommargin">
-                            <button class="button button-3d button-black nomargin" id="register-form-submit"
-                                    name="register-form-submit" value="register">Register Now
-                            </button>
-                        </div>
-
-                    </form>
-
-                </div>
-
+            <div class="col_half">
+                <label class="form-group">ADDRESS:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
             </div>
+
+            <div class="col_half col_last">
+                <label class="form-group">Phone:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
+            </div>
+
+            <div class="col_half">
+                <label class="form-group">DRIVING LICENSE NUMBER:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
+            </div>
+
+            <div class="col_half">
+                <label class="form-group">DRIVING LICENSE VALID FROM:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
+            </div>
+
+            <div class="col_half col_last">
+                <label class="form-group">TEXTIDENTIFICATION ID:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
+            </div>
+
+            <div class="col_half">
+                <label class="form-group">IDENTIFENCATION VALID FROM:</label>
+                <input type="text" name="register-form-name" value="" class="form-control"/>
+            </div>
+
+
+            <div class="col_half">
+                <h4>IS SMOKING ALLOWED</h4>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios"
+                               id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios"
+                               id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">No</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col_half col_last">
+                <h4>IS PET ALLOWED</h4>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios"
+                               id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios"
+                               id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">No</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="col_full nobottommargin">
+                <button class="button button-3d button-black nomargin" id="register-form-submit"
+                        name="register-form-submit" value="register">Register Now
+                </button>
+            </div>
+
 
         </div>
 
-    </section><!-- #content end -->
-</div><!-- #wrapper end -->
+    </div>
+
+
+</section><!-- #content end -->
+<!-- #wrapper end -->
 
 <!-- Go To Top
 ============================================= -->
