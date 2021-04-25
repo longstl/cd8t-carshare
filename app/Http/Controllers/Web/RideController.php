@@ -17,5 +17,8 @@ class RideController extends Controller
     public function store(){
 
     }
-    //
+
+    public function search() {
+        return view(''); // return ra view có chứa form find a ride
+    }
 }
