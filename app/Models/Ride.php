@@ -20,7 +20,7 @@ class Ride extends Model
         'distance',
         'seats_available',
     ];
-    public function userCar(){
+    public function car(){
         return $this->belongsTo(Car::class);
     }
 }
