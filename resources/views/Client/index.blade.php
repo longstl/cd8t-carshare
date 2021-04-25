@@ -63,9 +63,9 @@
                 ============================================= -->
                 <div id="logo">
                     <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img
-                            src="images/logo.png" alt="Canvas Logo"></a>
+                            src="{{lib_assets('images/logo.png')}}" alt="Canvas Logo"></a>
                     <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img
-                            src="images/logo@2x.png" alt="Canvas Logo"></a>
+                            src="{{lib_assets('images/logo@2x.png')}}" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <!-- Primary Navigation
@@ -112,7 +112,7 @@
                             <div class="top-cart-items">
                                 <div class="top-cart-item clearfix">
                                     <div class="top-cart-item-image">
-                                        <a href="#"><img src="images/shop/small/1.jpg"
+                                        <a href="#"><img src="{{lib_assets('images/shop/small/1.jpg')}}}"
                                                          alt="Blue Round-Neck Tshirt"/></a>
                                     </div>
                                     <div class="top-cart-item-desc">
@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="top-cart-item clearfix">
                                     <div class="top-cart-item-image">
-                                        <a href="#"><img src="images/shop/small/6.jpg"
+                                        <a href="#"><img src="{{lib_assets('images/shop/small/6.jpg')}}"
                                                          alt="Light Blue Denim Dress"/></a>
                                     </div>
                                     <div class="top-cart-item-desc">
