@@ -8,6 +8,7 @@ final class RideStatus extends Enum
 {
     const PENDING = 1;
     const CONFIRMED = 2;
-    const COMPLETED = 3;
-    const CANCELED = 4;
+    const MATCHED = 3;
+    const COMPLETED = 4;
+    const CANCELED = 5;
 }
