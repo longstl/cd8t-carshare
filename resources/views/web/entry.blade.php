@@ -10,14 +10,14 @@
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
         rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css/bootstrap.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css/style.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css/dark.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css/font-icons.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css//animate.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('css/magnific-popup.css')}}/" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css//animate.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}/" type="text/css"/>
 
-    <link rel="stylesheet" href="{{lib_assets('css/responsive.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- Document Title
@@ -86,140 +86,107 @@
 
                     <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
 
-                        <div class="col_half">
-                            <label class="form-group">Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-group">Username:</label>
+                                <input type="text" name="username" value="" class="form-control"/>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="form-group">Password:</label>
+                                <input type="text" name="password" value="" class="form-control"/>
+                            </div>
 
-                        <div class="col_half col_last">
-                            <label class="form-group">Email:</label>
-                            <input type="text" name="register-form-email" value="" class="form-control" />
+                            <div class="col-md-3">
+                                <label class="form-group">Comfirm Password:</label>
+                                <input type="text" name="password" value="" class="form-control"/>
+                            </div>
                         </div>
-
-                        <div class="col_half">
-                            <label class="form-group">Password:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
-                        </div>
-
-                        <div class="col_half col_last">
-                            <label class="form-group">Comfirm Password:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-group">Email:</label>
+                                <input type="text" name="email" value="" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="register-form-password">Email_preference</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="music_preference">
+                                    <option value="" hidden selected disabled></option>
+                                    <option value="0">Calm</option>
+                                    <option value="1">None</option>
+                                    <option value="2">Loud</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="col_half">
                             <label class="form-group">First Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="first_name" value="" class="form-control" />
                         </div>
                             <label class="form-group">Email:</label>
-                            <input type="text" name="register-form-email" value="" class="form-control"/>
+                            <input type="text" name="email" value="" class="form-control"/>
                         </div>
-
-                        <div class="clear"></div>
 
                         <div class="col_half">
                             <label class="form-group">Phone:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
-                        </div>
-
-                        <div class="col_half col_last">
-                            <label class="form-group">DRIVING LICENSE NUMBER:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="phone" value="" class="form-control" />
                         </div>
 
                         <div class="col-ml-4">
                             <label for="register-form-password">MUSIC PREFORMENT</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="music_preference">
                                 <option value="" hidden selected disabled></option>
-                                <option>Calm</option>
-                                <option>None</option>
-                                <option>Loud</option>
+                                <option value="0">Calm</option>
+                                <option value="1">None</option>
+                                <option value="2">Loud</option>
                             </select>
                         </div>
 
                         <div class="col-ml-4">
-                            <label for="register-form-repassword">CHITCHAT PREFORMENT</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="register-form-repassword">CHITCHAT PREFO</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="chitchat_preference">
                                 <option value="" hidden selected disabled></option>
-                                <option>Calm</option>
-                                <option>None</option>
-                                <option>Loud</option>
+                                <option value="0">Calm</option>
+                                <option value="1">None</option>
+                                <option value="2">Loud</option>
                             </select>
                         </div>
                         <div class="clear"></div>
 
                         <div class="col_half">
-                            <label class="form-group">First Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
-                        </div>
-
-                        <div class="col_half col_last">
-                            <label class="form-group">Last Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
-                        </div>
-
-                        <div class="col_half">
-                            <label class="form-group">ADDRESS:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
-                        </div>
-
-                        <div class="col_half col_last">
-                            <label class="form-group">Phone:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
-                        </div>
-
-                        <div class="col_half">
                             <label class="form-group">DRIVING LICENSE NUMBER:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                            <input type="text" name="driving_license_number" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half">
                             <label class="form-group">DRIVING LICENSE VALID FROM:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                            <input type="text" name="driving_license_valid_from" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half col_last">
-                            <label class="form-group">TEXTIDENTIFICATION ID:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                            <label class="form-group">IDENTIFICATION ID:</label>
+                            <input type="text" name="identification_id" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half">
                             <label class="form-group">IDENTIFENCATION VALID FROM:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                            <input type="text" name="identification_valid_from" value="" class="form-control"/>
                         </div>
 
 
                         <div class="col_half">
                             <h4>IS SMOKING ALLOWED</h4>
-                            <form>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                           id="exampleRadios1" value="option1" checked>
+                                    <input class="form-check-input" type="radio" name="is_smoking_allowed"
+                                           id="exampleRadios1" value="1" checked>
                                     <label class="form-check-label" for="exampleRadios1">Yes</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                           id="exampleRadios2" value="option2">
+                                    <input class="form-check-input" type="radio" name="is_smoking_allowed"
+                                           id="exampleRadios2" value="0">
                                     <label class="form-check-label" for="exampleRadios2">No</label>
                                 </div>
-                            </form>
                         </div>
-
-                        <div class="col_half col_last">
-                            <h4>IS PET ALLOWED</h4>
-                            <form>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                           id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">Yes</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                           id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">No</label>
-                                </div>
-                            </form>
-                        </div>
-
                         <div class="clear"></div>
 
                         <div class="col_full nobottommargin">
@@ -245,14 +212,14 @@
 
 <!-- External JavaScripts
 ============================================= -->
-<script src="{{lib_assets('js/jquery.js')}}"></script>
-<script src="{{lib_assets('js/plugins.js')}}"></script>
+<script src="{{lib_assets('web/js/jquery.js')}}"></script>
+<script src="{{lib_assets('web/js/plugins.js')}}"></script>
 
 <!-- Footer Scripts
 ============================================= -->
-<script src="{{lib_assets('js/functions.js')}}"></script>
+<script src="{{lib_assets('web/js/functions.js')}}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js')}}"></script>
 
 
 <!--<script>-->

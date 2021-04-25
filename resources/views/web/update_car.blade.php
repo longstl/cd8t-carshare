@@ -16,10 +16,14 @@
 @endif
 <form action="{{route('saveCar')}}" method="post">
     @csrf
-    <input type="text" name="name">
-    <input type="text" name="make">
-    <input type="text" name="model">
-    <input type="text" name="make_year">
+    <select name="model_id" id="">
+        @foreach($listModel as $model)
+            <option hidden selected disabled>Model</option>
+            <option value="{{$model->id}}">{{$model->make.' '.$model->model}}</option>
+        @endforeach
+    </select>
+    <input type="text" name="car_registration_number">
+    <input type="text" name="color">
     <button type="submit">Submit</button>
 </form>
 </body>
