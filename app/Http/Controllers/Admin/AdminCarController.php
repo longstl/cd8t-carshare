@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
 use Illuminate\Http\Request;
 
-class CarController extends Controller
+class AdminCarController extends Controller
+
 {
     public function list()
     {

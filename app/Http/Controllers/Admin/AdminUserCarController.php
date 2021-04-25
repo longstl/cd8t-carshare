@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserCarController extends Controller
+class AdminUserCarController extends Controller
 {
     public function list(){
 

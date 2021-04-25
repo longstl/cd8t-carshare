@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Car extends FormRequest
+class UpdateLicenseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class Car extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,6 +24,9 @@ class Car extends FormRequest
     public function rules()
     {
         return [
+            'driving_license_number' => ['required'],
+            'driving_license_valid_from' => ['required'],
+            'driving_license_valid_to' => ['required']
             //
         ];
     }
