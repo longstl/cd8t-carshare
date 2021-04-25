@@ -92,16 +92,24 @@
                         </div>
 
                         <div class="col_half col_last">
+                            <label class="form-group">Email:</label>
+                            <input type="text" name="register-form-email" value="" class="form-control" />
+                        </div>
+
+                        <div class="col_half">
                             <label class="form-group">Password:</label>
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half">
+                        <div class="col_half col_last">
                             <label class="form-group">Comfirm Password:</label>
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half col_last">
+                        <div class="col_half">
+                            <label class="form-group">First Name:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control" />
+                        </div>
                             <label class="form-group">Email:</label>
                             <input type="text" name="register-form-email" value="" class="form-control"/>
                         </div>
@@ -109,6 +117,16 @@
                         <div class="clear"></div>
 
                         <div class="col_half">
+                            <label class="form-group">Phone:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control" />
+                        </div>
+
+                        <div class="col_half col_last">
+                            <label class="form-group">DRIVING LICENSE NUMBER:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control" />
+                        </div>
+
+                        <div class="col-ml-4">
                             <label for="register-form-password">MUSIC PREFORMENT</label>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option value="" hidden selected disabled></option>
@@ -118,7 +136,7 @@
                             </select>
                         </div>
 
-                        <div class="col_half col_last">
+                        <div class="col-ml-4">
                             <label for="register-form-repassword">CHITCHAT PREFORMENT</label>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option value="" hidden selected disabled></option>
@@ -127,7 +145,6 @@
                                 <option>Loud</option>
                             </select>
                         </div>
-
                         <div class="clear"></div>
 
                         <div class="col_half">
@@ -155,30 +172,21 @@
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half col_last">
+                        <div class="col_half">
                             <label class="form-group">DRIVING LICENSE VALID FROM:</label>
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half">
+                        <div class="col_half col_last">
                             <label class="form-group">TEXTIDENTIFICATION ID:</label>
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half col_last">
+                        <div class="col_half">
                             <label class="form-group">IDENTIFENCATION VALID FROM:</label>
                             <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
-                        <div class="col_half">
-                            <label for="exampleFormControlSelect1">EXAMPLE SELECT</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="" hidden selected disabled></option>
-                                <option>No</option>
-                                <option>Only Ride</option>
-                                <option>All</option>
-                            </select>
-                        </div>
 
                         <div class="col_half">
                             <h4>IS SMOKING ALLOWED</h4>
