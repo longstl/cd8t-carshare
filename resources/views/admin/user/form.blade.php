@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layout.head')
+    @include('admin.layout.head')
 </head>
 <body class="dark-edition">
 <div class="wrapper ">
@@ -10,7 +10,7 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
@@ -108,7 +108,7 @@
 
                                         <input type="radio" name="is_pet_allowed" value="0" {{$data_user && $data_user->is_pet_allowed === 0 ? 'checked' : ''}}> No
 
-                                     
+
 
 
                                     </div>
@@ -278,11 +278,11 @@
 </div>
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-        @include('layout.edit_style')
+        @include('admin.layout.edit_style')
     </div>
 </div>
 <input type="hidden" value="user" id="page_active">
-@include('layout.script')
+@include('admin.layout.script')
 <script>
     $(function () {
         $('#demoForm').validate({

@@ -10,14 +10,14 @@ class FeedbackController extends Controller
 {
     public function list(){
         $list_feedback = Feedback::query()->with(['user'])->get();
-        return view('Admin/feedback/list',[
+        return view('admin/feedback/list',[
             'list_feedback'=>$list_feedback,
             'title'=>'List Feedback'
         ]);
     }
     public function read($id){
         $feedback = Feedback::find($id);
-        return view('Admin/feedback/read',[
+        return view('admin/feedback/read',[
             'feedback'=>$feedback,
 
         ]);

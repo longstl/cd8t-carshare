@@ -28,13 +28,13 @@ class AdminUserController extends Controller
         } else {
             $listUser = User::paginate($limit);
         }
-        return view('Admin/user/list', ['list_user' => $listUser,
+        return view('admin/user/list', ['list_user' => $listUser,
             'limit' => $limit]);
     }
 
     public function create()
     {
-        return view('Admin/user/form', ['data_user' => null]);
+        return view('admin/user/form', ['data_user' => null]);
     }
 
     public function store(UserRequest $request)
@@ -50,7 +50,7 @@ class AdminUserController extends Controller
     public function update($id)
     {
         $user = User::find($id);
-        return view('Admin/user/form', ['data_user' => $user]);
+        return view('admin/user/form', ['data_user' => $user]);
 
     }
 

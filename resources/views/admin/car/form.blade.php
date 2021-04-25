@@ -16,7 +16,7 @@
 <html lang="en">
 
 <head>
-    @include('layout.head')
+    @include('admin.layout.head')
     <style>
         ::placeholder {
             border: none;
@@ -36,7 +36,7 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
@@ -163,12 +163,12 @@
 </div>
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-        @include('layout.edit_style')
+        @include('admin.layout.edit_style')
     </div>
 </div>
 <input type="hidden" value="size" id="page_active">
 <!--   Core JS Files   -->
-@include('layout.script')
+@include('admin.layout.script')
 
 <script>
     $(function () {

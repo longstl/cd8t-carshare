@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   @include('layout.head')
+    @include('admin.layout.head')
 </head>
 <body class="dark-edition">
 <div class="wrapper ">
@@ -10,14 +10,14 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:void(0)">Table size</a>
+                    <a class="navbar-brand" href="javascript:void(0)">Table List</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
@@ -34,38 +34,27 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Options</h3>
-                                <form action="#" style="display: inline-block">
-                                    <div class="form-group no-border">
-                                        <input type="text" placeholder="Search by keyword" style="background: none;border: none;color: #9c9b9b">
-                                        <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
-                                    </div>
-                                </form>
+                                <h3 class="card-title ">Orders Detail</h3>
+                                <p class="card-category"> Here is a subtitle for this table</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            <h3>Option ID</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Size ID</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Color ID</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Quantity</h3>
+                                            <h3>ID</h3>
                                         </th>
                                         <th>
                                             <h3>Product ID</h3>
                                         </th>
                                         <th>
-                                            <h3>Action</h3>
+                                            <h3>Unit Price</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Quantity</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Edit</h3>
                                         </th>
 
                                         </thead>
@@ -75,20 +64,37 @@
                                                 <h4>1</h4>
                                             </td>
                                             <td>
-                                                <h4>21</h4>
+                                                <h4>555</h4>
                                             </td>
                                             <td>
-                                                <h4>421213</h4>
+                                                <h4>10</h4>
                                             </td>
                                             <td>
-                                                <h4>421213</h4>
-                                            </td>
-                                            <td>
-                                                <h4>421213</h4>
+                                                <h4>700</h4>
                                             </td>
                                             <td>
                                                 <a href=""><button class="btn btn-danger">Delete</button></a>
                                                 <a href=""><button class="btn btn-success">Edit</button></a>
+                                                <a href=""><button class="btn btn-warning">Detail</button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>2</h4>
+                                            </td>
+                                            <td>
+                                                <h4>666</h4>
+                                            </td>
+                                            <td>
+                                                <h4>15</h4>
+                                            </td>
+                                            <td>
+                                                <h4>3</h4>
+                                            </td>
+                                            <td>
+                                                <a href=""><button class="btn btn-danger">Delete</button></a>
+                                                <a href=""><button class="btn btn-success">Edit</button></a>
+                                                <a href=""><button class="btn btn-warning">Detail</button></a>
                                             </td>
                                         </tr>
 
@@ -137,10 +143,10 @@
 </div>
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-        @include('layout.edit_style')
+        @include('admin.layout.edit_style')
     </div>
 </div>
-<input type="hidden" value="option" id="page_active">
-@include('layout.script')
+<input type="hidden" value="order_detail" id="page_active">
+@include('admin.layout.script')
 </body>
 </html>
