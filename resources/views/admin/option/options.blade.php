@@ -1,24 +1,8 @@
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    @include('layout.head')
+   @include('admin.layout.head')
 </head>
-
 <body class="dark-edition">
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
@@ -26,15 +10,14 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:void(0)">Sizes List</a>
+                    <a class="navbar-brand" href="javascript:void(0)">Table size</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
@@ -45,86 +28,70 @@
                 </button>
             </div>
         </nav>
-        <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            @if(session()->get('status'))
-                                <div class="alert alert-success alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <strong>Success!</strong> {{ session()->get( 'user' ) }}
-                                    {{ session()->get( 'status' ) }}
-                                </div>
-                            @endif
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
-                                <a href="/car/create" class="btn btn-warning">Create</a>
+                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Options</h3>
+                                <form action="#" style="display: inline-block">
+                                    <div class="form-group no-border">
+                                        <input type="text" placeholder="Search by keyword" style="background: none;border: none;color: #9c9b9b">
+                                        <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-
                                         <th>
-                                            <h3>Name</h3>
+                                            <h3>Option ID</h3>
                                         </th>
                                         <th>
-                                            <h3>Make</h3>
+                                            <h3>Size ID</h3>
                                         </th>
                                         <th>
-                                            <h3>Model</h3>
+                                            <h3>Color ID</h3>
                                         </th>
                                         <th>
-                                            <h3>Make Year</h3>
+                                            <h3>Quantity</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Product ID</h3>
                                         </th>
                                         <th>
                                             <h3>Action</h3>
                                         </th>
+
                                         </thead>
                                         <tbody>
-                                        @foreach($list_car as $car)
-                                            <div class="modal fade" id="Delete{{$car->id}}" tabindex="-1"
-                                                 role="dialog" aria-labelledby="deleteUser"
-                                                 aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            <p>Are you sure you want to delete
-                                                                <b> Delete{{$car->name}} </b>
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline-primary"
-                                                                    data-dismiss="modal">Cancel
-                                                            </button>
-                                                            <a href="{{route('deleteCar', $car->id)}}"
-                                                               class="btn btn-primary">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         <tr>
                                             <td>
-                                                <h4>{{$car->name}}</h4>
+                                                <h4>1</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$car->make}}</h4>
+                                                <h4>21</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$car->model}}</h4>
+                                                <h4>421213</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$car->make_year}}</h4>
+                                                <h4>421213</h4>
                                             </td>
                                             <td>
-                                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$car->id}}">Delete</a>
-                                                <a href="{{route('updateCar', $car->id)}}"><button class="btn btn-success">Update</button></a>
+                                                <h4>421213</h4>
+                                            </td>
+                                            <td>
+                                                <a href=""><button class="btn btn-danger">Delete</button></a>
+                                                <a href=""><button class="btn btn-success">Edit</button></a>
                                             </td>
                                         </tr>
-                                        @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -134,7 +101,6 @@
                 </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="float-left">
@@ -171,12 +137,10 @@
 </div>
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-        @include('layout.edit_style')
+        @include('admin.layout.edit_style')
     </div>
 </div>
-<input type="hidden" value="size" id="page_active">
-<!--   Core JS Files   -->
-@include('layout.script')
+<input type="hidden" value="option" id="page_active">
+@include('admin.layout.script')
 </body>
-
 </html>

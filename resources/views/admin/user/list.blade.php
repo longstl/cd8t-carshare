@@ -16,7 +16,7 @@
 <html lang="en">
 
 <head>
-    @include('layout.head');
+    @include('admin.layout.head');
 </head>
 
 <body class="dark-edition">
@@ -27,7 +27,7 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
@@ -228,14 +228,14 @@
 
     <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
-            @include('layout.edit_style')
+            @include('admin.layout.edit_style')
         </div>
     </div>
 
 </div>
 <input type="hidden" value="user" id="page_active">
 <!--   Core JS Files   -->
-@include('layout.script')
+@include('admin.layout.script')
 
 </body>
 

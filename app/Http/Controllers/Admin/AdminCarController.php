@@ -13,7 +13,7 @@ class AdminCarController extends Controller
     public function list()
     {
         $list_car = Car::all();
-        return view('/Admin/car/list', [
+        return view('/admin/car/list', [
             'list_car' => $list_car,
             'title' => 'List Car'
         ]);
@@ -21,7 +21,7 @@ class AdminCarController extends Controller
 
     public function create()
     {
-        return view('/Admin/car/form', [
+        return view('/admin/car/form', [
             'data_car' => null
         ]);
     }
@@ -38,7 +38,7 @@ class AdminCarController extends Controller
     {
         $data_car = Car::find($id);
 
-        return view('/Admin/car/form', [
+        return view('/admin/car/form', [
             'data_car' => $data_car,
             'title' => 'Update Car'
         ]);

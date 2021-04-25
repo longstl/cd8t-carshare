@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layout.head')
+    @include('admin.layout.head')
 </head>
 <body class="dark-edition">
 <div class="wrapper ">
@@ -10,7 +10,7 @@
                 Creative Tim
             </a></div>
         <div class="sidebar-wrapper">
-            @include('layout.sidebar')
+            @include('admin.layout.sidebar')
         </div>
     </div>
     <div class="main-panel">
@@ -220,11 +220,11 @@
 </div>
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-        @include('layout.edit_style')
+        @include('admin.layout.edit_style')
     </div>
 </div>
 <input type="hidden" value="order" id="page_active">
-@include('layout.script')
+@include('admin.layout.script')
 <script>
     $('#fillter_by_status').change(function (){
         // window.location.href = "http://facebook.com"
