@@ -16,7 +16,7 @@ class Car extends Model
         'car_registration_number',
         'color'
     ];
-    public function car(){
+    public function model(){
         return $this->belongsTo(Model::class);
     }
     public function user(){

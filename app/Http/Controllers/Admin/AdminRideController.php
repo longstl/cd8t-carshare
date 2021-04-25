@@ -5,46 +5,29 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
-use App\Models\Feedback;
-use App\Models\Request;
 use App\Models\Ride;
 use Carbon\Carbon;
 use DateTime;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 
 class AdminRideController extends Controller
 {
-    public function list()
-    {
-        $list_feedback = Feedback::query()->with(['user'])->paginate(10)->get();
-        return view('admin/feedback/list', [
-            'list_feedback' => $list_feedback,
-            'title' => 'List Feedback'
+    public function list(){
+        $ride = Ride::query()->with(['car', 'car.user'])->get();
+        return view('admin/ride/list',[
+            'ride'=>$ride
         ]);
-    }
 
-    public function create()
-    {
     }
-
-    public function store()
-    {
+    public function create(){
     }
-
-    public function update()
-    {
+    public function store(){
     }
-
-    public function save()
-    {
+    public function update(){
     }
-
-    public function delete($id)
-    {
-        $feedback = Feedback::find($id)->with(['user'])->get();
-        $feedback->delete();
-        return redirect()->route('listFeedback')->with(['status' => 'delete feedback success', 'feedback' => $feedback->user->name]);
-    }
+    public function save(){
 
     public function findMatch($id)
     {
@@ -84,4 +67,9 @@ class AdminRideController extends Controller
         $ride->save();
         return $ride;
     }
+
+    public function delete(){
+    }
+    //
+    //
 }

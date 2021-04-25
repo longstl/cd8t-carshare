@@ -193,7 +193,7 @@
                 autocomplete.addListener("place_changed", () => {
                     const place = autocomplete.getPlace();
                     if (!place.place_id) {
-                        window.alert("Please select an option from the dropdown list.");
+                        window.alert("Please select an request from the dropdown list.");
                         return;
                     }
 

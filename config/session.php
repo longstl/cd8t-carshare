@@ -9,7 +9,7 @@ return [
     | Default Session Driver
     |--------------------------------------------------------------------------
     |
-    | This option controls the default session "driver" that will be used on
+    | This request controls the default session "driver" that will be used on
     | requests. By default, we will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
     |
@@ -27,7 +27,7 @@ return [
     |
     | Here you may specify the number of minutes that you wish the session
     | to be allowed to remain idle before it expires. If you want them
-    | to immediately expire on the browser closing, set that option.
+    | to immediately expire on the browser closing, set that request.
     |
     */
 
@@ -40,7 +40,7 @@ return [
     | Session Encryption
     |--------------------------------------------------------------------------
     |
-    | This option allows you to easily specify that all of your session data
+    | This request allows you to easily specify that all of your session data
     | should be encrypted before it is stored. All encryption will be run
     | automatically by Laravel and you can use the Session like normal.
     |
@@ -162,7 +162,7 @@ return [
     | HTTPS Only Cookies
     |--------------------------------------------------------------------------
     |
-    | By setting this option to true, session cookies will only be sent back
+    | By setting this request to true, session cookies will only be sent back
     | to the server if the browser has a HTTPS connection. This will keep
     | the cookie from being sent to you if it can not be done securely.
     |
@@ -177,7 +177,7 @@ return [
     |
     | Setting this value to true will prevent JavaScript from accessing the
     | value of the cookie and the cookie will only be accessible through
-    | the HTTP protocol. You are free to modify this option if needed.
+    | the HTTP protocol. You are free to modify this request if needed.
     |
     */
 
@@ -188,7 +188,7 @@ return [
     | Same-Site Cookies
     |--------------------------------------------------------------------------
     |
-    | This option determines how your cookies behave when cross-site requests
+    | This request determines how your cookies behave when cross-site requests
     | take place, and can be used to mitigate CSRF attacks. By default, we
     | will set this value to "lax" since this is a secure default value.
     |

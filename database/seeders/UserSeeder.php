@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-
                 'username' => 'Quan Do',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Do',
@@ -109,22 +108,6 @@ class UserSeeder extends Seeder
                 'chitchat_preference'=> 'Talk about love',
                 'role' => Role::User
             ]
-
-                'username' => 'admin',
-                'password' => Hash::make('123456'),
-                'first_name' => 'Quan',
-                'last_name' => 'Do',
-                'phone' => '0989810209',
-                'email' => 'ngoccp@gmail.com',
-                'address' => '8 Ton That Thuyet',
-                'identification_type' => IdentificationType::CITIZEN_IDENTIFICATION,
-                'identification_id' => '121498908098',
-                'identification_valid_from' => Carbon::now(),
-                'identification_valid_to' => Carbon::now(),
-                'role' => Role::ADMIN,
-                'created_at' => Carbon::now(),
-            ],
-
         ]);
     }
 }
