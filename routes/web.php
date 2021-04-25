@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminUserController;
-use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\Web\EntryController;
 use App\Http\Controllers\Web\RideController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
-
 Route::prefix('')->group(function(){
     Route::get('login',[EntryController::class,'login'])->name('loginForm');
     Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
@@ -32,3 +30,4 @@ Route::get('createLicense',[UserController::class,'updateLicense'])->name('updat
 Route::post('saveLicense',[UserController::class,'saveLicense'])->name('saveLicense');
 Route::get('createRide',[RideController::class,'create'])->name('createRide');
 Route::post('saveRide',[RideController::class,'store'])->name('saveRide');
+

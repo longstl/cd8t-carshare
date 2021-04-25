@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminCarController;
+use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,8 @@ Route::prefix('user')->group(function (){
     Route::get('update/{id}',[AdminUserController::class,'update'])->name('updateUser');
     Route::post('update/{id}',[AdminUserController::class,'save'])->name('saveUser');
     Route::get('delete/{id}',[AdminUserController::class,'delete'])->name('deleteUser');
+});
+Route::prefix("feedback")->group(function (){
+    Route::get('',[AdminFeedbackController::class,'list'])->name('listFeedback');
+    Route::get('delete/{id}',[AdminFeedbackController::class,'delete'])->name('deleteFeedback');
 });
