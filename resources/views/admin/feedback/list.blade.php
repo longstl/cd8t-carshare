@@ -60,13 +60,11 @@
                             @endif
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
-                                <a href="/car/create" class="btn btn-warning">Create</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-
                                         <th>
                                             <h3>By</h3>
                                         </th>
