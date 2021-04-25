@@ -21,14 +21,13 @@ Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
 
-Route::get('',[HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('index');
 
-Route::prefix('')->group(function(){
-    Route::get('login',[EntryController::class,'login'])->name('loginForm');
-    Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
-    Route::get('register',[EntryController::class,'register'])->name('registerForm');
-    Route::post('register',[EntryController::class,'processRegister'])->name('registerUser');
-});
+Route::get('login',[EntryController::class,'login'])->name('login');
+Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
+Route::get('register',[EntryController::class,'register'])->name('registerForm');
+Route::post('register',[EntryController::class,'processRegister'])->name('registerUser');
+Route::get('logout',[EntryController::class,'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function() {
     Route::get('create-license',[UserController::class,'updateLicense'])->name('updateLicense');

@@ -34,9 +34,12 @@ class EntryController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('createRide');
+            return redirect()->intended('/');
         }
     }
 
-    //
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('index');
+    }
 }

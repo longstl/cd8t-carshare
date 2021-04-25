@@ -18,7 +18,6 @@ class UserController extends Controller
         $data = $request->validated();
         $user->update($data);
         $user->save();
-        return $user;
-//        return redirect()->route('createRide');
+        return redirect()->route('createRide');
     }
 }
