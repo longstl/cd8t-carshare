@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{lib_assets('css/ride_details.css')}}">
-    <link rel="stylesheet" href="{{lib_assets('bootstrap/css/bootstrap.min.css')}}">
-    <title>Document</title>
+@include('web.layout.Style')
+    <title>Request Detail | Car Share</title>
 </head>
 <body>
+@include('web.layout.header')
 <div class="root">
     <div class="container_content">
         <div class="content">
@@ -63,9 +63,10 @@
             </div>
         </div>
     </div>
+    @include('web.layout.footer')
 </div>
 
-
+@include('web.layout.script')
 
 </body>
 </html>

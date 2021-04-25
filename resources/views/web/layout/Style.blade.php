@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css"/>
+<link rel="stylesheet" href="{{lib_assets('web/css/ride_details.css')}}">
 <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
 <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}/" type="text/css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -14,6 +15,11 @@
 <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/layers.css')}}">
 <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/navigation.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css">
+<style>
+    #content {
+        overflow: inherit;!important;
+    }
+</style>
 <style>
     @media only screen and (max-width: 999px) {
         .footer_responsive {
