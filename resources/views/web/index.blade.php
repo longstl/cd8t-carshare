@@ -7,14 +7,16 @@
 
     <!-- Stylesheets
     ============================================= -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
-          rel="stylesheet" type="text/css"/>
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
+        rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}.css" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
 
     <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}/" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,6 +27,11 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css">
     <style>
+
+        .accountn {
+            display: none;
+        }
+
         .container input {
             opacity: 1 !important;
             position: inherit !important;
@@ -47,7 +54,7 @@
     <title>Home - Corporate Layout 4 | Canvas</title>
 
 </head>
-<body>
+<body class="stretched">
 <div id="wrapper" class="clearfix">
     <!-- Header
         ============================================= -->
@@ -62,10 +69,11 @@
                 <!-- Logo
                 ============================================= -->
                 <div id="logo">
-                    <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img
+                    <a href="index.html" class="standard-logo"
+                       data-dark-logo="{{lib_assets('web/images/logo.png')}}"><img
                             src="{{lib_assets('web/images/logo.png')}}" alt="Canvas Logo"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img
-                            src="{{lib_assets('web/images/logo@2x.png')}}" alt="Canvas Logo"></a>
+                    <a href="index.html" class="retina-logo" data-dark-logo="{{lib_assets('web/images/logo.png')}}"><img
+                            src="{{lib_assets('web/images/logo.png')}}" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <!-- Primary Navigation
@@ -105,18 +113,14 @@
                     ============================================= -->
                     <!-- Top Search
                     ============================================= -->
-                    <div class="" id="top-search">
-                        <!--                        id="top-search-trigger"-->
-
-                        <a href="#"><i class="fas fa-user">
-                            </i></a>
-                        <!--                        <form action="search.html" method="get">-->
-                        <!--                            <input type="text" name="q" class="form-control" value=""-->
-                        <!--                                   placeholder="Type &amp; Hit Enter..">-->
-                        <!--                        </form>-->
+                    <div class="" id="top-search" style="width: 70px">
+                        <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
                     </div><!-- #top-search end -->
-
-                </nav><!-- #primary-menu end -->
+                    <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px"><a href=""
+                                                                                                               class="btn btn-success "
+                                                                                                               style="margin-right: 5px">Login</a><a
+                            href="" class="btn btn-warning">Register</a></div>
+                </nav>
 
             </div>
 
@@ -124,8 +128,8 @@
 
     </header><!-- #header end -->
 
-    <section id="slider" class="slider-element slider-parallax"
-             style="background: url(#) no-repeat; background-size: cover"
+    <section id="slider" class="slider-element "
+             style="background: url('{{url('https://storage.googleapis.com/f1-cms/2019/10/fc32bc4b-20191014_022042.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
              data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
         <div class="slider-parallax-inner">
 
@@ -137,13 +141,14 @@
                             <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
                                   data-speed="3500">
 									LOOKING FOR A RIDE ?</span>
-                            </span>
                         </h1>
                         <span class="d-md-block">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
                         <a href="#"
-                           class="button button-border button-light button-rounded tright button-large topmargin d-none d-md-inline-block"><span>Find a Ride</span></a>
+                           class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                                style="color: #0b0b0b">Find a Ride</span></a>
                         <a href="#"
-                           class="button button-border button-light button-rounded tright button-large topmargin d-none d-md-inline-block"><span>Book Now</span></a>
+                           class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                                style="color: #0b0b0b">Book Now</span></a>
                     </div>
                 </div>
             </div>
@@ -186,19 +191,22 @@
         </div>
     </section>
 
-    <section id="slider2" class="slider-element swiper_wrapper full-screen clearfix">
-        <div class="slider-parallax-inner">
-            <div class="clear"></div>
+    <section id="slider2" class=" swiper_wrapper">
+        <div class="col-md-10" style="position: absolute;right: 0">
             <div class="col_one_third bottommargin-sm center ml-5">
                 <img data-animate="fadeInLeft" src="https://mailinh.vn/uploads/media/1/images/dich-vu/1.png">
             </div>
             <div class="col_two_third bottommargin-sm col_last abc">
-                <p class="text-P" style="font-size: 250%; margin-top: 2%;">TRAVELLING</p>
-                <p class="text-P" style="font-size: 300%"><b>ALONE</b></p>
-                <p class="text-P">Offer ride and earn money enjoy the preedom of income with mo efforts with the help of this incredible website.</p>
-                <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ MORE</a>
+                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">TRAVELLING</p>
+                <p class="text-P" style="margin-bottom: 10px !important;font-size: 300%"><b>ALONE</b></p>
+                <p class="text-P">Offer ride and earn money enjoy the preedom of income with mo efforts with the help of
+                    this incredible website.</p>
+                <a href="#"
+                   class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ
+                    MORE</a>
             </div>
         </div>
+
     </section>
     <section id="content">
         <div class="content-wrap">
@@ -210,7 +218,8 @@
                                 <a href="#"><i class="icon-screen i-alt"></i></a>
                             </div>
                             <h3>Responsive Layout</h3>
-                            <p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
+                            <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.
+                                Resize browser to view.</p>
                         </div>
                     </div>
 
@@ -220,7 +229,8 @@
                                 <a href="#"><i class="icon-eye i-alt"></i></a>
                             </div>
                             <h3>Retina Ready Graphics</h3>
-                            <p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp; all others graphics are optimized.</p>
+                            <p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp;
+                                all others graphics are optimized.</p>
                         </div>
                     </div>
 
@@ -230,7 +240,8 @@
                                 <a href="#"><i class="icon-beaker i-alt"></i></a>
                             </div>
                             <h3>Powerful Performance</h3>
-                            <p>Canvas includes tons of optimized code that are completely customizable and deliver unmatched fast performance.</p>
+                            <p>Canvas includes tons of optimized code that are completely customizable and deliver
+                                unmatched fast performance.</p>
                         </div>
                     </div>
                 </div>
@@ -241,91 +252,82 @@
 
     <!-- Footer
     ============================================= -->
-    <footer id="footer" class="dark">
-
-        <div class="container">
-
-            <!-- Footer Widgets
-            ============================================= -->
-            <div class="footer-widgets-wrap clearfix">
-
-                <div class="col_two_third">
+    <footer id="footer" class="dark" style="width: 100%">
+        <div class="container  col-md-12 col-12" style="display: flex">
+            <div class="col-md-10 col-12" style="margin: 30px auto;">
+                <div style="height: 300px" class="col-md-4 col-4">
                     <div class="col_one_third">
                         <div class="widget widget_links clearfix">
                             <h4>COMPANY</h4>
                             <ul>
                                 <li><a href="http://codex.wordpress.org/">Partners</a></li>
-                                <li><a href="http://wordpress.org/support/forum/requests-and-feedback">How it works</a></li>
+                                <li><a href="http://wordpress.org/support/forum/requests-and-feedback">How it works</a>
+                                </li>
                                 <li><a href="http://wordpress.org/extend/plugins/">Code of conduct</a></li>
                                 <li><a href="http://wordpress.org/support/">About Us</a></li>
                                 <li><a href="http://wordpress.org/extend/themes/">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
-
+                </div>
+                <div style="height: 300px" class="col-md-4 col-4">
                     <div class="col_one_third ">
                         <div class="widget widget_links clearfix">
                             <h4>EXOLORE</h4>
                             <ul>
                                 <li><a href="http://codex.wordpress.org/">FAQ's</a></li>
-                                <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Member Stories</a></li>
+                                <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Member
+                                        Stories</a></li>
                                 <li><a href="http://wordpress.org/extend/plugins/">Privacy Policy</a></li>
                                 <li><a href="http://wordpress.org/support/">Terms & conditions</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <div style="height: 300px" class="col-md-4 col-4">
 
-                <div class="col_one_third col_last">
-                    <div class="widget clearfix" style="margin-bottom: -20px;">
+
                         <div class="row">
                             <div class="col-lg-6 bottommargin-sm">
-                                <div class="counter counter-small"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
+                                <div class="counter counter-small"><span data-from="50" data-to="15065421"
+                                                                         data-refresh-interval="80" data-speed="3000"
+                                                                         data-comma="true"></span></div>
                                 <h5 class="nobottommargin">Total Downloads</h5>
                             </div>
-
                             <div class="col-lg-6 bottommargin-sm">
-                                <div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
-                                <h5 class="nobottommargin">Clients</h5>
+                                <div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div><h5 class="nobottommargin">Clients</h5>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="widget subscribe-widget clearfix">
-                        <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                        <div class="widget-subscribe-form-result"></div>
-                        <form id="widget-subscribe-form" action="#" role="form" method="post" class="nobottommargin">
-                            <div class="input-group divcenter">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="icon-email2"></i></div>
-                                </div>
-                                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">Subscribe</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
 
                     <div class="widget clearfix" style="margin-bottom: -20px;">
                         <div class="row">
                             <div class="col-lg-6 clearfix bottommargin-sm">
-                                <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-                                    <i class="fab fa-facebook-square"></i>
-                                </a>
+                                <a href="#" class="social-icon  si-colored si-facebook" style="margin-right: 10px;"><i class="fab fa-facebook-square"></i></a>
                                 <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
                             </div>
                             <div class="col-lg-6 clearfix">
-                                <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-                                    <i class="fas fa-rss-square" style="color: #ff5900"></i>
-                                </a>
+                                <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;"><i class="fas fa-rss-square" style="color: #ff5900"></i></a>
                                 <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class=" form-group">
+                                    <form action="">
+                                        <div class="row">
+                                            <input style="width: 80%;padding-left: 10px;float: left" type="text" class="form-control" placeholder="Plearse enter email for you">
+                                            <button type="submit" class="btn btn-primary">Send</button>
+                                        </div>
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div><!-- .footer-widgets-wrap end -->
+            </div>
         </div>
+
 
         <!-- Copyrights
         ============================================= -->
@@ -375,25 +377,36 @@
 
                     <div class="clear"></div>
 
-                    <i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+                    <i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i
+                        class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i
+                        class="icon-skype2"></i> CanvasOnSkype
                 </div>
 
             </div>
 
         </div><!-- #copyrights end -->
 
+
     </footer><!-- #footer end -->
-
-
 
 
 </div>
 <!-- Go To Top
 ============================================= -->
-<div id="gotoTop" class="icon-angle-up"></div>
+
+    <i id="gotoTop" class="fa fa-home icon-angle-up" aria-hidden="true"></i>
+
 
 <!-- External JavaScripts
 ============================================= -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('.btn_account').onclick = function () {
+            document.querySelector('#account').classList.toggle('accountn')
+        }
+    })
+
+</script>
 <script src="{{lib_assets('web/js/jquery.js')}}"></script>
 <script src="{{lib_assets('web/js/plugins.js')}}"></script>
 
@@ -402,8 +415,8 @@
 <script src="{{lib_assets('web/js/functions.js')}}"></script>
 
 <script>
-    $(function() {
-        $( "#side-navigation" ).tabs({ show: { effect: "fade", duration: 400 } });
+    $(function () {
+        $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
     });
 </script>
 
