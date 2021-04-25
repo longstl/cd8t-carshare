@@ -53,7 +53,7 @@
                                             <h3>Order by</h3>
                                         </th>
                                         <th>
-                                            <h3>Pink Up Address</h3>
+                                            <h3>Pick Up Address</h3>
                                         </th>
                                         <th>
                                             <h3>Destination Address</h3>
@@ -64,36 +64,53 @@
                                         <th>
                                             <h3>Seats Occupy</h3>
                                         </th>
+
+
+
                                         <th>
                                             <h3>Price</h3>
                                         </th>
                                         <th>
+                                            <h3>Status</h3>
+                                        </th>
+                                        <th>
                                             <h3>Action</h3>
                                         </th>
+
                                         </thead>
+                                        @foreach($list_request as $request)
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <h4>1</h4>
+                                                <h4>{{$request->user->first_name}} {{$request->user->last_name}}</h4>
                                             </td>
                                             <td>
-                                                <h4>21</h4>
+                                                <h4>{{$request->pickup_address}}</h4>
                                             </td>
                                             <td>
-                                                <h4>421213</h4>
+                                                <h4>{{$request->destination_address}}</h4>
                                             </td>
                                             <td>
-                                                <h4>421213</h4>
+                                                <h4>{{date('H:i', strtotime($request->desired_pickup_time))}}
+                                                   </h4>
+                                            </td>
+
+                                            <td>
+                                                <h4>{{$request->seats_occupy}}</h4>
                                             </td>
                                             <td>
-                                                <h4>421213</h4>
+
+                                                <h4>{{$request->price}}
+                                                    </h4>
                                             </td>
                                             <td>
-                                                <a href=""><button class="btn btn-danger">Delete</button></a>
+                                                <h4>{{\App\Enums\RideRequestStatus::getDescription($request->status)}}</h4>
+                                            </td>
+                                            <td>
                                                 <a href=""><button class="btn btn-success">Edit</button></a>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

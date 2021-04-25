@@ -6,34 +6,34 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('listUser')}}">
             <i class="material-icons">person</i>
-            <p>User Profile</p>
+            <p>Users Profile</p>
         </a>
     </li>
     <li class="nav-item " slot="user">
         <a class="nav-link" href="{{route('listRide')}}">
             <i class="fa fa-users" aria-hidden="true"></i>
-            <p>List Ride</p>
+            <p>Rides</p>
         </a>
     </li>
     <li class="nav-item " slot="category">
-        <a class="nav-link" href="/category">
+        <a class="nav-link" href="{{route('listRequest')}}">
             <i class="fa fa-list" aria-hidden="true"></i>
-            <p>List category</p>
+            <p>Requests</p>
         </a>
     </li>
-    <li class="nav-item" slot="size">
-        <a class="nav-link" href="/size">
+    <li class="nav-item" slot="car">
+        <a class="nav-link" href="{{route('listCar')}}">
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            <p>Size</p>
+            <p>Models</p>
         </a>
     </li>
 
     <li class="nav-item" slot="color">
-        <a class="nav-link" href="/color">
+        <a class="nav-link" href="{{route('listFeedback')}}">
             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-            <p>Colors</p>
+            <p>Feedbacks</p>
         </a>
     </li>
     <li class="nav-item" slot="product">

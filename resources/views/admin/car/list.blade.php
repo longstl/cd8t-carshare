@@ -66,10 +66,6 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-
-                                        <th>
-                                            <h3>Name</h3>
-                                        </th>
                                         <th>
                                             <h3>Make</h3>
                                         </th>
@@ -105,11 +101,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         <tr>
-                                            <td>
-                                                <h4>{{$car->name}}</h4>
-                                            </td>
                                             <td>
                                                 <h4>{{$car->make}}</h4>
                                             </td>
@@ -120,8 +112,9 @@
                                                 <h4>{{$car->make_year}}</h4>
                                             </td>
                                             <td>
-                                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$car->id}}">Delete</a>
                                                 <a href="{{route('updateCar', $car->id)}}"><button class="btn btn-success">Update</button></a>
+                                                <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$car->id}}">Delete</a>
+
                                             </td>
                                         </tr>
                                         @endforeach

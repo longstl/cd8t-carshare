@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
+use App\Http\Controllers\Admin\AdminRequestController;
 use App\Http\Controllers\Admin\AdminRideController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
@@ -33,4 +34,7 @@ Route::prefix("feedback")->group(function () {
 Route::prefix("ride")->group(function () {
     Route::get('', [AdminRideController::class, 'list'])->name('listRide');
 
+});
+Route::prefix("request")->group(function () {
+    Route::get('', [AdminRequestController::class, 'list'])->name('listRequest');
 });
