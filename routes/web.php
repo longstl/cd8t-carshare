@@ -33,5 +33,5 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('create-license', [UserController::class, 'updateLicense'])->name('updateLicense');
     Route::post('save-license', [UserController::class, 'saveLicense'])->name('saveLicense');
     Route::get('create-ride', [RideController::class, 'create'])->name('createRide');
-    Route::post('save-ride', [RideController::class, 'store'])->name('saveRide');
+    Route::post('save-ride', [RideController::class, 'store'])->name('storeRide');
 });

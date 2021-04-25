@@ -10,14 +10,14 @@
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
         rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/bootstrap.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/style.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/dark.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/font-icons.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css//animate.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/magnific-popup.css')}}/" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/bootstrap.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/style.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/dark.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/font-icons.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css//animate.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/magnific-popup.css')}}/" type="text/css"/>
 
-    <link rel="stylesheet" href="{{lib_assets('Client_css/responsive.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('css/responsive.css')}}" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- Document Title
@@ -245,12 +245,12 @@
 
 <!-- External JavaScripts
 ============================================= -->
-<script src="{{lib_assets('Client_js/jquery.js')}}"></script>
-<script src="{{lib_assets('Client_js/plugins.js')}}"></script>
+<script src="{{lib_assets('js/jquery.js')}}"></script>
+<script src="{{lib_assets('js/plugins.js')}}"></script>
 
 <!-- Footer Scripts
 ============================================= -->
-<script src="{{lib_assets('Client_js/functions.js')}}"></script>
+<script src="{{lib_assets('js/functions.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
