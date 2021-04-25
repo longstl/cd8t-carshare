@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{lib_assets('Client_css/ride_details.css')}}">
+    <link rel="stylesheet" href="{{lib_assets('css/ride_details.css')}}">
     <link rel="stylesheet" href="{{lib_assets('bootstrap/css/bootstrap.min.css')}}">
     <title>Document</title>
 </head>
@@ -13,7 +13,7 @@
 <div class="root">
     <div class="container_content">
         <div class="content">
-            <h1 class="text-dark">Rider detail</h1><br>
+            <h1 class="text-dark">Request detail</h1><br>
             <div class="col-12 col-md-12">
                 <table class="table">
                     <thead>
@@ -46,27 +46,26 @@
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>Number of available seats</td>
-                        <td>3 seats</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
                         <td>Estimated travel time</td>
                         <td>12 mins</td>
                     </tr>
                     <tr>
-                        <td>7</td>
-                        <td>Model rider</td>
-                        <td>mẫu xe gì đó</td>
+                        <td>6</td>
+                        <td>Amount of people</td>
+                        <td>7 people</td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="btn_container">
+
                     <button class="btn btn-primary">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 </body>
 </html>

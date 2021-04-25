@@ -14,13 +14,13 @@ class RideController extends Controller
         if(!$user->driving_license_number){
             return redirect()->route('updateLicense');
         }
-        return "hello";
+        return view('web/create_ride');
     }
     public function store(){
 
     }
 
-    public function search() {
+    public function find() {
         return view(''); // return ra view có chứa form find a ride
     }
 }

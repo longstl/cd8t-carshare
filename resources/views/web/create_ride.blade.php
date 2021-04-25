@@ -8,20 +8,24 @@
 	<!-- Stylesheets
 	============================================= -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/bootstrap.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/style.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/dark.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/font-icons.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/animate.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{lib_assets('Client_css/magnific-popup.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('Client_css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.min.css')}}">
 
-	<link rel="stylesheet" href="{{lib_assets('Client_css/responsive.css')}}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/settings.css')}}" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/layers.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/navigation.css')}}">
+	<link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/settings.css')}}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/layers.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/navigation.css')}}">
 
-    <link rel="stylesheet" href="{{URL('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{lib_assets('web/css/components/datepicker.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{lib_assets('web/css/components/timepicker.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{lib_assets('web/css/components/daterangepicker.css')}}" type="text/css" />
+
+    <link rel="stylesheet" href="{{URL('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css')}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
@@ -250,10 +254,10 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="" class="standard-logo" data-dark-logo="{{lib_assets('Images_client/logo-dark.png')}}"><img
-                                src="{{lib_assets('Images_client/logo.png')}}" alt="Canvas Logo"></a>
-                        <a href="" class="retina-logo" data-dark-logo="{{lib_assets('Images_client/logo-dark@2x.png')}}"><img
-                                src="{{lib_assets('Images_client/logo@2x.png')}}" alt="Canvas Logo"></a>
+                        <a href="" class="standard-logo" data-dark-logo="{{lib_assets('images/logo-dark.png')}}"><img
+                                src="{{lib_assets('images/logo.png')}}" alt="Canvas Logo"></a>
+                        <a href="" class="retina-logo" data-dark-logo="{{lib_assets('images/logo-dark@2x.png')}}"><img
+                                src="{{lib_assets('images/logo@2x.png')}}" alt="Canvas Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
@@ -306,7 +310,7 @@
                                 <div class="top-cart-items">
                                     <div class="top-cart-item clearfix">
                                         <div class="top-cart-item-image">
-                                            <a href="#"><img src="{{lib_assets('Images_client/shop/small/1.jpg')}}"
+                                            <a href="#"><img src="{{lib_assets('images/shop/small/1.jpg')}}"
                                                              alt="Blue Round-Neck Tshirt"/></a>
                                         </div>
                                         <div class="top-cart-item-desc">
@@ -317,7 +321,7 @@
                                     </div>
                                     <div class="top-cart-item clearfix">
                                         <div class="top-cart-item-image">
-                                            <a href="#"><img src="{{lib_assets('Images_client/shop/small/6.jpg')}}"
+                                            <a href="#"><img src="{{lib_assets('images/shop/small/6.jpg')}}"
                                                              alt="Light Blue Denim Dress"/></a>
                                         </div>
                                         <div class="top-cart-item-desc">
@@ -371,31 +375,31 @@
 
 							<div class="contact-form-result"></div>
 
-							<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+							<form class="nobottommargin" id="template-contactform" name="template-contactform" action="{{route('storeRide')}}" method="post">
 
 								<div class="form-process"></div>
 
 								<div class="col_two_third">
 									<label for="origin-input">Origin</label>
-									<input type="text" id="origin-input" name="origin_input" value="" class="controls pac-target-input valid sm-form-control required"/>
+									<input type="text" id="origin-input" name="origin_address" value="" class="controls pac-target-input valid sm-form-control" required/>
 								</div>
 
 								<div class="col_two_third">
 									<label for="destination-input">Destination</label>
-									<input type="text" id="destination-input" name="destination_input"
-                                           class="controls pac-target-input valid required  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false"/>
+									<input type="text" id="destination-input" name="destination_address"
+                                           class="controls pac-target-input valid  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false" required/>
 								</div>
 
 								<div class="col_two_third">
-									<label for="start-time">Date</label>
-									<input type="date" id="start-time" name="start_time" value="" class="sm-form-control controls" placeholder="Travel star time"/>
-								</div>
-
-								<div class="clear"></div>
-
-								<div class="col_one_third">
-									<label for="start-time">Start Time</label>
-									<input type="text" id="start-time" name="start_time" class="controls required sm-form-control" placeholder="Enter number of seats"/>
+                                    <label>Start time</label>
+                                    <div class="form-group">
+                                        <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
+                                            <input type="text" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" placeholder="MM/DD/YYYY 00:00 AM/PM"/>
+                                            <div class="input-group-append" data-target=".datetimepicker" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="icon-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
 								</div>
 
 								<div class="col_one_third">
@@ -449,15 +453,15 @@
 	<!-- External JavaScripts
 	============================================= -->
 
-	<script src="{{lib_assets('Client_js/jquery.js')}}"></script>
-	<script src="{{lib_assets('Client_js/plugins.js')}}"></script>
+	<script src="{{lib_assets('web/js/jquery.js')}}"></script>
+	<script src="{{lib_assets('web/js/plugins.js')}}"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
-	<script src="{{lib_assets('Client_js/functions.js')}}"></script>
+	<script src="{{lib_assets('web/js/functions.js')}}"></script>
 
 	<script src="{{Url('https://maps.google.com/maps/api/js?key=YOUR_API_KEY')}}"></script>
-	<script src="{{lib_assets('Client_js/jquery.gmap.js')}}"></script>
+	<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
     <script>
         document.addEventListener('DOMContentLoaded',function (){
             document.getElementById('top-search').onclick = function (){
@@ -495,6 +499,9 @@
 {{--    </script>--}}
     <script src="{{Url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
     <script src="{{Url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
+    <script src="{{lib_assets('web/js/components/moment.js')}}"></script>
+    <script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
+    <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
     <script
         src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}"
         async></script>

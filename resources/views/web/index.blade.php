@@ -9,21 +9,21 @@
     ============================================= -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
           rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/bootstrap.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/style.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/dark.css')}}.css" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/font-icons.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/animate.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('Client_css/magnific-popup.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}.css" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css"/>
 
-    <link rel="stylesheet" href="{{lib_assets('Client_css/responsive.css')}}/" type="text/css"/>
+    <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}/" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/settings.css')}}" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/layers.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/navigation.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/settings.css')}}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/layers.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/navigation.css')}}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css">
     <style>
         .container input {
             opacity: 1 !important;
@@ -63,9 +63,9 @@
                 ============================================= -->
                 <div id="logo">
                     <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img
-                            src="{{lib_assets('images/logo.png')}}" alt="Canvas Logo"></a>
+                            src="{{lib_assets('web/images/logo.png')}}" alt="Canvas Logo"></a>
                     <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img
-                            src="{{lib_assets('images/logo@2x.png')}}" alt="Canvas Logo"></a>
+                            src="{{lib_assets('web/images/logo@2x.png')}}" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <!-- Primary Navigation
@@ -394,12 +394,12 @@
 
 <!-- External JavaScripts
 ============================================= -->
-<script src="{{lib_assets('Client_js/jquery.js')}}"></script>
-<script src="{{lib_assets('Client_js/plugins.js')}}"></script>
+<script src="{{lib_assets('web/js/jquery.js')}}"></script>
+<script src="{{lib_assets('web/js/plugins.js')}}"></script>
 
 <!-- Footer Scripts
 ============================================= -->
-<script src="{{lib_assets('Client_js/functions.js')}}"></script>
+<script src="{{lib_assets('web/js/functions.js')}}"></script>
 
 <script>
     $(function() {
