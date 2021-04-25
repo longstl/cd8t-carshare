@@ -7,55 +7,69 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{lib_assets('bootstrap/css/bootstrap.min.css')}}">
     <style type="text/css">
-        #map {
-            width: 100%;
-            height: 100%;
-        }
+
 
         html,
         body {
-            height: 1500px;
             margin: 0;
             padding: 0;
         }
 
-        .controls {
-            margin-top: 10px;
-            border: 1px solid transparent;
-            border-radius: 2px 0 0 2px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            height: 32px;
-            outline: none;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        @media only screen and (min-width: 600px) {
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+
+            .container_map {
+                height: 1000px;
+                position: sticky;
+                top: 0;
+                float: right
+            }
+
+            form {
+                padding-bottom: 100px;
+                margin: auto;
+                padding-top: 100px;
+            }
         }
 
-        #origin-input, #destination-input, #start-time {
-            background-color: #fff;
-            font-size: 15px;
-            font-weight: 300;
-            margin-left: 12px;
-            padding: 0 11px 0 13px;
-            text-overflow: ellipsis;
-            width: 200px;
+        @media only screen and (max-width: 599px) {
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+
+            .container_map {
+                height: 600px;
+                position: absolute;
+                top: 490px;
+                float: left;
+            }
+
+            form {
+                margin: auto;
+                padding-top: 20px;
+            }
         }
+
 
         #origin-input:focus,
         #destination-input:focus {
             border-color: #4d90fe;
         }
 
-        #mode-selector {
-            color: #fff;
-            background-color: #4d90fe;
-            margin-left: 12px;
-            padding: 5px 11px 0px 11px;
-        }
 
         #mode-selector label {
             font-family: Roboto, serif;
             font-size: 13px;
             font-weight: 300;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
         }
     </style>
     <script>
@@ -84,22 +98,16 @@
                 origin.val($lat + ',' + $lng)
 
 
-
-                    markerOptions = {
-                        position: {lat: $lat, lng: $lng},
-                        map: map,
-                        animation: google.maps.Animation.BOUNCE,
-                        id: 1
-                    };
-                    markerShow = new google.maps.Marker(markerOptions);
-
-
-
-
+                markerOptions = {
+                    position: {lat: $lat, lng: $lng},
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE,
+                    id: 1
+                };
+                markerShow = new google.maps.Marker(markerOptions);
                 new AutocompleteDirectionsHandler(map);
             }
         }
-
         class AutocompleteDirectionsHandler {
             constructor(map) {
                 this.map = map;
@@ -122,18 +130,7 @@
                 );
                 // Specify just the place data fields that you need.
                 destinationAutocomplete.setFields(["place_id"]);
-                this.setupClickListener(
-                    "changemode-walking",
-                    google.maps.TravelMode.WALKING
-                );
-                this.setupClickListener(
-                    "changemode-transit",
-                    google.maps.TravelMode.TRANSIT
-                );
-                this.setupClickListener(
-                    "changemode-driving",
-                    google.maps.TravelMode.DRIVING
-                );
+
                 this.setupPlaceChangedListener(originAutocomplete, "ORIG");
                 this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
 
@@ -144,13 +141,7 @@
 
             // Sets a listener on a radio button to change the filter type on Places
             // Autocomplete.
-            setupClickListener(id, mode) {
-                const radioButton = document.getElementById(id);
-                radioButton.addEventListener("click", () => {
-                    this.travelMode = mode;
-                    this.route();
-                });
-            }
+
 
             setupPlaceChangedListener(autocomplete, mode) {
                 autocomplete.bindTo("bounds", this.map);
@@ -199,36 +190,88 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="col-md-6 col-12" style="height: 1000px;position: sticky;top: 0;float: right">
+<div>
+    <div class="col-md-6 col-12 container_map">
         <div id="map"></div>
     </div>
-<div class="col-md-6" style="height: 50px">
+    <div class="col-md-6" style="height: 50px">
 
-    <form action="">
+        <form action="" method="GET" name="register_create_trip" id="register_create_trip" class="col-md-8 col-12">
+            <input type="hidden" name="range" id="range">
+            <input type="hidden" name="intend_time" id="intend_time">
+            <h1>Create a new trip</h1>
+            <br>
+            <h4 class="text-secondary" style="font-family: sans-serif" id="show_distance"></h4>
+            <br>
+            <div class=" row col-md-10 col-10">
+                <div class="form-group">
+                    <label for="origin-input">Origin</label>
+                    <input name="origin_input" id="origin-input" class="col-md-12 form-control controls" type="text"
+                           placeholder="Enter an origin location"/>
+                </div>
+            </div>
+            <br>
+            <div class=" row col-md-10 col-10">
+                <div class="form-group">
+                    <label for="destination-input">Destination</label>
+                    <input name="destination_input" id="destination-input" class="form-control controls" type="text"
+                           placeholder="Enter a destination location"/>
+                </div>
+            </div>
+            <br>
+            <div class=" row col-md-8 col-11">
+                <div class="form-group">
+                    <label for="start-time">Date</label>
+                    <input name="start_time" id="start-time" class="form-control controls" type="date">
+                </div>
+            </div>
+            <br>
+            <div class=" row col-md-8 col-11">
+                <div class="form-group">
+                    <label for="start-time">Star time</label>
+                    <input name="start_time" id="start-time" class="form-control controls" type="text"
+                           placeholder="Travel star time">
+                </div>
+            </div>
 
-    </form>
-
-    <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location"/>
-    <input id="start-time" class="controls" type="text" placeholder="Travel star time">
-    <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"/>
-
-    <div style="display: none" id="mode-selector" class="controls">
-        <input style="display: none" type="radio" name="type" id="changemode-walking" checked="checked"/>
-        <label style="display: none" for="changemode-walking">Walking</label>
-        <input style="display: none" type="radio" name="type" id="changemode-transit"/>
-        <label style="display: none" for="changemode-transit">Transit</label>
-        <input style="display: none" type="radio" name="type" id="changemode-driving"/>
-        <label style="display: none" for="changemode-driving">Driving</label>
+            <br>
+            <div class=" row col-md-12 col-11">
+                <div class="form-group col-4 col-md-4">
+                    <label for="number_of_seats">seats</label>
+                    <input name="number_of_seats" onchange="if (this.value < 1){this.value=1}" id="number_of_seats"
+                           class=" form-control controls" type="number" placeholder="Enter number of seats">
+                </div>
+                <div class="form-group col-6 col-md-6">
+                    <label for="select_vehicle">Model rider</label><br>
+                    <select class="form-control form-select selectpicker" name="rider" id="select_vehicle">
+                        <option value="" selected>Maybach s650</option>
+                        <option value="">Maybach s650</option>
+                        <option value="">Maybach s650</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row col-12 col-md-12">
+                <div class="form-group col-5 col-md-5">
+                    <button id="submit" type="submit" class="form-control btn btn-primary">Create</button>
+                </div>
+                <div class="form-group col-5 col-md-5">
+                    <button type="reset" class="form-control btn btn-primary">Remove</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly"
-    async
-></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    async></script>
 <script>
-    $(document).on('keypress', function (e) {
-        if (e.which === 13 && $('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+    //show_distance
+    $('#origin-input').change(function (){
+        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
             $value = {
                 "start": $('#origin-input').val(),
                 "end": $('#destination-input').val()
@@ -240,13 +283,98 @@
                 data: $value,
                 success: function (response) {
                     console.log(response);
+                    $Json = JSON.parse(response)
+                    $('#range').val($Json.rows[0].elements[0].distance.text)
+                    $('#intend_time').val($Json.rows[0].elements[0].duration.text)
+                    $('#show_distance').text('Estimate : '+$Json.rows[0].elements[0].distance.text)
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(textStatus, errorThrown);
                 }
             })
         }
-    });
+    })
+
+    $('#destination-input').change(function (){
+        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+            $value = {
+                "start": $('#origin-input').val(),
+                "end": $('#destination-input').val()
+            }
+
+            $.ajax({
+                url: "/api/location",
+                type: "post",
+                data: $value,
+                success: function (response) {
+                    console.log(response);
+                    $Json = JSON.parse(response)
+                    $('#range').val($Json.rows[0].elements[0].distance.text)
+                    $('#intend_time').val($Json.rows[0].elements[0].duration.text)
+                    $('#show_distance').text('estimate : '+$Json.rows[0].elements[0].distance.text)
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            })
+        }
+    })
+
+
+    $('#submit').click(function () {
+        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+            $value = {
+                "start": $('#origin-input').val(),
+                "end": $('#destination-input').val()
+            }
+            $.ajax({
+                url: "/api/location",
+                type: "post",
+                data: $value,
+                success: function (response) {
+                    console.log(response);
+                    $Json = JSON.parse(response)
+                    $('#range').val($Json.rows[0].elements[0].distance.text)
+                    $('#intend_time').val($Json.rows[0].elements[0].duration.text)
+                    console.log($Json.rows[0].elements[0].distance.text);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            })
+        }
+    })
+</script>
+<script>
+    $("#register_create_trip").validate({
+        rules: {
+            origin_input: {
+                required: true
+            },
+            destination_input: {
+                required: true
+            },
+            start_time: {
+                required: true
+            },
+            number_of_seats: {
+                required: true
+            }
+        }, messages: {
+            origin_input: {
+                required: 'you cannot skip this field'
+            },
+            destination_input: {
+                required: 'you cannot skip this field'
+            },
+            start_time: {
+                required: 'you cannot skip this field',
+            },
+            number_of_seats: {
+                required: 'you cannot skip this field'
+            }
+        }
+    })
 </script>
 </body>
 </html>
