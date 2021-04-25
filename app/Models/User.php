@@ -41,10 +41,10 @@ class User extends Authenticatable
         'role'
     ];
     public function userCars(){
-        return $this->hasMany(UserCar::class);
+        return $this->hasMany(Car::class);
     }
     public function rideRequests(){
-        return $this->hasMany(RideRequest::class);
+        return $this->hasMany(Request::class);
     }
     public function feedbacks(){
         return $this->hasMany(Feedback::class);

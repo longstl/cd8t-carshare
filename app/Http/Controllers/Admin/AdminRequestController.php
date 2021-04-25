@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminRideRequestController extends Controller
+class AdminRequestController extends Controller
 {
 
     public function getGeoLocation(Request $request)
@@ -20,6 +20,6 @@ class AdminRideRequestController extends Controller
         ])->get());
     }
 
-  
+
 
 }

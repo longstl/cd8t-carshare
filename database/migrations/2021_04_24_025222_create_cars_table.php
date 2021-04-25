@@ -13,10 +13,10 @@ class CreateUserCarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_cars', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('car_id');
+            $table->integer('model_id');
             $table->string('car_registration_number');
             $table->string('color')->nullable();
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateUserCarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_cars');
+        Schema::dropIfExists('cars');
     }
 }

@@ -14,11 +14,14 @@ class CreateRideRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ride_requests', function (Blueprint $table) {
+        Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->string('pickup_address');
-            $table->string('pickup_coordinate');
+            $table->string('pickup_coordinate')->nullable();
+            $table->string('destination_address');
+            $table->string('destination_coordinate')->nullable();
+            $table->dateTime('desired_pickup_time');
             $table->dateTime('pickup_time');
             $table->integer('ride_id');
             $table->integer('status')->default(RideRequestStatus::WAITING);
@@ -34,6 +37,6 @@ class CreateRideRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ride_requests');
+        Schema::dropIfExists('requests');
     }
 }

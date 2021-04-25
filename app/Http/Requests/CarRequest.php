@@ -24,10 +24,10 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','string'],
-            'make' => ['required','string'],
-            'model' => ['required','string'],
-            'make_year' => ['required','integer']
+            'user_id' => ['required','integer'],
+            'model_id' => ['required','integer'],
+            'car_registration_number' => ['required','integer'],
+            'color' => ['string','nullable']
             //
         ];
     }

@@ -11,14 +11,18 @@ class Car extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'name',
-        'make',
-        'model',
-        'make_year',
-        'comfort_level',
-        'seats_total'
+        'user_id',
+        'model_id',
+        'car_registration_number',
+        'color'
     ];
-    public function userCars(){
-        return $this->hasMany(UserCar::class);
+    public function car(){
+        return $this->belongsTo(Model::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function rides(){
+        return $this->hasMany(Ride::class);
     }
 }
