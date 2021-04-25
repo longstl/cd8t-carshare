@@ -57,7 +57,6 @@
                                 <input type="text" name="username" value="" class="form-control"/>
                             </div>
 
-                     
                         </div>
                         <div class="row">
                             <div class="col-md-3">

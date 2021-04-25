@@ -19,31 +19,31 @@ class CarsSeeder
             [
                 'user' => 2,
                 'model' => 1,
-                'car_registration_number' => '1234',
+                'car_registration_number' => '4',
                 'color' => 'Red'
             ],
             [
                 'user' => 3,
                 'model' => 2,
-                'car_registration_number' => '2345',
+                'car_registration_number' => '7',
                 'color' => 'Blue'
             ],
             [
                 'user' => 3,
                 'model' => 3,
-                'car_registration_number' => '3456',
+                'car_registration_number' => '12',
                 'color' => 'Yellow'
             ],
             [
                 'user' => 4,
                 'model' => 4,
-                'car_registration_number' => '4567',
+                'car_registration_number' => '29',
                 'color' => 'Green'
             ],
             [
                 'user' => 5,
                 'model' => 5,
-                'car_registration_number' => '1234',
+                'car_registration_number' => '50',
                 'color' => 'Oranger'
             ]
         ]);
