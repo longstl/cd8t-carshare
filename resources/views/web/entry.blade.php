@@ -56,8 +56,6 @@
                                 <label class="form-group">Username:</label>
                                 <input type="text" name="username" value="" class="form-control"/>
                             </div>
-
-                     
                         </div>
                         <div class="row">
                             <div class="col-md-3">
@@ -89,6 +87,7 @@
                             <label class="form-group">First Name:</label>
                             <input type="text" name="first_name" value="" class="form-control" />
                         </div>
+                        <div>
                             <label class="form-group">Email:</label>
                             <input type="text" name="email" value="" class="form-control"/>
                         </div>
@@ -139,15 +138,15 @@
                             <input type="text" name="identification_valid_from" value="" class="form-control"/>
                         </div>
 
-            <div class="col-ml-4">
-                <label for="register-form-password">MUSIC PREFORMENT</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option value="" hidden selected disabled></option>
-                    <option>Calm</option>
-                    <option>None</option>
-                    <option>Loud</option>
-                </select>
-            </div>
+                        <div class="col-ml-4">
+                            <label for="register-form-password">MUSIC PREFORMENT</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option value="" hidden selected disabled></option>
+                                <option>Calm</option>
+                                <option>None</option>
+                                <option>Loud</option>
+                            </select>
+                        </div>
 
                         <div class="col_half">
                             <h4>IS SMOKING ALLOWED</h4>
@@ -163,83 +162,81 @@
                                 </div>
                         </div>
                         <div class="clear"></div>
-            <div class="col_half">
-                <label class="form-group">ADDRESS:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
+                        <div class="col_half">
+                            <label class="form-group">ADDRESS:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <label class="form-group">Phone:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half">
+                            <label class="form-group">DRIVING LICENSE NUMBER:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half">
+                            <label class="form-group">DRIVING LICENSE VALID FROM:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <label class="form-group">TEXTIDENTIFICATION ID:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half">
+                            <label class="form-group">IDENTIFENCATION VALID FROM:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+
+                        <div class="col_half">
+                            <h4>IS SMOKING ALLOWED</h4>
+                            <form>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">No</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <h4>IS PET ALLOWED</h4>
+                            <form>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">No</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col_full nobottommargin">
+                            <button class="button button-3d button-black nomargin" id="register-form-submit"
+                                    name="register-form-submit" value="register">Register Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="col_half col_last">
-                <label class="form-group">Phone:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
-            </div>
-
-            <div class="col_half">
-                <label class="form-group">DRIVING LICENSE NUMBER:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
-            </div>
-
-            <div class="col_half">
-                <label class="form-group">DRIVING LICENSE VALID FROM:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
-            </div>
-
-            <div class="col_half col_last">
-                <label class="form-group">TEXTIDENTIFICATION ID:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
-            </div>
-
-            <div class="col_half">
-                <label class="form-group">IDENTIFENCATION VALID FROM:</label>
-                <input type="text" name="register-form-name" value="" class="form-control"/>
-            </div>
-
-
-            <div class="col_half">
-                <h4>IS SMOKING ALLOWED</h4>
-                <form>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios"
-                               id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios"
-                               id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">No</label>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col_half col_last">
-                <h4>IS PET ALLOWED</h4>
-                <form>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios"
-                               id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios"
-                               id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">No</label>
-                    </div>
-                </form>
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="col_full nobottommargin">
-                <button class="button button-3d button-black nomargin" id="register-form-submit"
-                        name="register-form-submit" value="register">Register Now
-                </button>
-            </div>
-
-
         </div>
-
     </div>
-
-
 </section><!-- #content end -->
 <!-- #wrapper end -->
 
