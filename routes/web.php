@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/index', function () {
+    return view('Client/index');
+});
+
+Route::get('/entry', function () {
+    return view('Client/entry');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test', function () {
     return view('Admin/car/list');
 });
-
