@@ -191,9 +191,11 @@
 </head>
 <body>
 <div>
+
     <div class="col-md-6 col-12 container_map">
         <div id="map"></div>
     </div>
+
     <div class="col-md-6" style="height: 50px">
 
         <form action="" method="GET" name="register_create_trip" id="register_create_trip" class="col-md-8 col-12">
@@ -263,11 +265,12 @@
     </div>
 </div>
 
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly"
-    async></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly" async></script>
 <script>
     //show_distance
     $('#origin-input').change(function (){
@@ -362,16 +365,16 @@
             }
         }, messages: {
             origin_input: {
-                required: 'you cannot skip this field'
+                required: 'You cannot skip this field'
             },
             destination_input: {
-                required: 'you cannot skip this field'
+                required: 'You cannot skip this field'
             },
             start_time: {
-                required: 'you cannot skip this field',
+                required: 'You cannot skip this field',
             },
             number_of_seats: {
-                required: 'you cannot skip this field'
+                required: 'You cannot skip this field'
             }
         }
     })
