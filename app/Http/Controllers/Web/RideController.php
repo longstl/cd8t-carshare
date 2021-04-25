@@ -12,11 +12,12 @@ class RideController extends Controller
 {
     public function create()
     {
-        $user = User::find(Auth::id());
-        $userCar = User::with('userCars')->find(Auth::id());
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $car = Car::query()->where('user_id', $user_id)->first();
         if(!$user->driving_license_number){
             return redirect()->route('updateLicense');
-        }if (!$userCar->car_id){
+        }if (!$car){
             return redirect()->route('updateCar');
         }
         return view('web/create_ride');
