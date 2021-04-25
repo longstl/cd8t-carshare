@@ -24,17 +24,12 @@ class RideRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_car_id' => ['required','integer'],
+            'car_id' => ['required','integer'],
             'travel_start_time' => ['required','datetime'],
             'origin_address' => ['required','string'],
-            'origin_coordinate' => ['required','string'],
             'destination_address' => ['required','string'],
-            'destination_coordinate' => ['required','string'],
             'distance' => ['required','integer'],
-            'seats_offered' => ['required','integer'],
             'seats_available' => ['required','integer'],
-            'contribution_per_head' => ['required','integer']
-            //
         ];
     }
 }

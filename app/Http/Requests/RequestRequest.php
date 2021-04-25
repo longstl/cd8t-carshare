@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RideRQRequest extends FormRequest
+class RequestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,8 +28,7 @@ class RideRQRequest extends FormRequest
             'pickup_address' => ['required','string'],
             'pickup_coordinate' => ['required','string'],
             'pickup_time' => ['required','string'],
-            'ride_id' => ['required','integer']
-            //
+            'ride_id' => ['required','integer'],
         ];
     }
 }

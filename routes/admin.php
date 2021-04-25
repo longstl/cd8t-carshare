@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminCarController;
+use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix("car")->group(function (){
-    Route::get('',[AdminCarController::class,'list'])->name('listCar');
-    Route::get('create',[AdminCarController::class,'create'])->name('createCar');
-    Route::post('create',[AdminCarController::class,'store'])->name('storeCar');
-    Route::get('update/{id}',[AdminCarController::class,'update'])->name('updateCar');
-    Route::post('update/{id}',[AdminCarController::class,'save'])->name('saveCar');
-    Route::get('delete/{id}',[AdminCarController::class,'delete'])->name('deleteCar');
+    Route::get('',[AdminModelController::class,'list'])->name('listCar');
+    Route::get('create',[AdminModelController::class,'create'])->name('createCar');
+    Route::post('create',[AdminModelController::class,'store'])->name('storeCar');
+    Route::get('update/{id}',[AdminModelController::class,'update'])->name('updateCar');
+    Route::post('update/{id}',[AdminModelController::class,'save'])->name('saveCar');
+    Route::get('delete/{id}',[AdminModelController::class,'delete'])->name('deleteCar');
 });
 
 Route::prefix('user')->group(function (){

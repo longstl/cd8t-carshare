@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserCarRequest extends FormRequest
+class FeedbackRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,8 @@ class UserCarRequest extends FormRequest
     {
         return [
             'user_id' => ['required','integer'],
-            'car_id' => ['required','integer'],
-            'car_registration_number' => ['required','integer'],
-            'color' => ['string','nullable']
+            'title' => ['required','string'],
+            'content' => ['required','string']
             //
         ];
     }
