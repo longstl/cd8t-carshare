@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
                 'is_pet_allowed' => 'yes',
                 'music_preference' => 'nostop',
                 'chitchat_preference'=> 'Talk about love',
-                'role' => Carbon::now(),
+                'role' => Role::User,
             ],
             [
                 'username' => 'Hoang Dac Phuong',
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
                 'is_pet_allowed' => 'yes',
                 'music_preference' => 'nostop',
                 'chitchat_preference'=> 'Talk about love',
-                'role' => Carbon::now(),
+                'role' => Role::User
             ],
             [
                 'username' => 'Pham Thang',
@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
                 'is_pet_allowed' => 'yes',
                 'music_preference' => 'nostop',
                 'chitchat_preference'=> 'Talk about love',
-                'role' => Carbon::now(),
+                'role' => Role::User
             ],
             [
                 'username' => 'Nguyen Ngoc Thuan',
@@ -111,7 +111,7 @@ class UserSeeder extends Seeder
                 'is_pet_allowed' => 'yes',
                 'music_preference' => 'nostop',
                 'chitchat_preference'=> 'Talk about love',
-                'role' => Carbon::now(),
+                'role' => Role::User
             ]
         ]);
     }
