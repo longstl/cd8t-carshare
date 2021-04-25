@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'first_name' => 'Do',
                 'last_name' => 'Quan',
+                'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'quando@gmail.com',
                 'phone' => '0968686868',
                 'address' => '70 Nguyen Hoang, My Dinh, Ha Noi',
@@ -43,12 +44,14 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::NONE,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::ADMIN,
+                'is_driving_license_certified'=>false
             ],
             [
                 'username' => 'Hoang Dac Phuong',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Hoang Dac',
                 'last_name' => 'Phuong',
+                'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'hoangdacphuong@gmail.com',
                 'phone' => '0979999999',
                 'address' => 'so 8 Ton That Thuyet, My Dinh, Ha Noi',
@@ -65,12 +68,15 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::CALM,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::USER,
+                'is_driving_license_certified'=>true
             ],
             [
                 'username' => 'Pham Thang',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Pham',
                 'last_name' => 'Thang',
+                'last_name' => 'Thang',
+                'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'phamthang@gmail.com',
                 'phone' => '0123456789',
                 'address' => 'so 9 Ton That Thuyet, My Dinh, Ha Noi',
@@ -87,12 +93,14 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::LOUD,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::USER,
+                'is_driving_license_certified'=>false
             ],
             [
                 'username' => 'Nguyen Ngoc Thuan',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Nguyen Ngoc',
                 'last_name' => 'Thuan',
+                'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'nguyenngocthuan@gmail.com',
                 'phone' => '0123456799',
                 'address' => 'so 10 Ton That Thuyet, My Dinh, Ha Noi',
@@ -109,6 +117,7 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::CALM,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::USER,
+                'is_driving_license_certified'=>false
             ]
         ]);
     }
