@@ -9,10 +9,17 @@ use App\Models\Feedback;
 class FeedbackController extends Controller
 {
     public function list(){
-        $list_feedback = Feedback::query()->with(['user'])->paginate(10)->get();
+        $list_feedback = Feedback::query()->with(['user'])->get();
         return view('Admin/feedback/list',[
             'list_feedback'=>$list_feedback,
             'title'=>'List Feedback'
+        ]);
+    }
+    public function read($id){
+        $feedback = Feedback::find($id);
+        return view('Admin/feedback/read',[
+            'feedback'=>$feedback,
+
         ]);
     }
     public function create(){
@@ -24,9 +31,9 @@ class FeedbackController extends Controller
     public function save(){
     }
     public function delete($id){
-        $feedback = Feedback::find($id)->with(['user'])->get();
+        $feedback = Feedback::find($id);
         $feedback->delete();
-        return redirect()->route('listFeedback')->with(['status' => 'delete feedback success', 'feedback' => $feedback->user->name]);
+        return redirect()->route('listFeedback')->with(['status' => 'delete feedback success']);
     }
     //
 }

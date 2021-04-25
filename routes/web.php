@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/test',function (){
+   return view('Client/user/profile');
+});
 
 
 Route::prefix("admin/car")->group(function (){
@@ -31,6 +33,8 @@ Route::prefix("admin/car")->group(function (){
 Route::prefix("admin/feedback")->group(function (){
     Route::get('',[FeedbackController::class,'list'])->name('listFeedback');
     Route::get('delete/{id}',[FeedbackController::class,'delete'])->name('deleteFeedback');
+    Route::get('read/{id}',[FeedbackController::class,'read'])->name('readFeedback');
+});
 
 Route::prefix('admin/user')->group(function (){
     Route::get('',[UserController::class,'list'])->name('listUser');

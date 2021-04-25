@@ -60,7 +60,6 @@
                             @endif
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
-                                <a href="/car/create" class="btn btn-warning">Create</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -90,7 +89,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-body">
                                                             <p>Are you sure you want to delete
-                                                                <b> Delete{{$feedback->user->name}} </b>
+                                                                <b> Delete feedback by {{$feedback->user->first_name}} {{$feedback->user->last_name}} </b>
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
@@ -106,7 +105,7 @@
 
                                             <tr>
                                                 <td>
-                                                    <h4>{{$feedback->user->name}}</h4>
+                                                    <h4>{{$feedback->user->first_name  }} {{$feedback->user->last_name}}</h4>
                                                 </td>
                                                 <td>
                                                     <h4>{{$feedback->title}}</h4>
@@ -116,7 +115,7 @@
                                                 </td>
                                                 <td>
                                                     <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$feedback->id}}">Delete</a>
-                                                    <a ><button class="btn btn-success"></button>Reply</a>
+                                                    <a href="{{route('readFeedback', $feedback->id)}}" type="button"><button class="btn btn-success">Read</button></a>
                                                 </td>
                                             </tr>
                                         @endforeach
