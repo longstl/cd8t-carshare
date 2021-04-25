@@ -7,8 +7,9 @@
 
     <!-- Stylesheets
     ============================================= -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
-          rel="stylesheet" type="text/css"/>
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
+        rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('Client_css/bootstrap.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('Client_css/style.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{lib_assets('Client_css/dark.css')}}" type="text/css"/>
@@ -25,7 +26,7 @@
 
     <style>
         label.error {
-            display: inline-block!important;
+            display: inline-block !important;
         }
     </style>
 </head>
@@ -46,22 +47,26 @@
                 <div class="col_one_third nobottommargin">
 
                     <div class="well well-lg nobottommargin">
-                        <form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
-
+                        <form id="login-form" name="login-form" class="nobottommargin" action="{{route('loginUser')}}"
+                              method="post">
+                            @csrf
                             <h3>Login to your Account</h3>
 
                             <div class="col_full">
                                 <label for="login-form-username">Username:</label>
-                                <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
+                                <input type="text" id="login-form-username" name="username" value=""
+                                       class="form-control"/>
                             </div>
 
                             <div class="col_full">
                                 <label for="login-form-password">Password:</label>
-                                <input type="password" id="login-form-password" name="login-form-password" value="" class="form-control" />
+                                <input type="password" id="login-form-password" name="password" value=""
+                                       class="form-control"/>
                             </div>
 
                             <div class="col_full">
-                                <button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                                <button class="button button-3d nomargin" id="login-form-submit" value="login">Login
+                                </button>
                                 <a href="#" class="fright">Forgot Password?</a>
                             </div>
 
@@ -75,13 +80,15 @@
 
                     <h3>Don't have an Account? Register Now.</h3>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus ratione.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint
+                        ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus
+                        ratione.</p>
 
                     <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
 
                         <div class="col_half">
                             <label class="form-group">Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half col_last">
@@ -91,27 +98,20 @@
 
                         <div class="col_half">
                             <label class="form-group">Password:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half col_last">
                             <label class="form-group">Comfirm Password:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half">
                             <label class="form-group">First Name:</label>
                             <input type="text" name="register-form-name" value="" class="form-control" />
                         </div>
-
-                        <div class="col_half col_last">
-                            <label class="form-group">Last Name:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
-                        </div>
-
-                        <div class="col_full">
-                            <label class="form-group">ADDRESS:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <label class="form-group">Email:</label>
+                            <input type="text" name="register-form-email" value="" class="form-control"/>
                         </div>
 
                         <div class="clear"></div>
@@ -145,35 +145,46 @@
                                 <option>Loud</option>
                             </select>
                         </div>
-
-                        <div class="col-ml-4">
-                            <label for="exampleFormControlSelect1">EXAMPLE SELECT</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="" hidden selected disabled></option>
-                                <option>No</option>
-                                <option>Only Ride</option>
-                                <option>All</option>
-                            </select>
-                        </div>
-
-
                         <div class="clear"></div>
 
+                        <div class="col_half">
+                            <label class="form-group">First Name:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
 
+                        <div class="col_half col_last">
+                            <label class="form-group">Last Name:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half">
+                            <label class="form-group">ADDRESS:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <label class="form-group">Phone:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
+
+                        <div class="col_half">
+                            <label class="form-group">DRIVING LICENSE NUMBER:</label>
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
+                        </div>
 
                         <div class="col_half">
                             <label class="form-group">DRIVING LICENSE VALID FROM:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half col_last">
                             <label class="form-group">TEXTIDENTIFICATION ID:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
                         <div class="col_half">
                             <label class="form-group">IDENTIFENCATION VALID FROM:</label>
-                            <input type="text" name="register-form-name" value="" class="form-control" />
+                            <input type="text" name="register-form-name" value="" class="form-control"/>
                         </div>
 
 
@@ -181,11 +192,13 @@
                             <h4>IS SMOKING ALLOWED</h4>
                             <form>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios1" value="option1" checked>
                                     <label class="form-check-label" for="exampleRadios1">Yes</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios2" value="option2">
                                     <label class="form-check-label" for="exampleRadios2">No</label>
                                 </div>
                             </form>
@@ -195,11 +208,13 @@
                             <h4>IS PET ALLOWED</h4>
                             <form>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios1" value="option1" checked>
                                     <label class="form-check-label" for="exampleRadios1">Yes</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                           id="exampleRadios2" value="option2">
                                     <label class="form-check-label" for="exampleRadios2">No</label>
                                 </div>
                             </form>
@@ -208,7 +223,9 @@
                         <div class="clear"></div>
 
                         <div class="col_full nobottommargin">
-                            <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                            <button class="button button-3d button-black nomargin" id="register-form-submit"
+                                    name="register-form-submit" value="register">Register Now
+                            </button>
                         </div>
 
                     </form>

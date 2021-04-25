@@ -13,12 +13,11 @@ class EntryController extends Controller
 {
     public function register()
     {
-        return view('');
+        return view('Client/entry');
     }
-
     public function login()
     {
-        return view('');
+        return view('Client/entry');
     }
 
     public function processRegister(UserRequest $request)
@@ -35,7 +34,7 @@ class EntryController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('');
+            return redirect()->route('createRide');
         }
     }
 

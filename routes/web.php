@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
+
+Route::get('',[HomeController::class,'index']);
+
 Route::prefix('')->group(function(){
     Route::get('login',[EntryController::class,'login'])->name('loginForm');
     Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
@@ -26,10 +30,11 @@ Route::prefix('')->group(function(){
     Route::post('register',[EntryController::class,'processRegister'])->name('registerUser');
 });
 
-
-Route::get('createLicense',[UserController::class,'updateLicense'])->name('updateLicense');
-Route::post('saveLicense',[UserController::class,'saveLicense'])->name('saveLicense');
-Route::get('createRide',[RideController::class,'create'])->name('createRide');
-Route::post('saveRide',[RideController::class,'store'])->name('saveRide');
+Route::prefix('user')->middleware('auth')->group(function() {
+    Route::get('create-license',[UserController::class,'updateLicense'])->name('updateLicense');
+    Route::post('save-license',[UserController::class,'saveLicense'])->name('saveLicense');
+    Route::get('create-ride',[RideController::class,'create'])->name('createRide');
+    Route::post('save-ride',[RideController::class,'store'])->name('saveRide');
+});
 
 
