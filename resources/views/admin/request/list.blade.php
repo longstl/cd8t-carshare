@@ -50,24 +50,26 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            <h3>Option ID</h3>
+                                            <h3>Order by</h3>
                                         </th>
                                         <th>
-                                            <h3>Size ID</h3>
+                                            <h3>Pink Up Address</h3>
                                         </th>
                                         <th>
-                                            <h3>Color ID</h3>
+                                            <h3>Destination Address</h3>
                                         </th>
                                         <th>
-                                            <h3>Quantity</h3>
+                                            <h3>Time</h3>
                                         </th>
                                         <th>
-                                            <h3>Product ID</h3>
+                                            <h3>Seats Occupy</h3>
+                                        </th>
+                                        <th>
+                                            <h3>Price</h3>
                                         </th>
                                         <th>
                                             <h3>Action</h3>
                                         </th>
-
                                         </thead>
                                         <tbody>
                                         <tr>

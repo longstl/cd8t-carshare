@@ -40,7 +40,9 @@ class User extends Authenticatable
         'chitchat_preference',
         'role'
     ];
+
     public function cars(){
+
         return $this->hasMany(Car::class);
     }
     public function rideRequests(){
