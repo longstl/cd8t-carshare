@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function updateLicense(){
-        return view('Client/update_license');
+        return view('web/update_license');
     }
 
     public function saveLicense(UpdateLicenseRequest $request){

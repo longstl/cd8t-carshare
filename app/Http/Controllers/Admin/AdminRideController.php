@@ -11,7 +11,7 @@ class AdminRideController extends Controller
 {
     public function list(){
         $list_feedback = Feedback::query()->with(['user'])->paginate(10)->get();
-        return view('Admin/feedback/list',[
+        return view('admin/feedback/list',[
             'list_feedback'=>$list_feedback,
             'title'=>'List Feedback'
         ]);

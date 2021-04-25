@@ -37,5 +37,3 @@ Route::prefix('user')->middleware('auth')->group(function() {
     Route::get('create-ride',[RideController::class,'create'])->name('createRide');
     Route::post('save-ride',[RideController::class,'store'])->name('saveRide');
 });
-
-

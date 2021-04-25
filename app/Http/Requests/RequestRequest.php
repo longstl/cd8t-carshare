@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RideRequest extends FormRequest
+class RequestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class RideRequest extends FormRequest
     public function rules()
     {
         return [
-            'car_id' => ['required','integer'],
-            'travel_start_time' => ['required','datetime'],
-            'origin_address' => ['required','string'],
-            'destination_address' => ['required','string'],
-            'distance' => ['required','integer'],
-            'seats_available' => ['required','integer'],
+            'user_id' => ['required','integer'],
+            'pickup_address' => ['required','string'],
+            'pickup_coordinate' => ['required','string'],
+            'pickup_time' => ['required','string'],
+            'ride_id' => ['required','integer'],
         ];
     }
 }

@@ -16,12 +16,12 @@ class CreateRidesTable extends Migration
     {
         Schema::create('rides', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_car_id');
+            $table->integer('car_id');
             $table->dateTime('travel_start_time');
             $table->string('origin_address');
-            $table->string('origin_coordinate');
+            $table->string('origin_coordinate')->nullable();
             $table->string('destination_address');
-            $table->string('destination_coordinate');
+            $table->string('destination_coordinate')->nullable();
             $table->integer('distance');
             $table->integer('seats_offered');
             $table->integer('seats_available');

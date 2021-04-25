@@ -13,11 +13,11 @@ class EntryController extends Controller
 {
     public function register()
     {
-        return view('Client/entry');
+        return view('web/entry');
     }
     public function login()
     {
-        return view('Client/entry');
+        return view('web/entry');
     }
 
     public function processRegister(UserRequest $request)
