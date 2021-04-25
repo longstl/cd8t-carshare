@@ -15,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('entry',function (){
+   return view('Client/entry');
+});
+
+Route::get('index',function (){
+    return view('Client/index');
+});
+
+Route::get('contact',function (){
+    return view('Client/contact');
+});
+
 
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
