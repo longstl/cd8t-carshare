@@ -14,9 +14,13 @@ class Request extends Model
     protected $fillable = [
         'user_id',
         'pickup_address',
-        'pickup_coordinate',
+        'destination_address',
+        'desired_pickup_time',
+        'seats_occupy',
+        'status',
+        'ride_id',
         'pickup_time',
-        'ride_id'
+        'price',
     ];
     public function user(){
         return $this->belongsTo(User::class);
