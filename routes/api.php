@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('ride')->group(function() {
     Route::get('', [RideController::class, 'list']);
     Route::post('', [RideController::class, 'store']);
+});
+
+Route::prefix('request')->group(function() {
+    Route::get('', [RequestController::class, 'list']);
+    Route::post('', [RequestController::class, 'store']);
 });
