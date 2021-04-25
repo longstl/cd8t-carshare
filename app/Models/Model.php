@@ -16,7 +16,9 @@ class Model extends EloquentModel
         'model',
         'make_year',
     ];
-    public function Cars(){
+
+    public function cars(){
+
         return $this->hasMany(Car::class);
     }
 }

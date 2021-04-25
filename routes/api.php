@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminRideController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Http\Request;
@@ -28,3 +29,5 @@ Route::prefix('request')->group(function() {
     Route::get('', [RequestController::class, 'list']);
     Route::post('', [RequestController::class, 'store']);
 });
+
+Route::get('admin/ride/match/{id}', [AdminRideController::class, 'findMatch']);
