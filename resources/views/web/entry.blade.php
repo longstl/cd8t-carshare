@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
-
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="author" content="SemiColonWeb"/>
-
-    <!-- Stylesheets
-    ============================================= -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
-        rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css//animate.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}/" type="text/css"/>
-
-    <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}" type="text/css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Login - Layout 2 | Canvas</title>
+    @include('web.layout.Style')
+    <title>Login-Register | Car Share</title>
 
     <style>
         label.error {
@@ -32,18 +14,11 @@
 </head>
 
 <body class="stretched">
-
-<!-- Document Wrapper
-============================================= -->
+@include('web.layout.header')
 <div id="wrapper" class="clearfix">
-    <!-- Content
-		============================================= -->
     <section id="content">
-
         <div class="content-wrap">
-
             <div class="container clearfix">
-
                 <div class="col-md-4 nobottommargin">
 
                     <div class="well well-lg nobottommargin">
@@ -295,17 +270,9 @@
 <!-- Go To Top
 ============================================= -->
 <div id="gotoTop" class="icon-angle-up"></div>
+@include('web.layout.footer')
+@include('web.layout.script')
 
-<!-- External JavaScripts
-============================================= -->
-<script src="{{lib_assets('web/js/jquery.js')}}"></script>
-<script src="{{lib_assets('web/js/plugins.js')}}"></script>
-
-<!-- Footer Scripts
-============================================= -->
-<script src="{{lib_assets('web/js/functions.js')}}"></script>
-
-<script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js')}}"></script>
 
 
 <!--<script>-->

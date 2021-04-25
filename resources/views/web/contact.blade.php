@@ -4,63 +4,29 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="SemiColonWeb" />
-
-    <!-- Stylesheets
-    ============================================= -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css" />
-
-    <link rel="stylesheet" href="{{lib_assets('web/css/responsive.css')}}" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Contact - Layout 2 with reCaptcha | Canvas</title>
+    @include('web.layout.Style')
+    <title>Contact | Car Share</title>
 
 </head>
 
 <body class="stretched">
-
-<!-- Document Wrapper
-============================================= -->
+@include('web.layout.header')
 <div id="wrapper" class="clearfix">
-
-
-
-    <!-- Content
-    ============================================= -->
     <section id="content">
-
         <div class="content-wrap">
-
             <div class="container clearfix">
-
-                <!-- Contact Form
-                ============================================= -->
                 <div class="col_half">
-
                     <div class="fancy-title title-dotted-border">
                         <h3>Send us an Email</h3>
                     </div>
-
                     <div class="contact-widget">
-
                         <div class="contact-form-result"></div>
-
                         <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
-
                             <div class="form-process"></div>
-
                             <div class="col_full">
                                 <label for="template-contactform-name">Title<small>*</small></label>
                                 <input type="text" id="template-contactform-title" name="template-contactform-title" value="" class="sm-form-control required" />
                             </div>
-
                             <div class="clear"></div>
 
                             <div class="col_full">
@@ -79,15 +45,10 @@
                         </form>
                     </div>
 
-                </div><!-- Contact Form End -->
-
-                <!-- Google Map
-                ============================================= -->
+                </div>
                 <div class="col_half col_last">
-
-                    <section id="google-map" class="gmap" style="height: 410px;"></section>
-
-                </div><!-- Google Map End -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119167.706490933!2d105.78214315820311!3d21.033053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab6c1540e631%3A0xd2fe500bb6bb4f47!2sHoi%20An%20private%20car!5e0!3m2!1sen!2s!4v1619389006659!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
 
                 <div class="clear"></div>
 
@@ -143,49 +104,14 @@
 
 </div><!-- #wrapper end -->
 
-<!-- Go To Top
-============================================= -->
 <div id="gotoTop" class="icon-angle-up"></div>
+@include('web.layout.footer')
+@include('web.layout.script')
 
-<!-- External JavaScripts
-============================================= -->
-<script src="{{lib_assets('web/js/jquery.js')}}"></script>
-<script src="{{lib_assets('web/js/plugins.js')}}"></script>
 
-<!-- Footer Scripts
-============================================= -->
-<script src="{{lib_assets('web/js/functions.js')}}"></script>
 
-<script src="https://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
 
-<script>
-    jQuery('#google-map').gMap({
-        address: 'Melbourne, Australia',
-        maptype: 'ROADMAP',
-        zoom: 14,
-        markers: [
-            {
-                address: "Melbourne, Australia",
-                html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
-                icon: {
-                    image: "images/icons/map-icon-red.png",
-                    iconsize: [32, 39],
-                    iconanchor: [32,39]
-                }
-            }
-        ],
-        doubleclickzoom: false,
-        controls: {
-            panControl: true,
-            zoomControl: true,
-            mapTypeControl: true,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false
-        }
-    });
-</script>
+
 
 </body>
 </html>

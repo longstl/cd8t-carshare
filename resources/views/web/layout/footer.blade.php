@@ -1,4 +1,4 @@
-<footer id="footer" class="dark" style="width: 100%">
+<footer id="" class="dark" style="width: 100% ;" >
     <div class="container  container_footer_root  col-md-12 col-12">
         <div class="col-md-10  col-sm-12 col-12 container_footer" >
             <div style="height: auto" class="footer_responsive col-md-4 col-12">
