@@ -18,8 +18,8 @@
 
 	<link rel="stylesheet" href="{{lib_assets('Client_css/responsive.css')}}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/settings.css')}}" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/settings.css')}}include/rs-plugin/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/settings.css')}}include/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/layers.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{lib_assets('Client_css/navigation.css')}}">
 
     <link rel="stylesheet" href="{{URL('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
