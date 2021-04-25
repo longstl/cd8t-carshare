@@ -25,7 +25,7 @@ class RideRequest extends FormRequest
     {
         return [
             'car_id' => ['required', 'integer'],
-            'travel_start_time' => ['required', 'datetime'],
+            'travel_start_time' => ['required'],
             'origin_address' => ['required', 'string'],
             'destination_address' => ['required', 'string'],
             'seats_available' => ['required', 'integer'],
