@@ -25,8 +25,7 @@ class RideController extends Controller
     public function store(RideRequest $request)
     {
         $data = $request->validated();
-        $obj = json_decode(getDistance($data['origin_address'], $data['destination_address']), true);
-        $map_info = $obj['rows'][0]['elements'][0];
+        $map_info = getDistance($data['origin_address'], $data['destination_address']);
         $data['distance'] = $map_info['distance']['value'];
 //        $origin = getInfoGeoMap($data['origin_address']);
 //        return $origin;

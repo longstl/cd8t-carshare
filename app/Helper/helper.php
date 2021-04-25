@@ -8,12 +8,13 @@ function lib_assets($path) {
 
 function getDistance($start, $end)
 {
-    return \GoogleMaps::load('distancematrix')->setParam([
+    $obj = json_decode(\GoogleMaps::load('distancematrix')->setParam([
         'origins' => $start,
         'destinations' => $end,
         'key' => env('GOOGLE_MAP_API_KEY'),
         'units' => 'metric'
-    ])->get();
+    ])->get(), true);
+    return $obj['rows'][0]['elements'][0];
 }
 
 function getInfoGeoMap($address)
