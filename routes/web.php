@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/profile',function (){
+    return view('web/profile');
+});
 
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
@@ -36,4 +39,8 @@ Route::prefix('user')->middleware('auth')->group(function() {
     Route::post('save-car',[UserController::class,'saveCar'])->name('saveCar');
     Route::get('create-ride',[RideController::class,'create'])->name('createRide');
     Route::post('save-ride',[RideController::class,'store'])->name('saveRide');
+
+});
+Route::get('/profile',function (){
+    return view('web/profile-user');
 });

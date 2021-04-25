@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
+use App\Http\Controllers\Admin\AdminRideController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
+use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix("car")->group(function (){
@@ -27,4 +29,8 @@ Route::prefix('user')->group(function (){
 Route::prefix("feedback")->group(function () {
     Route::get('', [FeedbackController::class, 'list'])->name('listFeedback');
     Route::get('delete/{id}', [FeedbackController::class, 'delete'])->name('deleteFeedback');
+});
+Route::prefix("ride")->group(function () {
+    Route::get('', [AdminRideController::class, 'list'])->name('listRide');
+
 });

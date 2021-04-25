@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-final class RideRequestStatus extends Enum
+final class RequestStatus extends Enum
 {
     const WAITING =  1;
     const MATCHED =  2;

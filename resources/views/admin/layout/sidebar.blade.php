@@ -12,9 +12,9 @@
         </a>
     </li>
     <li class="nav-item " slot="user">
-        <a class="nav-link" href="/user">
+        <a class="nav-link" href="{{route('listRide')}}">
             <i class="fa fa-users" aria-hidden="true"></i>
-            <p>List Users</p>
+            <p>List Ride</p>
         </a>
     </li>
     <li class="nav-item " slot="category">
@@ -43,7 +43,7 @@
         </a>
     </li>
 
-{{--    <li class="nav-item" slot="option">--}}
+{{--    <li class="nav-item" slot="request">--}}
 {{--        <a class="nav-link" href="">--}}
 {{--            <i class="fa fa-server" aria-hidden="true"></i>--}}
 {{--            <p>Products Options</p>--}}
