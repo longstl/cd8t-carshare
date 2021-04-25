@@ -29,6 +29,8 @@ class AdminRideController extends Controller
     }
     public function save(){
 
+    }
+
     public function findMatch($id)
     {
         $ride = Ride::find($id);
