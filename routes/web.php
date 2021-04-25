@@ -26,8 +26,8 @@ Route::prefix('')->group(function(){
     Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
     Route::get('register',[EntryController::class,'register'])->name('registerForm');
     Route::post('register',[EntryController::class,'processRegister'])->name('registerUser');
-
 });
+
 Route::get('createLicense',[UserController::class,'updateLicense'])->name('updateLicense');
 Route::post('saveLicense',[UserController::class,'saveLicense'])->name('saveLicense');
 Route::get('createRide',[RideController::class,'create'])->name('createRide');
