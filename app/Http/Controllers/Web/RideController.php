@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RideController extends Controller
 {
     public function create(){
-        if(!Auth::user()->driving_license_number){
-            redirect()->route('updateLicense');
+        $user = User::find(Auth::id());
+        if(!$user->driving_license_number){
+            return redirect()->route('updateLicense');
         }
-        return "Update success";
+        return "hello";
     }
     public function store(){
 
