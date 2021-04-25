@@ -52,23 +52,19 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            <h3>Drive by</h3>
+                                            <h3>Driver</h3>
                                         </th>
                                         <th>
-                                            <h3>Time start</h3>
+                                            <h3>Start time</h3>
                                         </th>
                                         <th>
                                             <h3>Origin</h3>
                                         </th>
                                         <th>
-                                            <h3>Distination</h3>
-                                        </th>
-
-                                        <th>
-                                            <h3>Distanse</h3>
+                                            <h3>Destination</h3>
                                         </th>
                                         <th>
-                                            <h3>Seats Available</h3>
+                                            <h3>Seats available</h3>
                                         </th>
                                         <th>
                                             <h3>Status</h3>
@@ -94,17 +90,14 @@
                                                 <h4>{{$ri->destination_address}}</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$ri->distance}} km</h4>
-                                            </td>
-                                            <td>
                                                 <h4>{{$ri->seats_available}}</h4>
                                             </td>
                                             <td>
-                                                <h4>{{$ri->status}}</h4>
+                                                <h4>{{\App\Enums\RideStatus::getDescription($ri->status)}}</h4>
                                             </td>
                                             <td>
-                                                <a href=""><button class="btn btn-danger">Delete</button></a>
-                                                <a href=""><button class="btn btn-warning">MATCHED</button></a>
+                                                <a href=""><button class="btn btn-warning">Match</button></a>
+                                                <a href=""><button class="btn btn-danger">Cancel</button></a>
                                             </td>
                                         </tr>
                                         @endforeach
