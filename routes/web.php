@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Web\EntryController;
+use App\Http\Controllers\Web\RideController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', function () {
-    return view('Client/index');
+Route::prefix('admin')->group(function () {
+    require_once __DIR__ . '/admin.php';
+});
+Route::prefix('')->group(function(){
+    Route::get('login',[EntryController::class,'login'])->name('loginForm');
+    Route::post('login',[EntryController::class,'processLogin'])->name('loginUser');
+    Route::get('register',[EntryController::class,'register'])->name('registerForm');
+    Route::post('register',[EntryController::class,'processRegister'])->name('registerUser');
 });
 
-Route::get('/entry', function () {
-    return view('Client/entry');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/test', function () {
-    return view('Admin/car/list');
-});
+Route::get('createLicense',[UserController::class,'updateLicense'])->name('updateLicense');
+Route::post('saveLicense',[UserController::class,'saveLicense'])->name('saveLicense');
+Route::get('createRide',[RideController::class,'create'])->name('createRide');
+Route::post('saveRide',[RideController::class,'store'])->name('saveRide');
+
+

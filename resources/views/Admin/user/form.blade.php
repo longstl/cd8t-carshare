@@ -30,16 +30,23 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
-                <form method="post" id="formUser">
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                    </div>
+                @endif
+                <form method="post" id="formUser" action="{{route('storeUser')}}">
+                    @csrf
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div class="card card-secondary mb-4">
                                 <div class="card-header">Log In Info</div>
                                 <div class="card-body">
                                     <div class="form-group validate">
-                                        <label class="bmd-label-floating">Email </label>
-                                        <input type="email" class="form-control" value=""
-                                               name="email"
+                                        <label class="bmd-label-floating">Username</label>
+                                        <input type="text" class="form-control" value="{{ $data_user ? $data_user->username : ''}}"
+                                               name="username"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="row">
@@ -54,33 +61,26 @@
                                         </div>
                                     </div>
                                     <div class="form-group validate">
-                                        <label class="bmd-label-floating">Email Preference </label>
-                                        <input type="text" class="form-control" value=""
-                                               name="email_preference"
+                                        <label class="bmd-label-floating">Email</label>
+                                        <input type="email" class="form-control" value="{{ $data_user ? $data_user->email : ''}}"
+                                               name="email"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
 
                                         <select class="form-control" name="email_preference">
                                             <option hidden selected disabled>Email Preference</option>
-                                            <option value="1"
-                                            >User
-                                            </option>
-                                            <option value="2"
-                                            >Admin
-                                            </option>
+                                            <option value="0" {{$data_user && $data_user->email_preference === 0 ? 'selected' : ''}}>No</option>
+                                            <option value="1" {{$data_user && $data_user->email_preference === 1 ? 'selected' : ''}}>Only ride</option>
+                                            <option value="2" {{$data_user && $data_user->email_preference === 2 ? 'selected' : ''}}>All</option>
                                         </select>
                                     </div>
                                     <div class="form-group validate">
 
                                         <select class="form-control" name="role">
                                             <option hidden selected disabled>Role</option>
-                                            <option value="1"
-                                            >User
-                                            </option>
-                                            <option value="2"
-                                            >Admin
-                                            </option>
+                                            <option value="1" {{$data_user && $data_user->role === 1 ? 'selected' : ''}}>User</option>
+                                            <option value="2" {{$data_user && $data_user->role === 2 ? 'selected' : ''}}>Admin</option>
                                         </select>
                                     </div>
                                 </div>
@@ -93,41 +93,37 @@
 
 
                                         <p>Is Smoking Allowed</p>
-                                            <input type="radio" name="is_smoking_allowed"> Yes
+                                        <input type="radio" name="is_smoking_allowed" value="1" {{$data_user && $data_user->is_smoking_allowed === 1 ? 'checked' : ''}}> Yes
+                                        <input type="radio" name="is_smoking_allowed" value="0" {{$data_user && $data_user->is_smoking_allowed === 0 ? 'checked' : ''}}> No
 
-
-                                            <input type="radio" name="is_smoking_allowed"> No
                                     </div>
                                     <div class="form-group validate">
 
                                         <p>Is Pet Allowed</p>
 
 
-                                            <input type="radio" name="optradio"> Yes
+
+                                        <input type="radio" name="is_pet_allowed" value="1" {{$data_user && $data_user->is_pet_allowed === 1 ? 'checked' : ''}}> Yes
 
 
-                                            <input type="radio" name="optradio"> No
+                                        <input type="radio" name="is_pet_allowed" value="0" {{$data_user && $data_user->is_pet_allowed === 0 ? 'checked' : ''}}> No
+
+                                     
 
 
                                     </div>
 
                                     <select class="form-control" name="music_preference">
                                         <option hidden selected disabled>Music Preference</option>
-                                        <option value="1"
-                                        >1
-                                        </option>
-                                        <option value="2"
-                                        >2
-                                        </option>
+                                        <option value="0" {{$data_user && $data_user->music_preference === 0 ? 'selected' : ''}}>None</option>
+                                        <option value="1" {{$data_user && $data_user->music_preference === 1 ? 'selected' : ''}}>Calm</option>
+                                        <option value="2" {{$data_user && $data_user->music_preference === 2 ? 'selected' : ''}}>Loud</option>
                                     </select>
                                     <select class="form-control" name="chitchat_preference">
                                         <option hidden selected disabled>Chitchat Preference</option>
-                                        <option value="1"
-                                        >1
-                                        </option>
-                                        <option value="2"
-                                        >2
-                                        </option>
+                                        <option value="0" {{$data_user && $data_user->chitchat_preference === 0 ? 'selected' : ''}}>None</option>
+                                        <option value="1" {{$data_user && $data_user->chitchat_preference === 1 ? 'selected' : ''}}>Little</option>
+                                        <option value="2" {{$data_user && $data_user->chitchat_preference === 2 ? 'selected' : ''}}>Lot</option>
                                     </select>
                                 </div>
                             </div>
@@ -139,34 +135,24 @@
                                     <div class="row">
                                         <div class="form-group col-6 validate">
                                             <label class="bmd-label-floating">First Name </label>
-                                            <input type="text" class="form-control" value=""
-                                                   name="firstName">
+                                            <input type="text" class="form-control" value="{{ $data_user ? $data_user->first_name : ''}}"
+                                                   name="first_name">
                                         </div>
                                         <div class="form-group col-6 validate">
                                             <label class="bmd-label-floating">Last Name </label>
-                                            <input type="text" class="form-control" value=""
-                                                   name="lastName">
+                                            <input type="text" class="form-control" value="{{ $data_user ? $data_user->last_name : ''}}"
+                                                   name="last_name">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class=" validate">
-                                            <input type="date" name="dob" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-secondary mb-4">
-                                <div class="card-header"></div>
-                                <div class="card-body">
                                     <div class="form-group validate">
                                         <label class="bmd-label-floating">Address </label>
-                                        <input type="text" class="form-control" value=""
-                                               name="Street"
+                                        <input type="text" class="form-control" value="{{ $data_user ? $data_user->address : ''}}"
+                                               name="address"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
                                         <label class="bmd-label-floating">Phone</label>
-                                        <input type="text" value="" class="form-control"
+                                        <input type="text" value="{{ $data_user ? $data_user->phone : ''}}" class="form-control"
                                                name="phone">
                                     </div>
                                 </div>
@@ -176,38 +162,45 @@
                                 <div class="card-body">
                                     <div class="form-group validate">
                                         <label class="bmd-label-floating">Driving License Number </label>
-                                        <input type="text" class="form-control" value=""
+                                        <input type="text" class="form-control" value="{{ $data_user ? $data_user->driving_license_number : ''}}"
                                                name="driving_license_number"
                                                aria-describedby="emailHelp">
                                     </div>
-                                    <div class="form-group validate">
-                                        <label style="font-size: 11px">Driving License Valid From </label>
-                                        <input type="date" class="form-control" value=""
+                                        <label class="bmd-label-floating">Driving License Valid From </label>
+                                        <input type="date" class="form-control" value="{{ $data_user ? $data_user->driving_license_valid_from : ''}}"
                                                name="driving_license_valid_from"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
-                                        <label style="font-size: 11px">Driving License Valid To </label>
-                                        <input type="date" class="form-control" value=""
+                                        <label class="bmd-label-floating">Driving License Valid To </label>
+                                        <input type="date" class="form-control" value="{{ $data_user ? $data_user->driving_license_valid_to : ''}}"
                                                name="driving_license_valid_to"
                                                aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group validate">
 
                                         <select class="form-control" name="identification_type">
-                                            <option hidden selected disabled>Identification Type</option>
-                                            <option value="1"
-                                            >1
-                                            </option>
-                                            <option value="2"
-                                            >2
-                                            </option>
+                                            <option hidden disabled>Identification Type</option>
+                                            <option value="1" {{$data_user && $data_user->identification_type === 1 ? 'selected' : ''}}>Citizen Identification</option>
+                                            <option value="2" {{$data_user && $data_user->identification_type === 2 ? 'selected' : ''}}>Pass Port</option>
                                         </select>
                                     </div>
                                     <div class="form-group validate">
                                         <label class="bmd-label-floating">Identification Id </label>
-                                        <input type="text" class="form-control" value=""
+                                        <input type="text" class="form-control" value="{{ $data_user ? $data_user->identification_id : ''}}"
                                                name="identification_id"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Identification Valid From </label>
+                                        <input type="date" class="form-control" value="{{ $data_user ? $data_user->identification_valid_from : ''}}"
+                                               name="identification_valid_from"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group validate">
+                                        <label class="bmd-label-floating">Identification Valid To </label>
+                                        <input type="date" class="form-control" value="{{ $data_user ? $data_user->identification_valid_to : ''}}"
+                                               name="identification_valid_to"
                                                aria-describedby="emailHelp">
                                     </div>
                                 </div>
@@ -268,6 +261,8 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="row">
+                </div>
                 <div class="copyright float-right" id="date">
                     , made with <i class="material-icons">favorite</i> by
                     <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
@@ -287,40 +282,6 @@
     </div>
 </div>
 <input type="hidden" value="user" id="page_active">
-<script>
-    var back_to_profile = document.querySelector('.back_to_profile')
-    const imgurl = document.querySelector('input[name="avatar"]')
-    const cloudName = 'ddmgbaegq';
-    const unsignedUploadPreset = 'hrn13yyl';
-    const img = document.querySelector('input[name="avatar_file"]');
-    img.onchange = function () {
-        var file = this.files[0];
-        var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if (this.status === 200) {
-                    var dataJson = JSON.parse(this.responseText)
-                    imgurl.value = dataJson.url
-
-                    var img_review = document.getElementById('image-preview');
-                    img_review.src = dataJson.url;
-                    img_review.classList.remove('d-none');
-                }
-            }
-        }
-        xhr.open('POST', url, true);
-        var ud = new FormData();
-        ud.append('upload_preset', unsignedUploadPreset);
-        ud.append('tags', 'browser_upload')
-        ud.append('file', file)
-        xhr.send(ud)
-    }
-    back_to_profile.onclick = function () {
-        window.location.href = location.protocol + "/profile";
-    }
-</script>
 @include('layout.script')
 <script>
     $(function () {
