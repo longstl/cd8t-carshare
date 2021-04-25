@@ -75,5 +75,23 @@ class AdminUserController extends Controller
         $user->delete();
         return redirect()->route('listUser')->with(['status' => 'Delete admin success', 'user' => $user->username]);
     }
+
+
+    public function show()
+    {
+        $dtuser = User::whereNotNull('is_driving_license_certified')->where('is_driving_license_certified', 0)->paginate(10);
+        return view('Admin/user/drive', [
+            'dtuser'=>$dtuser
+        ]);
+    }
+    public function set($id)
+    {
+        $user = User::find($id);
+        $user->is_driving_license_certified = 1;
+        $user->update();
+        $user->save();
+        return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);;
+    }
+
     //
 }

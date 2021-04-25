@@ -20,6 +20,8 @@ Route::prefix("car")->group(function (){
 
 Route::prefix('user')->group(function (){
     Route::get('',[AdminUserController::class,'list'])->name('listUser');
+    Route::get('show',[AdminUserController::class,'show'])->name('show_approve_drivers');
+    Route::get('show/{id}',[AdminUserController::class,'set'])->name('set');
     Route::get('create',[AdminUserController::class,'create'])->name('createUser');
     Route::post('create',[AdminUserController::class,'store'])->name('storeUser');
     Route::get('update/{id}',[AdminUserController::class,'update'])->name('updateUser');
