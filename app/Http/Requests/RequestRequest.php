@@ -24,11 +24,11 @@ class RequestRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required','integer'],
-            'pickup_address' => ['required','string'],
-            'pickup_coordinate' => ['required','string'],
-            'pickup_time' => ['required','string'],
-            'ride_id' => ['required','integer'],
+            'desired_pickup_time' => ['required'],
+            'pickup_address' => ['required'],
+            'destination_address' => ['required'],
+            'seats_occupy' => ['required', 'integer'],
+            'user_id' => ['integer'], // DELETE THIS
         ];
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Request;
+use App\Http\Requests\RideRequest;
+use App\Models\Ride;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,14 +22,24 @@ class RideController extends Controller
         return view('web/create_ride');
     }
 
-    public function store()
+    public function store(RideRequest $request)
     {
-
+        $data = $request->validated();
+        $obj = json_decode(getDistance($data['origin_address'], $data['destination_address']), true);
+        $map_info = $obj['rows'][0]['elements'][0];
+        $data['distance'] = $map_info['distance']['value'];
+//        $origin = getInfoGeoMap($data['origin_address']);
+//        return $origin;
+        $data['user_id'] = Auth::id();
+        $ride = new Ride();
+        $ride->fill($data);
+        $ride->save();
+        return $ride;
     }
 
     public function list()
     {
-        return Request::all();
+        return Ride::all();
     }
 
     public function find()
