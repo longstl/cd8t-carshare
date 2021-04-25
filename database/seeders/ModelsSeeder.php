@@ -9,7 +9,7 @@ use App\Enums\Unit;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class DiscountModelsSeeder
+class ModelsSeeder
 {
     /**
      * Run the database seeds.
