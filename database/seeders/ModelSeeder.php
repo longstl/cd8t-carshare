@@ -1,11 +1,10 @@
 <?php
 
+
 namespace Database\Seeders;
 
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 class ModelSeeder extends Seeder
 {
     /**
@@ -17,132 +16,30 @@ class ModelSeeder extends Seeder
     {
         DB::table('models')->insert([
             [
-                'make' => 'sedan',
-                'model' => 'G30',
-                'make_year' => 2012,
-                'created_at' => Carbon::now()
+                'make' => 'VINFAST LUX SA2.0', // hang xe
+                'model' => 'SUV',// dong xe
+                'make_year' => 2020
             ],
             [
-                'make' => 'Convertible',
-                'model' => 'G30',
-                'make_year' => 2016,
-                'created_at' => Carbon::now()
+                'make' => 'VINFAST LUX A2.0', // hang xe
+                'model' => 'Sedan',// dong xe
+                'make_year' => 2020
             ],
             [
-                'make' => 'sedan',
-                'model' => 'M137',
-                'make_year' => 2019,
-                'created_at' => Carbon::now()
+                'make' => '530 M Sport', // hang xe
+                'model' => 'Sedan',// dong xe
+                'make_year' => 2021
             ],
             [
-                'make' => 'sedan',
-                'model' => 'F90',
-                'make_year' => 2021,
-                'created_at' => Carbon::now()
+                'make' => 'BMW X5 xDrive40i MSport', // hang xe
+                'model' => 'SUV',// dong xe
+                'make_year' => 2021
             ],
             [
-                'make' => 'Hatchback',
-                'model' => 'i1.2',
-                'make_year' => 2012,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'sedan',
-                'model' => 'G',
-                'make_year' => 2012,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'Crossover',
-                'model' => 'G',
-                'make_year' => 2012,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'Hatchback',
-                'model' => 'I20',
-                'make_year' => 2002,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'Hatchback',
-                'model' => 'F1',
-                'make_year' => 2015,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'sedan',
-                'model' => 'I1.5 T ',
-                'make_year' => 2009,
-                'created_at' => Carbon::now()
-            ],
-            [
-                'make' => 'Hatchback',
-                'model' => 'I30',
-                'make_year' => 2019,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'SUV',
-                'model' => 'G',
-                'make_year' => 2008,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'SUV',
-                'model' => '1.5T',
-                'make_year' => 2014,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'Crossover',
-                'model' => 'IVT 1.5T',
-                'make_year' => 2017,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'CIVIC',
-                'model' => 'IVT 1.5T',
-                'make_year' => 2013,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'sedan',
-                'model' => 'I1.5',
-                'make_year' => 2015,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'sedan',
-                'model' => 'G4',
-                'make_year' => 2020,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'crossover ',
-                'model' => '2.5 premium',
-                'make_year' => 2017,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'sedan',
-                'model' => 'G3',
-                'make_year' => 2013,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'crossover',
-                'model' => 'G9',
-                'make_year' => 2018,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'crossover',
-                'model' => 'F3',
-                'make_year' => 2012,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'sedan',
-                'model' => 'I7',
-                'make_year' => 2018,
-                'created_at' => Carbon::now()
-            ], [
-                'make' => 'sedan',
-                'model' => 'F90',
-                'make_year' => 2014,
-                'created_at' => Carbon::now()
-            ],
+                'make' => 'BMW Z4 sDrive30i M-Sport', // hang xe
+                'model' => 'Coupe',// dong xe
+                'make_year' => 2021
+            ]
         ]);
-        //
     }
 }
