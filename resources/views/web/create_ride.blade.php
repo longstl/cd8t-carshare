@@ -4,8 +4,9 @@
 @endsection
 @section('headExtraJs')
     <script>
-        let markerOptions;
-        let markerShow;
+        let markerOptionsCreateRide;
+        let markerShowCreateRide;
+        let addressCreateRide = '';
 
         function initMap() {
             let $lat = 0;
@@ -25,17 +26,34 @@
                     center: {lat: $lat, lng: $lng},
                     zoom: 18,
                 });
-                let origin = $('#origin-input')
-                origin.val($lat + ',' + $lng)
 
+                new google.maps.Geocoder().geocode({location: {lat: $lat, lng: $lng}}, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            for (let i = 0; i < results[0]['address_components'].length; i++) {
+                                if (i === results[0]['address_components'].length - 1) {
+                                    addressCreateRide += results[0]['address_components'][i]['long_name']
+                                } else {
+                                    addressCreateRide += results[0]['address_components'][i]['long_name'] + ', '
+                                }
+                            }
+                            let origin = $('#origin-input')
+                            origin.val(addressCreateRide)
+                        } else {
+                            window.alert("No results found");
+                        }
+                    } else {
+                        window.alert("Geocoder failed due to: " + status);
+                    }
+                });
 
-                markerOptions = {
+                markerOptionsCreateRide = {
                     position: {lat: $lat, lng: $lng},
                     map: map,
                     animation: google.maps.Animation.BOUNCE,
                     id: 1
                 };
-                markerShow = new google.maps.Marker(markerOptions);
+                markerShowCreateRide = new google.maps.Marker(markerOptionsCreateRide);
                 new AutocompleteDirectionsHandler(map);
             }
         }
@@ -80,7 +98,7 @@
                 autocomplete.addListener("place_changed", () => {
                     const place = autocomplete.getPlace();
                     if (!place.place_id) {
-                        window.alert("Please select an request from the dropdown list.");
+                        window.alert("Please select an option from the dropdown list.");
                         return;
                     }
 
@@ -94,9 +112,9 @@
             }
 
             route() {
-                console.log(this.map.getBounds().contains(markerOptions['position']))
-                if (this.map.getBounds().contains(markerOptions['position'])) {
-                    markerShow.visible = false;
+                console.log(this.map.getBounds().contains(markerOptionsCreateRide['position']))
+                if (this.map.getBounds().contains(markerOptionsCreateRide['position'])) {
+                    markerShowCreateRide.visible = false;
                 }
                 if (!this.originPlaceId || !this.destinationPlaceId) {
                     return;

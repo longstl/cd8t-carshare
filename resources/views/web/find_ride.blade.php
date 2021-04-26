@@ -4,9 +4,9 @@
 @endsection
 @section('headExtraJs')
     <script>
-        let markerOptions;
-        let markerShow;
-        let address = '';
+        let markerOptionsFindRide;
+        let markerShowFindRide;
+        let addressFindRide = '';
 
         function initMap() {
             let $lat = 0;
@@ -32,13 +32,13 @@
                         if (results[0]) {
                             for (let i = 0; i < results[0]['address_components'].length; i++) {
                                 if (i === results[0]['address_components'].length - 1) {
-                                    address += results[0]['address_components'][i]['long_name']
+                                    addressFindRide += results[0]['address_components'][i]['long_name']
                                 } else {
-                                    address += results[0]['address_components'][i]['long_name'] + ', '
+                                    addressFindRide += results[0]['address_components'][i]['long_name'] + ', '
                                 }
                             }
                             let origin = $('#origin-input')
-                            origin.val(address)
+                            origin.val(addressFindRide)
                         } else {
                             window.alert("No results found");
                         }
@@ -47,13 +47,13 @@
                     }
                 });
 
-                markerOptions = {
+                markerOptionsFindRide = {
                     position: {lat: $lat, lng: $lng},
                     map: map,
                     animation: google.maps.Animation.BOUNCE,
                     id: 1
                 };
-                markerShow = new google.maps.Marker(markerOptions);
+                markerShowFindRide = new google.maps.Marker(markerOptionsFindRide);
                 new AutocompleteDirectionsHandler(map);
             }
         }
@@ -112,9 +112,9 @@
             }
 
             route() {
-                console.log(this.map.getBounds().contains(markerOptions['position']))
-                if (this.map.getBounds().contains(markerOptions['position'])) {
-                    markerShow.visible = false;
+                console.log(this.map.getBounds().contains(markerOptionsFindRide['position']))
+                if (this.map.getBounds().contains(markerOptionsFindRide['position'])) {
+                    markerShowFindRide.visible = false;
                 }
                 if (!this.originPlaceId || !this.destinationPlaceId) {
                     return;
