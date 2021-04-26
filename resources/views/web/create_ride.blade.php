@@ -131,14 +131,13 @@
                 ============================================= -->
                 <div class="col_half">
                     <div class="fancy-title title-dotted-border">
-                        <h3>Create a new trip</h3>
+                        <h3>Offer a Ride</h3>
                     </div>
 
                     <div class="contact-widget">
                         @if($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                            <div style="color: red; margin-bottom: 20px;">
+                                <strong style="color: white"> {{ implode('', $errors->all(':message')) }}</strong>
                             </div>
                         @endif
                         <div class="contact-form-result"></div>
@@ -167,23 +166,23 @@
                             </div>
                             <div class="col_one_third">
                                 <label for="number_of_seats">Seats available</label>
-                                <input type="number" id="number_of_seats" name="number_of_seats"
-                                       onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
+                                <input type="number" id="number_of_seats" name="seats_available"
+                                       onchange="if (this.value < 1) {this.value=1}" class="controls sm-form-control"
                                        placeholder="Enter seats" required/>
                             </div>
                             <div class="col_one_third">
                                 <label for="template-contactform-service">Car</label>
                                 <select id="select_vehicle" name="car_id" class="form-control form-select selectpicker sm-form-control">
                                     @foreach( $cars as $car)
-                                        <option  selected hidden disabled> Car</option>
+                                        <option selected hidden disabled>Select car</option>
                                         <option value="{{$car->id}}">{{$car->model->make}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col_two_third">
                                 <label>
-                                    Total amount to collect from this ride<br>
-                                    (This amount will be split among all your riders. CarShare will collect 10% of this amount as service fee.)
+                                    Amount to collect from your rider<br>
+                                    (CarShare will collect 10% of this amount as service fee)
                                 </label>
                                 <input type="number" min="0" name="price_total"
                                        onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"

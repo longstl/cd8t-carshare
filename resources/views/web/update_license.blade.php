@@ -24,8 +24,10 @@
                                     @endif
                                     <form id="login-form" name="login-form" class="nobottommargin" action="{{route('saveLicense')}}" method="post">
                                         @csrf
-                                        <h3 class="center">Add your Driving License</h3>
-
+                                        <h3 class="center">{{$data_user->driving_license_number ? 'Update' : 'Add'}} your driving license</h3>
+                                        @if($data_user->driving_license_number && !$data_user->is_driving_license_certified)
+                                            <div style="margin-bottom: 10px;">Your driving license needs to be verified before you can create a ride. Please wait while we process yours.</div>
+                                        @endif
                                         <div class="col_full">
                                             <label for="login-form-username">Number:</label>
                                             <input type="text" id="login-form-username" name="driving_license_number" value="{{$data_user ? $data_user->driving_license_number:''}}" class="form-control" />
