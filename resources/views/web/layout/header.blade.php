@@ -45,16 +45,23 @@
                     </li>
                 </ul>
                 <div class="position-relative" id="top-search" style="width: 90px">
-                    <div style="width: 50%;float: left">
-                        <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
-                    </div>
-                    <div style="width: 50%;float: left">
-                        <a>
-                            <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
-                                <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
+                    @if(!\Illuminate\Support\Facades\Auth::check())
+
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
+                        </div>
+                    @else
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</a>
+                        </div>
+                    @endif
+                        <div style="width: 50%;float: left">
+                            <a>
+                                <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
+                                    <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
                                     ;position: absolute;top: -8px;right: -12px ">3</p></i>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                 </div>
                 <div class="top-cart-content notification"
                      style="right: 0; width: 350px; background: #f7f5f5;   position: absolute;top: 100%;">

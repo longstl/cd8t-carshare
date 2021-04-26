@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use App\Http\Requests\UpdateLicenseRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Car;
 use App\Models\Model;
 use App\Models\User;
+use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -19,11 +21,10 @@ class UserController extends Controller
     public function profile(){
         return view('web/user_profile');
     }
-
     public function saveLicense(UpdateLicenseRequest $request){
         $user = User::find(Auth::id());
-        $data['is_driving_license_certified'] = 0;
         $data = $request->validated();
+        $data['is_driving_license_certified'] = 0;
         $user->update($data);
         $user->save();
         return redirect()->route('createRide');

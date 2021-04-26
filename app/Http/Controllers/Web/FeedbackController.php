@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
@@ -23,6 +24,9 @@ class FeedbackController extends Controller
         ]);
     }
     public function create(){
+        $user_id = Auth::id();
+        $feedback = Feedback::query()->where('user_id',$user_id)->with('user')->get();
+        return view('web/contact',['feedback' => $feedback]);
     }
     public function store(){
     }

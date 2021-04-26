@@ -35,6 +35,7 @@ Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
   Route::get('profile', [UserController::class,'profile'])->name('profile_user');
+
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
