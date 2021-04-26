@@ -24,3 +24,13 @@ function getInfoGeoMap($address)
         'key' => env('GOOGLE_MAP_API_KEY')
     ])->get();
 }
+
+function addMinutes($original, $added_minutes)
+{
+    try {
+        $time = new DateTime($original);
+        $time->modify('+' . ceil($added_minutes) . ' minutes');
+        return $time->format('Y-m-d H:i:s');
+    } catch (\Exception $e) {
+    }
+}

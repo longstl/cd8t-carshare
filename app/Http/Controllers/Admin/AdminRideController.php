@@ -7,9 +7,6 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use Carbon\Carbon;
-use DateTime;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 
 
 class AdminRideController extends Controller
@@ -42,11 +39,12 @@ class AdminRideController extends Controller
     public function findMatch($id)
     {
         $ride = Ride::find($id);
-        $requests = Request::query()
+        $travel_date = date("Y-m-d", strtotime($ride['travel_start_time']));
+        $requests = \App\Models\Request::query()
             ->where('status', RequestStatus::WAITING)
-            ->where('desired_pickup_time', '<', Carbon::now())
+            ->where('desired_pickup_time', '>', Carbon::now())
             ->where('seats_occupy', '<=', $ride['seats_available'])
-            ->orderBy('desired_pickup_time')
+            ->whereDate('desired_pickup_time', $travel_date)
             ->get();
         $matched_requests = [];
         foreach ($requests as $request) {
@@ -54,21 +52,36 @@ class AdminRideController extends Controller
             if ($request['destination_difference'] > 1000) {
                 continue;
             }
-            $request['duration'] = getDistance($ride['origin_address'], $request['pickup_address'])['duration']['value'];
+            $origin_compare = getDistance($ride['origin_address'], $request['pickup_address']);
+            $request['origin_difference'] = $origin_compare['distance']['value'];
+            $request['duration'] = $origin_compare['duration']['value'];
+            $request['pickup_time'] = addMinutes($ride['travel_start_time'], $request['duration'] / 60);
+            $request['pickup_time_difference'] = strtotime($request['pickup_time']) - strtotime($request['desired_pickup_time']);
+            $request['pickup_time_difference_text'] = ($request['pickup_time_difference'] / 60).' minutes';
             array_push($matched_requests, $request);
         }
-        return $matched_requests;
+        usort($matched_requests, function ($a, $b) {
+            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference/1000 + $a->pickup_time_difference / 60;
+            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference/1000 + $b->pickup_time_difference / 60;
+            if ($a_sort_value == $b_sort_value) {
+                return 0;
+            }
+            return ($a_sort_value < $b_sort_value) ? -1 : 1;
+        });
+        return view('admin/ride/matches', [
+            'requests' => $matched_requests,
+            'ride' => $ride,
+        ]);
     }
 
-    public function match($ride_id, $request_id, $duration)
+    public function setMatch($ride_id, $request_id, $duration)
     {
         $ride = Ride::find($ride_id);
-        $request = Request::find($request_id);
+        $request = \App\Models\Request::find($request_id);
         $request->status = RequestStatus::MATCHED;
         $request->ride_id = $ride_id;
         try {
-            $time = new DateTime($ride['travel_start_time']);
-            $time->modify('+' . $duration . ' minutes');
+            $time = addMinutes($ride['travel_start_time'], $duration);
             $request->pickup_time = $time;
         } catch (\Exception $e) {
         }
@@ -81,6 +94,4 @@ class AdminRideController extends Controller
     public function delete()
     {
     }
-    //
-    //
 }
