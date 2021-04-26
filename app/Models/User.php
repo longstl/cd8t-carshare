@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'address',
+        'drivers_license_photo',
         'driving_license_number',
         'driving_license_valid_from',
         'driving_license_valid_to',
