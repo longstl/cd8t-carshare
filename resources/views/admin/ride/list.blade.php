@@ -62,7 +62,7 @@
                                                 {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}
                                             </td>
                                             <td>
-                                                {{date('H:i', strtotime($ride->travel_start_time))}}
+                                                {{date('M d, H:i', strtotime($ride->travel_start_time))}}
                                             </td>
                                             <td>
                                                 {{$ride->origin_address}}
