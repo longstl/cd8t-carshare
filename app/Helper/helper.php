@@ -55,3 +55,7 @@ function convertMetersToText($distance) {
         return number_format($distance / 1000, 1).' km';
     }
 }
+
+function getPriceRate() {
+    return 8000;
+}

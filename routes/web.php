@@ -41,7 +41,7 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
     Route::prefix('car')->group(function () {
         Route::get('create', [UserController::class, 'createCar'])->name('updateCar');
-        Route::post('save', [UserController::class, 'saveCar'])->name('storeCar');
+        Route::post('store', [UserController::class, 'storeCar'])->name('storeCar');
     });
     Route::prefix('ride')->group(function () {
         Route::get('create', [RideController::class, 'create'])->name('createRide');
