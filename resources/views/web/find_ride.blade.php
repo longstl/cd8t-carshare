@@ -379,6 +379,7 @@
 
                         <form class="nobottommargin" id="template-contactform" name="template-contactform"  method="POST">
                             @csrf
+
                             <div class="form-process"></div>
                             <div class="col_two_third">
                                 <label for="origin-input">Origin</label>
