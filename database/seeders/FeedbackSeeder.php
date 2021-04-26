@@ -25,27 +25,27 @@ class FeedbackSeeder extends Seeder
             ],
             [
                 'user_id' => 3, // 1 admin
-                'title' => 'My car is broken',
+                'title' => 'My model is broken',
                 'content' => 'help me'
             ],
             [
                 'user_id' => 4, // 1 admin
-                'title' => 'I do not have a car',
+                'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
                 'user_id' => 4, // 1 admin
-                'title' => 'I do not have a car',
+                'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
                 'user_id' => 4, // 1 admin
-                'title' => 'I do not have a car',
+                'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
                 'user_id' => 5, // 1 admin
-                'title' => 'I do not have a car',
+                'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
         ]);
