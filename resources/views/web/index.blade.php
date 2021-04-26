@@ -25,7 +25,7 @@
                             </span>
                         </h1>
                         <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
-                        <a href="{{route('create_request')}}"
+                        <a href="{{route('createRequest')}}"
                            class="btn btn-outline-dark button buftton-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
                                 style="color: #0b0b0b" class="find-a-ride">Find a Ride</span></a>
                         <a href=""

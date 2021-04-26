@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestRequest;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,10 @@ class FeedbackController extends Controller
         ]);
     }
     public function create(){
+        return view('web/contact');
     }
     public function store(){
+
     }
     public function update(){
     }
