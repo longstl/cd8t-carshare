@@ -12,17 +12,17 @@ class AdminModelController extends Controller
 {
     public function list()
     {
-        $list_car = Model::all();
-        return view('/admin/car/list', [
-            'list_car' => $list_car,
+        $list_model = Model::all();
+        return view('/admin/model/list', [
+            'list_model' => $list_model,
             'title' => 'List Model'
         ]);
     }
 
     public function create()
     {
-        return view('/admin/car/form', [
-            'data_car' => null
+        return view('/admin/model/form', [
+            'data_model' => null
         ]);
     }
 
@@ -31,14 +31,14 @@ class AdminModelController extends Controller
         $model = new Model();
         $model->fill($request->validated());
         $model->save();
-        return redirect()->route('listCar')->with(['status' => 'create car success', 'car' => $model->name]);
+        return redirect()->route('listModel')->with(['status' => 'create model success', 'model' => $model->name]);
     }
 
     public function update($id)
     {
         $model = Model::find($id);
-        return view('/admin/car/form', [
-            'data_car' => $model,
+        return view('/admin/model/form', [
+            'data_model' => $model,
             'title' => 'Update Model'
         ]);
     }
@@ -48,7 +48,7 @@ class AdminModelController extends Controller
         $model = Model::find($id);
         $model->update($request->validated());
         $model->save();
-        return redirect()->route('listCar')->with(['status' => 'Update car success', 'car' => $model->name]);
+        return redirect()->route('listModel')->with(['status' => 'Update model success', 'model' => $model->name]);
 
     }
 
@@ -56,6 +56,6 @@ class AdminModelController extends Controller
     {
         $model = Model::find($id);
         $model->delete();
-        return redirect()->route('listCar')->with(['status' => 'delete car success', 'car' => $model->name]);
+        return redirect()->route('listModel')->with(['status' => 'delete model success', 'model' => $model->name]);
     }
 }

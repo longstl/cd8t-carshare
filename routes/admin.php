@@ -9,13 +9,13 @@ use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix("cars")->group(function () {
-    Route::get('', [AdminModelController::class, 'list'])->name('listCar');
-    Route::get('create', [AdminModelController::class, 'create'])->name('createCar');
-    Route::post('create', [AdminModelController::class, 'store'])->name('storeCar');
-    Route::get('update/{id}', [AdminModelController::class, 'update'])->name('updateCar');
-    Route::post('update/{id}', [AdminModelController::class, 'save'])->name('saveCar');
-    Route::get('delete/{id}', [AdminModelController::class, 'delete'])->name('deleteCar');
+Route::prefix("models")->group(function () {
+    Route::get('', [AdminModelController::class, 'list'])->name('listModel');
+    Route::get('create', [AdminModelController::class, 'create'])->name('createModel');
+    Route::post('create', [AdminModelController::class, 'store'])->name('storeModel');
+    Route::get('update/{id}', [AdminModelController::class, 'update'])->name('updateModel');
+    Route::post('update/{id}', [AdminModelController::class, 'save'])->name('saveModel');
+    Route::get('delete/{id}', [AdminModelController::class, 'delete'])->name('deleteModel');
 });
 
 Route::prefix('users')->group(function () {

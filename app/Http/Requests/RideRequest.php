@@ -29,6 +29,7 @@ class RideRequest extends FormRequest
             'origin_address' => ['required', 'string'],
             'destination_address' => ['required', 'string'],
             'seats_available' => ['required', 'integer'],
+            'price_total' => ['required', 'numeric'],
         ];
     }
 }

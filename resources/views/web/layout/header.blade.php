@@ -13,7 +13,7 @@
             <nav id="primary-menu" class="menu_top">
 
                 <ul class="h-100">
-                    <li class="current"><a href="index.html">
+                    <li class="current"><a href="{{route('index')}}">
                             <div>HOME</div>
                         </a>
                     </li>
@@ -21,7 +21,7 @@
                             <div>RULES</div>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="{{route('createRequest')}}">
                             <div>FIND A RIDE</div>
                         </a>
                     </li>
@@ -35,8 +35,10 @@
                         </a>
                     </li>
                     <li class="mega-menu">
-                        <a href="#">
-                            <div style="display: inline; background-color: #1ABC9C !important; color: white;font-family: 'Raleway', sans-serif;font-weight: bold;letter-spacing: 1px;"
+
+                        <a href="{{route('createRide')}}">
+                            <div style="display: inline; background-color: #1ABC9C !important; color: white"
+
                                  class="btn">OFFER A RIDE
                             </div>
                         </a>
@@ -61,7 +63,15 @@
                                     ;position: absolute;top: -8px;right: -12px; cursor: pointer">3</p></i>
                             </a>
                         </div>
+                    @endif
+                    <div style="width: 50%;float: left">
+                        <a>
+                            <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
+                                <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
+                                    ;position: absolute;top: -8px;right: -12px; cursor: pointer">3</p></i>
+                        </a>
                     </div>
+                </div>
                 <div class="top-cart-content notification"
                      style="right: 0; width: 350px; background: #f7f5f5;   position: absolute;top: 100%;">
                     <div class="top-cart-title">

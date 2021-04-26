@@ -13,7 +13,7 @@ class AdminRideController extends Controller
 {
     public function list()
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query()->with(['model', 'model.user'])->get();
         return view('admin/ride/list', [
             'rides' => $rides
         ]);
@@ -87,6 +87,7 @@ class AdminRideController extends Controller
         $request = \App\Models\Request::find($request_id);
         $request->status = RequestStatus::MATCHED;
         $request->ride_id = $ride_id;
+        $request->price = $ride->price_total;
         try {
             $time = addMinutes($ride['travel_start_time'], $duration);
             $request->pickup_time = $time;
