@@ -174,6 +174,7 @@
                                         <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Create</button>
                                         <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Remove</button>
                                     </div>
+                                </div>
                             </form>
                         </div>
 
@@ -187,6 +188,7 @@
                             <div class="col-md-12 col-12 container_map">
                                 <div id="map"></div>
                         </div>
+                        </section>
 
                     </div><!-- Contact Form End -->
 

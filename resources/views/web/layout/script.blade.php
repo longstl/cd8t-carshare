@@ -31,7 +31,6 @@
 <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
 <script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}"
         async></script>
-<script src="{{Url('https://maps.google.com/maps/api/js?key=YOUR_API_KEY')}}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function (){
         $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
