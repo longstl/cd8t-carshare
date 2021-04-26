@@ -1,7 +1,15 @@
 @extends('web.layout.master')
+
 @section('title')
     Entry
 @endsection
+
+@section('headExtraJs')
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
+@endsection
+
 @section('content')
         <section id="content">
             <div class="content-wrap">
@@ -120,14 +128,12 @@
                                                     <label class="form-group">Identification Type :</label>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <input class="form-check-input" type="radio" name="identification_id"
-                                                           id="exampleRadios1" value="1" checked required>
+                                                        <input class="form-check-input" type="radio" name="identification_id" value="1" checked required>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Citizen Identification
                                                     </label></div>
                                                 <div class="col-md-3">
-                                                    <input class="form-check-input" type="radio" name="identification_id"
-                                                           id="exampleRadios1" value="2" checked required>
+                                                    <input class="form-check-input" type="radio" name="identification_id" value="2" checked required>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Passport
                                                     </label></div>
@@ -156,14 +162,12 @@
                                                         <label class="form-group">Identification Type :</label>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <input class="form-check-input" type="radio" name="identification_id"
-                                                               id="exampleRadios1" value="1" checked>
+                                                        <input class="form-check-input" type="radio" name="identification_id" value="1" checked>
                                                         <label class="form-check-label" for="exampleRadios1">
                                                             Citizen Identification
                                                         </label></div>
                                                     <div class="col-md-3">
-                                                        <input class="form-check-input" type="radio" name="identification_id"
-                                                               id="exampleRadios1" value="2" checked>
+                                                        <input class="form-check-input" type="radio" name="identification_id" value="2" checked>
                                                         <label class="form-check-label" for="exampleRadios1">
                                                             Passport
                                                         </label></div>
@@ -191,19 +195,19 @@
                                             <div class="col-md-6">
                                                 <label>Email Preference</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" id="exampleRadios1" value="0" checked>
+                                                    <input class="form-check-input" type="radio" name="email_preference" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Don't send to my email
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" id="exampleRadios2" value="1">
+                                                    <input class="form-check-input" type="radio" name="email_preference" value="1">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         Only send notification ride to email
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" id="exampleRadios3" value="2">
+                                                    <input class="form-check-input" type="radio" name="email_preference" value="2">
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         Send all notification to my email
                                                     </label>
@@ -212,19 +216,19 @@
                                             <div class="col-md-3">
                                                 <label>Music Preference</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios1" value="0" checked>
+                                                    <input class="form-check-input" type="radio" name="music_preference" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         No Music
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios2" value="1">
+                                                    <input class="form-check-input" type="radio" name="music_preference" value="1">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         Only calm music
                                                     </label>
                                                 </div>
                                                 <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios3" value="2">
+                                                    <input class="form-check-input" type="radio" name="music_preference" value="2">
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         Loud Music
                                                     </label>
@@ -233,19 +237,19 @@
                                             <div class="col-md-3">
                                                 <label>Chitchat Preference</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios1" value="0" checked>
+                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Don't chitchat
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios2" value="1">
+                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="1">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         Little chitchat
                                                     </label>
                                                 </div>
                                                 <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios3" value="2">
+                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="2">
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         Lot chitchat
                                                     </label>
@@ -259,7 +263,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios2" value="1">
+                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" value="1">
                                                         <label class="form-check-label" for="exampleRadios2">
                                                             Yes
                                                         </label>
@@ -267,7 +271,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check disabled">
-                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios3" value="0" checked>
+                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" value="0" checked>
                                                         <label class="form-check-label" for="exampleRadios3">
                                                             No
                                                         </label>
@@ -286,7 +290,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" id="exampleRadios2" value="1">
+                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" value="1">
                                                         <label class="form-check-label" for="exampleRadios2">
                                                             Yes
                                                         </label>
@@ -294,7 +298,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check disabled">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" id="exampleRadios3" value="0" checked>
+                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" value="0" checked>
                                                         <label class="form-check-label" for="exampleRadios3">
                                                             No
                                                         </label>
@@ -522,6 +526,55 @@
     back_to_profile.onclick = function (){
         window.location.href = location.protocol+"/profile";
     }
+
+    // ***** FCM *****
+    var firebaseConfig = {
+        apiKey: "AIzaSyBe99gU85yorlzWEMTh6ttpmFLhLHsmr9Q",
+        authDomain: "daokhanh-201004.firebaseapp.com",
+        databaseURL: "https://daokhanh-201004.firebaseio.com",
+        projectId: "daokhanh-201004",
+        storageBucket: "daokhanh-201004.appspot.com",
+        messagingSenderId: "396333762261",
+        appId: "1:396333762261:web:7401d6e1d01640bb62c45c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+
+    function InitializeFireBaseMessaging() {
+        messaging
+            .requestPermission()
+            .then(function () {
+                console.log("Notification Permission")
+                return messaging.getToken();
+            })
+            .then(function (token) {
+                console.log("Token: " + token)
+                document.getElementById("token").innerHTML = token
+            })
+            .catch(function (reason) {
+                console.log(reason)
+            })
+    }
+
+    messaging.onMessage(function (payload) {
+        console.log(payload)
+        let notify;
+        notify = new Notification(payload.notification.title, {
+            body: payload.notification.body,
+            image: payload.notification.image,
+        });
+    })
+    messaging.onTokenRefresh(function () {
+        messaging.getToken()
+            .then(function (newToken) {
+                console.log("New token: " + newToken)
+            }).catch(function (reason) {
+            console.log(reason)
+        })
+    })
+
+    InitializeFireBaseMessaging()
 </script>
 @endsection
 
