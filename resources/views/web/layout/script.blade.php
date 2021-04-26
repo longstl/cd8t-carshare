@@ -7,8 +7,6 @@
 <script src="{{lib_assets('web/js/components/moment.js')}}"></script>
 <script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
 <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
-<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}" async></script>
-<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function (){
         document.querySelector('.btn_account').onclick = function () {
@@ -23,31 +21,6 @@
         }
 
         $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
-        jQuery('#google-map').gMap({
-            address: 'Melbourne, Australia',
-            maptype: 'ROADMAP',
-            zoom: 14,
-            markers: [
-                {
-                    address: "Melbourne, Australia",
-                    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [32,39]
-                    }
-                }
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            }
-        });
         jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
             jQuery( '.flexslider .slide' ).resize();
         });
