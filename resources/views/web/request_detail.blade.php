@@ -1,59 +1,63 @@
+
+
 @extends('web.layout.master')
+ <style>
+        .table > tbody > tr > td {
+            padding: 13px!important;
+        }
+    </style>
 @section('title')
         Request Detail | Car Share
 @endsection
 @section('content')
-        <div class="container_content">
-            <div class="content">
-                <h1 class="text-dark">Request detail</h1><br>
-                <div class="col-12 col-md-12">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Names of fields</th>
-                            <th scope="col">Values</th>
-                        </tr>
-                        </thead>
+     <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <!-- Post Content
+                ============================================= -->
+                <div class="postcontent nobottommargin clearfix" style="margin: auto!important; float: none;">
+                    <h4>Request detail</h4>
+                    <table class="table" style="margin-bottom: 0 !important;">
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Origin</td>
-                            <td>182 Hoa Bằng, Yên Hoà, Cầu Giấy, Hà Nội, Vietnam</td>
+                            <td><h5 style="margin: 0!important;">Origin</h5></td>
+                            <td>{{ $data_request->pickup_address}}</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>Destination</td>
-                            <td>458 Minh Khai, Vĩnh Phú, Hai Bà Trưng, Hà Nội, Vietnam</td>
+                            <td><h5 style="margin: 0!important;">Destination</h5></td>
+                            <td>{{ $data_request->destination_address}}</td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>Start time</td>
-                            <td>12/12/2021 , 15h30p</td>
+                            <td><h5 style="margin: 0!important;">Start time</h5></td>
+                            <td>{{ $data_request->desired_pickup_time}}</td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td>Estimated distance</td>
-                            <td>3.5 km</td>
+                            <td><h5 style="margin: 0!important;">Estimated distance</h5></td>
+                            <td>null</td>
                         </tr>
                         <tr>
-                            <td>5</td>
-                            <td>Estimated travel time</td>
-                            <td>12 mins</td>
+                            <td><h5 style="margin: 0!important;">Estimated travel time</h5></td>
+                            <td>{{ $data_request->pickup_time}}</td>
                         </tr>
                         <tr>
-                            <td>6</td>
-                            <td>Amount of people</td>
-                            <td>7 people</td>
+                            <td><h5 style="margin: 0!important;">Amount of people</h5></td>
+                            <td>{{ $data_request->seats_occupy}}</td>
+                        </tr>
+                        <tr>
+                            <td><h5 style="margin: 0!important;">Price</h5></td>
+                            <td>{{ $data_request->price }}</td>
                         </tr>
                         </tbody>
-                    </table>
-                    <div class="btn_container">
 
-                        <button class="btn btn-primary">Cancel</button>
-                    </div>
-                </div>
+                    </table>
+                    <div class="line" style="margin: 0 0 20px 0;"></div>
+                    <button class="btn btn-primary">Cancel</button>
+                </div><!-- .postcontent end -->
             </div>
         </div>
+    </section>
 @endsection
-
+ 

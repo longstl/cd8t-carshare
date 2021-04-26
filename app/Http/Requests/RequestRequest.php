@@ -28,7 +28,7 @@ class RequestRequest extends FormRequest
             'pickup_address' => ['required'],
             'destination_address' => ['required'],
             'seats_occupy' => ['required', 'integer'],
-            'user_id' => ['integer'], // DELETE THIS
+
         ];
     }
 }

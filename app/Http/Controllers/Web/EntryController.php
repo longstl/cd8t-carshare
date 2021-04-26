@@ -8,16 +8,19 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Symfony\Component\String\u;
 
 class EntryController extends Controller
 {
     public function register()
     {
-        return view('web/entry');
+        $user = User::all();
+        return view('web/entry',['dataUser' => $user]);
     }
     public function login()
     {
-        return view('web/entry');
+        $user = User::all();
+        return view('web/entry',['dataUser' => $user]);
     }
 
     public function processRegister(UserRequest $request)
