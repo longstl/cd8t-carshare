@@ -149,13 +149,13 @@
 
                             <div class="col_two_third">
                                 <label for="origin-input">Origin</label>
-                                <input type="text" id="origin-input" name="origin_address" value="" class="controls pac-target-input valid sm-form-control" required/>
+                                <input type="text" id="origin-input" name="origin_address" value="" placeholder="Enter origin" class="controls pac-target-input valid sm-form-control" required/>
                             </div>
 
                             <div class="col_two_third">
                                 <label for="destination-input">Destination</label>
                                 <input type="text" id="destination-input" name="destination_address"
-                                       class="controls pac-target-input valid  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false" required/>
+                                       class="controls pac-target-input valid  sm-form-control" placeholder="Enter destination" autocomplete="off" aria-invalid="false" required/>
                             </div>
                             <div class="col_two_third">
                                 <label>Start time</label>
