@@ -157,6 +157,14 @@
                                 <input type="text" id="destination-input" name="destination_address"
                                        class="controls pac-target-input valid  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false" required/>
                             </div>
+                            <div class="col_two_third">
+                                <label>Start time</label>
+                                <div class="form-group">
+                                    <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
+                                        <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" required/>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="col_two_third">
                                 <label>Start time</label>
@@ -169,7 +177,9 @@
 
                             <div class="col_one_third">
                                 <label for="number_of_seats">Seats</label>
-                                <input type="number" id="number_of_seats" name="seats_available" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter number of seats"/>
+                                <input type="number" id="number_of_seats" name="number_of_seats"
+                                       onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
+                                       placeholder="Enter number of seats" required/>
                             </div>
                             <div class="col_one_third">
                                 <label for="template-contactform-service">Model rider</label>

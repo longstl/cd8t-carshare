@@ -17,13 +17,13 @@
                                 <div class="col_full">
                                     <label for="login-form-username">Username:</label>
                                     <input type="text" id="login-form-username" name="username" value=""
-                                           class="form-control"/>
+                                           class="form-control" required/>
                                 </div>
 
                                 <div class="col_full">
                                     <label for="login-form-password">Password:</label>
                                     <input type="password" id="login-form-password" name="password" value=""
-                                           class="form-control"/>
+                                           class="form-control" required/>
                                 </div>
 
                                 <div class="col_full">
@@ -55,42 +55,42 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-group">Username</label>
-                                                <input type="text" name="username" value="" class="form-control"/>
+                                                <input type="text" name="username" value="" class="form-control" required/>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-group">Email</label>
-                                                <input type="text" name="email" value="" class="form-control"/>
+                                                <input type="text" name="email" value="" class="form-control" required/>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 20px">
                                             <div class="col-md-6">
                                                 <label class="form-group">Password</label>
-                                                <input type="text" name="password" value="" class="form-control"/>
+                                                <input type="text" name="password" value="" class="form-control" required/>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <label class="form-group">Comfirm Password</label>
-                                                <input type="text" name="password" value="" class="form-control"/>
+                                                <input type="text" name="password" value="" class="form-control" required/>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 20px">
                                             <div class="col-md-3">
                                                 <label class="form-group">First Name</label>
-                                                <input type="text" name="first_name" value="" class="form-control"/>
+                                                <input type="text" name="first_name" value="" class="form-control" required/>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="form-group">Last Name</label>
-                                                <input type="text" name="last_name" value="" class="form-control"/>
+                                                <input type="text" name="last_name" value="" class="form-control" required/>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-group">Phone</label>
-                                                <input type="text" name="phone" value="" class="form-control"/>
+                                                <input type="text" name="phone" value="" class="form-control" required/>
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 20px">
                                             <div class="col-md-12">
                                                 <label class="form-group">Address</label>
-                                                <input type="text" name="address" value="" class="form-control"/>
+                                                <input type="text" name="address" value="" class="form-control" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                                 <label class="form-group">Drivers license photo</label>
                                                 <div class="d-flex">
                                                     <input style="display: none" type="file" name="avatar_file"
-                                                           id="myFileInput" >
+                                                           id="myFileInput" required>
                                                     <input type="hidden" name="drivers_license_photo">
                                                     <div class="col-md-2 pt-cr-img pt-wrap-plus border-success"
                                                          onclick="document.getElementById('myFileInput').click();"
@@ -114,19 +114,40 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top: 70px">
+                                    <div class="row" style="padding-top: 50px">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-group">Identification Type :</label>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input class="form-check-input" type="radio" name="identification_id"
+                                                           id="exampleRadios1" value="1" checked required>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Citizen Identification
+                                                    </label></div>
+                                                <div class="col-md-3">
+                                                    <input class="form-check-input" type="radio" name="identification_id"
+                                                           id="exampleRadios1" value="2" checked required>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Passport
+                                                    </label></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 70px;padding-left: 10px">
                                             <div class="col-md-6">
                                                 <label class="form-group">Driving License Number</label>
                                                 <input type="text" name="driving_license_number" value=""
-                                                       class="form-control"/>
+                                                       class="form-control" required/>
                                             </div>
                                             <div class="col-md-3"><label class="form-group">Valid from</label>
                                                 <input type="date" name="driving_license_number" value=""
-                                                       class="form-control"/>
+                                                       class="form-control" required/>
                                             </div>
                                             <div class="col-md-3"><label class="form-group">Valid To</label>
                                                 <input type="date" name="driving_license_number" value=""
-                                                       class="form-control"/>
+                                                       class="form-control" required/>
                                             </div>
                                         </div>
                                     <div class="row" style="padding-top: 50px">
@@ -154,14 +175,14 @@
                                                 <div class="col-md-6">
                                                     <label class="form-group">Identification ID</label>
                                                     <input type="text" name="driving_license_number" value=""
-                                                           class="form-control"/>
+                                                           class="form-control" required/>
                                                 </div>
                                                 <div class="col-md-3"><label class="form-group">Valid from</label>
                                                     <input type="date" name="driving_license_valid_from" value=""
-                                                           class="form-control"/></div>
+                                                           class="form-control" required/></div>
                                                 <div class="col-md-3"><label class="form-group">Valid To</label>
                                                     <input type="date" name="driving_license_valid_to" value=""
-                                                           class="form-control"/></div>
+                                                           class="form-control" required/></div>
                                             </div>
 
                                         </div>

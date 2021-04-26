@@ -19,6 +19,8 @@ class Ride extends Model
         'destination_coordinate',
         'distance',
         'seats_available',
+        'price_total',
+        'price_total_receivable',
     ];
     public function car(){
         return $this->belongsTo(Car::class);

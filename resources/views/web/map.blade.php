@@ -209,7 +209,7 @@
                 <div class="form-group">
                     <label for="origin-input">Origin</label>
                     <input name="origin_input" id="origin-input" class="col-md-12 form-control controls" type="text"
-                           placeholder="Enter an origin location"/>
+                           placeholder="Enter an origin location" required/>
                 </div>
             </div>
             <br>
@@ -217,14 +217,14 @@
                 <div class="form-group">
                     <label for="destination-input">Destination</label>
                     <input name="destination_input" id="destination-input" class="form-control controls" type="text"
-                           placeholder="Enter a destination location"/>
+                           placeholder="Enter a destination location" required/>
                 </div>
             </div>
             <br>
             <div class=" row col-md-8 col-11">
                 <div class="form-group">
                     <label for="start-time">Date</label>
-                    <input name="start_time" id="start-time" class="form-control controls" type="date">
+                    <input name="start_time" id="start-time" class="form-control controls" type="date" required/>
                 </div>
             </div>
             <br>
@@ -232,7 +232,7 @@
                 <div class="form-group">
                     <label for="start-time">Star time</label>
                     <input name="start_time" id="start-time" class="form-control controls" type="text"
-                           placeholder="Travel star time">
+                           placeholder="Travel star time" required/>
                 </div>
             </div>
 
@@ -241,7 +241,7 @@
                 <div class="form-group col-4 col-md-4">
                     <label for="number_of_seats">seats</label>
                     <input name="number_of_seats" onchange="if (this.value < 1){this.value=1}" id="number_of_seats"
-                           class=" form-control controls" type="number" placeholder="Enter number of seats">
+                           class=" form-control controls" type="number" placeholder="Enter number of seats" required/>
                 </div>
                 <div class="form-group col-6 col-md-6">
                     <label for="select_vehicle">Model rider</label><br>
@@ -268,9 +268,9 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly" async></script>
+<script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
+<script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
+<script src="{{url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}" async></script>
 <script>
     //show_distance
     $('#origin-input').change(function (){
