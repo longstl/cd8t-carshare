@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/layers.css')}}">
     <link rel="stylesheet" type="text/css" href="{{lib_assets('web/css/navigation.css')}}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css">
+    <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css')}}">
     <style>
         .container input {
             opacity: 1 !important;

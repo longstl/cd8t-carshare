@@ -23,7 +23,6 @@
     <title>Contact - Layout 2 with reCaptcha | Canvas</title>
 
 </head>
-
 <body class="stretched">
 
 <!-- Document Wrapper

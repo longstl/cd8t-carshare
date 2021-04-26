@@ -153,7 +153,7 @@
                                                 <div class="col-md-4">
                                                     <label class="form-group">Identification Type :</label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <input class="form-check-input" type="radio" name="identification_id"
                                                            id="exampleRadios1" value="1" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
@@ -186,7 +186,7 @@
                                 </div>
                                 <div class="row" style="padding-top: 50px">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-6">
                                             <label>Email Preference</label>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="email_preference" id="exampleRadios1" value="0" checked>
@@ -207,7 +207,7 @@
                                                     </label>
                                                 </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <label>Music Preference</label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios1" value="0" checked>
@@ -216,7 +216,7 @@
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios2" value="1" checked>
+                                                <input class="form-check-input" type="radio" name="music_preference" id="exampleRadios2" value="1">
                                                 <label class="form-check-label" for="exampleRadios2">
                                                     Only calm music
                                                 </label>
@@ -228,6 +228,27 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <label>Chitchat Preference</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios1" value="0" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Don't chitchat
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios2" value="1">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Little chitchat
+                                                </label>
+                                            </div>
+                                            <div class="form-check disabled">
+                                                <input class="form-check-input" type="radio" name="chitchat_preference" id="exampleRadios3" value="2">
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                    Lot chitchat
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row" style="padding-top: 50px;padding-left: 15px">
                                         <div class="row">
@@ -236,7 +257,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios2" value="1" checked>
+                                                    <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios2" value="1">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         Yes
                                                     </label>
@@ -244,7 +265,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios3" value="0">
+                                                    <input class="form-check-input" type="radio" name="is_smoking_allowed" id="exampleRadios3" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         No
                                                     </label>
@@ -271,7 +292,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="is_pet_allowed" id="exampleRadios3" value="0">
+                                                    <input class="form-check-input" type="radio" name="is_pet_allowed" id="exampleRadios3" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         No
                                                     </label>
