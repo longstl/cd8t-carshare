@@ -1,36 +1,27 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('.btn_account').onclick = function () {
-            document.querySelector('#account').classList.toggle('accountn')
-        }
-        document.querySelector('.iconbar').onclick = function (){
-            document.querySelector('#primary-menu').classList.toggle('menu_top')
-        }
-    })
-</script>
 <script src="{{lib_assets('web/js/jquery.js')}}"></script>
-<script src="{{lib_assets('web/js/jquery-ui.js')}}"></script>
 <script src="{{lib_assets('web/js/plugins.js')}}"></script>
 <script src="{{lib_assets('web/js/functions.js')}}"></script>
 <script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
-<script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js')}}"></script>
-{{--<script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>--}}
-<script>
-    document.addEventListener('DOMContentLoaded',function (){
-        document.getElementById('top-search').onclick = function (){
-            document.querySelector('#sign-iu').classList.toggle('sign-iu');
-            document.querySelector('#sign-iu').classList.toggle('sign-iu1');
-        }
-    })
-</script>
-<script src="{{URL('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')}}"></script>
-<script src="{{URL('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')}}"></script>
+<script src="{{lib_assets('web/js/jquery.validate.min.js')}}"></script>
+<script src="{{lib_assets('web/js/popper.min.js')}}"></script>
+<script src="{{lib_assets('web/js/bootstrap.min.js')}}"></script>
 <script src="{{lib_assets('web/js/components/moment.js')}}"></script>
 <script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
 <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
 <script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&libraries=places&v=weekly')}}" async></script>
 <script>
     document.addEventListener('DOMContentLoaded', function (){
+        document.querySelector('.btn_account').onclick = function () {
+            document.querySelector('#account').classList.toggle('accountn')
+        }
+        document.querySelector('.iconbar').onclick = function (){
+            document.querySelector('#primary-menu').classList.toggle('menu_top')
+        }
+        document.getElementById('top-search').onclick = function (){
+            document.querySelector('#sign-iu').classList.toggle('sign-iu');
+            document.querySelector('#sign-iu').classList.toggle('sign-iu1');
+        }
+
         $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
         jQuery('#google-map').gMap({
             address: 'Melbourne, Australia',
@@ -63,9 +54,9 @@
         $('.fa-bell').click(function (){
             $('.top-cart-content').toggleClass('notification')
         });
-        $('#btn-delete').click(function (event){
-            event.preventDefault();
-            $('#Delete').modal('show');
-        })
+        // $('#btn-delete').click(function (event){
+        //     event.preventDefault();
+        //     $('#delete-modal').modal('show');
+        // })
     })
 </script>

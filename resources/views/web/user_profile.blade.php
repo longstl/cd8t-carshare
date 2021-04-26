@@ -157,7 +157,7 @@
 
                     </div>
                     <div class="col-md-3 clearfix">
-                        <div class="modal fade" id="Delete" tabindex="-1"
+                        <div class="modal fade" id="delete-modal" tabindex="-1"
                              role="dialog" aria-labelledby="deleteUser"
                              aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -186,7 +186,7 @@
                         </div>
                         <div class="list-group">
                             <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="icon-user float-right"></i></a>
-                            <a href="" class="list-group-item list-group-item-action clearfix" id="btn-delete">Delete <i class="icon-laptop2 float-right"></i></a>
+                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="icon-laptop2 float-right"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
                         </div>
 

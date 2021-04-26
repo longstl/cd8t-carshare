@@ -1,14 +1,12 @@
 <footer id="" class="dark" style="width: 100% ;" >
     <div class="container  container_footer_root  col-md-12 col-12">
         <div class="col-md-10  col-sm-12 col-12 container_footer" >
-
-
             <div style="height: auto" class="footer_responsive col-md-3 col-12">
                 <div class="">
                     <div class="widget widget_links clearfix">
                         <h4 style="margin-left: 5%">Introduce </h4>
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">Carpooling was the first service we launched.
+                            <li><a href="#">Carpooling was the first service we launched.
                                    Helping you travel safely and conveniently at predictable rates wherever you are.
                             </a></li>
                         </ul>
@@ -21,11 +19,11 @@
                     <div class="widget widget_links clearfix">
                         <h4 style="margin-left: 5%">COMPANY</h4>
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">Update Covid-19</a></li>
-                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Working car share</a></li>
-                            <li><a href="http://wordpress.org/extend/plugins/">News & safety</a></li>
-                            <li><a href="http://wordpress.org/support/">Driver center </a></li>
-                            <li><a href="http://wordpress.org/extend/themes/">Contact-Us</a></li>
+                            <li><a href="#">Update Covid-19</a></li>
+                            <li><a href="#">Working car share</a></li>
+                            <li><a href="#">News & safety</a></li>
+                            <li><a href="#">Driver center </a></li>
+                            <li><a href="#">Contact-Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +33,7 @@
                     <div class="widget widget_links clearfix">
                         <h4 style="margin-left: 5%">Car share Forward Together</h4>
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">Car share limited company</a></li>
+                            <li><a href="#">Car share limited company</a></li>
                             <li><a href="#">Address: Aptech Building, So 8 Ton That Thuyet, My Dinh, Hanoi, Vietnam</a></li>
                             <li><a href="#">Business Code: 56789</a></li>
                             <li><a href="#"> Legal representative: Duc Quan</a></li>
@@ -88,23 +86,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
     <div id="copyrights">
