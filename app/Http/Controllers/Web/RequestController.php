@@ -6,25 +6,34 @@ namespace App\Http\Controllers\Web;
 
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
+use App\Http\Controllers\Controller;
+
 use App\Http\Requests\RequestRequest;
 use App\Models\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RequestController
+class RequestController extends Controller
 {
+    public function create()
+    {
+       return view('web/find_ride');
+    }
     public function store(RequestRequest $request)
     {
         $data = $request->validated();
-//        $data['user_id'] = Auth::id();
+        $data['user_id'] = Auth::id();
         $new_request = new Request();
         $new_request->fill($data);
         $new_request->save();
-        return $new_request;
+        return redirect()->route('request_detail', [$new_request->id]);
     }
 
-    public function list()
+    public function detail($id)
     {
-        return Request::all();
+        $data_request = Request::find($id);
+        return view('web/request_detail',[
+            'data_request'=>$data_request
+        ]);
     }
 
     public function book($id)

@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('title')
-    List Request
+    Matches for Ride {{$ride->id}}
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Options</h3>
+                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Found {{sizeof($requests)}} matches</h3>
                                 <form action="#" style="display: inline-block">
                                     <div class="form-group no-border">
                                         <input type="text" placeholder="Search by keyword" style="background: none;border: none;color: #9c9b9b">
@@ -25,63 +25,50 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            Order by
+                                            User
                                         </th>
                                         <th>
-                                            Pick Up Address
+                                            Pickup address<br>
+                                            <small>(Distance from last pickup point)</small>
                                         </th>
                                         <th>
-                                            Destination Address
+                                            Destination address<br>
+                                            <small>(Distance from destination)</small>
                                         </th>
                                         <th>
-                                            Time
+                                            Pickup time
                                         </th>
                                         <th>
-                                            Seats Occupy
-                                        </th>
-
-
-
-                                        <th>
-                                            Price
-                                        </th>
-                                        <th>
-                                            Status
+                                            Seats occupy
                                         </th>
                                         <th>
                                             Action
                                         </th>
-
                                         </thead>
-                                        @foreach($list_request as $request)
+                                        @foreach($requests as $request)
                                         <tbody>
                                         <tr>
                                             <td>
                                                 {{$request->user->first_name}} {{$request->user->last_name}}
                                             </td>
                                             <td>
-                                                {{$request->pickup_address}}
+                                                {{$request->pickup_address}}<br>
+                                                ({{$request->origin_difference_text}})
                                             </td>
                                             <td>
-                                                {{$request->destination_address}}
+                                                {{$request->destination_address}}<br>
+                                                ({{$request->destination_difference_text}})
                                             </td>
                                             <td>
-                                                {{date('H:i', strtotime($request->desired_pickup_time))}}
-
+                                                Desired: {{date('H:i', strtotime($request->desired_pickup_time))}}<br>
+                                                Estimated: <strong>{{date('H:i', strtotime($request->pickup_time))}}</strong><br>
+                                                ({{$request->pickup_time_difference_text}} difference)
                                             </td>
-
                                             <td>
                                                 {{$request->seats_occupy}}
                                             </td>
                                             <td>
-                                                {{$request->price}}
-
-                                            </td>
-                                            <td>
-                                                {{\App\Enums\RequestStatus::getDescription($request->status)}}
-                                            </td>
-                                            <td>
-                                                <a href=""><button class="btn btn-success">Edit</button></a>
+                                                <a href="{{route('setMatch', [$ride->id, $request->id, $request->duration])}}"><button class="btn btn-success">Match</button></a>
                                             </td>
                                         </tr>
                                         @endforeach
