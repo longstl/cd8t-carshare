@@ -48,7 +48,8 @@
                                 ratione.</p>
                         </div>
                         <div class="row">
-                            <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+                            <form id="register-form" name="register-form" class="nobottommargin" action="{{route('registerUser')}}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="row">
                                         <div class="row">
@@ -113,28 +114,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top: 50px">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label class="form-group">Identification Type :</label>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <input class="form-check-input" type="radio" name="identification_id"
-                                                           id="exampleRadios1" value="1" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Citizen Identification
-                                                    </label></div>
-                                                <div class="col-md-3">
-                                                    <input class="form-check-input" type="radio" name="identification_id"
-                                                           id="exampleRadios1" value="2" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Passport
-                                                    </label></div>
-
-                                            </div>
-                                        </div>
-                                        <div class="row" style="padding-top: 70px;padding-left: 10px">
+                                    <div class="row" style="padding-top: 70px">
                                             <div class="col-md-6">
                                                 <label class="form-group">Driving License Number</label>
                                                 <input type="text" name="driving_license_number" value=""
@@ -149,7 +129,7 @@
                                                        class="form-control"/>
                                             </div>
                                         </div>
-                                        <div class="row" style="padding-top: 50px">
+                                    <div class="row" style="padding-top: 50px">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -303,15 +283,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row col_last" style="padding-top: 50px">
-                                        <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
-                                    </div>
-                                </div>
                                 <div class="row" style="padding-top: 50px">
                                     <button style="width: 25%" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
                                 </div>
-                            </div>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>
