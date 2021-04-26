@@ -8,7 +8,13 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/profile', function () {
+
+Route::get('/contact',function (){
+    return view('web/contact');
+});
+
+Route::get('/profile',function (){
+
     return view('web/profile');
 });
 
@@ -50,6 +56,12 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
 });
 
-Route::get('/profile', function () {
+Route::prefix('request')->group(function() {
+    Route::get('', [RequestController::class, 'list']);
+    Route::get('create', [RequestController::class, 'create'])->name('create_request');
+    Route::post('create', [RequestController::class, 'store']);
+    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+});
+Route::get('/profile',function (){
     return view('web/user_profile');
 });
