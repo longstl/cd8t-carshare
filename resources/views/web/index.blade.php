@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,23 +11,35 @@
 <div id="wrapper" class="clearfix">
 @include('web.layout.header')
     <section id="slider" class="slider-element "
-             style="background: url('{{url('https://storage.googleapis.com/f1-cms/2019/10/fc32bc4b-20191014_022042.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
+             style="background: url('{{lib_assets('img/hhhhhh.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
              data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
         <div class="slider-parallax-inner">
 
-            <div class="container clearfix">
-                <div class="vertical-middle dark center">
+@extends('web.layout.master')
+@section('title')
+    Home | Car Share
+@endsection
+ @section('content')
+        <section id="slider" class="slider-element "
+                 style="background: url('{{url('https://storage.googleapis.com/f1-cms/2019/10/fc32bc4b-20191014_022042.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
+                 data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
+            <div class="slider-parallax-inner">
 
-                    <div class="heading-block nobottommargin center">
-                        <h1 class="txt_baner">
+
+                <div class="container clearfix">
+                    <div class="vertical-middle dark center">
+
+                        <div class="heading-block nobottommargin center">
+                            <h1 class="txt_baner">
                             <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
                                   data-speed="3500">
 									LOOKING FOR A RIDE ?</span>
+
                         </h1>
                         <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
                         <a href="#"
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
-                                style="color: #0b0b0b">Find a Ride</span></a>
+                                style="color: #0b0b0b" class="find-a-ride">Find a Ride</span></a>
                         <a href="#"
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
                                 style="color: #0b0b0b">Book Now</span></a>
@@ -41,7 +54,7 @@
                 <div class="col_one_third">
                     <div class="feature-box fbox-border fbox-effect">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-screen i-alt"></i></a>
+                            <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">1</p>
                         </div>
                         <h3>FIND</h3>
                         <p>Find People who share similar journey and match criteria</p>
@@ -50,7 +63,7 @@
                 <div class="col_one_third">
                     <div class="feature-box fbox-border fbox-effect">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-eye i-alt"></i></a>
+                            <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">2</p>
                         </div>
                         <h3>BOOK</h3>
                         <p>Book your ride online in few clicks</p>
@@ -60,7 +73,7 @@
                 <div class="col_one_third col_last">
                     <div class="feature-box fbox-border fbox-effect">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-beaker i-alt"></i></a>
+                            <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">3</p>
                         </div>
                         <h3>THAT"S ALL</h3>
                         <p>Connect people & make new friends</p>
@@ -75,13 +88,9 @@
                 <img data-animate="fadeInLeft" src="https://mailinh.vn/uploads/media/1/images/dich-vu/1.png">
             </div>
             <div class="col_two_third bottommargin-sm col_last abc">
-                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">TRAVELLING</p>
-                <p class="text-P" style="margin-bottom: 10px !important;font-size: 300%"><b>ALONE</b></p>
-                <p class="text-P">Offer ride and earn money enjoy the preedom of income with mo efforts with the help of
-                    this incredible website.</p>
-                <a href="#"
-                   class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ
-                    MORE</a>
+                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">Discover new cities at small prices with BlaBlaCar buses.</p>
+                <p class="text-P">Every week, every month. To meet with a loved one, or to discover a new place. With a big family, or a big luggage. To Paris, Amsterdam or any other European destination.</p>
+                <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ MORE</a>
             </div>
         </div>
     </section>
@@ -90,42 +99,123 @@
             <div class="container clearfix">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="feature-box fbox-border fbox-effect">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-screen i-alt"></i></a>
-                            </div>
-                            <h3>Responsive Layout</h3>
-                            <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.
-                                Resize browser to view.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="feature-box fbox-border fbox-effect">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-eye i-alt"></i></a>
-                            </div>
-                            <h3>Retina Ready Graphics</h3>
-                            <p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp;
-                                all others graphics are optimized.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="feature-box fbox-border fbox-effect">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-beaker i-alt"></i></a>
-                            </div>
-                            <h3>Powerful Performance</h3>
-                            <p>Canvas includes tons of optimized code that are completely customizable and deliver
-                                unmatched fast performance.</p>
+
+                            </h1>
+                            <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
+                            <a href="#"
+                               class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                                    style="color: #0b0b0b">Find a Ride</span></a>
+                            <a href="#"
+                               class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                                    style="color: #0b0b0b">Book Now</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    @include('web.layout.footer')
-</div>
-    <i id="gotoTop" class="fa fa-home icon-angle-up" aria-hidden="true"></i>
-@include('web.layout.script')
-</body>
-</html>
+        </section>
+        <section id="content1">
+            <div class="content-wrap">
+                <div class="container clearfix">
+                    <div class="col_one_third">
+
+                        <div class="feature-box fbox-border fbox-effect">
+                            <div class="fbox-icon">
+                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">4</p>
+                            </div>
+
+                            <h3>Choice</h3>
+                            <p>We go everywhere. Literally thousands of destinations. No station required.</p>
+
+                            <h3>FIND</h3>
+                            <p>Find People who share similar journey and match criteria</p>
+
+                        </div>
+                    </div>
+                    <div class="col_one_third">
+                        <div class="feature-box fbox-border fbox-effect">
+                            <div class="fbox-icon">
+                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">5</p>
+                            </div>
+
+                            <h3>Simple</h3>
+                            <p>Enter your exact address to find the perfect ride. Choose who you’d like to travel with. And book!</p>
+
+                            <h3>BOOK</h3>
+                            <p>Book your ride online in few clicks</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col_one_third col_last">
+                        <div class="feature-box fbox-border fbox-effect">
+                            <div class="fbox-icon">
+                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">6</p>
+                            </div>
+
+                            <h3>Seamless</h3>
+                            <p>Get to your exact destination, without the hassle. No queues. No waiting around.</p>
+
+                            <h3>THAT"S ALL</h3>
+                            <p>Connect people & make new friends</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="slider2" class=" swiper_wrapper">
+            <div class="col-md-10" style="position: absolute;right: 0">
+                <div class="col_one_third bottommargin-sm center ml-5">
+                    <img data-animate="fadeInLeft" src="https://mailinh.vn/uploads/media/1/images/dich-vu/1.png">
+                </div>
+                <div class="col_two_third bottommargin-sm col_last abc">
+                    <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">TRAVELLING</p>
+                    <p class="text-P" style="margin-bottom: 10px !important;font-size: 300%"><b>ALONE</b></p>
+                    <p class="text-P">Offer ride and earn money enjoy the preedom of income with mo efforts with the help of
+                        this incredible website.</p>
+                    <a href="#"
+                       class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ
+                        MORE</a>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container clearfix">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="feature-box fbox-border fbox-effect">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="icon-screen i-alt"></i></a>
+                                </div>
+                                <h3>Responsive Layout</h3>
+                                <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.
+                                    Resize browser to view.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature-box fbox-border fbox-effect">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="icon-eye i-alt"></i></a>
+                                </div>
+                                <h3>Retina Ready Graphics</h3>
+                                <p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp;
+                                    all others graphics are optimized.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature-box fbox-border fbox-effect">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="icon-beaker i-alt"></i></a>
+                                </div>
+                                <h3>Powerful Performance</h3>
+                                <p>Canvas includes tons of optimized code that are completely customizable and deliver
+                                    unmatched fast performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endsection
+

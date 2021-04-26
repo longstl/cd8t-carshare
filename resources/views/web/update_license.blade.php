@@ -1,20 +1,55 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<form action="{{route('saveLicense')}}" method="post">
-@csrf
-    <input type="text" name="driving_license_number">
-    <input type="date" name="driving_license_valid_from">
-    <input type="date" name="driving_license_valid_to">
-    <button type="submit">Submit</button>
-</form>
+@extends('web.layout.master')
+    @section('title')Driving License
+@endsection
+@section('content')
+    <section id="content">
 
-</body>
-</html>
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+
+                    <div class="tab-container">
+
+                        <div class="tab-content clearfix" id="tab-login">
+                            <div class="card nobottommargin" style="border: 1px solid rgba(0, 0, 0, 0.125);">
+                                <div class="card-body" style="padding: 40px;">
+                                    <form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
+
+                                        <h3 class="center">Your Driving License</h3>
+
+                                        <div class="col_full">
+                                            <label for="login-form-username">Number:</label>
+                                            <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
+                                        </div>
+
+                                        <div class="col_full">
+                                            <label for="login-form-password">Driving License Valid From:</label>
+                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" />
+                                        </div>
+
+                                        <div class="col_full">
+                                            <label for="login-form-password">Driving License Valid To:</label>
+                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" />
+                                        </div>
+
+                                        <div class="col_full nobottommargin">
+                                            <button class="button button-3d button-black nomargin" style="margin-left: 35%!important;" id="login-form-submit" name="login-form-submit" value="login">Submit</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+@endsection

@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\EntryController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
+use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/profile',function (){
@@ -33,15 +34,21 @@ Route::prefix('user')->middleware('auth')->group(function() {
     Route::post('save-car',[UserController::class,'saveCar'])->name('saveCar');
     Route::get('create-ride',[RideController::class,'create'])->name('createRide');
     Route::post('create-ride',[RideController::class,'store'])->name('storeRide');
+    Route::get('detail/{id}', [RideController::class, 'detail'])->name('detail-ride');
 
 });
 Route::prefix('request')->group(function() {
     Route::get('', [RequestController::class, 'list']);
     Route::get('create', [RequestController::class, 'create']);
     Route::post('create', [RequestController::class, 'store']);
+    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
 Route::get('/profile',function (){
-    return view('web/profile-user');
+    return view('web/update_license');
+});
+Route::get('/ride-detail',function (){
+    $model = Model::all();
+    return view('web/update_car',['listModel' => $model]);
 });
 Route::get('/test',function (){
     return view('web/user_profile');

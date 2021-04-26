@@ -1,20 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('web.layout.Style')
-    <style>
+@extends('web.layout.master')
+ <style>
         .table > tbody > tr > td {
-            padding: 13px!important;
+            padding: 13px !important;
         }
     </style>
-    <title>Ride Details | Car Share</title>
-</head>
-<body>
-@include('web.layout.header')
-<div id="wrapper" class="clearfix">
+@section('title')
+    Ride Details | Car share
+@endsection
+@section('content')
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
@@ -28,35 +21,23 @@
                         <tbody>
                         <tr>
                             <td><h5 style="margin: 0!important;">Origin</h5></td>
-                            <td>182 Hoa Bằng, Yên Hoà, Cầu Giấy, Hà Nội, Vietnam</td>
+                            <td>{{$data_ride->origin_address}}</td>
                         </tr>
                         <tr>
                             <td><h5 style="margin: 0!important;">Destination</h5></td>
-                            <td>458 Minh Khai, Vĩnh Phú, Hai Bà Trưng, Hà Nội, Vietnam</td>
+                            <td>{{$data_ride->destination_address}}</td>
                         </tr>
                         <tr>
                             <td><h5 style="margin: 0!important;">Start time</h5></td>
-                            <td>12/12/2021 , 15h30p</td>
+                            <td>{{$data_ride->travel_start_time}}</td>
                         </tr>
-                        <h5>
-                            <td><h5 style="margin: 0!important;">Estimated distance</h5></td>
-                            <td>3.5 km</td>
-                            </tr>
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Number of available seats</h5></td>
-                                <td>7 people</td>
-                            </tr>
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Estimated travel time</h5></td>
-                                <td>12 mins</td>
-                            </tr>
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Smoking allowed in the car</h5></td>
-                                <td>No</td>
-                            </tr>
-                            <td><h5 style="margin: 0!important;">Music preferences</h5></td>
-                            <td>Yes</td>
-                            </tr>
+                        <td><h5 style="margin: 0!important;">Estimated distance</h5></td>
+                        <td>{{$data_ride->distance}} </td>
+                        </tr>
+                        <tr>
+                            <td><h5 style="margin: 0!important;">Number of available seats</h5></td>
+                            <td>{{$data_ride->seats_available}}</td>
+                        </tr>
                         </tbody>
                     </table>
                     <div class="line" style="margin: 0 0 20px 0;"></div>
@@ -64,9 +45,6 @@
                 </div><!-- .postcontent end -->
             </div>
         </div>
-    </section>
-    @include('web.layout.footer')
-</div>
-@include('web.layout.script')
-</body>
-</html>
+        </section>
+@endsection
+  
