@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\RequestRequest;
 use App\Models\Request;
+use App\Models\Ride;
 use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
@@ -25,7 +26,7 @@ class RequestController extends Controller
         $new_request = new Request();
         $new_request->fill($data);
         $new_request->save();
-        return redirect()->route('request_detail', [$new_request->id]);
+        return redirect()->route('detailRequest', [$new_request->id]);
     }
 
     public function detail($id)
@@ -54,5 +55,20 @@ class RequestController extends Controller
         $ride = $request->ride();
         $request->status = RequestStatus::WAITING;
         $ride->status = RideStatus::CONFIRMED;
+    }
+
+    public function cancel($id)
+    {
+        $request = Request::find($id);
+        if ($request->ride_id) {
+            $ride = $request->ride();
+            if ($ride && $ride->status != RideStatus::COMPLETED && $ride->status != RideStatus::CANCELED) {
+                $ride->status = RideStatus::CONFIRMED;
+            }
+            $ride->save();
+        }
+        $request->status = RequestStatus::CANCELED;
+        $request->save();
+        return redirect()->route('detailRequest', $id)->with('canceled', true);
     }
 }

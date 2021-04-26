@@ -46,12 +46,14 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::prefix('ride')->group(function () {
         Route::get('create', [RideController::class, 'create'])->name('createRide');
         Route::post('store', [RideController::class, 'store'])->name('storeRide');
-        Route::get('detail/{id}', [RideController::class, 'detail'])->name('detail-ride');
+        Route::get('detail/{id}', [RideController::class, 'detail'])->name('detailRide');
+        Route::get('cancel/{id}', [RideController::class, 'cancel'])->name('cancelRide');
     });
     Route::prefix('request')->group(function () {
         Route::get('create', [RequestController::class, 'create'])->name('createRequest');
         Route::post('create', [RequestController::class, 'store'])->name('storeRequest');
-        Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+        Route::get('detail/{id}', [RequestController::class, 'detail'])->name('detailRequest');
+        Route::get('cancel/{id}', [RequestController::class, 'cancel'])->name('cancelRequest');
     });
 });
 

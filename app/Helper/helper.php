@@ -57,5 +57,5 @@ function convertMetersToText($distance) {
 }
 
 function getPriceRate() {
-    return 8000;
+    return 1;
 }

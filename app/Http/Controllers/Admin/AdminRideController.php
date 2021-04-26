@@ -87,6 +87,7 @@ class AdminRideController extends Controller
         $request = \App\Models\Request::find($request_id);
         $request->status = RequestStatus::MATCHED;
         $request->ride_id = $ride_id;
+        $request->price = $ride->price_total;
         try {
             $time = addMinutes($ride['travel_start_time'], $duration);
             $request->pickup_time = $time;
