@@ -17,8 +17,9 @@ class RequestController extends Controller
 {
     public function create()
     {
-       return view('web/find_ride');
+        return view('web/find_ride');
     }
+
     public function store(RequestRequest $request)
     {
         $data = $request->validated();
@@ -32,8 +33,13 @@ class RequestController extends Controller
     public function detail($id)
     {
         $data_request = Request::find($id);
-        return view('web/request_detail',[
-            'data_request'=>$data_request
+        $data_ride = null;
+        if ($data_request->ride_id) {
+            $data_ride = $data_request->ride();
+        }
+        return view('web/request_detail', [
+            'data_request' => $data_request,
+            'data_ride' => $data_ride,
         ]);
     }
 

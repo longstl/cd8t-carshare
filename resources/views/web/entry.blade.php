@@ -307,7 +307,9 @@
                                 <div class="row" style="padding-top: 50px">
                                     <button style="width: 25%" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
                                 </div>
+                                </div>
                         </form>
+                        </div>
                         </div>
                     </div>
                 </div>

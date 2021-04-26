@@ -24,8 +24,9 @@ class RideSeeder extends Seeder
                 'destination_address' => 'so 8 ton that thuyet, my dinh, ha noi',
                 'distance' => 850,
                 'seats_available' => 4,
-                'price_total' => 10,
-                'status' => RideStatus::PENDING
+                'status' => RideStatus::PENDING,
+                'price_total'=>100,
+                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 3,
@@ -34,8 +35,9 @@ class RideSeeder extends Seeder
                 'destination_address' => 'mui ne, ca mau',
                 'distance' => 850,
                 'seats_available' => 4,
-                'price_total' => 210,
-                'status' => RideStatus::PENDING
+                'status' => RideStatus::PENDING,
+                'price_total'=>100,
+                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 4,
@@ -44,8 +46,9 @@ class RideSeeder extends Seeder
                 'destination_address' => 'so 8 ton that thuyet, my dinh, ha noi',
                 'distance' => 850,
                 'seats_available' => 4,
-                'price_total' => 12.5,
-                'status' => RideStatus::PENDING
+                'status' => RideStatus::PENDING,
+                'price_total'=>100,
+                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 4,
@@ -54,8 +57,9 @@ class RideSeeder extends Seeder
                 'destination_address' => 'so 8 ton that thuyet, my dinh, ha noi',
                 'distance' => 850,
                 'seats_available' => 4,
-                'price_total' => 23,
-                'status' => RideStatus::PENDING
+                'status' => RideStatus::PENDING,
+                'price_total'=>100,
+                'price_total_receivable'=>2000
             ]
         ]);
     }

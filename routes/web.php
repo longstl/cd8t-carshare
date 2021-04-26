@@ -8,6 +8,9 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/rules', function () {
+    return view('web/rules');
+});
 
 Route::get('/contact', function () {
     return view('web/contact');
@@ -34,7 +37,10 @@ Route::post('register', [EntryController::class, 'processRegister'])->name('regi
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
+    Route::get('profile', [UserController::class,'profile'])->name('profile_user');
+    Route::get('update', [UserController::class,'update_profile'])->name('update_profile');
+    Route::post('update', [UserController::class,'saveuser'])->name('saveuser');
+    Route::get('delete', [UserController::class,'delete_user'])->name('delete_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');

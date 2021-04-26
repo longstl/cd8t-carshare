@@ -28,7 +28,6 @@ class UpdateLicenseRequest extends FormRequest
             'driving_license_number' => ['required'],
             'driving_license_valid_from' => ['required'],
             'driving_license_valid_to' => ['required'],
-            'is_driving_license_certified' => []
             //
         ];
     }

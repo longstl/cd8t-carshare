@@ -36,6 +36,7 @@ class UserRequest extends FormRequest
             'last_name' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')],
             'phone' => ['required', Rule::unique('users')],
+            'drivers_license_photo'=>['nullable'],
             'address' => ['required'],
             'driving_license_number' => ['nullable', 'min:6'],
             'driving_license_valid_from' => ['nullable', 'required_with:driving_license_number'],
@@ -49,7 +50,8 @@ class UserRequest extends FormRequest
             'is_pet_allowed' => ['nullable', 'boolean'],
             'music_preference' => ['nullable', Rule::in(MusicPreference::getValues())],
             'chitchat_preference' => ['nullable', Rule::in(ChitChatPreference::getValues())],
-            'role' => ['required',Rule::in(Role::getValues())]
+            'role' => ['required',Rule::in(Role::getValues())],
+            'is_driving_license_certified'=>['nullable']
         ];
     }
 }
