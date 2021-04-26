@@ -25,7 +25,7 @@
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
         <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+                CarShare
             </a></div>
         <div class="sidebar-wrapper">
             @include('admin.layout.sidebar')
@@ -60,9 +60,9 @@
             <div id="caption"></div>
         </div>
         @yield('pagination')
-        <footer class="footer">
+        <footer class="footer col-md-12">
             <div class="container-fluid">
-                <div class="copyright float-right" id="date">
+                <div class="copyright" id="date">
                     © 2021 Coder 8 Tuoi
                 </div>
             </div>
