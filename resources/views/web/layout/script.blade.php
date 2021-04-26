@@ -5,9 +5,7 @@
         }
         document.querySelector('.iconbar').onclick = function (){
             document.querySelector('#primary-menu').classList.toggle('menu_top')
-
         }
-
     })
 </script>
 <script src="{{lib_assets('web/js/jquery.js')}}"></script>
@@ -71,5 +69,8 @@
         jQuery( '.flexslider .slide' ).resize();
     });
 </script>
-
-
+<script>
+    $('.fa-bell').click(function (){
+        $('.top-cart-content').toggleClass('notification')
+    })
+</script>

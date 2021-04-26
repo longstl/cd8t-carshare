@@ -76,6 +76,8 @@
 </style>
 <style>
 
+
+
     .container input {
         opacity: 1!important;
         position: inherit!important;
@@ -151,7 +153,6 @@
         #primary-menu {
             background: white;
             height: 200px !important;
-
         }
         .container_footer {
             margin: 30px auto 0 auto;
@@ -175,8 +176,6 @@
             display: flex;
         }
     }
-
-
     .accountn {
         display: none;
     }
@@ -200,4 +199,14 @@
     }
 </style>
 
-
+<style>
+    label.error {
+        display: inline-block !important;
+    }
+</style>
+<style>
+    .notification {
+        display: none;
+        overflow: hidden;
+    }
+</style>
