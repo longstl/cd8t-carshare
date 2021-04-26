@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\EntryController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
+use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/profile',function (){
@@ -43,8 +44,15 @@ Route::prefix('request')->group(function() {
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
 Route::get('/profile',function (){
-    return view('web/profile-user');
+    return view('web/update_license');
+});
+Route::get('/ride-detail',function (){
+    $model = Model::all();
+    return view('web/update_car',['listModel' => $model]);
 });
 Route::get('/test',function (){
     return view('web/user_profile');
+});
+Route::get('/contact',function (){
+    return view('web/contact');
 });
