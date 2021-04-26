@@ -4,9 +4,9 @@
 @endsection
 @section('headExtraJs')
     <script>
-        let markerOptions;
-        let markerShow;
-        let address = '';
+        let markerOptionsFindRide;
+        let markerShowFindRide;
+        let addressFindRide = '';
 
         function initMap() {
             let $lat = 0;
@@ -32,13 +32,13 @@
                         if (results[0]) {
                             for (let i = 0; i < results[0]['address_components'].length; i++) {
                                 if (i === results[0]['address_components'].length - 1) {
-                                    address += results[0]['address_components'][i]['long_name']
+                                    addressFindRide += results[0]['address_components'][i]['long_name']
                                 } else {
-                                    address += results[0]['address_components'][i]['long_name'] + ', '
+                                    addressFindRide += results[0]['address_components'][i]['long_name'] + ', '
                                 }
                             }
-                            let origin = $('#origin-input')
-                            origin.val(address)
+                            let origin = $('#originInputFindRide')
+                            origin.val(addressFindRide)
                         } else {
                             window.alert("No results found");
                         }
@@ -47,13 +47,13 @@
                     }
                 });
 
-                markerOptions = {
+                markerOptionsFindRide = {
                     position: {lat: $lat, lng: $lng},
                     map: map,
                     animation: google.maps.Animation.BOUNCE,
                     id: 1
                 };
-                markerShow = new google.maps.Marker(markerOptions);
+                markerShowFindRide = new google.maps.Marker(markerOptionsFindRide);
                 new AutocompleteDirectionsHandler(map);
             }
         }
@@ -67,8 +67,8 @@
                 this.directionsService = new google.maps.DirectionsService();
                 this.directionsRenderer = new google.maps.DirectionsRenderer();
                 this.directionsRenderer.setMap(map);
-                const originInput = document.getElementById("origin-input");
-                const destinationInput = document.getElementById("destination-input");
+                const originInput = document.getElementById("originInputFindRide");
+                const destinationInput = document.getElementById("destinationInputFindRide");
                 const modeSelector = document.getElementById("mode-selector");
                 const originAutocomplete = new google.maps.places.Autocomplete(
                     originInput
@@ -112,9 +112,9 @@
             }
 
             route() {
-                console.log(this.map.getBounds().contains(markerOptions['position']))
-                if (this.map.getBounds().contains(markerOptions['position'])) {
-                    markerShow.visible = false;
+                console.log(this.map.getBounds().contains(markerOptionsFindRide['position']))
+                if (this.map.getBounds().contains(markerOptionsFindRide['position'])) {
+                    markerShowFindRide.visible = false;
                 }
                 if (!this.originPlaceId || !this.destinationPlaceId) {
                     return;
@@ -166,14 +166,14 @@
 
                             <div class="form-process"></div>
                             <div class="col_two_third">
-                                <label for="origin-input">Origin</label>
-                                <input type="text" id="origin-input" name="pickup_address" value=""
+                                <label for="originInputFindRide">Origin</label>
+                                <input type="text" id="originInputFindRide" name="pickup_address" value=""
                                        class="controls pac-target-input valid sm-form-control" required/>
                             </div>
 
                             <div class="col_two_third">
-                                <label for="destination-input">Destination</label>
-                                <input type="text" id="destination-input" name="destination_address"
+                                <label for="destinationInputFindRide">Destination</label>
+                                <input type="text" id="destinationInputFindRide" name="destination_address"
                                        class="controls pac-target-input valid  sm-form-control"
                                        placeholder="Enter a destination location" autocomplete="off"
                                        aria-invalid="false" required/>
@@ -185,7 +185,7 @@
                                     <div class="input-group tleft" data-target-input="nearest"
                                          data-target=".datetimepicker">
                                         <input type="datetime-local" name="desired_pickup_time"
-                                               class="form-control datetimepicker-input datetimepicker"
+                                               class="form-control datetimepickerInputFindRide datetimepicker"
                                                data-target=".datetimepicker"/>
                                     </div>
                                 </div>
@@ -239,11 +239,11 @@
 @section('botExtraJs')
     <script>
         //show_distance
-        $('#origin-input').change(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+        $('#originInputFindRide').change(function () {
+            if ($('#originInputFindRide').val().length > 1 && $('#destinationInputFindRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputFindRide').val(),
+                    "end": $('#destinationInputFindRide').val()
                 }
 
                 $.ajax({
@@ -263,11 +263,11 @@
                 })
             }
         })
-        $('#destination-input').change(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+        $('#destinationInputFindRide').change(function () {
+            if ($('#originInputFindRide').val().length > 1 && $('#destinationInputFindRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputFindRide').val(),
+                    "end": $('#destinationInputFindRide').val()
                 }
 
                 $.ajax({
@@ -288,10 +288,10 @@
             }
         })
         $('#submit').click(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+            if ($('#originInputFindRide').val().length > 1 && $('#destinationInputFindRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputFindRide').val(),
+                    "end": $('#destinationInputFindRide').val()
                 }
                 $.ajax({
                     url: "/api/location",

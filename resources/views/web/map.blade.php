@@ -55,8 +55,8 @@
         }
 
 
-        #origin-input:focus,
-        #destination-input:focus {
+        #originInputMap:focus,
+        #destinationInputMap:focus {
             border-color: #4d90fe;
         }
 
@@ -73,8 +73,9 @@
         }
     </style>
     <script>
-        let markerOptions;
-        let markerShow;
+        let markerOptionsMap;
+        let markerShowMap;
+        let addressMap = '';
 
         function initMap() {
             let $lat = 0;
@@ -94,20 +95,38 @@
                     center: {lat: $lat, lng: $lng},
                     zoom: 18,
                 });
-                let origin = $('#origin-input')
-                origin.val($lat + ',' + $lng)
 
+                new google.maps.Geocoder().geocode({location: {lat: $lat, lng: $lng}}, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            for (let i = 0; i < results[0]['address_components'].length; i++) {
+                                if (i === results[0]['address_components'].length - 1) {
+                                    addressMap += results[0]['address_components'][i]['long_name']
+                                } else {
+                                    addressMap += results[0]['address_components'][i]['long_name'] + ', '
+                                }
+                            }
+                            let origin = $('#originInputMap')
+                            origin.val(addressMap)
+                        } else {
+                            window.alert("No results found");
+                        }
+                    } else {
+                        window.alert("Geocoder failed due to: " + status);
+                    }
+                });
 
-                markerOptions = {
+                markerOptionsMap = {
                     position: {lat: $lat, lng: $lng},
                     map: map,
                     animation: google.maps.Animation.BOUNCE,
                     id: 1
                 };
-                markerShow = new google.maps.Marker(markerOptions);
+                markerShowMap = new google.maps.Marker(markerOptionsMap);
                 new AutocompleteDirectionsHandler(map);
             }
         }
+
         class AutocompleteDirectionsHandler {
             constructor(map) {
                 this.map = map;
@@ -117,8 +136,8 @@
                 this.directionsService = new google.maps.DirectionsService();
                 this.directionsRenderer = new google.maps.DirectionsRenderer();
                 this.directionsRenderer.setMap(map);
-                const originInput = document.getElementById("origin-input");
-                const destinationInput = document.getElementById("destination-input");
+                const originInput = document.getElementById("originInputMap");
+                const destinationInput = document.getElementById("destinationInputMap");
                 const modeSelector = document.getElementById("mode-selector");
                 const originAutocomplete = new google.maps.places.Autocomplete(
                     originInput
@@ -148,7 +167,7 @@
                 autocomplete.addListener("place_changed", () => {
                     const place = autocomplete.getPlace();
                     if (!place.place_id) {
-                        window.alert("Please select an request from the dropdown list.");
+                        window.alert("Please select an option from the dropdown list.");
                         return;
                     }
 
@@ -162,9 +181,9 @@
             }
 
             route() {
-                console.log(this.map.getBounds().contains(markerOptions['position']))
-                if (this.map.getBounds().contains(markerOptions['position'])) {
-                    markerShow.visible = false;
+                console.log(this.map.getBounds().contains(markerOptionsMap['position']))
+                if (this.map.getBounds().contains(markerOptionsMap['position'])) {
+                    markerShowMap.visible = false;
                 }
                 if (!this.originPlaceId || !this.destinationPlaceId) {
                     return;
@@ -186,6 +205,7 @@
                 );
             }
         }
+
     </script>
     <title>Document</title>
 </head>
@@ -207,31 +227,31 @@
             <br>
             <div class=" row col-md-10 col-10">
                 <div class="form-group">
-                    <label for="origin-input">Origin</label>
-                    <input name="origin_input" id="origin-input" class="col-md-12 form-control controls" type="text"
+                    <label for="originInputMap">Origin</label>
+                    <input name="origin_input" id="originInputMap" class="col-md-12 form-control controls" type="text"
                            placeholder="Enter an origin location" required/>
                 </div>
             </div>
             <br>
             <div class=" row col-md-10 col-10">
                 <div class="form-group">
-                    <label for="destination-input">Destination</label>
-                    <input name="destination_input" id="destination-input" class="form-control controls" type="text"
+                    <label for="destinationInputMap">Destination</label>
+                    <input name="destination_input" id="destinationInputMap" class="form-control controls" type="text"
                            placeholder="Enter a destination location" required/>
                 </div>
             </div>
             <br>
             <div class=" row col-md-8 col-11">
                 <div class="form-group">
-                    <label for="start-time">Date</label>
-                    <input name="start_time" id="start-time" class="form-control controls" type="date" required/>
+                    <label for="startTimeMap">Date</label>
+                    <input name="start_time" id="startTimeMap" class="form-control controls" type="date" required/>
                 </div>
             </div>
             <br>
             <div class=" row col-md-8 col-11">
                 <div class="form-group">
-                    <label for="start-time">Star time</label>
-                    <input name="start_time" id="start-time" class="form-control controls" type="text"
+                    <label for="startTimeMap">Star time</label>
+                    <input name="start_time" id="startTimeMap" class="form-control controls" type="text"
                            placeholder="Travel star time" required/>
                 </div>
             </div>
@@ -244,8 +264,8 @@
                            class=" form-control controls" type="number" placeholder="Enter number of seats" required/>
                 </div>
                 <div class="form-group col-6 col-md-6">
-                    <label for="select_vehicle">Model rider</label><br>
-                    <select class="form-control form-select selectpicker" name="rider" id="select_vehicle">
+                    <label for="selectVehicleMap">Model rider</label><br>
+                    <select class="form-control form-select selectpicker" name="rider" id="selectVehicleMap">
                         <option value="" selected>Maybach s650</option>
                         <option value="">Maybach s650</option>
                         <option value="">Maybach s650</option>
@@ -273,11 +293,11 @@
 <script src="{{url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}" async></script>
 <script>
     //show_distance
-    $('#origin-input').change(function (){
-        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+    $('#originInputMap').change(function (){
+        if ($('#originInputMap').val().length > 1 && $('#destinationInputMap').val().length > 1) {
             $value = {
-                "start": $('#origin-input').val(),
-                "end": $('#destination-input').val()
+                "start": $('#originInputMap').val(),
+                "end": $('#destinationInputMap').val()
             }
 
             $.ajax({
@@ -298,11 +318,11 @@
         }
     })
 
-    $('#destination-input').change(function (){
-        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+    $('#destinationInputMap').change(function (){
+        if ($('#originInputMap').val().length > 1 && $('#destinationInputMap').val().length > 1) {
             $value = {
-                "start": $('#origin-input').val(),
-                "end": $('#destination-input').val()
+                "start": $('#originInputMap').val(),
+                "end": $('#destinationInputMap').val()
             }
 
             $.ajax({
@@ -325,10 +345,10 @@
 
 
     $('#submit').click(function () {
-        if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+        if ($('#originInputMap').val().length > 1 && $('#destinationInputMap').val().length > 1) {
             $value = {
-                "start": $('#origin-input').val(),
-                "end": $('#destination-input').val()
+                "start": $('#originInputMap').val(),
+                "end": $('#destinationInputMap').val()
             }
             $.ajax({
                 url: "/api/location",
