@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestRequest;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,7 @@ class FeedbackController extends Controller
         return view('web/contact',['feedback' => $feedback]);
     }
     public function store(){
+
     }
     public function update(){
     }

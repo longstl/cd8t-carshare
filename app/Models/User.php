@@ -39,8 +39,8 @@ class User extends Authenticatable
         'is_pet_allowed',
         'music_preference',
         'chitchat_preference',
-        'is_driving_license_certified',
-        'role'
+        'role',
+        'is_driving_license_certified'
     ];
     public function cars(){
         return $this->hasMany(Car::class);

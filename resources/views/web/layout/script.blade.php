@@ -28,8 +28,7 @@
 <script src="{{lib_assets('web/js/components/moment.js')}}"></script>
 <script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
 <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
-<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}"
-        async></script>
+<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&libraries=places&v=weekly')}}" async></script>
 <script>
     document.addEventListener('DOMContentLoaded', function (){
         $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
@@ -58,14 +57,15 @@
                 overviewMapControl: false
             }
         });
-
         jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
             jQuery( '.flexslider .slide' ).resize();
         });
-    })
-</script>
-<script>
-    $('.fa-bell').click(function (){
-        $('.top-cart-content').toggleClass('notification')
+        $('.fa-bell').click(function (){
+            $('.top-cart-content').toggleClass('notification')
+        });
+        $('#btn-delete').click(function (event){
+            event.preventDefault();
+            $('#Delete').modal('show');
+        })
     })
 </script>

@@ -13,7 +13,7 @@ class AdminRideController extends Controller
 {
     public function list()
     {
-        $rides = Ride::query()->with(['model', 'model.user'])->get();
+        $rides = Ride::query()->with(['car', 'car.user'])->get();
         return view('admin/ride/list', [
             'rides' => $rides
         ]);
@@ -54,7 +54,7 @@ class AdminRideController extends Controller
         $matched_requests = [];
         foreach ($requests as $request) {
             $request['destination_difference'] = getDistance($request['destination_address'], $ride['destination_address'])['distance']['value'];
-            if ($request['destination_difference'] > 1000) {
+            if ($request['destination_difference'] > 5000) {
                 continue;
             }
             $request['destination_difference_text'] = convertMetersToText($request['destination_difference']);
@@ -87,6 +87,7 @@ class AdminRideController extends Controller
         $request = \App\Models\Request::find($request_id);
         $request->status = RequestStatus::MATCHED;
         $request->ride_id = $ride_id;
+        $request->price = $ride->price_total;
         try {
             $time = addMinutes($ride['travel_start_time'], $duration);
             $request->pickup_time = $time;

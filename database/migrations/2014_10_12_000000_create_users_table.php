@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('address');
-            $table->string('drivers_license_photo');
+            $table->string('drivers_license_photo')->nullable();
             $table->string('driving_license_number')->nullable();
             $table->date('driving_license_valid_from')->nullable();
             $table->date('driving_license_valid_to')->nullable();

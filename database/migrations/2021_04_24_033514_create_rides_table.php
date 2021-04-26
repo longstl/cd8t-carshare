@@ -23,7 +23,6 @@ class CreateRidesTable extends Migration
             $table->string('destination_address');
             $table->string('destination_coordinate')->nullable();
             $table->float('price_total');
-            $table->float('price_total_receivable');
             $table->integer('distance');
             $table->integer('seats_available');
             $table->integer('status')->default(RideStatus::PENDING);

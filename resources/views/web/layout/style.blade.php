@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="{{url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
-<link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}.css" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/font-icons.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/animate.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/magnific-popup.css')}}" type="text/css"/>
@@ -19,7 +18,6 @@
 <link rel="stylesheet" href="{{lib_assets('web/css/components/datepicker.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{lib_assets('web/css/components/timepicker.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{lib_assets('web/css/components/daterangepicker.css')}}" type="text/css" />
-<link rel="stylesheet" href="{{URL('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/web/css/all.min.css')}}">
 <style>
     #content {
         overflow: inherit;!important;
@@ -215,5 +213,11 @@
     .notification {
         display: none;
         overflow: hidden;
+    }
+</style>
+
+<style>
+    .title-conten {
+        margin: 10px 0 20px;
     }
 </style>
