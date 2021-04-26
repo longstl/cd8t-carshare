@@ -35,13 +35,13 @@
                                             </select>
                                         </div>
                                         <div class="col_full">
-                                            <label for="login-form-password">Driving License Valid From:</label>
-                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" required/>
+                                            <label for="login-form-password">Car Registration Number</label>
+                                            <input type="text" id="car_registration_number" name="car_registration_number" value="" class="form-control" />
                                         </div>
 
                                         <div class="col_full">
-                                            <label for="login-form-password">Driving License Valid To:</label>
-                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" required/>
+                                            <label for="login-form-password">Color </label>
+                                            <input type="text" id="color" name="color" value="" class="form-control" />
                                         </div>
 
                                         <div class="col_full nobottommargin">
