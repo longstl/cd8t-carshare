@@ -52,17 +52,19 @@ class AdminRideController extends Controller
             if ($request['destination_difference'] > 1000) {
                 continue;
             }
+            $request['destination_difference_text'] = convertMetersToText($request['destination_difference']);
             $origin_compare = getDistance($ride['origin_address'], $request['pickup_address']);
             $request['origin_difference'] = $origin_compare['distance']['value'];
+            $request['origin_difference_text'] = convertMetersToText($request['origin_difference']);
             $request['duration'] = $origin_compare['duration']['value'];
             $request['pickup_time'] = addMinutes($ride['travel_start_time'], $request['duration'] / 60);
-            $request['pickup_time_difference'] = strtotime($request['pickup_time']) - strtotime($request['desired_pickup_time']);
-            $request['pickup_time_difference_text'] = ($request['pickup_time_difference'] / 60).' minutes';
+            $request['pickup_time_difference'] = abs(strtotime($request['pickup_time']) - strtotime($request['desired_pickup_time']));
+            $request['pickup_time_difference_text'] = convertToHoursMins($request['pickup_time_difference'] / 60);
             array_push($matched_requests, $request);
         }
         usort($matched_requests, function ($a, $b) {
-            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference/1000 + $a->pickup_time_difference / 60;
-            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference/1000 + $b->pickup_time_difference / 60;
+            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference/1000 + $a->pickup_time_difference / 60 / 60;
+            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference/1000 + $b->pickup_time_difference / 60 / 60;
             if ($a_sort_value == $b_sort_value) {
                 return 0;
             }
@@ -88,7 +90,7 @@ class AdminRideController extends Controller
         $request->save();
         $ride->status = RideStatus::MATCHED;
         $ride->save();
-        return $ride;
+        return redirect()->route('listRide')->with('success', 'Ride '.$ride_id.' matched!');
     }
 
     public function delete()
