@@ -1,36 +1,50 @@
 <footer id="" class="dark" style="width: 100% ;" >
     <div class="container  container_footer_root  col-md-12 col-12">
         <div class="col-md-10  col-sm-12 col-12 container_footer" >
-            <div style="height: auto" class="footer_responsive col-md-4 col-12">
+
+
+            <div style="height: auto" class="footer_responsive col-md-3 col-12">
                 <div class="">
                     <div class="widget widget_links clearfix">
-                        <h4>COMPANY</h4>
+                        <h4 style="margin-left: 5%">Introduce </h4>
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">Partners</a></li>
-                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">How it works</a>
-                            </li>
-                            <li><a href="http://wordpress.org/extend/plugins/">Code of conduct</a></li>
-                            <li><a href="http://wordpress.org/support/">About Us</a></li>
-                            <li><a href="http://wordpress.org/extend/themes/">Contact Us</a></li>
+                            <li><a href="http://codex.wordpress.org/">Carpooling was the first service we launched.
+                                   Helping you travel safely and conveniently at predictable rates wherever you are.
+                            </a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div style="height: auto" class="col-md-4 col-12 footer_responsive">
+
+            <div style="height: auto" class="footer_responsive col-md-3 col-12">
                 <div class="">
                     <div class="widget widget_links clearfix">
-                        <h4>EXOLORE</h4>
+                        <h4 style="margin-left: 5%">COMPANY</h4>
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">FAQ's</a></li>
-                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Member
-                                    Stories</a></li>
-                            <li><a href="http://wordpress.org/extend/plugins/">Privacy Policy</a></li>
-                            <li><a href="http://wordpress.org/support/">Terms & conditions</a></li>
+                            <li><a href="http://codex.wordpress.org/">Update Covid-19</a></li>
+                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Working car share</a></li>
+                            <li><a href="http://wordpress.org/extend/plugins/">News & safety</a></li>
+                            <li><a href="http://wordpress.org/support/">Driver center </a></li>
+                            <li><a href="http://wordpress.org/extend/themes/">Contact-Us</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div style="height: auto" class="col-md-4 col-12 footer_responsive">
+            <div style="height: auto" class="col-md-3 col-12 footer_responsive">
+                <div class="">
+                    <div class="widget widget_links clearfix">
+                        <h4 style="margin-left: 5%">Car share Forward Together</h4>
+                        <ul>
+                            <li><a href="http://codex.wordpress.org/">Car share limited company</a></li>
+                            <li><a href="#">Address: Aptech Building, So 8 Ton That Thuyet, My Dinh, Hanoi, Vietnam</a></li>
+                            <li><a href="#">Business Code: 56789</a></li>
+                            <li><a href="#"> Legal representative: Duc Quan</a></li>
+                            <li><a href="#">Position: Executive Director</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="height: auto" class="col-md-3 col-12 footer_responsive">
 
 
                 <div class="row">
@@ -55,7 +69,7 @@
                         </div>
                         <div class="col-lg-6 clearfix">
                             <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin"
-                               style="margin-right: 10px;"><i class="fas fa-rss-square" style="color: #ff5900"></i></a>
+                               style="margin-right: 10px;"><i class="fas fa-sign-in-alt" style="color: #ff5900"></i></a>
                             <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to
                                     RSS Feeds</small></a>
                         </div>

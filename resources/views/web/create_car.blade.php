@@ -1,6 +1,6 @@
 @extends('web.layout.master')
-    @section('title')
-    Create Driving License
+@section('title')
+    Add Car
 @endsection
 @section('content')
     <section id="content">
@@ -16,23 +16,27 @@
                         <div class="tab-content clearfix" id="tab-login">
                             <div class="card nobottommargin" style="border: 1px solid rgba(0, 0, 0, 0.125);">
                                 <div class="card-body" style="padding: 40px;">
-                                    <form id="login-form" name="login-form" class="nobottommargin" action="{{route('saveLicense')}}" method="post">
+                                    <form id="login-form" name="login-form" class="nobottommargin" action="{{route('storeCar')}}" method="post">
                                         @csrf
-                                        <h3 class="center">Add your Driving License</h3>
+                                        <h3 class="center">Add your car</h3>
 
-                                        <div class="col_full">
-                                            <label for="login-form-username">Number:</label>
-                                            <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
+                                        <div class="col_full form-group">
+                                            <label for="number">Model:</label>
+                                            <select name="number" id="number" class="form-control">
+                                                @foreach($listModel as $model)
+                                                    <option hidden selected disabled>Model</option>
+                                                    <option value="{{$model->id}}">{{$model->make.' '.$model->model}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-
                                         <div class="col_full">
                                             <label for="login-form-password">Driving License Valid From:</label>
-                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" />
+                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full">
                                             <label for="login-form-password">Driving License Valid To:</label>
-                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" />
+                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full nobottommargin">
@@ -52,6 +56,5 @@
 
         </div>
 
-    </section><!-- #content end -->
+    </section>
 @endsection
-

@@ -1,21 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('web.layout.Style')
-    <style>
-        .table > tbody > tr > td {
-            padding: 13px !important;
-        }
-    </style>
-    <title>Ride Details | Car Share</title>
-</head>
-<body>
-@include('web.layout.header')
-<div id="wrapper" class="clearfix">
+@extends('web.layout.master')
+
+@section('title')
+    Ride Details
+@endsection
+@section('content')
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
@@ -48,14 +36,10 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="line" style="margin: 0 0 20px 0;"></div>
                     <button class="btn btn-primary">Cancel</button>
                 </div><!-- .postcontent end -->
             </div>
         </div>
-    </section>
-    @include('web.layout.footer')
-</div>
-@include('web.layout.script')
-</body>
-</html>
+        </section>
+@endsection
+

@@ -36,6 +36,6 @@ class UserController extends Controller
         $car = new Car();
         $car->fill($data);
         $car->save();
-        return $car;
+        return redirect()->route('createRide');
     }
 }
