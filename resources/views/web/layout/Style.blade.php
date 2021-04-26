@@ -75,6 +75,9 @@
     }
 </style>
 <style>
+
+
+
     .container input {
         opacity: 1!important;
         position: inherit!important;
@@ -107,6 +110,7 @@
     }
 </style>
 <style>
+
     @media only screen and (max-width: 999px) {
         .footer_responsive {
             width: 100%;
@@ -187,7 +191,14 @@
     }
     .button.button-reveal span {
     }
+
 </style>
+<style>
+    label.error {
+        display: inline-block !important;
+    }
+</style>
+
 <style>
     label.error {
         display: inline-block !important;
