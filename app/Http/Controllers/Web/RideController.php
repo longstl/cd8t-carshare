@@ -7,7 +7,6 @@ use App\Http\Requests\RideRequest;
 use App\Models\Car;
 use App\Models\Ride;
 use App\Models\User;
-use App\Models\Car;
 use Illuminate\Support\Facades\Auth;
 
 class RideController extends Controller
@@ -17,12 +16,13 @@ class RideController extends Controller
         $user_id = Auth::id();
         $user = User::find($user_id);
         $cars = Car::query()->where('user_id', $user_id)->with('model')->get();
-        if(!$user->driving_license_number){
+        if (!$user->driving_license_number) {
             return redirect()->route('updateLicense');
-        }if (!sizeof($cars)){
+        }
+        if (!sizeof($cars)) {
             return redirect()->route('updateCar');
         }
-        return view('web/create_ride',['cars'=>$cars]);
+        return view('web/create_ride', ['cars' => $cars]);
     }
 
     public function store(RideRequest $request)
@@ -37,16 +37,11 @@ class RideController extends Controller
         return redirect()->route('detail-ride', [$ride->id]);
     }
 
-
-    public function find()
-    {
-        return view(''); // return ra view có chứa form find a ride
-    }
     public function detail($id)
     {
-        $ride =  Ride::find($id);
-        return view('web/ride_details',[
-            'data_ride'=>$ride
+        $ride = Ride::find($id);
+        return view('web/ride_details', [
+            'data_ride' => $ride
         ]);
     }
 }

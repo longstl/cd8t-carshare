@@ -13,7 +13,7 @@ class AdminRideController extends Controller
 {
     public function list()
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query()->with(['model', 'model.user'])->get();
         return view('admin/ride/list', [
             'rides' => $rides
         ]);
@@ -32,6 +32,11 @@ class AdminRideController extends Controller
     }
 
     public function save()
+    {
+
+    }
+
+    public function cancel($id)
     {
 
     }
@@ -91,9 +96,5 @@ class AdminRideController extends Controller
         $ride->status = RideStatus::MATCHED;
         $ride->save();
         return redirect()->route('listRide')->with('success', 'Ride '.$ride_id.' matched!');
-    }
-
-    public function delete()
-    {
     }
 }
