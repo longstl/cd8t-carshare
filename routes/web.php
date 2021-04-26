@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
@@ -31,7 +31,7 @@ Route::prefix('user')->middleware('auth')->group(function() {
     Route::get('create-license',[UserController::class,'updateLicense'])->name('updateLicense');
     Route::post('save-license',[UserController::class,'saveLicense'])->name('saveLicense');
     Route::get('create-car',[UserController::class,'createCar'])->name('updateCar');
-    Route::post('save-car',[UserController::class,'saveCar'])->name('saveCar');
+    Route::post('save-car',[UserController::class,'saveCar'])->name('storeCar');
     Route::get('create-ride',[RideController::class,'create'])->name('createRide');
     Route::post('create-ride',[RideController::class,'store'])->name('storeRide');
     Route::get('detail/{id}', [RideController::class, 'detail'])->name('detail-ride');

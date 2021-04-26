@@ -22,7 +22,7 @@
 
                                         <div class="col_full form-group">
                                             <label for="number">Model:</label>
-                                            <select name="number" id="number" class="form-control">
+                                            <select name="model_id" id="number" class="form-control">
                                                 @foreach($listModel as $model)
                                                     <option hidden selected disabled>Model</option>
                                                     <option value="{{$model->id}}">{{$model->make.' '.$model->model}}</option>
