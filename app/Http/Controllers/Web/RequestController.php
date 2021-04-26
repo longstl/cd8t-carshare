@@ -35,7 +35,7 @@ class RequestController extends Controller
         $data_request = Request::find($id);
         $data_ride = null;
         if ($data_request->ride_id) {
-            $data_ride = $data_request->ride();
+            $data_ride = Ride::query()->where('id', $data_request->ride_id)->with(['car.user', 'car.model'])->first();
         }
         return view('web/request_detail', [
             'data_request' => $data_request,

@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('title')
-    List Request
+    Requests
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Options</h3>
+                                <h3 class="card-title " style="margin-right: 30px;display: inline-block">Requests</h3>
                                 <form action="#" style="display: inline-block">
                                     <div class="form-group no-border">
                                         <input type="text" placeholder="Search by keyword" style="background: none;border: none;color: #9c9b9b">
@@ -39,9 +39,6 @@
                                         <th>
                                             Seats Occupy
                                         </th>
-
-
-
                                         <th>
                                             Price
                                         </th>
