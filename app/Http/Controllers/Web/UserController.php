@@ -22,6 +22,7 @@ class UserController extends Controller
 
     public function saveLicense(UpdateLicenseRequest $request){
         $user = User::find(Auth::id());
+        $data['is_driving_license_certified'] = 0;
         $data = $request->validated();
         $user->update($data);
         $user->save();

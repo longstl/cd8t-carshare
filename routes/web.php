@@ -61,6 +61,3 @@ Route::prefix('request')->group(function() {
     Route::post('create', [RequestController::class, 'store']);
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
-Route::get('/profile',function (){
-    return view('web/user_profile');
-});
