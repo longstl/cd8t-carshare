@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:void(0)">Table List</a>
+                    <a class="navbar-brand" href="javascript:void(0)">Rides</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
@@ -36,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h3 class="card-title " style="display: inline-block;margin-right: 30px">Orders</h3>
+                                <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
                                 <form action="#" style="display: inline-block;margin-right: 30px">
                                     <div class="form-group no-border">
                                         <input type="text" placeholder="Search by keyword" style="background: none;border: none;color: #9c9b9b">
@@ -52,48 +52,48 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                         <th>
-                                            <h3>Driver</h3>
+                                            Driver
                                         </th>
                                         <th>
-                                            <h3>Start time</h3>
+                                            Start time
                                         </th>
                                         <th>
-                                            <h3>Origin</h3>
+                                            Origin
                                         </th>
                                         <th>
-                                            <h3>Destination</h3>
+                                            Destination
                                         </th>
                                         <th>
-                                            <h3>Seats available</h3>
+                                            Seats available
                                         </th>
                                         <th>
-                                            <h3>Status</h3>
+                                            Status
                                         </th>
                                         <th>
-                                            <h3>Action</h3>
+                                            Action
                                         </th>
 
                                         </thead>
                                         <tbody>
-                                        @foreach($ride as $ri)
+                                        @foreach($rides as $ride)
                                         <tr>
                                             <td>
-                                                <h4> {{$ri->car->user->first_name}} {{$ri->car->user->last_name}}</h4>
+                                                {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}
                                             </td>
                                             <td>
-                                                <h4>{{date('H:i', strtotime($ri->travel_start_time))}}</h4>
+                                                {{date('H:i', strtotime($ride->travel_start_time))}}
                                             </td>
                                             <td>
-                                                <h4>{{$ri->origin_address}}</h4>
+                                                {{$ride->origin_address}}
                                             </td>
                                             <td>
-                                                <h4>{{$ri->destination_address}}</h4>
+                                                {{$ride->destination_address}}
                                             </td>
                                             <td>
-                                                <h4>{{$ri->seats_available}}</h4>
+                                                {{$ride->seats_available}}
                                             </td>
                                             <td>
-                                                <h4>{{\App\Enums\RideStatus::getDescription($ri->status)}}</h4>
+                                                {{\App\Enums\RideStatus::getDescription($ride->status)}}
                                             </td>
                                             <td>
                                                 <a href=""><button class="btn btn-warning">Match</button></a>
