@@ -24,7 +24,7 @@
         </a>
     </li>
     <li class="nav-item" slot="car">
-        <a class="nav-link" href="{{route('listCar')}}">
+        <a class="nav-link" href="{{route('listModel')}}">
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
             <p>Models</p>
         </a>
