@@ -28,10 +28,12 @@
                                             User
                                         </th>
                                         <th>
-                                            Pickup address
+                                            Pickup address<br>
+                                            <small>(Distance from last pickup point)</small>
                                         </th>
                                         <th>
-                                            Destination address
+                                            Destination address<br>
+                                            <small>(Distance from destination)</small>
                                         </th>
                                         <th>
                                             Pickup time
@@ -51,15 +53,16 @@
                                             </td>
                                             <td>
                                                 {{$request->pickup_address}}<br>
-                                                ({{$request->origin_difference}}m from last pickup point)
+                                                ({{$request->origin_difference_text}})
                                             </td>
                                             <td>
                                                 {{$request->destination_address}}<br>
-                                                ({{$request->destination_difference}}m from ride's destination)
+                                                ({{$request->destination_difference_text}})
                                             </td>
                                             <td>
                                                 Desired: {{date('H:i', strtotime($request->desired_pickup_time))}}<br>
-                                                Estimated: <strong>{{date('H:i', strtotime($request->pickup_time))}}</strong> ({{$request->pickup_time_difference_text}} difference)
+                                                Estimated: <strong>{{date('H:i', strtotime($request->pickup_time))}}</strong><br>
+                                                ({{$request->pickup_time_difference_text}} difference)
                                             </td>
                                             <td>
                                                 {{$request->seats_occupy}}

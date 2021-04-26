@@ -6,10 +6,15 @@
 @endsection
 
 @section('content')
-
               <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            @if(session()->get('success'))
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Success!</strong> {{ session()->get( 'success' ) }}
+                                </div>
+                            @endif
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
                                 <form action="#" style="display: inline-block;margin-right: 30px">

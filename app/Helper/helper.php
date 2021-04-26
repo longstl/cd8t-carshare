@@ -34,3 +34,24 @@ function addMinutes($original, $added_minutes)
     } catch (\Exception $e) {
     }
 }
+
+function convertToHoursMins($time) {
+    if ($time < 1) {
+        return;
+    }
+    $hours = floor($time / 60);
+    $minutes = ($time % 60);
+    if ($hours) {
+        return $hours.' hrs '.$minutes.' mins';
+    } else {
+        return $minutes.' mins';
+    }
+}
+
+function convertMetersToText($distance) {
+    if ($distance < 1000) {
+        return $distance.' m';
+    } else {
+        return number_format($distance / 1000, 1).' km';
+    }
+}
