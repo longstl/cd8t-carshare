@@ -8,22 +8,6 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/rules', function () {
-    return view('web/rules');
-});
-
-Route::get('/contact', function () {
-    return view('web/contact');
-});
-
-Route::get('/profile', function () {
-
-    return view('web/profile');
-});
-
-Route::get('/driving', function () {
-    return view('web/driving_license');
-});
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
@@ -61,15 +45,16 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('detail/{id}', [RequestController::class, 'detail'])->name('detailRequest');
         Route::get('cancel/{id}', [RequestController::class, 'cancel'])->name('cancelRequest');
     });
+    Route::prefix('match')->group(function () {
+        Route::get('book/{id}', [RequestController::class, 'book'])->name('bookMatch');
+        Route::get('cancel/{id}', [RequestController::class, 'cancelMatch'])->name('cancelMatch');
+    });
 });
 
+Route::get('/rules', function () {
+    return view('web/rules');
+});
 
-
-
-Route::prefix('request')->group(function() {
-
-    Route::get('', [RequestController::class, 'list']);
-    Route::get('create', [RequestController::class, 'create'])->name('create_request');
-    Route::post('create', [RequestController::class, 'store']);
-    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+Route::get('/contact', function () {
+    return view('web/contact');
 });
