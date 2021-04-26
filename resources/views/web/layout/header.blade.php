@@ -42,18 +42,26 @@
                         </a>
                     </li>
                 </ul>
-                <div class="position-relative" id="top-search" style="width: 90px">
-                    <div style="width: 50%;float: left">
-                        <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
+                @if(!\Illuminate\Support\Facades\Auth::check())
+                    <div class="position-relative" id="top-search" style="width: 90px">
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
+                        </div>
                     </div>
-                    <div style="width: 50%;float: left">
-                        <a>
-                            <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
-                                <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
+                @else()
+                    <div class="position-relative" id="top-search" style="width: 90px">
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account"><b style="cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</b></a>
+                        </div>
+                        @endif
+                        <div style="width: 50%;float: left; cursor: pointer">
+                            <a>
+                                <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
+                                    <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
                                     ;position: absolute;top: -8px;right: -12px ">3</p></i>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 <div class="top-cart-content notification"
                      style="right: 0; width: 350px; background: #f7f5f5;   position: absolute;top: 100%;">
                     <div class="top-cart-title">
@@ -85,10 +93,17 @@
                         <button class="button button-3d button-small nomargin fright">Clear</button>
                     </div>
                 </div>
-                <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px"><a href=""
-                                                                                                           class="btn btn-success "
-                                                                                                           style="margin-right: 5px">Login</a><a
-                        href="" class="btn btn-warning">Register</a></div>
+                @if(!\Illuminate\Support\Facades\Auth::check())
+                        <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px">
+                            <a href="" class="btn btn-success " style="margin-right: 5px">Login</a>
+                            <a href="" class="btn btn-warning">Register</a>
+                        </div>
+                    @else()
+                        <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px">
+                            <a href="" class="btn btn-success " style="margin-right: 5px">Profile</a>
+                            <a href="" class="btn btn-warning">Logout</a>
+                        </div>
+                    @endif
             </nav>
         </div>
     </div>
