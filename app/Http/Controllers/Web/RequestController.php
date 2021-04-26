@@ -8,6 +8,7 @@ use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\RequestRequest;
 use App\Models\Request;
 use Illuminate\Support\Facades\Auth;
 

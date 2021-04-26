@@ -1,6 +1,8 @@
 <link
     href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i"
     rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{lib_assets('web/css/bootstrap.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/style.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/dark.css')}}.css" type="text/css"/>
@@ -196,6 +198,11 @@
 <style>
     label.error {
         display: inline-block !important;
+    }
+</style>
+<style>
+    .table > tbody > tr > td {
+        padding: 13px!important;
     }
 </style>
 

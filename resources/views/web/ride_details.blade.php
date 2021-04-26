@@ -1,11 +1,7 @@
 @extends('web.layout.master')
- <style>
-        .table > tbody > tr > td {
-            padding: 13px !important;
-        }
-    </style>
+
 @section('title')
-    Ride Details | Car share
+    Ride Details
 @endsection
 @section('content')
     <section id="content">
@@ -40,11 +36,10 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="line" style="margin: 0 0 20px 0;"></div>
                     <button class="btn btn-primary">Cancel</button>
                 </div><!-- .postcontent end -->
             </div>
         </div>
         </section>
 @endsection
-  
+

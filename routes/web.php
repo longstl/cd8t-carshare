@@ -44,14 +44,14 @@ Route::prefix('request')->group(function() {
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
 Route::get('/profile',function (){
-    return view('web/update_license');
+    return view('web/user_profile');
 });
 Route::get('/ride-detail',function (){
     $model = Model::all();
-    return view('web/update_car',['listModel' => $model]);
+    return view('web/create_car',['listModel' => $model]);
 });
 Route::get('/test',function (){
-    return view('web/user_profile');
+    return view('web/find_r');
 });
 Route::get('/contact',function (){
     return view('web/contact');
