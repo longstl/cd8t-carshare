@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function createCar(){
         $model = Model::all();
-        return view('web/update_car',['listModel' => $model]);
+        return view('web/create_car',['listModel' => $model]);
     }
     public function saveCar(CarRequest $request){
         $data = $request->validated();

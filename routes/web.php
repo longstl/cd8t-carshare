@@ -10,6 +10,9 @@ Route::get('/profile',function (){
     return view('web/profile');
 });
 
+Route::get('/driving',function (){
+    return view('web/driving_license');
+});
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
