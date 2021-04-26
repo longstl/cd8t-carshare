@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,10 +20,16 @@
 
                     <div class="heading-block nobottommargin center">
                         <h1 class="txt_baner">
-                            <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                  data-speed="3500">
-									LOOKING FOR A RIDE ?
+                            @if(!\Illuminate\Support\Facades\Auth::check())
+                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
+                                      data-speed="3500">LOOKING FOR A RIDE ?
                             </span>
+                            @else
+                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
+                                      data-speed="3500">WELCOME {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE ?
+                                </span>
+                            @endif
+
                         </h1>
                         <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
                         <a href="{{route('createRequest')}}"
