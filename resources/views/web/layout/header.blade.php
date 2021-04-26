@@ -44,26 +44,25 @@
                         </a>
                     </li>
                 </ul>
-                @if(!\Illuminate\Support\Facades\Auth::check())
-                    <div class="position-relative" id="top-search" style="width: 90px">
+
+                <div class="position-relative" id="top-search" style="width: 90px">
+                    @if(!\Illuminate\Support\Facades\Auth::check())
                         <div style="width: 50%;float: left">
                             <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
                         </div>
-                    </div>
-                @else()
-                    <div class="position-relative" id="top-search" style="width: 90px">
+                    @else()
                         <div style="width: 50%;float: left">
-                            <a class="btn_account"><b style="cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</b></a>
+                            <a class="btn_account"><b style="font-size: 20px; cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</b></a>
                         </div>
-                        @endif
-                        <div style="width: 50%;float: left; cursor: pointer">
-                            <a>
-                                <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
-                                    <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
-                                    ;position: absolute;top: -8px;right: -12px ">3</p></i>
-                            </a>
-                        </div>
+                    @endif
+                    <div style="width: 50%;float: left">
+                        <a>
+                            <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
+                                <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
+                                    ;position: absolute;top: -8px;right: -12px; cursor: pointer">3</p></i>
+                        </a>
                     </div>
+                </div>
                 <div class="top-cart-content notification"
                      style="right: 0; width: 350px; background: #f7f5f5;   position: absolute;top: 100%;">
                     <div class="top-cart-title">
@@ -96,16 +95,17 @@
                     </div>
                 </div>
                 @if(!\Illuminate\Support\Facades\Auth::check())
-                        <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px">
-                            <a href="" class="btn btn-success " style="margin-right: 5px">Login</a>
-                            <a href="" class="btn btn-warning">Register</a>
-                        </div>
-                    @else()
-                        <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px">
-                            <a href="" class="btn btn-success " style="margin-right: 5px">Profile</a>
-                            <a href="" class="btn btn-warning">Logout</a>
-                        </div>
-                    @endif
+                    <div id="account" class="accountn" style="position: absolute;  bottom: -78px; right: 87px;">
+                        <div style="margin-bottom: 10px;"><a href="{{route('loginUser')}}" class="btn btn-success " style="margin-right: 5px">Login</a></div>
+                        <div><a href="{{route('registerUser')}}" class="btn btn-warning">Register</a></div>
+                    </div>
+                @else()
+                    <div id="account" class="accountn" style="position: absolute;  bottom: -78px; right: 87px;">
+                        <div style="margin-bottom: 10px;"><a href="{{route('profile_user')}}" class="btn btn-success "
+                                style="margin-right: 5px">Profile</a></div>
+                        <div><a href="{{route('logoutUser')}}" class="btn btn-warning">Logout</a></div>
+                    </div>
+                @endif
             </nav>
         </div>
     </div>
