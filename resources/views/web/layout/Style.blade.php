@@ -192,6 +192,7 @@
     }
     .button.button-reveal span {
     }
+
 </style>
 <style>
     label.error {

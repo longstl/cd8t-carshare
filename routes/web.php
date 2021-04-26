@@ -53,6 +53,4 @@ Route::get('/ride-detail',function (){
 Route::get('/test',function (){
     return view('web/user_profile');
 });
-Route::get('/contact',function (){
-    return view('web/contact');
 });
