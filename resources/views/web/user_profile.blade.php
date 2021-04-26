@@ -187,13 +187,11 @@
                         </div>
 
                     </div>
-
-                    <div class="w-100 line d-block d-md-none"></div>
-
                     <div class="col-md-3 clearfix">
 
                         <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action clearfix">Update Profile <i class="icon-user float-right"></i></a>
+                            <a href="{{route('updateLicense')}}" class="list-group-item list-group-item-action clearfix">Update Driving License<i class="icon-user float-right"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Get Ride <i class="icon-laptop2 float-right"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
                         </div>

@@ -16,13 +16,18 @@
                         <div class="tab-content clearfix" id="tab-login">
                             <div class="card nobottommargin" style="border: 1px solid rgba(0, 0, 0, 0.125);">
                                 <div class="card-body" style="padding: 40px;">
+                                    @if($errors->any())
+                                        <div style="background: red">
+                                            <strong style="color: white"> {{ implode('', $errors->all(':message')) }}</strong>
+                                        </div>
+                                    @endif
                                     <form id="login-form" name="login-form" class="nobottommargin" action="{{route('storeCar')}}" method="post">
                                         @csrf
                                         <h3 class="center">Add your car</h3>
 
                                         <div class="col_full form-group">
                                             <label for="number">Model:</label>
-                                            <select name="number" id="number" class="form-control">
+                                            <select name="model_id" id="number" class="form-control">
                                                 @foreach($listModel as $model)
                                                     <option hidden selected disabled>Model</option>
                                                     <option value="{{$model->id}}">{{$model->make.' '.$model->model}}</option>

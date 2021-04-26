@@ -35,8 +35,10 @@
                         </a>
                     </li>
                     <li class="mega-menu">
-                        <a href="#">
-                            <div style="display: inline; background-color: #1ABC9C !important; color: white;font-family: 'Raleway', sans-serif;font-weight: bold;letter-spacing: 1px;"
+
+                        <a href="{{route('createRide')}}">
+                            <div style="display: inline; background-color: #1ABC9C !important; color: white"
+
                                  class="btn">OFFER A RIDE
                             </div>
                         </a>

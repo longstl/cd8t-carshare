@@ -145,8 +145,7 @@
 
             <div class="container clearfix">
 
-                <!-- Contact Form
-                ============================================= -->
+                <!-- Contact Form-->
                 <div class="col_half">
                     <div class="fancy-title title-dotted-border">
                         <h3>Find a ride</h3>
@@ -209,12 +208,20 @@
                             </div>
                         </form>
                     </div>
+        <!-- Contact Form End -->
 
                 </div><!-- Contact Form End -->
 
-                <!-- Google Map
-                ============================================= -->
+                <!-- Google Map -->
                 <div class="col_half col_last pt-3" style="padding-top: 35px">
+
+                        <section id="google-map" class="gmap">
+                            <div class="col-md-12 col-12 container_map">
+                                <div id="map"></div>
+                        </div>
+                        </section>
+
+                    </div><!-- Contact Form End -->
 
                     <section id="google-map" class="gmap">
                         <div class="col-md-12 col-12 container_map">
@@ -222,7 +229,7 @@
                         </div>
                     </section>
 
-                </div><!-- Google Map End -->
+                </div><-- Google Map End -->
 
                 <div class="clear"></div>
             </div>
