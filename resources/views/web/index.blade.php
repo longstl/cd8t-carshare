@@ -1,9 +1,10 @@
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="author" content="SemiColonWeb"/>
-    @include('web.layout.Style')
+    @include('web.layout.style')
     <title>Home | Car Share</title>
 </head>
 <body class="stretched">
@@ -19,15 +20,22 @@
 
                     <div class="heading-block nobottommargin center">
                         <h1 class="txt_baner">
-                            <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                  data-speed="3500">
-									LOOKING FOR A RIDE ?</span>
+                            @if(!\Illuminate\Support\Facades\Auth::check())
+                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
+                                      data-speed="3500">LOOKING FOR A RIDE ?
+                            </span>
+                            @else
+                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
+                                      data-speed="3500">WELCOME {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE ?
+                                </span>
+                            @endif
+
                         </h1>
                         <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
-                        <a href="#"
-                           class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                        <a href="{{route('createRequest')}}"
+                           class="btn btn-outline-dark button buftton-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
                                 style="color: #0b0b0b" class="find-a-ride">Find a Ride</span></a>
-                        <a href="#"
+                        <a href=""
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
                                 style="color: #0b0b0b">Book Now</span></a>
                     </div>
@@ -72,12 +80,12 @@
     <section id="slider2" class=" swiper_wrapper">
         <div class="col-md-10" style="position: absolute;right: 0">
             <div class="col_one_third bottommargin-sm center ml-5">
-                <img data-animate="fadeInLeft" src="https://mailinh.vn/uploads/media/1/images/dich-vu/1.png">
+                <img data-animate="fadeInLeft" src="https://cdn.blablacar.com/kairos/assets/build/images/indicate-your-route-fef6b1a4c9dac38c77c092858d73add3.svg">
             </div>
             <div class="col_two_third bottommargin-sm col_last abc">
-                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">Discover new cities at small prices with BlaBlaCar buses.</p>
-                <p class="text-P">Every week, every month. To meet with a loved one, or to discover a new place. With a big family, or a big luggage. To Paris, Amsterdam or any other European destination.</p>
-                <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">READ MORE</a>
+                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">Where do you want to drive to?</p>
+                <p class="text-P">Let's make this your least expensive journey ever.</p>
+                <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">Offer a ride</a>
             </div>
         </div>
     </section>
@@ -88,7 +96,7 @@
                     <div class="col-sm-4">
                         <div class="feature-box fbox-border fbox-effect">
                             <div class="fbox-icon">
-                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">4</p>
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <h3>Choice</h3>
                             <p>We go everywhere. Literally thousands of destinations. No station required.</p>
@@ -97,7 +105,7 @@
                     <div class="col-sm-4">
                         <div class="feature-box fbox-border fbox-effect">
                             <div class="fbox-icon">
-                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">5</p>
+                                <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <h3>Simple</h3>
                             <p>Enter your exact address to find the perfect ride. Choose who you’d like to travel with. And book!</p>
@@ -106,7 +114,7 @@
                     <div class="col-sm-4">
                         <div class="feature-box fbox-border fbox-effect">
                             <div class="fbox-icon">
-                                <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">6</p>
+                                <i class="fas fa-road"></i>
                             </div>
                             <h3>Seamless</h3>
                             <p>Get to your exact destination, without the hassle. No queues. No waiting around.</p>

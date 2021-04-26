@@ -21,10 +21,10 @@
                                 <div class="tabs tabs-alt clearfix" id="tabs-profile">
 
                                     <ul class="tab-nav clearfix">
-                                        <li><a href="#tab-feeds"><i class="icon-rss2"></i> Profile</a></li>
-                                        <li><a href="#tab-posts"><i class="icon-pencil2"></i> history Passenger</a></li>
-                                        <li><a href="#tab-replies"><i class="icon-reply"></i>history Driver</a></li>
-                                        <li><a href="#tab-connections"><i class="icon-users"></i> Your Car</a></li>
+                                        <li><a href="#tab-feeds"><i class="fas fa-id-badge"></i>Profile</a></li>
+                                        <li><a href="#tab-posts"><i class="fas fa-history"></i> history Passenger</a></li>
+                                        <li><a href="#tab-replies"><i class="fas fa-history"></i>history Driver</a></li>
+                                        <li><a href="#tab-connections"><i class="fas fa-car"></i> Your Car</a></li>
                                     </ul>
                                     <div class="tab-container">
                                         <div class="tab-content clearfix" id="tab-feeds">
@@ -156,7 +156,6 @@
                         </div>
 
                     </div>
-
                     <div class="col-md-3 clearfix">
                         <div class="modal fade" id="Delete" tabindex="-1"
                              role="dialog" aria-labelledby="deleteUser"
@@ -201,33 +200,27 @@
                         </div>
 
                         <a href="#" class="social-icon si-facebook si-small si-rounded si-light" title="Facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
+                            <i class="fab fa-facebook-square"></i>
                         </a>
 
                         <a href="#" class="social-icon si-gplus si-small si-rounded si-light" title="Google+">
-                            <i class="icon-gplus"></i>
-                            <i class="icon-gplus"></i>
+                            <i class="fab fa-google-plus-square"></i>
                         </a>
 
                         <a href="#" class="social-icon si-dribbble si-small si-rounded si-light" title="Dribbble">
-                            <i class="icon-dribbble"></i>
-                            <i class="icon-dribbble"></i>
+                            <i class="fab fa-dribbble-square"></i>
                         </a>
 
                         <a href="#" class="social-icon si-flickr si-small si-rounded si-light" title="Flickr">
-                            <i class="icon-flickr"></i>
-                            <i class="icon-flickr"></i>
+                            <i class="fab fa-flickr"></i>
                         </a>
 
                         <a href="#" class="social-icon si-linkedin si-small si-rounded si-light" title="LinkedIn">
-                            <i class="icon-linkedin"></i>
-                            <i class="icon-linkedin"></i>
+                            <i class="fab fa-linkedin"></i>
                         </a>
 
                         <a href="#" class="social-icon si-twitter si-small si-rounded si-light" title="Twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
+                            <i class="fab fa-twitter-square"></i>
                         </a>
 
                     </div>

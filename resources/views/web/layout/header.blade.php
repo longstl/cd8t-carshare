@@ -13,7 +13,7 @@
             <nav id="primary-menu" class="menu_top">
 
                 <ul class="h-100">
-                    <li class="current"><a href="index.html">
+                    <li class="current"><a href="{{route('index')}}">
                             <div>HOME</div>
                         </a>
                     </li>
@@ -21,7 +21,7 @@
                             <div>RULES</div>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="{{route('createRequest')}}">
                             <div>FIND A RIDE</div>
                         </a>
                     </li>
@@ -35,22 +35,31 @@
                         </a>
                     </li>
                     <li class="mega-menu">
-                        <a href="#">
-                            <div style="display: inline; background-color: #1ABC9C !important; color: white;font-family: 'Raleway', sans-serif;font-weight: bold;letter-spacing: 1px;"
+
+                        <a href="{{route('createRide')}}">
+                            <div style="display: inline; background-color: #1ABC9C !important; color: white"
+
                                  class="btn">OFFER A RIDE
                             </div>
                         </a>
                     </li>
                 </ul>
+
                 <div class="position-relative" id="top-search" style="width: 90px">
-                    <div style="width: 50%;float: left">
-                        <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
-                    </div>
+                    @if(!\Illuminate\Support\Facades\Auth::check())
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
+                        </div>
+                    @else()
+                        <div style="width: 50%;float: left">
+                            <a class="btn_account"><b style="font-size: 20px; cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</b></a>
+                        </div>
+                    @endif
                     <div style="width: 50%;float: left">
                         <a>
                             <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
                                 <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
-                                    ;position: absolute;top: -8px;right: -12px ">3</p></i>
+                                    ;position: absolute;top: -8px;right: -12px; cursor: pointer">3</p></i>
                         </a>
                     </div>
                 </div>
@@ -85,10 +94,18 @@
                         <button class="button button-3d button-small nomargin fright">Clear</button>
                     </div>
                 </div>
-                <div id="account" class="accountn" style="position: absolute;bottom: -50px;right: 10px"><a href=""
-                                                                                                           class="btn btn-success "
-                                                                                                           style="margin-right: 5px">Login</a><a
-                        href="" class="btn btn-warning">Register</a></div>
+                @if(!\Illuminate\Support\Facades\Auth::check())
+                    <div id="account" class="accountn" style="position: absolute;  bottom: -78px; right: 87px;">
+                        <div style="margin-bottom: 10px;"><a href="{{route('loginUser')}}" class="btn btn-success " style="margin-right: 5px">Login</a></div>
+                        <div><a href="{{route('registerUser')}}" class="btn btn-warning">Register</a></div>
+                    </div>
+                @else()
+                    <div id="account" class="accountn" style="position: absolute;  bottom: -78px; right: 87px;">
+                        <div style="margin-bottom: 10px;"><a href="{{route('profile_user')}}" class="btn btn-success "
+                                                             style="margin-right: 5px">Profile</a></div>
+                        <div><a href="{{route('logoutUser')}}" class="btn btn-warning">Logout</a></div>
+                    </div>
+                @endif
             </nav>
         </div>
     </div>

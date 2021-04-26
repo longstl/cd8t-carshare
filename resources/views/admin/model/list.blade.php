@@ -14,7 +14,7 @@
 -->
 @extends('admin.layout.master')
 @section('title')
-    List Car
+    List Model
 @endsection
 @section('error')
     @if(session()->get('status'))
@@ -56,15 +56,15 @@
                             </th>
                             </thead>
                             <tbody>
-                            @foreach($list_car as $car)
-                                <div class="modal fade" id="Delete{{$car->id}}" tabindex="-1"
+                            @foreach($list_model as $model)
+                                <div class="modal fade" id="Delete{{$model->id}}" tabindex="-1"
                                      role="dialog" aria-labelledby="deleteUser"
                                      aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
                                                 <p>Are you sure you want to delete
-                                                    <b> Delete{{$car->name}} </b>
+                                                    <b> Delete{{$model->name}} </b>
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
@@ -72,8 +72,7 @@
                                                 <button type="button" class="btn btn-outline-primary"
                                                         data-dismiss="modal">Cancel
                                                 </button>
-
-                                                <a href="{{route('deleteCar', $car->id)}}"
+                                                <a href="{{route('deleteModel', $model->id)}}"
                                                    class="btn btn-primary">Delete</a>
                                             </div>
                                         </div>
@@ -82,20 +81,20 @@
 
                                 <tr>
                                     <td>
-                                        <h4>{{$car->name}}</h4>
+                                        <h4>{{$model->name}}</h4>
                                     </td>
                                     <td>
-                                        <h4>{{$car->make}}</h4>
+                                        <h4>{{$model->make}}</h4>
                                     </td>
                                     <td>
-                                        <h4>{{$car->model}}</h4>
+                                        <h4>{{$model->model}}</h4>
                                     </td>
                                     <td>
-                                        <h4>{{$car->make_year}}</h4>
+                                        <h4>{{$model->make_year}}</h4>
                                     </td>
                                     <td>
-                                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$car->id}}">Delete</a>
-                                        <a href="{{route('updateCar', $car->id)}}"><button class="btn btn-success">Update</button></a>
+                                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$model->id}}">Delete</a>
+                                        <a href="{{route('updateModel', $model->id)}}"><button class="btn btn-success">Update</button></a>
                                     </td>
                                 </tr>
                             @endforeach

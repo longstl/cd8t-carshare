@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card" >
+            <div class="card" style="margin-top: 0; margin-bottom: 20px;">
                 <div class="card-body">
                     <div class="row ">
                         <div class="col-12 col-md-6 td-left">

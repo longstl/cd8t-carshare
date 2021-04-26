@@ -20,18 +20,19 @@ class UserController extends Controller
 {
     public function updateLicense()
     {
-        return view('web/update_license');
+        $data_user = User::find(Auth::id());
+        return view('web/update_license', ['data_user' => $data_user]);
     }
 
     public function profile()
     {
         $user = User::find(Auth::id());
         $request = \App\Models\Request::query()->where('user_id', Auth::id())->get();
-        $cars = Car::query()->where('user_id',Auth::id())->with('model')->get();
+        $cars = Car::query()->where('user_id', Auth::id())->with('model')->get();
         return view('web/user_profile', [
             'data_user' => $user,
-            'requests'=>$request,
-            'cars'=>$cars
+            'requests' => $request,
+            'cars' => $cars
         ]);
     }
 
@@ -42,6 +43,7 @@ class UserController extends Controller
             'data_user' => $user
         ]);
     }
+
     public function delete()
     {
         $user = User::find(Auth::id());
@@ -68,6 +70,7 @@ class UserController extends Controller
     public function saveLicense(UpdateLicenseRequest $request)
     {
         $user = User::find(Auth::id());
+        $data['is_driving_license_certified'] = 0;
         $data = $request->validated();
         $user->update($data);
         $user->save();
@@ -80,7 +83,7 @@ class UserController extends Controller
         return view('web/create_car', ['listModel' => $model]);
     }
 
-    public function saveCar(CarRequest $request)
+    public function storeCar(CarRequest $request)
     {
         $data = $request->validated();
         $data['user_id'] = Auth::id();
