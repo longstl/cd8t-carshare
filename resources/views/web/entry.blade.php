@@ -1,6 +1,6 @@
 @extends('web.layout.master')
 @section('title')
-    Entry | Car Share
+    Entry
 @endsection
 @section('content')
         <section id="content">

@@ -1,15 +1,8 @@
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="author" content="SemiColonWeb"/>
-    @include('web.layout.style')
-    <title>Home | Car Share</title>
-</head>
-<body class="stretched">
-<div id="wrapper" class="clearfix">
-    @include('web.layout.header')
+@extends('web.layout.master')
+    @section('title')
+    Home
+@endsection
+@section('content')
     <section id="slider" class="slider-element "
              style="background: url('{{lib_assets('img/hhhhhh.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
              data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
@@ -124,10 +117,6 @@
             </div>
         </div>
     </section>
-    @include('web.layout.footer')
-</div>
-<i id="gotoTop" class="fa fa-home icon-angle-up" aria-hidden="true"></i>
-@include('web.layout.script')
-</body>
-</html>
+@endsection
+
 
