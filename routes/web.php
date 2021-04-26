@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
@@ -27,7 +27,6 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-
 Route::get('login', [EntryController::class, 'login'])->name('login');
 Route::post('login', [EntryController::class, 'processLogin'])->name('loginUser');
 Route::get('register', [EntryController::class, 'register'])->name('registerForm');
@@ -42,7 +41,7 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
     Route::prefix('car')->group(function () {
         Route::get('create', [UserController::class, 'createCar'])->name('updateCar');
-        Route::post('save', [UserController::class, 'saveCar'])->name('saveCar');
+        Route::post('save', [UserController::class, 'saveCar'])->name('storeCar');
     });
     Route::prefix('ride')->group(function () {
         Route::get('create', [RideController::class, 'create'])->name('createRide');
