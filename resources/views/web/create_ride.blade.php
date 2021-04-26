@@ -165,7 +165,7 @@
                                     <label>Start time</label>
                                     <div class="form-group">
                                         <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                            <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" placeholder="MM/DD/YYYY 00:00 AM/PM"/>
+                                            <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" required/>
                                         </div>
                                     </div>
 								</div>
@@ -206,7 +206,7 @@
                                 <label for="number_of_seats">Seats</label>
                                 <input type="number" id="number_of_seats" name="number_of_seats"
                                        onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
-                                       placeholder="Enter number of seats"/>
+                                       placeholder="Enter number of seats" required/>
                             </div>
                             <div class="col_one_third">
                                 <label for="template-contactform-service">Model rider</label>

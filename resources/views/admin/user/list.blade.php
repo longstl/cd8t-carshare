@@ -19,7 +19,7 @@
                     <h3 class="card-title ">Users</h3>
                     <form name="filterForm">
                         <div class="form-group no-border">
-                            <input type="text" name="search" value="" placeholder="Search by keyword">
+                            <input type="text" name="search" value="" placeholder="Search by keyword" required/>
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>

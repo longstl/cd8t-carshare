@@ -42,12 +42,12 @@
                                         <div class="col_full">
                                             <label for="login-form-password">Car Registration Number</label>
                                             <input type="text" id="car_registration_number"
-                                                   name="car_registration_number" value="" class="form-control"/>
+                                                   name="car_registration_number" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full">
                                             <label for="login-form-password">Color:</label>
-                                            <input type="text" id="color" name="color" value="" class="form-control"/>
+                                            <input type="text" id="color" name="color" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full nobottommargin">
