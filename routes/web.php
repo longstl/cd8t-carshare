@@ -21,6 +21,7 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
+
 Route::get('login', [EntryController::class, 'login'])->name('login');
 Route::post('login', [EntryController::class, 'processLogin'])->name('loginUser');
 Route::get('register', [EntryController::class, 'register'])->name('registerForm');
@@ -28,6 +29,7 @@ Route::post('register', [EntryController::class, 'processRegister'])->name('regi
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
+  Route::get('profile', [UserController::class,'profile'])->name('profile_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
@@ -50,11 +52,4 @@ Route::prefix('user')->middleware('auth')->group(function () {
 
 Route::get('/profile', function () {
     return view('web/user_profile');
-});
-Route::get('/ride-detail', function () {
-    $model = Model::all();
-    return view('web/create_car', ['listModel' => $model]);
-});
-Route::get('/test', function () {
-    return view('web/find_r');
 });
