@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
+use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
@@ -12,9 +13,9 @@ Route::get('/rules', function () {
     return view('web/rules');
 });
 
-Route::get('/contact', function () {
-    return view('web/contact');
-});
+//Route::get('/contact', function () {
+//    return view('web/contact');
+//});
 
 Route::get('/profile', function () {
 
@@ -65,11 +66,11 @@ Route::prefix('user')->middleware('auth')->group(function () {
 
 
 
+Route::prefix('contact')->group(function() {
 
-Route::prefix('request')->group(function() {
+    Route::get('', [FeedbackController::class, 'create']);
+    Route::post('store-feedback', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
+    Route::get('thank-you', [FeedbackController::class, 'thankYou']);
+    Route::get('detail/{id}', [FeedbackController::class, 'detail']);
 
-    Route::get('', [RequestController::class, 'list']);
-    Route::get('create', [RequestController::class, 'create'])->name('create_request');
-    Route::post('create', [RequestController::class, 'store']);
-    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
