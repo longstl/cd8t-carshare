@@ -14,20 +14,28 @@ use Illuminate\Http\Request;
 
 class AdminRideController extends Controller
 {
-    public function list(){
-        $ride = Ride::query()->with(['car', 'car.user'])->get();
-        return view('admin/ride/list',[
-            'ride'=>$ride
+    public function list()
+    {
+        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        return view('admin/ride/list', [
+            'rides' => $rides
         ]);
+    }
 
+    public function create()
+    {
     }
-    public function create(){
+
+    public function store()
+    {
     }
-    public function store(){
+
+    public function update()
+    {
     }
-    public function update(){
-    }
-    public function save(){
+
+    public function save()
+    {
 
     }
 
@@ -60,7 +68,7 @@ class AdminRideController extends Controller
         $request->ride_id = $ride_id;
         try {
             $time = new DateTime($ride['travel_start_time']);
-            $time->modify('+'.$duration.' minutes');
+            $time->modify('+' . $duration . ' minutes');
             $request->pickup_time = $time;
         } catch (\Exception $e) {
         }
@@ -70,7 +78,8 @@ class AdminRideController extends Controller
         return $ride;
     }
 
-    public function delete(){
+    public function delete()
+    {
     }
     //
     //

@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('address');
+            $table->string('drivers_license_photo');
             $table->string('driving_license_number')->nullable();
             $table->date('driving_license_valid_from')->nullable();
             $table->date('driving_license_valid_to')->nullable();
@@ -38,6 +39,7 @@ class CreateUsersTable extends Migration
             $table->boolean('music_preference')->default(0);
             $table->boolean('chitchat_preference')->default(0);
             $table->integer('role')->default(Role::USER);
+            $table->boolean('is_driving_license_certified')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

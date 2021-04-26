@@ -45,7 +45,6 @@
                             <th>
                                 <h3>Create At</h3>
                             </th>
-
                             <th>
                                 <h3>Action</h3>
                             </th>
