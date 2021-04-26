@@ -16,7 +16,7 @@
                                 <div class="form-process"></div>
                                 <div class="col_full">
                                     <label for="template-contactform-name">Title<small>*</small></label>
-                                    <input type="text" id="template-contactform-title" name="template-contactform-title" value="" class="sm-form-control required" />
+                                    <input type="text" id="template-contactform-title" name="template-contactform-title" value="" class="sm-form-control required" required/>
                                 </div>
                                 <div class="clear"></div>
 
@@ -26,7 +26,7 @@
                                 </div>
 
                                 <div class="col_full hidden">
-                                    <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                                    <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" required/>
                                 </div>
 
                                 <div class="col_full">
