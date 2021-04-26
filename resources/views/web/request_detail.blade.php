@@ -24,11 +24,11 @@
                             <tbody>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Driver</h5></td>
-                                <td>{{$data_ride->travel_start_time}}</td>
+                                <td>{{$data_ride->car->user->first_name}}</td>
                             </tr>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Car</h5></td>
-                                <td>{{$data_ride->travel_start_time}}</td>
+                                <td>{{$data_ride->car->model->make}}</td>
                             </tr>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Origin</h5></td>
@@ -45,7 +45,7 @@
                             </tbody>
                         </table>
                         @if($data_ride->status != \App\Enums\RideStatus::CANCELED && $data_ride->status != \App\Enums\RideStatus::COMPLETED)
-                            <a href="{{route('cancelRide', $data_ride->id)}}">
+                            <a href="">
                                 <button class="btn btn-danger" style="margin-top:20px;">Cancel Ride</button>
                             </a>
                         @endif
