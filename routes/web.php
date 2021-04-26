@@ -28,12 +28,14 @@ Route::get('logout',[EntryController::class,'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function() {
     Route::get('create-license',[UserController::class,'updateLicense'])->name('updateLicense');
+    Route::get('profile',[UserController::class,'profile'])->name('profile_user');
     Route::post('save-license',[UserController::class,'saveLicense'])->name('saveLicense');
     Route::get('create-car',[UserController::class,'createCar'])->name('updateCar');
     Route::post('save-car',[UserController::class,'saveCar'])->name('saveCar');
     Route::get('create-ride',[RideController::class,'create'])->name('createRide');
     Route::post('create-ride',[RideController::class,'store'])->name('storeRide');
     Route::get('detail/{id}', [RideController::class, 'detail'])->name('detail-ride');
+
 
 });
 Route::prefix('request')->group(function() {
@@ -42,9 +44,7 @@ Route::prefix('request')->group(function() {
     Route::post('create', [RequestController::class, 'store']);
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
 });
-Route::get('/profile',function (){
-    return view('web/profile-user');
-});
+
 Route::get('/test',function (){
     return view('web/user_profile');
 });

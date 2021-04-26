@@ -78,6 +78,9 @@ div.select {
 .table tr td {
     text-align: center;
 }
+.td-left, .td-left tr td{
+    text-align: left;
+}
 
 #myImg {
     border-radius: 5px;

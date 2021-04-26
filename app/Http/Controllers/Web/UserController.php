@@ -15,6 +15,9 @@ class UserController extends Controller
     public function updateLicense(){
         return view('web/update_license');
     }
+    public function profile(){
+        return view('web/user_profile');
+    }
 
     public function saveLicense(UpdateLicenseRequest $request){
         $user = User::find(Auth::id());
