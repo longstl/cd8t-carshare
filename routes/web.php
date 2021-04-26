@@ -8,6 +8,9 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/rules', function () {
+    return view('web/rules');
+});
 
 Route::get('/contact', function () {
     return view('web/contact');
