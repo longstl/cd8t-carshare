@@ -12,7 +12,7 @@
                 <div class="postcontent nobottommargin clearfix" style="margin: auto!important; float: none;">
                     @if(session('created'))
                         <h2>Your ride has been created!</h2>
-                        <h3>We will notify you when your ride is booked</h3>
+                        <h3>We will notify you when your ride is confirmed</h3>
                     @elseif(session('canceled'))
                         <h2>Your ride has been canceled.</h2>
                     @else

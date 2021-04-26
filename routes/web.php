@@ -9,20 +9,6 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/rules', function () {
-    return view('web/rules');
-});
-
-
-Route::get('/profile', function () {
-
-    return view('web/profile');
-});
-
-Route::get('/driving', function () {
-    return view('web/driving_license');
-});
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
@@ -64,18 +50,14 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('book/{id}', [RequestController::class, 'book'])->name('bookMatch');
         Route::get('cancel/{id}', [RequestController::class, 'cancelMatch'])->name('cancelMatch');
     });
+    Route::prefix('contact')->group(function () {
+        Route::get('', [FeedbackController::class, 'create'])->name('createFeedback');
+        Route::post('store-feedback', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
+        Route::get('thank-you', [FeedbackController::class, 'thankYou'])->name('thankYouFeedback');
+        Route::get('detail/{id}', [FeedbackController::class, 'detail']);
+    });
 });
 
 Route::get('/rules', function () {
     return view('web/rules');
-});
-
-
-Route::prefix('contact')->group(function () {
-
-    Route::get('', [FeedbackController::class, 'create']);
-    Route::post('store-feedback', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
-    Route::get('thank-you', [FeedbackController::class, 'thankYou']);
-    Route::get('detail/{id}', [FeedbackController::class, 'detail']);
-
-});
+})->name('rules');
