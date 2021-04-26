@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RideRequest;
 use App\Models\Ride;
 use App\Models\User;
+use App\Models\Car;
 use Illuminate\Support\Facades\Auth;
 
 class RideController extends Controller

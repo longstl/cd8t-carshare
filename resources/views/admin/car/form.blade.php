@@ -14,10 +14,10 @@
 -->
 @extends('admin.layout.master')
 @section('title')
-    Car Profile
+    Model Profile
 @endsection
 
-@section('styleCar')
+@section('styleModel')
         <style>
             ::placeholder {
                 border: none;

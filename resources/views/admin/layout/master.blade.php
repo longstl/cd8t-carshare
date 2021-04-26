@@ -17,7 +17,7 @@
 
 <head>
     @include('admin.layout.head');
-    @yield('styleCar');
+    @yield('styleModel');
 </head>
 
 <body class="dark-edition">

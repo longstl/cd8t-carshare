@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
-@include('web.layout.Style')
-    <title>Profile | Car Share</title>
-</head>
-<body class="stretched">
-<div id="wrapper" class="clearfix">
-    @include('web.layout.header')
+@extends('web.layout.master')
+@section('title')
+    User Profile
+@endsection
+@section('content')
     <section id="content">
 
         <div class="content-wrap">
@@ -253,9 +247,5 @@
         </div>
 
     </section>
-    @include('web.layout.footer')
-</div>
-<div id="gotoTop" class="icon-angle-up"></div>
-@include('web.layout.script')
-</body>
-</html>
+@endsection
+
