@@ -372,11 +372,16 @@
 						</div>
 
 						<div class="contact-widget">
-
+                            @if($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                                </div>
+                            @endif
 							<div class="contact-form-result"></div>
 
-							<form class="nobottommargin" id="template-contactform" name="template-contactform" action="{{route('storeRide')}}" method="post">
-
+							<form class="nobottommargin" id="template-contactform" ACTION="{{route('storeRide')}}" name="template-contactform"   method="POST">
+@csrf
 								<div class="form-process"></div>
 
 								<div class="col_two_third">
@@ -394,24 +399,22 @@
                                     <label>Start time</label>
                                     <div class="form-group">
                                         <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                            <input type="text" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" placeholder="MM/DD/YYYY 00:00 AM/PM"/>
-                                            <div class="input-group-append" data-target=".datetimepicker" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="icon-calendar"></i></div>
-                                            </div>
+                                            <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" placeholder="MM/DD/YYYY 00:00 AM/PM"/>
                                         </div>
                                     </div>
 								</div>
 
 								<div class="col_one_third">
 									<label for="number_of_seats">Seats</label>
-									<input type="number" id="number_of_seats" name="number_of_seats" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter number of seats"/>
+									<input type="number" id="number_of_seats" name="seats_available" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter number of seats"/>
 								</div>
 								<div class="col_one_third">
 									<label for="template-contactform-service">Model rider</label>
-									<select id="select_vehicle" name="rider" class="form-control form-select selectpicker sm-form-control">
-										<option value selected>Maybach s650</option>
-										<option value="">Maybach s650</option>
-										<option value="">Maybach s650</option>
+									<select id="select_vehicle" name="car_id" class="form-control form-select selectpicker sm-form-control">
+										@foreach( $cars as $car)
+                                        <option  selected hidden disabled> Car</option>
+										<option value="{{$car->id}}">{{$car->model->make}}</option>
+                                        @endforeach
 									</select>
 								</div>
 								<div class="clear"></div>

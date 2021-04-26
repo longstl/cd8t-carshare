@@ -25,9 +25,6 @@ Route::prefix('ride')->group(function() {
     Route::post('', [RideController::class, 'store']);
 });
 
-Route::prefix('request')->group(function() {
-    Route::get('', [RequestController::class, 'list']);
-    Route::post('', [RequestController::class, 'store']);
-});
+
 
 Route::get('admin/ride/match/{id}', [AdminRideController::class, 'findMatch']);
