@@ -21,7 +21,7 @@
                 $lat = position.coords.latitude;
                 $lng = position.coords.longitude;
 
-                const map = new google.maps.Map(document.getElementById("map1"), {
+                const map = new google.maps.Map(document.getElementById("map"), {
                     mapTypeControl: false,
                     center: {lat: $lat, lng: $lng},
                     zoom: 18,
@@ -221,13 +221,13 @@
 
                         <section id="google-map" class="gmap">
                             <div class="col-md-12 col-12 container_map">
-                                <div id="map1"></div>
+                                <div id="map"></div>
                             </div>
                         </section>
 
                     </div><!-- Google Map End -->
 
-                </div><-- Google Map End -->
+                </div>
 
                 <div class="clear"></div>
             </div>
