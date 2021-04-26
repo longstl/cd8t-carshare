@@ -39,7 +39,8 @@ class User extends Authenticatable
         'is_pet_allowed',
         'music_preference',
         'chitchat_preference',
-        'role'
+        'role',
+        'is_driving_license_certified'
     ];
 
     public function cars(){

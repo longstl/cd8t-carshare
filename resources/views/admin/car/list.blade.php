@@ -68,9 +68,11 @@
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
+
                                                 <button type="button" class="btn btn-outline-primary"
                                                         data-dismiss="modal">Cancel
                                                 </button>
+
                                                 <a href="{{route('deleteCar', $car->id)}}"
                                                    class="btn btn-primary">Delete</a>
                                             </div>

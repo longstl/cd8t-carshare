@@ -10,7 +10,7 @@ use App\Enums\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UserRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,17 +30,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => ['required', Rule::unique('users')],
-            'password' => ['required', 'min:6'],
+            'password' => ['nullable' ,'min:6'],
             'first_name' => ['required'],
             'last_name' => ['required'],
-            'email' => ['required', 'email', Rule::unique('users')],
+//            'email' => ['required', 'email', Rule::unique('users')],
             'phone' => ['required', Rule::unique('users')],
-            'drivers_license_photo'=>['nullable'],
             'address' => ['required'],
-            'driving_license_number' => ['nullable', 'min:6'],
-            'driving_license_valid_from' => ['nullable', 'required_with:driving_license_number'],
-            'driving_license_valid_to' => ['nullable', 'required_with:driving_license_number'],
             'identification_type' => ['required', Rule::in(IdentificationType::getValues())],
             'identification_id' => ['required', 'min:6'],
             'identification_valid_from' => ['required'],
@@ -50,8 +45,7 @@ class UserRequest extends FormRequest
             'is_pet_allowed' => ['nullable', 'boolean'],
             'music_preference' => ['nullable', Rule::in(MusicPreference::getValues())],
             'chitchat_preference' => ['nullable', Rule::in(ChitChatPreference::getValues())],
-            'role' => ['required',Rule::in(Role::getValues())],
-            'is_driving_license_certified'=>['nullable']
+
         ];
     }
 }
