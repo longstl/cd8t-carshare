@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
@@ -9,11 +9,11 @@ use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/contact',function (){
+Route::get('/contact', function () {
     return view('web/contact');
 });
 
-Route::get('/profile',function (){
+Route::get('/profile', function () {
 
     return view('web/profile');
 });
@@ -34,14 +34,14 @@ Route::post('register', [EntryController::class, 'processRegister'])->name('regi
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
-  Route::get('profile', [UserController::class,'profile'])->name('profile_user');
+    Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
     });
     Route::prefix('car')->group(function () {
         Route::get('create', [UserController::class, 'createCar'])->name('updateCar');
-        Route::post('save', [UserController::class, 'saveCar'])->name('storeCar');
+        Route::post('store', [UserController::class, 'storeCar'])->name('storeCar');
     });
     Route::prefix('ride')->group(function () {
         Route::get('create', [RideController::class, 'create'])->name('createRide');
@@ -55,12 +55,13 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
 });
 
+
+
+
 Route::prefix('request')->group(function() {
+
     Route::get('', [RequestController::class, 'list']);
     Route::get('create', [RequestController::class, 'create'])->name('create_request');
     Route::post('create', [RequestController::class, 'store']);
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
-});
-Route::get('/profile',function (){
-    return view('web/user_profile');
 });
