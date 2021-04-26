@@ -30,8 +30,9 @@ Route::prefix('users')->group(function () {
 });
 
 Route::prefix("feedbacks")->group(function () {
-    Route::get('', [FeedbackController::class, 'list'])->name('listFeedback');
-    Route::get('delete/{id}', [FeedbackController::class, 'delete'])->name('deleteFeedback');
+    Route::get('', [AdminFeedbackController::class, 'list'])->name('listFeedback');
+    Route::get('delete/{id}', [AdminFeedbackController::class, 'delete'])->name('deleteFeedback');
+    Route::get('read/{id}', [AdminFeedbackController::class, 'read'])->name('readFeedback');
 });
 
 Route::prefix("rides")->group(function () {

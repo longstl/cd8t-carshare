@@ -15,11 +15,11 @@
                         <h1 class="txt_baner">
                             @if(!\Illuminate\Support\Facades\Auth::check())
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">LOOKING FOR A RIDE ?
+                                      data-speed="3500">LOOKING FOR A RIDE?
                             </span>
                             @else
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">WELCOME {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE ?
+                                      data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE?
                                 </span>
                             @endif
 

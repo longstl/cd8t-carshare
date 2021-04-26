@@ -13,7 +13,11 @@
                                   method="post">
                                 @csrf
                                 <h3>Login to your Account</h3>
-
+                                @if(session('error-login'))
+                                    <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
+                                        {{session('error-login')}}
+                                    </div>
+                                @endif
                                 <div class="col_full">
                                     <label for="login-form-username">Username:</label>
                                     <input type="text" id="login-form-username" name="username" value=""
@@ -41,11 +45,6 @@
 
                         <div class="row">
                             <h3>Don't have an Account? Register Now.</h3>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident
-                                sint
-                                ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus
-                                ratione.</p>
                         </div>
                         <div class="row">
                             <form id="register-form" name="register-form" class="nobottommargin" action="{{route('registerUser')}}" method="post">

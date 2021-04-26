@@ -38,6 +38,8 @@ class EntryController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
+        } else {
+            return back()->with('error-login', 'Invalid account and/or password. Please check and try again.');
         }
     }
 

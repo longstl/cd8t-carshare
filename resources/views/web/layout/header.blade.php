@@ -17,7 +17,7 @@
                             <div>HOME</div>
                         </a>
                     </li>
-                    <li class="mega-menu"><a href="#">
+                    <li class="mega-menu"><a href="{{route('rules')}}">
                             <div>RULES</div>
                         </a>
                     </li>
@@ -26,11 +26,7 @@
                         </a>
                     </li>
 
-                    <li class="mega-menu"><a href="#">
-                            <div>ABOUT</div>
-                        </a>
-                    </li>
-                    <li class="mega-menu"><a href="#">
+                    <li class="mega-menu"><a href="{{route('createFeedback')}}">
                             <div>CONTACT</div>
                         </a>
                     </li>
@@ -48,11 +44,11 @@
                 <div class="position-relative" id="top-search" style="width: 90px">
                     @if(!\Illuminate\Support\Facades\Auth::check())
                         <div style="width: 50%;float: left">
-                            <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>
+                            <a href="{{route('login')}}" class="btn_account">Login</a>
                         </div>
                     @else()
                         <div style="width: 50%;float: left">
-                            <a class="btn_account"><b style="font-size: 20px; cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->first_name}}</b></a>
+                            <a class="btn_account"><b style="font-size: 20px; cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->username}}</b></a>
                         </div>
                     @endif
                     <div style="width: 50%;float: left">

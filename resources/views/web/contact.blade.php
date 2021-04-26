@@ -27,10 +27,6 @@
                                     <textarea class="required sm-form-control" id="content" name="content" rows="6" cols="30"></textarea>
                                 </div>
 
-                                <div class="col_full hidden">
-                                    <input type="number" id="template-contactform-botcheck" name="user_id" value="{{$user_id}}" class="sm-form-control" required/>
-                                </div>
-
                                 <div class="col_full">
                                     <button style="width: 50%" name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Submit Comment</button>
                                 </div>
