@@ -16,6 +16,9 @@ class UserController extends Controller
         $data_user = User::find(Auth::id());
         return view('web/update_license',['data_user'=>$data_user]);
     }
+    public function profile(){
+        return view('web/user_profile');
+    }
 
     public function saveLicense(UpdateLicenseRequest $request){
         $user = User::find(Auth::id());

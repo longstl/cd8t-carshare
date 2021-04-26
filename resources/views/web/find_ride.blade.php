@@ -161,22 +161,34 @@
                                     <label>Start time</label>
                                     <div class="form-group">
                                         <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                            <input type="datetime-local" name="desired_pickup_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker"/>
-                                        </div>
+                                            <input type="datetime-local" name="desired_pickup_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" required/>
                                     </div>
                                 </div>
 
-                                <div class="col_one_third">
-                                    <label for="number_of_seats">Amount of people</label>
-                                    <input type="number" id="number_of_seats" name="seats_occupy" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter the number of people"/>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="col_full">
-                                    <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Create</button>
-                                    <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Remove</button>
+                                    <div class="col_one_third">
+                                        <label for="number_of_seats">Amount of people</label>
+                                        <input type="number" id="number_of_seats" name="seats_occupy" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter the number of people" required/>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="col_full">
+                                        <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Create</button>
+                                        <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Remove</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
+
+                    </div><!-- Contact Form End -->
+
+                    <!-- Google Map
+                    ============================================= -->
+                    <div class="col_half col_last pt-3" style="padding-top: 35px">
+
+                        <section id="google-map" class="gmap">
+                            <div class="col-md-12 col-12 container_map">
+                                <div id="map"></div>
+                        </div>
+                        </section>
 
                     </div><!-- Contact Form End -->
 
