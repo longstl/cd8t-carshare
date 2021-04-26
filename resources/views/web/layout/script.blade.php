@@ -1,14 +1,14 @@
 <script src="{{lib_assets('web/js/jquery.js')}}"></script>
 <script src="{{lib_assets('web/js/plugins.js')}}"></script>
 <script src="{{lib_assets('web/js/functions.js')}}"></script>
-<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
 <script src="{{lib_assets('web/js/jquery.validate.min.js')}}"></script>
 <script src="{{lib_assets('web/js/popper.min.js')}}"></script>
 <script src="{{lib_assets('web/js/bootstrap.min.js')}}"></script>
 <script src="{{lib_assets('web/js/components/moment.js')}}"></script>
 <script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
 <script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
-<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&libraries=places&v=weekly')}}" async></script>
+<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}" async></script>
+<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function (){
         document.querySelector('.btn_account').onclick = function () {
