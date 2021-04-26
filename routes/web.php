@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/rules', function () {
     return view('web/rules');
 });
@@ -35,10 +36,10 @@ Route::post('register', [EntryController::class, 'processRegister'])->name('regi
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class,'profile'])->name('profile_user');
-    Route::get('update', [UserController::class,'update_profile'])->name('update_profile');
-    Route::post('update', [UserController::class,'saveuser'])->name('saveuser');
-    Route::get('delete', [UserController::class,'delete_user'])->name('delete_user');
+    Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
+    Route::get('update', [UserController::class, 'update_profile'])->name('update_profile');
+    Route::post('update', [UserController::class, 'saveuser'])->name('saveuser');
+    Route::get('delete', [UserController::class, 'delete_user'])->name('delete_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
@@ -59,20 +60,18 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('detail/{id}', [RequestController::class, 'detail'])->name('detailRequest');
         Route::get('cancel/{id}', [RequestController::class, 'cancel'])->name('cancelRequest');
     });
+    Route::prefix('match')->group(function () {
+        Route::get('book/{id}', [RequestController::class, 'book'])->name('bookMatch');
+        Route::get('cancel/{id}', [RequestController::class, 'cancelMatch'])->name('cancelMatch');
+    });
+});
+
+Route::get('/rules', function () {
+    return view('web/rules');
 });
 
 
-
-
-Route::prefix('request')->group(function() {
-
-    Route::get('', [RequestController::class, 'list']);
-    Route::get('create', [RequestController::class, 'create'])->name('create_request');
-    Route::post('create', [RequestController::class, 'store']);
-    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
-});
-
-Route::prefix('contact')->group(function() {
+Route::prefix('contact')->group(function () {
 
     Route::get('', [FeedbackController::class, 'create']);
     Route::post('store-feedback', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
