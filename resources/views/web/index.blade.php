@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="author" content="SemiColonWeb"/>
-    @include('web.layout.Style')
+    @include('web.layout.style')
     <title>Home | Car Share</title>
 </head>
 <body class="stretched">
