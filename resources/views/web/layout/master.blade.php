@@ -12,7 +12,6 @@
 <div id="wrapper" class="clearfix">
     @yield('content')
 </div><!-- #wrapper end -->
-
 <div id="gotoTop" class="fa fa-home icon-angle-up"></div>
 @include('web.layout.footer')
 @include('web.layout.script')
