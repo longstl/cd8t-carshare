@@ -27,8 +27,6 @@ class RequestController extends Controller
         return $new_request;
     }
 
-
-
     public function book($id)
     {
         $request = Request::find($id);
