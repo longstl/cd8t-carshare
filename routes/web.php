@@ -50,6 +50,6 @@ Route::get('/ride-detail',function (){
     $model = Model::all();
     return view('web/create_car',['listModel' => $model]);
 });
-Route::get('/test',function (){
-    return view('web/find_r');
+Route::get('/find-ride',function (){
+    return view('web/find_ride');
 });
