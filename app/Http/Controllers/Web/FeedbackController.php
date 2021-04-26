@@ -35,16 +35,15 @@ class FeedbackController extends Controller
     {
         $user_id = Auth::id();
         $feedback = DB::table('feedbacks')->where('user_id', $user_id)->get();
-        return view('web/contact', ['feedback' => $feedback]);
+        return view('web/contact', ['feedback' => $feedback])->with('user_id', $user_id);
     }
 
     public function storeFeedback(FeedbackRequest $request)
     {
         $content = 'content';
         $request->validated();
-//        $data['user_id'] = Auth::id();
         $feedback = DB::table('feedbacks')->insert([
-            'title'=>$request->title,
+            'title' => $request->title,
             'user_id' => Auth::id(),
             'content' => $request->$content,
             'created_at' => Carbon::now(),

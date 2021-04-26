@@ -160,7 +160,7 @@
                         @endif
                         <div class="contact-form-result"></div>
 
-                        <form class="nobottommargin" id="template-contactform2" name="template-contactform2"
+                        <form class="nobottommargin" id="template-contactform" name="template-contactform"
                               method="POST">
                             @csrf
 

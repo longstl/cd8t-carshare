@@ -13,9 +13,6 @@ Route::get('/rules', function () {
     return view('web/rules');
 });
 
-Route::get('/contact', function () {
-    return view('web/contact');
-});
 
 Route::get('/profile', function () {
 

@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="col_full hidden">
-                                    <input type="number" id="template-contactform-botcheck" name="user_id" value="1" class="sm-form-control" required/>
+                                    <input type="number" id="template-contactform-botcheck" name="user_id" value="{{$user_id}}" class="sm-form-control" required/>
                                 </div>
 
                                 <div class="col_full">
