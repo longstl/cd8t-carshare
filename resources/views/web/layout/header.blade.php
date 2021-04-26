@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="mega-menu">
-                        <a href="#">
+                        <a href="{{route('createRide')}}">
                             <div style="display: inline; background-color: #1ABC9C !important; color: white"
                                  class="btn">OFFER A RIDE
                             </div>
