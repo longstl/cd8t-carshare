@@ -79,7 +79,7 @@ class AdminUserController extends Controller
 
     public function show()
     {
-        $dtuser = User::whereNotNull('is_driving_license_certified')->where('is_driving_license_certified', 0)->paginate(10);
+        $dtuser = User::whereNotNull('is_driving_license_certified')->where('is_driving_license_certified', 0)->get();
         return view('Admin/user/drive', [
             'dtuser'=>$dtuser
         ]);
