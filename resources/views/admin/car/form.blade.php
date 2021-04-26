@@ -46,25 +46,25 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Name</label>
-                                    <input type="text" value="{{$data_car ? $data_car->name :''}}" name="name" class="form-control">
+                                    <input type="text" value="{{$data_car ? $data_car->name :''}}" name="name" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating"> Make</label>
-                                    <input type="text" value="{{$data_car ? $data_car->make :''}}" name="make" class="form-control">
+                                    <input type="text" value="{{$data_car ? $data_car->make :''}}" name="make" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Model</label>
-                                    <input type="text" value="{{$data_car ? $data_car->model :''}}" name="model" class="form-control">
+                                    <input type="text" value="{{$data_car ? $data_car->model :''}}" name="model" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Make year</label>
-                                    <input type="number" value="{{$data_car ? $data_car->make_year :''}}" name="make_year" class="form-control">
+                                    <input type="number" value="{{$data_car ? $data_car->make_year :''}}" name="make_year" class="form-control required/">
                                 </div>
                             </div>
                         </div>

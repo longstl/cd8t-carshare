@@ -53,14 +53,14 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Name</label>
-                                                <input type="text" name="name" class="form-control" value="{{ $dataColor ? $dataColor->name : ''}}">
+                                                <input type="text" name="name" class="form-control" value="{{ $dataColor ? $dataColor->name : ''}}" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Sort Number</label>
-                                                <input type="text" name="sort_number" class="form-control" value="{{ $dataColor ? $dataColor->sort_number : ''}}">
+                                                <input type="text" name="sort_number" class="form-control" value="{{ $dataColor ? $dataColor->sort_number : ''}}"required/>
                                             </div>
                                         </div>
 
@@ -72,7 +72,7 @@
                                                 <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <input type="color" id="html5colorpicker"
-                                                           onblur="document.querySelector('#color').value = this.value"
+                                                           onblur="document.querySelector('#color').value = this.value" required/>
                                                            style="width: 30px; height: 30px;">
                                                 </span>
                                                 </div>
