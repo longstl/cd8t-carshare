@@ -188,12 +188,14 @@
 
                     </div>
 
+
                     <div class="col-md-3 clearfix">
 
                         <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action clearfix">Update Profile <i class="far fa-user"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Get Ride <i class="fas fa-laptop"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="fas fa-sign-out-alt"></i></a>
+
                         </div>
 
                         <div class="fancy-title topmargin title-border">

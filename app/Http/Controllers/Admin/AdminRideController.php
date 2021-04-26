@@ -13,7 +13,7 @@ class AdminRideController extends Controller
 {
     public function list()
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query()->with(['model', 'model.user'])->get();
         return view('admin/ride/list', [
             'rides' => $rides
         ]);

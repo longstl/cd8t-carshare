@@ -149,13 +149,13 @@
 
                             <div class="col_two_third">
                                 <label for="origin-input">Origin</label>
-                                <input type="text" id="origin-input" name="origin_address" value="" class="controls pac-target-input valid sm-form-control" required/>
+                                <input type="text" id="origin-input" name="origin_address" value="" placeholder="Enter origin" class="controls pac-target-input valid sm-form-control" required/>
                             </div>
 
                             <div class="col_two_third">
                                 <label for="destination-input">Destination</label>
                                 <input type="text" id="destination-input" name="destination_address"
-                                       class="controls pac-target-input valid  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false" required/>
+                                       class="controls pac-target-input valid  sm-form-control" placeholder="Enter destination" autocomplete="off" aria-invalid="false" required/>
                             </div>
                             <div class="col_two_third">
                                 <label>Start time</label>
@@ -165,24 +165,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col_two_third">
-                                <label>Start time</label>
-                                <div class="form-group">
-                                    <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                        <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" placeholder="MM/DD/YYYY 00:00 AM/PM"/>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="col_one_third">
-                                <label for="number_of_seats">Seats</label>
+                                <label for="number_of_seats">Seats available</label>
                                 <input type="number" id="number_of_seats" name="number_of_seats"
                                        onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
-                                       placeholder="Enter number of seats" required/>
+                                       placeholder="Enter seats" required/>
                             </div>
                             <div class="col_one_third">
-                                <label for="template-contactform-service">Model rider</label>
+                                <label for="template-contactform-service">Car</label>
                                 <select id="select_vehicle" name="car_id" class="form-control form-select selectpicker sm-form-control">
                                     @foreach( $cars as $car)
                                         <option  selected hidden disabled> Car</option>
@@ -190,10 +180,18 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="col_two_third">
+                                <label>
+                                    Total amount to collect from this ride<br>
+                                    (This amount will be split among all your riders. CarShare will collect 10% of this amount as service fee.)
+                                </label>
+                                <input type="number" min="0" name="price_total"
+                                       onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
+                                       placeholder="Enter price" required/>
+                            </div>
                             <div class="clear"></div>
                             <div class="col_full">
                                 <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Create</button>
-                                <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Remove</button>
                             </div>
                         </form>
                     </div>

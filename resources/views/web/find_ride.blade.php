@@ -6,6 +6,7 @@
     <script>
         let markerOptions;
         let markerShow;
+        let address = '';
 
         function initMap() {
             let $lat = 0;
@@ -20,14 +21,31 @@
                 $lat = position.coords.latitude;
                 $lng = position.coords.longitude;
 
-                const map = new google.maps.Map(document.getElementById("map"), {
+                const map = new google.maps.Map(document.getElementById("map1"), {
                     mapTypeControl: false,
                     center: {lat: $lat, lng: $lng},
                     zoom: 18,
                 });
-                let origin = $('#origin-input')
-                origin.val($lat + ',' + $lng)
 
+                new google.maps.Geocoder().geocode({location: {lat: $lat, lng: $lng}}, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            for (let i = 0; i < results[0]['address_components'].length; i++) {
+                                if (i === results[0]['address_components'].length - 1) {
+                                    address += results[0]['address_components'][i]['long_name']
+                                } else {
+                                    address += results[0]['address_components'][i]['long_name'] + ', '
+                                }
+                            }
+                            let origin = $('#origin-input')
+                            origin.val(address)
+                        } else {
+                            window.alert("No results found");
+                        }
+                    } else {
+                        window.alert("Geocoder failed due to: " + status);
+                    }
+                });
 
                 markerOptions = {
                     position: {lat: $lat, lng: $lng},
@@ -39,6 +57,7 @@
                 new AutocompleteDirectionsHandler(map);
             }
         }
+
         class AutocompleteDirectionsHandler {
             constructor(map) {
                 this.map = map;
@@ -120,65 +139,81 @@
     </script>
 @endsection
 @section('content')
-        <section id="content">
+    <section id="content">
 
-            <div class="content-wrap">
+        <div class="content-wrap">
 
-                <div class="container clearfix">
+            <div class="container clearfix">
 
-                    <!-- Contact Form
+                <!-- Contact Form-->
+                <div class="col_half">
+                    <div class="fancy-title title-dotted-border">
+                        <h3>Find a ride</h3>
+                    </div>
+
+                    <div class="contact-widget">
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                            </div>
+                        @endif
+                        <div class="contact-form-result"></div>
+
+                        <form class="nobottommargin" id="template-contactform" name="template-contactform"
+                              method="POST">
+                            @csrf
+
+                            <div class="form-process"></div>
+                            <div class="col_two_third">
+                                <label for="origin-input">Origin</label>
+                                <input type="text" id="origin-input" name="pickup_address" value=""
+                                       class="controls pac-target-input valid sm-form-control" required/>
+                            </div>
+
+                            <div class="col_two_third">
+                                <label for="destination-input">Destination</label>
+                                <input type="text" id="destination-input" name="destination_address"
+                                       class="controls pac-target-input valid  sm-form-control"
+                                       placeholder="Enter a destination location" autocomplete="off"
+                                       aria-invalid="false" required/>
+                            </div>
+
+                            <div class="col_two_third">
+                                <label>Start time</label>
+                                <div class="form-group">
+                                    <div class="input-group tleft" data-target-input="nearest"
+                                         data-target=".datetimepicker">
+                                        <input type="datetime-local" name="desired_pickup_time"
+                                               class="form-control datetimepicker-input datetimepicker"
+                                               data-target=".datetimepicker"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col_one_third">
+                                <label for="number_of_seats">Amount of people</label>
+                                <input type="number" id="number_of_seats" name="seats_occupy"
+                                       onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
+                                       placeholder="Enter the number of people"/>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col_full">
+                                <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
+                                        class="button button-3d m-0">Create
+                                </button>
+                                <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
+                                        class="button button-3d m-0">Remove
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+        <!-- Contact Form End -->
+
+                </div><!-- Contact Form End -->
+
+                    <!-- Google Map
                     ============================================= -->
-                    <div class="col_half">
-                        <div class="fancy-title title-dotted-border">
-                            <h3>Find a ride</h3>
-                        </div>
-
-                        <div class="contact-widget">
-                            @if($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <strong> {{ implode('', $errors->all(':message')) }}</strong>
-                                </div>
-                            @endif
-                            <div class="contact-form-result"></div>
-
-                            <form class="nobottommargin" id="template-contactform" name="template-contactform"  method="POST">
-                                @csrf
-
-                                <div class="form-process"></div>
-                                <div class="col_two_third">
-                                    <label for="origin-input">Origin</label>
-                                    <input type="text" id="origin-input" name="pickup_address" value="" class="controls pac-target-input valid sm-form-control" required/>
-                                </div>
-
-                                <div class="col_two_third">
-                                    <label for="destination-input">Destination</label>
-                                    <input type="text" id="destination-input" name="destination_address"
-                                           class="controls pac-target-input valid  sm-form-control" placeholder="Enter a destination location" autocomplete="off" aria-invalid="false" required/>
-                                </div>
-
-                                <div class="col_two_third">
-                                    <label>Start time</label>
-                                    <div class="form-group">
-                                        <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                            <input type="datetime-local" name="desired_pickup_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" required/>
-                                    </div>
-                                </div>
-
-                                    <div class="col_one_third">
-                                        <label for="number_of_seats">Amount of people</label>
-                                        <input type="number" id="number_of_seats" name="seats_occupy" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter the number of people" required/>
-                                    </div>
-                                    <div class="clear"></div>
-                                    <div class="col_full">
-                                        <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Create</button>
-                                        <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d m-0">Remove</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div><!-- Contact Form End -->
 
                     <!-- Google Map
                     ============================================= -->
@@ -186,35 +221,25 @@
 
                         <section id="google-map" class="gmap">
                             <div class="col-md-12 col-12 container_map">
-                                <div id="map"></div>
-                        </div>
-                        </section>
-
-                    </div><!-- Contact Form End -->
-
-                    <!-- Google Map
-                    ============================================= -->
-                    <div class="col_half col_last pt-3" style="padding-top: 35px">
-
-                        <section id="google-map" class="gmap">
-                            <div class="col-md-12 col-12 container_map">
-                                <div id="map"></div>
+                                <div id="map1"></div>
                             </div>
                         </section>
 
                     </div><!-- Google Map End -->
 
-                    <div class="clear"></div>
-                </div>
+                </div><-- Google Map End -->
 
+                <div class="clear"></div>
             </div>
 
-        </section><!-- #content end -->
+        </div>
+
+    </section><!-- #content end -->
 @endsection
 @section('botExtraJs')
     <script>
         //show_distance
-        $('#origin-input').change(function (){
+        $('#origin-input').change(function () {
             if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
                 $value = {
                     "start": $('#origin-input').val(),
@@ -230,7 +255,7 @@
                         $Json = JSON.parse(response)
                         $('#range').val($Json.rows[0].elements[0].distance.text)
                         $('#intend_time').val($Json.rows[0].elements[0].duration.text)
-                        $('#show_distance').text('Estimate : '+$Json.rows[0].elements[0].distance.text)
+                        $('#show_distance').text('Estimate : ' + $Json.rows[0].elements[0].distance.text)
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);
@@ -238,7 +263,7 @@
                 })
             }
         })
-        $('#destination-input').change(function (){
+        $('#destination-input').change(function () {
             if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
                 $value = {
                     "start": $('#origin-input').val(),
@@ -254,7 +279,7 @@
                         $Json = JSON.parse(response)
                         $('#range').val($Json.rows[0].elements[0].distance.text)
                         $('#intend_time').val($Json.rows[0].elements[0].duration.text)
-                        $('#show_distance').text('estimate : '+$Json.rows[0].elements[0].distance.text)
+                        $('#show_distance').text('estimate : ' + $Json.rows[0].elements[0].distance.text)
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);

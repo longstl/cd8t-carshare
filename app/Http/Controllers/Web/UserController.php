@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function updateLicense(){
-        return view('web/update_license');
+        $data_user = User::find(Auth::id());
+        return view('web/update_license',['data_user'=>$data_user]);
     }
     public function profile(){
         return view('web/user_profile');
@@ -21,6 +22,7 @@ class UserController extends Controller
 
     public function saveLicense(UpdateLicenseRequest $request){
         $user = User::find(Auth::id());
+        $data['is_driving_license_certified'] = 0;
         $data = $request->validated();
         $user->update($data);
         $user->save();
@@ -30,7 +32,7 @@ class UserController extends Controller
         $model = Model::all();
         return view('web/create_car',['listModel' => $model]);
     }
-    public function saveCar(CarRequest $request){
+    public function storeCar(CarRequest $request){
         $data = $request->validated();
         $data['user_id'] = Auth::id();
         $car = new Car();
