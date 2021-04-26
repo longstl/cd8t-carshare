@@ -8,7 +8,6 @@
     <title>Contact | Car Share</title>
 
 </head>
-
 <body class="stretched">
 @include('web.layout.header')
 <div id="wrapper" class="clearfix">
