@@ -13,7 +13,7 @@
             <nav id="primary-menu" class="menu_top">
 
                 <ul class="h-100">
-                    <li class="current"><a href="index.html">
+                    <li class="current"><a href="{{route('index')}}">
                             <div>HOME</div>
                         </a>
                     </li>
@@ -21,7 +21,7 @@
                             <div>RULES</div>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="{{route('createRequest')}}">
                             <div>FIND A RIDE</div>
                         </a>
                     </li>

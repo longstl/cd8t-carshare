@@ -55,7 +55,11 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
 });
 
-Route::prefix('request')->group(function () {
+
+
+
+Route::prefix('request')->group(function() {
+
     Route::get('', [RequestController::class, 'list']);
     Route::get('create', [RequestController::class, 'create'])->name('create_request');
     Route::post('create', [RequestController::class, 'store']);
