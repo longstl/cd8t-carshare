@@ -1,6 +1,6 @@
 @extends('web.layout.master')
 @section('title')
-    Contact | Car share
+    Contact
 @endsection
 @section('content')
         <section id="content">

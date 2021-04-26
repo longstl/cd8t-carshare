@@ -36,6 +36,11 @@ class AdminRideController extends Controller
 
     }
 
+    public function cancel($id)
+    {
+
+    }
+
     public function findMatch($id)
     {
         $ride = Ride::find($id);
@@ -91,9 +96,5 @@ class AdminRideController extends Controller
         $ride->status = RideStatus::MATCHED;
         $ride->save();
         return redirect()->route('listRide')->with('success', 'Ride '.$ride_id.' matched!');
-    }
-
-    public function delete()
-    {
     }
 }

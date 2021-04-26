@@ -1,11 +1,6 @@
 
 
 @extends('web.layout.master')
- <style>
-        .table > tbody > tr > td {
-            padding: 13px!important;
-        }
-    </style>
 @section('title')
         Request Detail | Car Share
 @endsection
@@ -31,17 +26,17 @@
                             <td>{{ $data_request->destination_address}}</td>
                         </tr>
                         <tr>
-                            <td><h5 style="margin: 0!important;">Start time</h5></td>
+                            <td><h5 style="margin: 0!important;">Design pickup time</h5></td>
                             <td>{{ $data_request->desired_pickup_time}}</td>
                         </tr>
-                        <tr>
-                            <td><h5 style="margin: 0!important;">Estimated distance</h5></td>
-                            <td>null</td>
-                        </tr>
-                        <tr>
-                            <td><h5 style="margin: 0!important;">Estimated travel time</h5></td>
-                            <td>{{ $data_request->pickup_time}}</td>
-                        </tr>
+                           <tr>
+                               <td><h5 style="margin: 0!important;">Estimated distance</h5></td>
+                               <td>null</td>
+                           </tr>
+                           <tr>
+                               <td><h5 style="margin: 0!important;">Estimated travel time</h5></td>
+                               <td>{{ $data_request->pickup_time}}</td>
+                           </tr>
                         <tr>
                             <td><h5 style="margin: 0!important;">Amount of people</h5></td>
                             <td>{{ $data_request->seats_occupy}}</td>
@@ -53,11 +48,10 @@
                         </tbody>
 
                     </table>
-                    <div class="line" style="margin: 0 0 20px 0;"></div>
                     <button class="btn btn-primary">Cancel</button>
                 </div><!-- .postcontent end -->
             </div>
         </div>
     </section>
 @endsection
- 
+

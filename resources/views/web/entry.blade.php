@@ -48,7 +48,8 @@
                                 ratione.</p>
                         </div>
                         <div class="row">
-                            <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+                            <form id="register-form" name="register-form" class="nobottommargin" action="{{route('registerUser')}}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="row">
                                         <div class="row">
@@ -149,7 +150,7 @@
                                                        class="form-control" required/>
                                             </div>
                                         </div>
-                                        <div class="row" style="padding-top: 50px">
+                                    <div class="row" style="padding-top: 50px">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -303,15 +304,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row col_last" style="padding-top: 50px">
-                                        <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
-                                    </div>
-                                </div>
                                 <div class="row" style="padding-top: 50px">
                                     <button style="width: 25%" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
                                 </div>
-                            </div>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -11,11 +11,26 @@
         }
     })
 </script>
+<script src="{{lib_assets('web/js/jquery.js')}}"></script>
+<script src="{{lib_assets('web/js/plugins.js')}}"></script>
+<script src="{{lib_assets('web/js/functions.js')}}"></script>
+<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded',function (){
+        document.getElementById('top-search').onclick = function (){
+            document.querySelector('#sign-iu').classList.toggle('sign-iu');
+            document.querySelector('#sign-iu').classList.toggle('sign-iu1');
+        }
+    })
+</script>
 <script src="{{lib_assets('script/core/jquery.min.js')}}"></script>
 <script src="{{lib_assets('script/core/popper.min.js')}}"></script>
 <script src="{{lib_assets('script/table.js')}}"></script>
+<script src="{{lib_assets('web/js/components/moment.js')}}"></script>
+<script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
+<script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
 <script src="{{lib_assets('script/core/bootstrap-material-design.min.js')}}"></script>
-
+<script src="{{Url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
 <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
 <script src="{{url('https://unpkg.com/default-passive-events')}}"></script>
 <script src="{{lib_assets('script/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
@@ -31,6 +46,8 @@
 <script src="{{lib_assets('script/material-dashboard.js?v=2.1.0')}}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{lib_assets('script/demo/demo.js')}}"></script>
+<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}"
+async></script>
 
 <script>
     $(document).ready(function () {
