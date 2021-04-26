@@ -217,3 +217,9 @@
         overflow: hidden;
     }
 </style>
+
+<style>
+    .title-conten {
+        margin: 10px 0 20px;
+    }
+</style>
