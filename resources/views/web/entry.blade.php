@@ -124,6 +124,26 @@
                                     </div>
                                     <div class="row" style="padding-top: 50px">
                                         <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="form-group">Drivers license photo</label>
+                                                <div class="d-flex">
+                                                    <input style="display: none" type="file" name="avatar_file"
+                                                           id="myFileInput" >
+                                                    <input type="hidden" name="drivers_license_photo">
+                                                    <div class="col-md-2 pt-cr-img pt-wrap-plus border-success"
+                                                         onclick="document.getElementById('myFileInput').click();"
+                                                         style="margin-right: 20px;width: 100px;height: 100px;border: #a9afbbd1 2px solid;border-radius:3px;font-size: 35px; cursor: pointer; color: #a9afbbd1;display: flex;justify-content: center;align-items: center">
+                                                        +
+                                                    </div>
+                                                    <div id="img_show" class="d-flex" style="display: none">
+                                                        <img class="img_show" style="width: 100px;height: 100px;border: #a9afbbd1 1px solid;border-radius:3px">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 50px">
+                                        <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="form-group">Identification Type :</label>
@@ -276,8 +296,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row col_last" style="padding-top: 50px">
-                                    <button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                                <div class="row" style="padding-top: 50px">
+                                    <button style="width: 25%" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
                                 </div>
                             </div>
                         </form>
@@ -465,6 +485,40 @@
 {{--        });--}}
 {{--    });--}}
 {{--</script>--}}
+<script>
+    var back_to_profile = document.querySelector('.back_to_profile')
+    const imgurl = document.querySelector('input[name="drivers_license_photo"]')
+    const cloudName = 'ddmgbaegq';
+    const unsignedUploadPreset = 'hrn13yyl';
+    const img = document.querySelector('input[name="avatar_file"]');
+    img.onchange = function () {
+        var file = this.files[0];
+        var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+        var xhr = new XMLHttpRequest();
 
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    var dataJson = JSON.parse(this.responseText)
+                    imgurl.value = dataJson.url
+
+                    var img_review = document.querySelector('.img_show');
+                    img_review.src = dataJson.url;
+                    document.querySelector('#img_show').style.display = "block"
+
+                }
+            }
+        }
+        xhr.open('POST', url, true);
+        var ud = new FormData();
+        ud.append('upload_preset', unsignedUploadPreset);
+        ud.append('tags', 'browser_upload')
+        ud.append('file', file)
+        xhr.send(ud)
+    }
+    back_to_profile.onclick = function (){
+        window.location.href = location.protocol+"/profile";
+    }
+</script>
 </body>
 </html>
