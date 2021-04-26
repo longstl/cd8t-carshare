@@ -26,7 +26,6 @@ class RideSeeder extends Seeder
                 'seats_available' => 4,
                 'status' => RideStatus::PENDING,
                 'price_total'=>100,
-                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 3,
@@ -37,7 +36,6 @@ class RideSeeder extends Seeder
                 'seats_available' => 4,
                 'status' => RideStatus::PENDING,
                 'price_total'=>100,
-                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 4,
@@ -48,7 +46,6 @@ class RideSeeder extends Seeder
                 'seats_available' => 4,
                 'status' => RideStatus::PENDING,
                 'price_total'=>100,
-                'price_total_receivable'=>2000
             ],
             [
                 'car_id' => 4,
@@ -59,7 +56,6 @@ class RideSeeder extends Seeder
                 'seats_available' => 4,
                 'status' => RideStatus::PENDING,
                 'price_total'=>100,
-                'price_total_receivable'=>2000
             ]
         ]);
     }
