@@ -369,16 +369,20 @@
                     </div>
 
                     <div class="contact-widget">
-
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong> {{ implode('', $errors->all(':message')) }}</strong>
+                            </div>
+                        @endif
                         <div class="contact-form-result"></div>
 
-                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="{{route('storeRide')}}" method="post">
-
+                        <form class="nobottommargin" id="template-contactform" name="template-contactform"  method="POST">
+                            @csrf
                             <div class="form-process"></div>
-
                             <div class="col_two_third">
                                 <label for="origin-input">Origin</label>
-                                <input type="text" id="origin-input" name="origin_address" value="" class="controls pac-target-input valid sm-form-control" required/>
+                                <input type="text" id="origin-input" name="pickup_address" value="" class="controls pac-target-input valid sm-form-control" required/>
                             </div>
 
                             <div class="col_two_third">
@@ -391,14 +395,14 @@
                                 <label>Start time</label>
                                 <div class="form-group">
                                     <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                        <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker"/>
+                                        <input type="datetime-local" name="desired_pickup_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker"/>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col_one_third">
                                 <label for="number_of_seats">Amount of people</label>
-                                <input type="number" id="number_of_seats" name="number_of_seats" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter the number of people"/>
+                                <input type="number" id="number_of_seats" name="seats_occupy" onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control" placeholder="Enter the number of people"/>
                             </div>
                             <div class="clear"></div>
                             <div class="col_full">
