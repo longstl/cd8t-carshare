@@ -14,7 +14,6 @@
 <script src="{{lib_assets('web/js/functions.js')}}"></script>
 <script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
 <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js')}}"></script>
-<script src="https://maps.google.com/maps/api/js?key=<script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>"></script>
 {{--<script src="{{URL('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>--}}
 <script>
     document.addEventListener('DOMContentLoaded',function (){

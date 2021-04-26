@@ -41,7 +41,7 @@ Route::prefix('user')->middleware('auth')->group(function () {
     });
     Route::prefix('car')->group(function () {
         Route::get('create', [UserController::class, 'createCar'])->name('updateCar');
-        Route::post('save', [UserController::class, 'saveCar'])->name('storeCar');
+        Route::post('store', [UserController::class, 'storeCar'])->name('storeCar');
     });
     Route::prefix('ride')->group(function () {
         Route::get('create', [RideController::class, 'create'])->name('createRide');
@@ -60,15 +60,4 @@ Route::prefix('request')->group(function () {
     Route::get('create', [RequestController::class, 'create'])->name('create_request');
     Route::post('create', [RequestController::class, 'store']);
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
-});
-Route::get('/profile', function () {
-    return view('web/user_profile');
-});
-
-Route::get('/ride-detail', function () {
-    $model = Model::all();
-    return view('web/create_car', ['listModel' => $model]);
-});
-Route::get('/find-ride', function () {
-    return view('web/find_ride');
 });
