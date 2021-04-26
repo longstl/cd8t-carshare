@@ -2,11 +2,11 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Ride List
+    All rides
 @endsection
 
 @section('content')
-         
+
               <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -71,7 +71,7 @@
                                                 {{\App\Enums\RideStatus::getDescription($ride->status)}}
                                             </td>
                                             <td>
-                                                <a href=""><button class="btn btn-warning">Match</button></a>
+                                                <a href="{{route('findMatch', $ride->id)}}"><button class="btn btn-warning">Match</button></a>
                                                 <a href=""><button class="btn btn-danger">Cancel</button></a>
                                             </td>
                                         </tr>
