@@ -21,17 +21,17 @@
 
                                         <div class="col_full">
                                             <label for="login-form-username">Number:</label>
-                                            <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
+                                            <input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full">
                                             <label for="login-form-password">Driving License Valid From:</label>
-                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" />
+                                            <input type="date" id="driving_license_valid_from" name="driving_license_valid_from" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full">
                                             <label for="login-form-password">Driving License Valid To:</label>
-                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" />
+                                            <input type="date" id="driving_license_valid_to" name="driving_license_valid_to" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col_full nobottommargin">
