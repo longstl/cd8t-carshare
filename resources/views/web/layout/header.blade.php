@@ -10,7 +10,7 @@
                 <a href="/" class="retina-logo" data-dark-logo="{{lib_assets('web/images/logo.png')}}"><img
                         src="{{lib_assets('web/images/logo.png')}}" alt="Canvas Logo"></a>
             </div>
-            <i style="font-size: 35px;margin: 10px;float: right;" class="fa fa-bars iconbar" aria-hidden="true"></i>
+            <i style="font-size: 35px;margin: 10px;float: right;" class="fa fa-bars menu-bars-icon iconbar" aria-hidden="true"></i>
             <nav id="primary-menu" class="menu_top">
                 <ul class="h-100">
                     <li class="current"><a href="{{route('index')}}">
@@ -41,17 +41,19 @@
                     </li>
                 </ul>
 
-                <div class="position-relative" id="top-search" style="width: 90px">
+                <div class="position-relative" id="top-search" style="width: 150px">
                     @if(!\Illuminate\Support\Facades\Auth::check())
-                        <div style="width: 50%;float: left">
-                            <a href="{{route('login')}}" class="btn_account">Login</a>
+                        <div style="width: 80%;float: left">
+                            {{--                            <a class="btn_account"><i class="fas fa-user" style="font-size: 20px"></i></a>--}}
+                            {{--                            <a href="{{route('loginUser')}}" class="btn" style="margin-right: 5px;color: black; width: 100%;">Login</a>--}}
+                            <a href="{{route('loginUser')}}" class="btn_account"><b style="font-size: 20px; cursor: pointer">Login</b></a>
                         </div>
                     @else()
-                        <div style="width: 50%;float: left">
+                        <div style="width: 80%;float: left">
                             <a class="btn_account"><b style="font-size: 20px; cursor: pointer">{{\Illuminate\Support\Facades\Auth::user()->username}}</b></a>
                         </div>
                     @endif
-                    <div style="width: 50%;float: left">
+                    <div style="width: 20%;float: left">
                         <a>
                             <i style="font-size: 20px" class="fa fa-bell" aria-hidden="true">
                                 <p style=" display: flex;justify-content: center;align-items: center;height: 14px;width: 14px;font-size: 10px;border-radius: 50%;background: #08eff8
@@ -91,24 +93,13 @@
                         </div>
                     </div>
                 </div>
-                @if(!\Illuminate\Support\Facades\Auth::check())
-                    <div id="account" class="accountn" style="border-top: 2px solid #1ABC9C;box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%);width: 130px;background-color: #ffffff;position: absolute;  top: 100%; right: 87px;">
-                        <div style="padding: 5px; border-bottom: 1px solid lightgray;" class="log-hover">
-                            <a href="{{route('loginUser')}}" class="btn" style="margin-right: 5px;color: black">Login</a>
-                            <i class="fa fa-sign-in"></i>
-                        </div>
-                        <div style="padding: 5px" class="log-hover">
-                            <a href="{{route('registerUser')}}" class="btn" style="color: black">Register</a>
-                        </div>
-                    </div>
-                @else()
+                @if(\Illuminate\Support\Facades\Auth::check())
                     <div id="account" class="accountn" style="border-top: 2px solid #1ABC9C;box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%);width: 130px;color: black; background-color: #ffffff;position: absolute;  top: 100%; right: 87px;">
                         <div style="padding: 5px" class="log-hover">
-                            <a href="{{route('profile_user')}}" class="btn" style="color: black;margin-right: 5px">Profile</a>
+                            <a href="{{route('profile_user')}}" class="btn" style="width: 100%;;color: black;margin-right: 5px"></b>Profile</a>
                         </div>
                         <div style="padding: 5px" class="log-hover">
-                            <a href="{{route('logoutUser')}}" class="btn" style="color: black">Logout</a>
-                            <i class="fa fa-sign-out"></i>
+                            <a href="{{route('logoutUser')}}" class="btn" style="width: 100%;color: black">Logout</a>
                         </div>
                     </div>
                 @endif
