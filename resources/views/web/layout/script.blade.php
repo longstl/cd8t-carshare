@@ -26,7 +26,7 @@
             jQuery('.flexslider .slide').resize();
         });
         $('.fa-bell').click(function () {
-            axios.get("{{route('markRead', \Illuminate\Support\Facades\Auth::id())}}").then(response => {
+            axios.get("{{route('markRead', \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::id() : 0)}}").then(response => {
                 $('#unread-notification-count').text("0")
             }).catch(e => console.log(e));
             $('.top-cart-content').toggleClass('notification')

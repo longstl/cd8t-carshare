@@ -7,6 +7,8 @@ use App\Http\Requests\CarRequest;
 use App\Http\Requests\UpdateLicenseRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\Ride;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Model;
@@ -26,11 +28,16 @@ class UserController extends Controller
     {
         $user = User::find(Auth::id());
         $request = \App\Models\Request::query()->where('user_id', Auth::id())->get();
+
         $cars = Car::query()->where('user_id', Auth::id())->with('model')->get();
+
+        $rides = Ride::query()->whereHas('car', function (Builder $query) {
+                $query->where('user_id',Auth::id());})->get();
         return view('web/user_profile', [
             'data_user' => $user,
             'requests' => $request,
-            'cars' => $cars
+            'cars' => $cars,
+            'rides'=>$rides
         ]);
     }
 

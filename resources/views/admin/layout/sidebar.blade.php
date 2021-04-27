@@ -44,9 +44,9 @@
         </a>
     </li>
     <li class="nav-item" slot="Notifications">
-        <a class="nav-link" href="{{route('formNotification')}}">
+        <a class="nav-link" href="{{route('createMassNotifications')}}">
             <i class="fa fa-bell" aria-hidden="true"></i>
-            <p>Notifications</p>
+            <p>Send notifications</p>
         </a>
     </li>
 </ul>

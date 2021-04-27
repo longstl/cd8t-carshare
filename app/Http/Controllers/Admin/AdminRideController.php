@@ -8,11 +8,7 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Notification;
 use App\Models\Ride;
-use App\Notifications\RequestMatched;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Builder;
-
 
 
 class AdminRideController extends Controller
@@ -31,28 +27,6 @@ class AdminRideController extends Controller
             'rides' => $rides,
 
         ]);
-    }
-
-    public function create()
-    {
-    }
-
-    public function store()
-    {
-    }
-
-    public function update()
-    {
-    }
-
-    public function save()
-    {
-
-    }
-
-    public function cancel($id)
-    {
-
     }
 
     public function findMatch(Request $request, $id)
@@ -92,7 +66,6 @@ class AdminRideController extends Controller
             }
         }
         if ($start_time) {
-//            dd($start_time);
             $advanced_query = $advanced_query->where('desired_pickup_time', '>', $start_time)->get();
         } else {
             $advanced_query = $advanced_query->get();

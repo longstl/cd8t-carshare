@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Notification Form
+    Send notifications
 @endsection
 @section('content')
     <div class="row">
@@ -13,11 +13,17 @@
                         <strong> {{ implode('', $errors->all(':message')) }}</strong>
                     </div>
                 @endif
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>{{session('success')}}</strong>
+                    </div>
+                @endif
                 <div class="card-header card-header-primary">
-                    <h3 class="card-title ">Notification Form</h3>
+                    <h3 class="card-title ">Send notifications to all users</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" id="demoFormProducts" action="">
+                    <form method="POST" action="{{route('storeMassNotifications')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">

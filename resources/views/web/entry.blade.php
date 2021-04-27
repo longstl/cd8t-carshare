@@ -255,21 +255,24 @@
                                             <div class="col-md-3">
                                                 <label>Chitchat Preference</label>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                    <input class="form-check-input" type="radio"
+                                                           name="chitchat_preference"
                                                            id="exampleRadios1" value="0" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Don't chitchat
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                    <input class="form-check-input" type="radio"
+                                                           name="chitchat_preference"
                                                            id="exampleRadios2" value="1">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         Little chitchat
                                                     </label>
                                                 </div>
                                                 <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                    <input class="form-check-input" type="radio"
+                                                           name="chitchat_preference"
                                                            id="exampleRadios3" value="2">
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         Lot chitchat
@@ -310,7 +313,8 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed"
+                                                        <input class="form-check-input" type="radio"
+                                                               name="is_pet_allowed"
                                                                id="exampleRadios2" value="1">
                                                         <label class="form-check-label" for="exampleRadios2">
                                                             Yes
@@ -319,7 +323,8 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-check disabled">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed"
+                                                        <input class="form-check-input" type="radio"
+                                                               name="is_pet_allowed"
                                                                id="exampleRadios3" value="0" checked>
                                                         <label class="form-check-label" for="exampleRadios3">
                                                             No
@@ -365,17 +370,14 @@
             var file = this.files[0];
             var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
             var xhr = new XMLHttpRequest();
-
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (this.status === 200) {
                         var dataJson = JSON.parse(this.responseText)
                         imgurl.value = dataJson.url
-
                         var img_review = document.querySelector('.img_show');
                         img_review.src = dataJson.url;
                         document.querySelector('#img_show').style.display = "block"
-
                     }
                 }
             }

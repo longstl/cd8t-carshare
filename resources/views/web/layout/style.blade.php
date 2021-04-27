@@ -162,8 +162,20 @@
         .txt_baner {
             display: none !important;
         }
+        #header.full-header #primary-menu > ul {
+            float: left;
+            border-right: 1px solid #EEE;
+        }
 
         .iconbar {
+            right: 0;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            -o-transition: opacity .3s ease;
             display: block;
         }
 
