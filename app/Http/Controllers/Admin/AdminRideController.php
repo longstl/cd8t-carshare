@@ -9,8 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Notification;
 use App\Models\Ride;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Builder;
 
 
 class AdminRideController extends Controller

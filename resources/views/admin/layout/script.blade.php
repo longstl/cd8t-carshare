@@ -1,11 +1,11 @@
 <script>
-    document.addEventListener("DOMContentLoaded",function (){
+    document.addEventListener("DOMContentLoaded", function () {
         var that = document.getElementById('page_active')
         var thiz = document.querySelectorAll('li.nav-item')
         for (let i = 0; i < thiz.length; i++) {
-            if (thiz[i].slot === that.value){
+            if (thiz[i].slot === that.value) {
                 thiz[i].classList.add('active')
-            }else thiz[i].classList.remove('active')
+            } else thiz[i].classList.remove('active')
         }
     })
 </script>
@@ -22,8 +22,11 @@
 <script src="{{lib_assets('script/plugins/chartist.min.js')}}"></script>
 <!--  Notifications Plugin    -->
 <script src="{{lib_assets('script/plugins/bootstrap-notify.js')}}"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $(document).ready(function () {
         $().ready(function () {
@@ -185,5 +188,66 @@
             });
         });
     });
+
+    $(function () {
+
+        let start = moment().subtract(29, 'days');
+        let end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+            $.ajax({
+                type: "GET",
+                url: "/admin/filter-by-date-range?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
+                success: function (resp) {
+                    if (start.format('DD/MM/YYYY')  === end.format('DD/MM/YYYY')) {
+                        $('#dateHeader').html(start.format('DD/MM/YYYY'))
+                    } else {
+                        $('#dateHeader').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
+                    }
+                    renderData(resp)
+                }
+            });
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+    });
+
+    function renderData(data) {
+        let objHtml = '';
+        if (data.length > 0){
+            for (let i = 0; i < data.length; i++) {
+                objHtml += html_renderer(data[i])
+            }
+        }else {
+            objHtml = '<p>data empty!</p>'
+        }
+        $('#ride_body').html(objHtml);
+    }
+
+    function html_renderer(obj) {
+        let html = '';
+        html += '<tr>'
+        html += '<td>' + obj['date'] + '</td>';
+        html += '<td>' + obj['count'] + '</td>';
+        html += '</tr>';
+        return html;
+    }
+
+
+
 </script>
 

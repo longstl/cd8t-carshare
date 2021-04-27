@@ -23,8 +23,10 @@ class AdminDashboardController extends Controller
         ]);
     }
 
-    public function getRideStats($start_date, $end_date)
+    public function getRideStats(Request $request)
     {
+        $start_date = $request->query('start_date');
+        $end_date = $request->query('end_date');
         $ride_stats = DB::table('rides')
             ->select(DB::raw('DATE(travel_start_time) as date'), DB::raw('count(*) as count'))
             ->where('status', '<>', RideStatus::CANCELED)
