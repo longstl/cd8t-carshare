@@ -36,7 +36,7 @@ class RequestController extends Controller
         $user_id = Auth::id();
         $data_request = Request::find($id);
         if($user_id != $data_request->user_id){
-            return view('web/404');
+            return view('web/403');
         }
         $data_ride = null;
         if ($data_request->ride_id) {

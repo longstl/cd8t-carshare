@@ -33,7 +33,6 @@ class RideController extends Controller
         $data = $request->validated();
         $map_info = getDistance($data['origin_address'], $data['destination_address']);
         $data['distance'] = $map_info['distance']['value'];
-        $data['price_total'] = $data['distance'] / 1000 * getPriceRate();
         $data['user_id'] = Auth::id();
         $ride = new Ride();
         $ride->fill($data);
