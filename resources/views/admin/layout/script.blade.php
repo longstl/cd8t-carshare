@@ -312,7 +312,6 @@
                     } else {
                         $('#dateHeader').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
                     }
-                    console.log(resp)
                     renderDataBill(resp)
                 }
             });
@@ -364,14 +363,13 @@
             $('#reportrangeTopDrivers span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
             $.ajax({
                 type: "GET",
-                // url: "/admin/date-range-bill?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
+                url: "/admin/date-range-top-drivers?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
                 success: function (resp) {
                     if (start.format('DD/MM/YYYY') === end.format('DD/MM/YYYY')) {
                         $('#dateHeaderTopDrivers').html(start.format('DD/MM/YYYY'))
                     } else {
                         $('#dateHeaderTopDrivers').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
                     }
-                    console.log(resp)
                     renderDataTopDrivers(resp)
                 }
             });
@@ -408,8 +406,8 @@
     function html_renderer_top_drivers(obj) {
         let html = '';
         html += '<tr>'
-        // html += '<td>' + obj['date'] + '</td>';
-        // html += '<td>' + obj['sum'] + '</td>';
+        html += '<td>' + obj['username'] + '</td>';
+        html += '<td>' + obj['sum'] + '</td>';
         html += '</tr>';
         return html;
     }
@@ -423,15 +421,14 @@
             $('#reportrangeTopRiders span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
             $.ajax({
                 type: "GET",
-                // url: "/admin/date-range-bill?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
+                url: "/admin/date-range-top-riders?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
                 success: function (resp) {
                     if (start.format('DD/MM/YYYY') === end.format('DD/MM/YYYY')) {
                         $('#dateHeaderTopRiders').html(start.format('DD/MM/YYYY'))
                     } else {
                         $('#dateHeaderTopRiders').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
                     }
-                    console.log(resp)
-                    renderDataTopDrivers(resp)
+                    renderDataTopRiders(resp)
                 }
             });
         }
@@ -467,8 +464,8 @@
     function html_renderer_top_riders(obj) {
         let html = '';
         html += '<tr>'
-        // html += '<td>' + obj['date'] + '</td>';
-        // html += '<td>' + obj['sum'] + '</td>';
+        html += '<td>' + obj['username'] + '</td>';
+        html += '<td>' + obj['sum'] + '</td>';
         html += '</tr>';
         return html;
     }
