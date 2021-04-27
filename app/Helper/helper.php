@@ -1,6 +1,13 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use LaravelFCM\Facades\FCMGroup;
+use LaravelFCM\Message\OptionsBuilder;
+use LaravelFCM\Message\PayloadDataBuilder;
+use LaravelFCM\Message\PayloadNotificationBuilder;
+use LaravelFCM\Facades\FCM;
+use LaravelFCM\Message\Topics;
 
 function lib_assets($path)
 {
@@ -64,9 +71,52 @@ function getPriceRate()
     return 1;
 }
 
-function emailForm()
+function sendMessageToMultipleDevices($title, $content, $tokens)
 {
-    $html = '
-';
-    return $html;
+
+
+    $optionBuilder = new OptionsBuilder();
+    $optionBuilder->setTimeToLive(60 * 20);
+
+    $notificationBuilder = new PayloadNotificationBuilder($title);
+    $notificationBuilder->setBody($content)
+        ->setSound('default');
+
+    $dataBuilder = new PayloadDataBuilder();
+    $dataBuilder->addData(['a_data' => 'my_data']);
+
+    $option = $optionBuilder->build();
+    $notification = $notificationBuilder->build();
+    $data = $dataBuilder->build();
+
+    $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
+
+    $downstreamResponse->numberSuccess();
+    $downstreamResponse->numberFailure();
+    $downstreamResponse->numberModification();
+
+// return Array - you must remove all this tokens in your database
+    $downstreamResponse->tokensToDelete();
+
+// return Array (key : oldToken, value : new token - you must change the token in your database)
+    $downstreamResponse->tokensToModify();
+
+// return Array - you should try to resend the message to the tokens in the array
+    $downstreamResponse->tokensToRetry();
+
+// return Array (key:token, value:error) - in production you should remove from your database the tokens present in this array
+    $downstreamResponse->tokensWithError();
+}
+
+function getDeviceToken($user_id = null) {
+    $device_tokens = [];
+    if ($user_id) {
+        array_push($device_tokens, User::find($user_id)->device_token);
+    } else {
+        $users = User::all();
+        foreach ($users as $user) {
+            array_push($device_tokens, $user->device_token);
+        }
+    }
+    return $device_tokens;
 }
