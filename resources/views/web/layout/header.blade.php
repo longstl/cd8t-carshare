@@ -78,10 +78,16 @@
                     </div>
                     <div style="padding: 0 15px 12px 15px;">
                         @foreach($notifications as $notification)
-                            <a href="{{$notification->target}}">
+                            <a href="{{$notification->target ? $notification->target : '#'}}">
                                 <div style="padding: 15px 0;border-bottom: 1px solid #EEE;"
                                      class="top-cart-item clearfix border border-danger">
-                                    <p style="color: black; margin: 0;">{{$notification->content}}</p>
+                                    <p style="color: black; margin: 0;">
+                                        @if($notification->is_read)
+                                            {{$notification->content}}
+                                        @else
+                                            <span class="text-primary">{{$notification->content}}</span>
+                                        @endif
+                                    </p>
                                 </div>
                             </a>
                         @endforeach

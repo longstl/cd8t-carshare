@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
+use App\Http\Controllers\Admin\AdminNotificationController;
 use App\Http\Controllers\Admin\AdminRequestController;
 use App\Http\Controllers\Admin\AdminRideController;
 use App\Http\Controllers\Admin\AdminUserController;
@@ -55,6 +56,8 @@ Route::prefix("match")->group(function() {
     Route::get('find/{id}', [AdminRideController::class, 'findMatch'])->name('findMatch');
     Route::get('set/{ride_id}/{request_id}/{duration}', [AdminRideController::class, 'setMatch'])->name('setMatch');
 });
-Route::get("notification",function (){
-   return view('admin/notification/list');
-})->name('formNotification');
+
+Route::prefix("notifications")->group(function () {
+    Route::get('create', [AdminNotificationController::class, 'createMassNotifications'])->name('createMassNotifications');
+    Route::post('store', [AdminNotificationController::class, 'storeMassNotifications'])->name('storeMassNotifications');
+});
