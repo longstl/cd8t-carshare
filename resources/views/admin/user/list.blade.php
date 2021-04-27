@@ -101,33 +101,15 @@
     </div>
 @endsection
 
-@section('pagination')
-    <div class="row">
-        <div class="col-md-12 text-center">
-            @if(($list_user->currentPage()) > 1)<a class="btn btn-warning" href="{{route('listUser')}}?page=1"><<</a>@else @endif
-            @if(($list_user->currentPage()-1)>0)<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->currentPage()-1}}"><</a>@else @endif
-            <button class="btn btn-warning">{{$list_user->currentPage()}}</button>
-            @if(($list_user->currentPage()+1)<=($list_user->total()))<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->currentPage()+1}}">></a>@else @endif
-            @if (($list_user->currentPage()) != $list_user->total())<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->total()}}">>></a>@else @endif
-        </div>
-    </div>
-@endsection
-
 @section('extraJs')
     <script>
         const x = new Date().getFullYear();
         let date = document.getElementById('date');
         date.innerHTML = '&copy; ' + x + date.innerHTML;
-        const limitInput = document.querySelector('select[name="limit"]');
         const formSearch = document.forms['filterForm'];
         const keywordInput = document.querySelector('input[name="search"]');
         keywordInput.onkeypress = function (event) {
             if (event.key == 'Enter') {
-                formSearch.submit();
-            }
-        }
-        if (limitInput) {
-            limitInput.onchange = function () {
                 formSearch.submit();
             }
         }

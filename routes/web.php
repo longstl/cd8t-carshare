@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\UserController;
 
 use App\Http\Controllers\Web\WelcomeController;
 
+use App\Http\Middleware\CheckAdmin;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
