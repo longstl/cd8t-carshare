@@ -27,9 +27,13 @@
         $('.fa-bell').click(function (){
             $('.top-cart-content').toggleClass('notification')
         });
-        // $('#btn-delete').click(function (event){
-        //     event.preventDefault();
-        //     $('#delete-modal').modal('show');
-        // })
+
+        $('#btn-delete').click(function (event){
+            var r = confirm("Press a button!\nEither OK or Cancel.\nDo you want to delete your account ?");
+            event.preventDefault();
+            if (r == true){
+                window.location.href="{{{route('form_comfim_password')}}}"
+            }
+        })
     })
 </script>

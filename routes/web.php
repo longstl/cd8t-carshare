@@ -25,7 +25,8 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
     Route::get('update', [UserController::class, 'update_profile'])->name('update_profile');
     Route::post('update', [UserController::class, 'saveuser'])->name('saveuser');
-    Route::get('delete', [UserController::class, 'delete_user'])->name('delete_user');
+    Route::get('delete', [UserController::class, 'form_comfim_password'])->name('form_comfim_password');
+    Route::post('delete', [UserController::class, 'delete_user'])->name('delete_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
