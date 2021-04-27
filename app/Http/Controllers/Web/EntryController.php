@@ -40,6 +40,9 @@ class EntryController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
+            $user = User::find(Auth::id());
+            $user->device_token = $request['device_token'];
+            $user->save();
             return redirect()->intended('/');
         } else {
             return back()->with('error-login', 'Invalid account and/or password. Please check and try again.');

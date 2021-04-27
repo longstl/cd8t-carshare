@@ -40,6 +40,7 @@ class CreateUsersTable extends Migration
             $table->boolean('chitchat_preference')->default(0);
             $table->integer('role')->default(Role::USER);
             $table->boolean('is_driving_license_certified')->default(0);
+            $table->string('device_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
