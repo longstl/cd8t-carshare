@@ -50,7 +50,6 @@ class UserRequest extends FormRequest
             'is_pet_allowed' => ['nullable', 'boolean'],
             'music_preference' => ['nullable', Rule::in(MusicPreference::getValues())],
             'chitchat_preference' => ['nullable', Rule::in(ChitChatPreference::getValues())],
-            'role' => ['required',Rule::in(Role::getValues())],
             'is_driving_license_certified'=>['nullable']
         ];
     }
