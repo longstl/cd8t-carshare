@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-header card-header-warning">
                     <h4 class="card-title">Daily Rides Stats</h4>

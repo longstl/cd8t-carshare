@@ -135,33 +135,6 @@
                             <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="fas fa-laptop" style="padding-left: 4%"></i></a>
                             <a href="#" class="list-group-item list-group-item-action clearfix">Logout<i class="fas fa-sign-out-alt" style="padding-left: 4%"></i></a>
                         </div>
-                        <div class="fancy-title topmargin title-border">
-                            <h4>Social Profiles</h4>
-                        </div>
-
-                        <a href="#" class="social-icon si-facebook si-small si-rounded si-light" title="Facebook">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-gplus si-small si-rounded si-light" title="Google+">
-                            <i class="fab fa-google-plus-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-dribbble si-small si-rounded si-light" title="Dribbble">
-                            <i class="fab fa-dribbble-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-flickr si-small si-rounded si-light" title="Flickr">
-                            <i class="fab fa-flickr"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-linkedin si-small si-rounded si-light" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-twitter si-small si-rounded si-light" title="Twitter">
-                            <i class="fab fa-twitter-square"></i>
-                        </a>
                     </div>
                 </div>
                 <div style="padding-top: 5%; padding-bottom: 5%">
