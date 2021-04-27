@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +6,7 @@
 </head>
 
 <body class="dark-edition">
-
+<input type="hidden" value="Approve" id="page_active">
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
         <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
@@ -78,12 +64,6 @@
                                         </button>
                                     </div>
                                 </form>
-                                <a href="{{route('createUser')}}">
-                                    <button class="btn btn-success">
-                                        Create new User
-                                    </button>
-                                </a>
-
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -93,6 +73,10 @@
                                         <th>
                                             <h3>Full name</h3>
                                         </th>
+                                        <th>
+                                            <h3>Driving License Number</h3>
+                                        </th>
+
                                         <th>
                                             <h3>Drivers  License  Photo</h3>
                                         </th>
@@ -122,6 +106,8 @@
                                             </div>
                                             <tr>
                                                 <td>{{$user->first_name.' '.$user->last_name}}
+                                                </td>
+                                                <td>{{$user->driving_license_number}}
                                                 </td>
                                                 <td>
                                                     <img class="rounded-circle avatar" src="{{ $user->drivers_license_photo }}" >

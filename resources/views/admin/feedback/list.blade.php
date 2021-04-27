@@ -14,7 +14,7 @@
 -->
 @extends('admin.layout.master')
 @section('title')
-    List Feedback
+    Feedback
 @endsection
 @section('content')
     <div class="row">
@@ -28,8 +28,7 @@
                     </div>
                 @endif
                 <div class="card-header card-header-primary">
-                    <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
-                    <a href="/car/create" class="btn btn-warning">Create</a>
+                    <h3 class="card-title " style="display: inline-block;margin-right: 30px">Feedback</h3>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -37,16 +36,16 @@
                             <thead class=" text-primary">
 
                             <th>
-                                <h3>By</h3>
+                                By
                             </th>
                             <th>
-                                <h3>Title</h3>
+                                Title
                             </th>
                             <th>
-                                <h3>Create At</h3>
+                                Sent at
                             </th>
                             <th>
-                                <h3>Action</h3>
+                                Action
                             </th>
                             </thead>
                             <tbody>
@@ -57,9 +56,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
-                                                <p>Are you sure you want to delete
-                                                    <b> Delete{{$feedback->user->name}} </b>
-                                                </p>
+                                                <p>Are you sure you want to delete this feedback?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-primary"
@@ -74,17 +71,18 @@
 
                                 <tr>
                                     <td>
-                                        <h4>{{$feedback->user->name}}</h4>
+                                        {{$feedback->user->username}}<br>
+                                        ({{$feedback->user->first_name}} {{$feedback->user->last_name}})
                                     </td>
                                     <td>
-                                        <h4>{{$feedback->title}}</h4>
+                                        {{$feedback->title}}
                                     </td>
                                     <td>
-                                        <h4>{{$feedback->create_at}}</h4>
+                                        {{$feedback->created_at}}
                                     </td>
                                     <td>
                                         <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete{{$feedback->id}}">Delete</a>
-                                        <a ><button class="btn btn-success"></button>Reply</a>
+                                        <a href="{{route('readFeedback', $feedback->id)}}"><button class="btn btn-success">Read</button></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -94,6 +92,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" value="Feedback" id="page_active">
     </div>
 @endsection
 

@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +11,7 @@
 
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-        <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <div class="logo"><a href="{{route('index')}}" class="simple-text logo-normal">
                 CarShare
             </a></div>
         <div class="sidebar-wrapper">
@@ -69,17 +56,6 @@
         </footer>
     </div>
 </div>
-<div class="fixed-plugin">
-
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            @include('admin.layout.edit_style')
-        </div>
-    </div>
-
-</div>
-<input type="hidden" value="user" id="page_active">
-<!--   Core JS Files   -->
 @include('admin.layout.script')
 @yield('extraJs')
 

@@ -52,11 +52,11 @@
                         </tr>
                         </tbody>
                     </table>
-                        @if($data_ride->status != \App\Enums\RideStatus::CANCELED && $data_ride->status != \App\Enums\RideStatus::COMPLETED)
-                            <a href="{{route('cancelRide', $data_ride->id)}}">
-                                <button class="btn btn-danger" style="margin-top:20px;">Cancel Ride</button>
-                            </a>
-                        @endif
+                    @if($data_ride->status != \App\Enums\RideStatus::CANCELED && $data_ride->status != \App\Enums\RideStatus::COMPLETED)
+                        <a href="{{route('cancelRide', $data_ride->id)}}">
+                            <button class="btn btn-danger" style="margin-top:20px;">Cancel Ride</button>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

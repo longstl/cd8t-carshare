@@ -101,9 +101,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <input type="hidden" value="models" id="page_active">
                 </div>
             </div>
         </div>
+        <input type="hidden" value="" id="page_active">
     </div>
 @endsection
 

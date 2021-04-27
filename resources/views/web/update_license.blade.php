@@ -20,7 +20,6 @@
                                         <div style="background: red">
                                             <strong style="color: white"> {{ implode('', $errors->all(':message')) }}</strong>
                                         </div>
-
                                     @endif
                                     <form id="login-form" name="login-form" class="nobottommargin" action="{{route('saveLicense')}}" method="post">
                                         @csrf

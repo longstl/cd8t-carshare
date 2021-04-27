@@ -1,36 +1,37 @@
 @extends('web.layout.master')
-    @section('title')
+@section('title')
     Home
 @endsection
 @section('content')
     <section id="slider" class="slider-element "
-             style="background: url('{{lib_assets('img/hhhhhh.jpg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
+             style="background: url('{{lib_assets('img/img1 2.jpeg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
              data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
         <div class="slider-parallax-inner">
-
+            <input type="hidden" value="HOME" id="page_active">
             <div class="container clearfix">
                 <div class="vertical-middle dark center">
 
                     <div class="heading-block nobottommargin center">
                         <h1 class="txt_baner">
                             @if(!\Illuminate\Support\Facades\Auth::check())
-                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">LOOKING FOR A RIDE?
+                                <input type="hidden" name="check_login" value="out">
+                                <span class="text-rotater nocolor" id="show_get_name" data-separator="|" data-rotate="flipInX" data-speed="3500">
                             </span>
                             @else
+                                <input type="hidden" name="check_login" value="is">
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE?
+                                      data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, ARE YOU GOING SOMEWHERE?
                                 </span>
                             @endif
 
                         </h1>
-                        <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
+                        <span class="d-md-block txt_baner">Find people travelling to your destination</span>
                         <a href="{{route('createRequest')}}"
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
-                                style="color: #0b0b0b" class="find-a-ride">Find a Ride</span></a>
-                        <a href=""
+                                style="" class="find-a-ride">Find a Ride</span></a>
+                        <a href="{{route('createRide')}}"
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
-                                style="color: #0b0b0b">Book Now</span></a>
+                                style="">Offer a Ride</span></a>
                     </div>
                 </div>
             </div>
@@ -44,8 +45,8 @@
                         <div class="fbox-icon">
                             <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">1</p>
                         </div>
-                        <h3>FIND</h3>
-                        <p>Find People who share similar journey and match criteria</p>
+                        <h3>CREATE A REQUEST</h3>
+                        <p>Create a carpool request and we will match it with a ride that has a destination at the same address or close to yours</p>
                     </div>
                 </div>
                 <div class="col_one_third">
@@ -54,7 +55,7 @@
                             <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">2</p>
                         </div>
                         <h3>BOOK</h3>
-                        <p>Book your ride online in few clicks</p>
+                        <p>Once a match it found, you can see the details of the ride and book your ride online in few clicks</p>
                     </div>
                 </div>
 
@@ -63,8 +64,8 @@
                         <div class="fbox-icon">
                             <p style="font-size: 300%; margin: -8% 30%; color: #1ABC9C">3</p>
                         </div>
-                        <h3>THAT"S ALL</h3>
-                        <p>Connect people & make new friends</p>
+                        <h3>ENJOY THE RIDE</h3>
+                        <p>The driver will come pick you up at specified time and place. Connect people & make new friends</p>
                     </div>
                 </div>
             </div>
@@ -76,8 +77,8 @@
                 <img data-animate="fadeInLeft" src="https://cdn.blablacar.com/kairos/assets/build/images/indicate-your-route-fef6b1a4c9dac38c77c092858d73add3.svg">
             </div>
             <div class="col_two_third bottommargin-sm col_last abc">
-                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">Where do you want to drive to?</p>
-                <p class="text-P">Let's make this your least expensive journey ever.</p>
+                <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">To work, festivals and more</p>
+                <p class="text-P">Driving together allows you to share costs, makes driving more fun and helps protect the environment. Let's make this your least expensive journey ever.</p>
                 <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">Offer a ride</a>
             </div>
         </div>
@@ -118,5 +119,4 @@
         </div>
     </section>
 @endsection
-
 

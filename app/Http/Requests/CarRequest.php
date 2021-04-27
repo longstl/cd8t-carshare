@@ -26,7 +26,7 @@ class CarRequest extends FormRequest
         return [
             'model_id' => ['required','integer'],
             'car_registration_number' => ['required'],
-            'color' => ['string','nullable'],
+            'notification' => ['string','nullable'],
         ];
     }
 }

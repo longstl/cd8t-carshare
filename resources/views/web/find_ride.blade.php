@@ -142,13 +142,13 @@
     <section id="content">
 
         <div class="content-wrap">
-
+            <input type="hidden" value="FINDARIDE" id="page_active">
             <div class="container clearfix">
 
                 <!-- Contact Form-->
                 <div class="col_half">
                     <div class="fancy-title title-dotted-border">
-                        <h3>Find a ride</h3>
+                        <h3>Create a find request</h3>
                     </div>
 
                     <div class="contact-widget">
@@ -186,7 +186,7 @@
                                          data-target=".datetimepicker">
                                         <input type="datetime-local" name="desired_pickup_time"
                                                class="form-control datetimepickerInputFindRide datetimepicker"
-                                               data-target=".datetimepicker"/>
+                                               data-target=".datetimepicker" required/>
                                     </div>
                                 </div>
                             </div>
@@ -195,15 +195,12 @@
                                 <label for="number_of_seats">Amount of people</label>
                                 <input type="number" id="number_of_seats" name="seats_occupy"
                                        onchange="if (this.value < 1){this.value=1}" class="controls sm-form-control"
-                                       placeholder="Enter the number of people"/>
+                                       placeholder="Enter the number of people" required/>
                             </div>
                             <div class="clear"></div>
                             <div class="col_full">
                                 <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
-                                        class="button button-3d m-0">Create
-                                </button>
-                                <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
-                                        class="button button-3d m-0">Remove
+                                        class="button button-3d m-0">Submit
                                 </button>
                             </div>
                         </form>

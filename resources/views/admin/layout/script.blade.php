@@ -3,51 +3,26 @@
         var that = document.getElementById('page_active')
         var thiz = document.querySelectorAll('li.nav-item')
         for (let i = 0; i < thiz.length; i++) {
-            console.log(that.value)
             if (thiz[i].slot === that.value){
                 thiz[i].classList.add('active')
-                console.log(that.value)
             }else thiz[i].classList.remove('active')
-        }
-    })
-</script>
-<script src="{{lib_assets('web/js/jquery.js')}}"></script>
-<script src="{{lib_assets('web/js/plugins.js')}}"></script>
-<script src="{{lib_assets('web/js/functions.js')}}"></script>
-<script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
-<script>
-    document.addEventListener('DOMContentLoaded',function (){
-        document.getElementById('top-search').onclick = function (){
-            document.querySelector('#sign-iu').classList.toggle('sign-iu');
-            document.querySelector('#sign-iu').classList.toggle('sign-iu1');
         }
     })
 </script>
 <script src="{{lib_assets('script/core/jquery.min.js')}}"></script>
 <script src="{{lib_assets('script/core/popper.min.js')}}"></script>
 <script src="{{lib_assets('script/table.js')}}"></script>
-<script src="{{lib_assets('web/js/components/moment.js')}}"></script>
-<script src="{{lib_assets('web/js/components/datepicker.js')}}"></script>
-<script src="{{lib_assets('web/js/components/timepicker.js')}}"></script>
 <script src="{{lib_assets('script/core/bootstrap-material-design.min.js')}}"></script>
-<script src="{{Url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
 <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
 <script src="{{url('https://unpkg.com/default-passive-events')}}"></script>
-<script src="{{lib_assets('script/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+<script src="{{lib_assets('script/plpcugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{url('https://buttons.github.io/buttons.js')}}"></script>
-<!--  Google Maps Plugin    -->
-<script src="{{url('https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE')}}"></script>
 <!-- Chartist JS -->
 <script src="{{lib_assets('script/plugins/chartist.min.js')}}"></script>
 <!--  Notifications Plugin    -->
 <script src="{{lib_assets('script/plugins/bootstrap-notify.js')}}"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{lib_assets('script/material-dashboard.js?v=2.1.0')}}"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{lib_assets('script/demo/demo.js')}}"></script>
-<script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}"
-async></script>
 
 <script>
     $(document).ready(function () {
@@ -73,7 +48,7 @@ async></script>
                 }
             });
 
-            $('.fixed-plugin .active-color span').click(function () {
+            $('.fixed-plugin .active-notification span').click(function () {
                 $full_page_background = $('.full-page-background');
 
                 $(this).siblings().removeClass('active');
@@ -82,26 +57,26 @@ async></script>
                 var new_color = $(this).data('color');
 
                 if ($sidebar.length != 0) {
-                    $sidebar.attr('data-color', new_color);
+                    $sidebar.attr('data-notification', new_color);
                 }
 
                 if ($full_page.length != 0) {
-                    $full_page.attr('filter-color', new_color);
+                    $full_page.attr('filter-notification', new_color);
                 }
 
                 if ($sidebar_responsive.length != 0) {
-                    $sidebar_responsive.attr('data-color', new_color);
+                    $sidebar_responsive.attr('data-notification', new_color);
                 }
             });
 
-            $('.fixed-plugin .background-color .badge').click(function () {
+            $('.fixed-plugin .background-notification .badge').click(function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
                 var new_color = $(this).data('background-color');
 
                 if ($sidebar.length != 0) {
-                    $sidebar.attr('data-background-color', new_color);
+                    $sidebar.attr('data-background-notification', new_color);
                 }
             });
 

@@ -8,6 +8,8 @@
              <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+
+                            <input type="hidden" value="Requests" id="page_active">
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title " style="margin-right: 30px;display: inline-block">Requests</h3>
                                 <form action="#" style="display: inline-block">

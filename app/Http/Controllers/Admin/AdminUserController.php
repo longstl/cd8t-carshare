@@ -16,17 +16,18 @@ class AdminUserController extends Controller
     {
         $limit = $request->query('limit') ? $request->query('limit') : 10;
         $search = $request->query('search');
+
         if ($search != "") {
             $listUser = User::where(function ($query) use ($search) {
                 $query->where('username', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%');
             })
-                ->paginate($limit);
+                ->paginate(1);
             $listUser->appends([
                 'search' => $search,
             ]);
         } else {
-            $listUser = User::paginate($limit);
+            $listUser = User::paginate(1);
         }
         return view('admin/user/list', ['list_user' => $listUser,
             'limit' => $limit]);
@@ -90,7 +91,7 @@ class AdminUserController extends Controller
         $user->is_driving_license_certified = 1;
         $user->update();
         $user->save();
-        return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);;
+        return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);
     }
 
     //
