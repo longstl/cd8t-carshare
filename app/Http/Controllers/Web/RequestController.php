@@ -53,7 +53,7 @@ class RequestController extends Controller
         $request = Request::find($id);
         $ride = Ride::query()->where('id', $request->ride_id)->with('car')->first();
         $request->status = RequestStatus::BOOKED;
-        $ride->status = RideStatus::CONFIRMED;
+        $ride->status = RideStatus::BOOKED;
         $ride->seats_available -= $request->seats_occupy;
         $request->save();
         $ride->save();
