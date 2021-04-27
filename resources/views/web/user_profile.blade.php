@@ -27,7 +27,7 @@
 <body class="stretched">
 
 <div id="wrapper" class="clearfix">
-@include('web.layout.header')
+    @include('web.layout.header')
     <section id="content">
 
         <div class="content-wrap">
@@ -38,11 +38,13 @@
 
                     <div class="col_one_third nobottommargin">
 
-                        <ul class="sidenav ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" role="tablist">
+                        <ul class="sidenav ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header"
+                            role="tablist">
 
                             <li><a href="#snav-content2"><i class="fa fa-inr" aria-hidden="true"></i>Profile</a></li>
                             <li><a href="#snav-content1"><i class="fa fa-user" aria-hidden="true"></i>My rides</a></li>
-                            <li><a href="#snav-content3"><i class="fa fa-flag" aria-hidden="true"></i>My requests</a></li>
+                            <li><a href="#snav-content3"><i class="fa fa-flag" aria-hidden="true"></i>My requests</a>
+                            </li>
                             <li><a href="#snav-content4"><i class="fa fa-car" aria-hidden="true"></i>My cars</a></li>
                         </ul>
                     </div>
@@ -90,14 +92,15 @@
                                 <a style="color: white;background: #1ABC9C" href="{{route('update_profile')}}"
                                    class="btn btn-success">Update
                                     Profile</a>
-                                <a style="color: white" href="javascript:void(0)" id="btn-delete" class="btn btn-danger">Delete</a>
+                                <a style="color: white" href="javascript:void(0)" id="btn-delete"
+                                   class="btn btn-danger">Delete</a>
                             </div>
                         </div>
 
                         <div id="snav-content1">
                             <div class="heading-block">
                                 <h3>My rides</h3>
-                                <span>Details of your trips.</span>
+                                <span>Details of your trips</span>
                             </div>
                             <div>
                                 <table>
@@ -136,12 +139,12 @@
                         <div id="snav-content3">
                             <div class="heading-block">
                                 <h3>My request</h3>
-                                <span>information about the trips you have searched for.</span>
+                                <span>Information about the trips you have searched for</span>
                             </div>
                             <div>
                                 <table>
                                     <tr>
-                                        <th>Time:</th>
+                                        <th>Time</th>
                                         <th>Origin</th>
                                         <th>Destination</th>
                                         <th>Price</th>
@@ -158,7 +161,7 @@
                                             </td>
                                             <td>{{$ride->origin_address}}</td>
                                             <td>{{$ride->destination_address}}</td>
-                                            <td> $ {{$ride->price_total}}</td>
+                                            <td> ${{$ride->price_total}}</td>
                                             <td>  {{$ride->car->model->make}}</td>
                                             <td>
                                                 {{\App\Enums\RideStatus::getDescription($ride->status)}}
@@ -176,7 +179,7 @@
                         <div id="snav-content4">
                             <div class="heading-block">
                                 <h3>My cars</h3>
-                                <span>information about the vehicles you own.</span>
+                                <span>Information about the vehicles you own</span>
                             </div>
                             <div>
                                 <table>
@@ -185,7 +188,7 @@
                                         <th>Make</th>
                                         <th>Make Year</th>
                                         <th>Color</th>
-{{--                                        <th>Action</th>--}}
+                                        {{--                                        <th>Action</th>--}}
                                     </tr>
                                     @foreach($cars as $car)
                                         <tr>
@@ -193,10 +196,10 @@
                                             <td> {{$car->model->model}}</td>
                                             <td> {{$car->model->make_year}}</td>
                                             <td> {{$car->color}}</td>
-{{--                                            <td>--}}
-{{--                                                <a href="" type="button" class="btn btn-success">Update</a>--}}
-{{--                                                <a href="" type="button" class="btn btn-danger">Delete</a>--}}
-{{--                                            </td>--}}
+                                            {{--                                            <td>--}}
+                                            {{--                                                <a href="" type="button" class="btn btn-success">Update</a>--}}
+                                            {{--                                                <a href="" type="button" class="btn btn-danger">Delete</a>--}}
+                                            {{--                                            </td>--}}
                                         </tr>
                                     @endforeach
                                 </table>
