@@ -1,5 +1,5 @@
 @extends('web.layout.master')
-    @section('title')
+@section('title')
     Home
 @endsection
 @section('content')

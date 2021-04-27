@@ -6,11 +6,13 @@ use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
+
 use App\Http\Controllers\Web\WelcomeController;
+
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', CheckAdmin::class])->group(function () {
     require_once __DIR__ . '/admin.php';
 });
 
@@ -26,7 +28,8 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
     Route::get('update', [UserController::class, 'update_profile'])->name('update_profile');
     Route::post('update', [UserController::class, 'saveuser'])->name('saveuser');
-    Route::get('delete', [UserController::class, 'delete_user'])->name('delete_user');
+    Route::get('delete', [UserController::class, 'form_comfim_password'])->name('form_comfim_password');
+    Route::post('delete', [UserController::class, 'delete_user'])->name('delete_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
@@ -58,7 +61,16 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('detail/{id}', [FeedbackController::class, 'detail']);
     });
 });
+Route::prefix('request')->group(function() {
 
+    Route::get('', [RequestController::class, 'list']);
+    Route::get('create', [RequestController::class, 'create'])->name('create_request');
+    Route::post('create', [RequestController::class, 'store']);
+    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+});
+Route::get('403',function (){
+   return view('web/403');
+});
 Route::get('/rules', function () {
     return view('web/rules');
 })->name('rules');

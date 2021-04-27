@@ -37,20 +37,20 @@
                         <table class="table">
                             <thead class=" text-primary">
                             <th>
-                                <h3>User Name</h3>
+                                Username
                             </th>
                             <th>
-                                <h3>Full name</h3>
+                                Full name
                             </th>
                             <th>
-                                <h3>Email</h3>
+                                Email
                             </th>
                             <th>
-                                <h3>Phone</h3>
+                                Phone
                             </th>
 
                             <th>
-                                <h3>Address</h3>
+                                Address
                             </th>
                             </thead>
                             <tbody>

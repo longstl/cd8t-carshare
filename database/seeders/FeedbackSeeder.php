@@ -44,7 +44,7 @@ class FeedbackSeeder extends Seeder
                 'content' => 'help me'
             ],
             [
-                'user_id' => 5,
+                'user_id' => 1,
                 'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
