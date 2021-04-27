@@ -200,12 +200,12 @@
                 type: "GET",
                 url: "/admin/filter-by-date-range?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
                 success: function (resp) {
-                    if (start.format('DD/MM/YYYY')  === end.format('DD/MM/YYYY')) {
+                    if (start.format('DD/MM/YYYY') === end.format('DD/MM/YYYY')) {
                         $('#dateHeader').html(start.format('DD/MM/YYYY'))
                     } else {
                         $('#dateHeader').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
                     }
-                    renderData(resp)
+                    renderDataRide(resp)
                 }
             });
         }
@@ -226,11 +226,11 @@
         cb(start, end);
     });
 
-    function renderData(data) {
+    function renderDataRide(data) {
         let objHtml = '';
         if (data.length > 0){
             for (let i = 0; i < data.length; i++) {
-                objHtml += html_renderer(data[i])
+                objHtml += html_renderer_ride(data[i])
             }
         }else {
             objHtml = '<p>No data</p>'
@@ -238,7 +238,7 @@
         $('#ride_body').html(objHtml);
     }
 
-    function html_renderer(obj) {
+    function html_renderer_ride(obj) {
         let html = '';
         html += '<tr>'
         html += '<td>' + obj['date'] + '</td>';
@@ -247,6 +247,63 @@
         return html;
     }
 
+    // $(function () {
+    //
+    //     let start = moment().subtract(29, 'days');
+    //     let end = moment();
+    //
+    //     function cb(start, end) {
+    //         $('#reportrange span').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+    //         $.ajax({
+    //             type: "GET",
+    //             // url: "/admin/filter-by-date-range?start_date=" + start.format('YYYY-MM-DD') + "&end_date=" + end.format('YYYY-MM-DD'),
+    //             success: function (resp) {
+    //                 if (start.format('DD/MM/YYYY') === end.format('DD/MM/YYYY')) {
+    //                     $('#dateHeader').html(start.format('DD/MM/YYYY'))
+    //                 } else {
+    //                     $('#dateHeader').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'))
+    //                 }
+    //                 renderData(resp)
+    //             }
+    //         });
+    //     }
+    //
+    //     $('#reportrange').daterangepicker({
+    //         startDate: start,
+    //         endDate: end,
+    //         ranges: {
+    //             'Today': [moment(), moment()],
+    //             'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    //             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    //             'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //             'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //         }
+    //     }, cb);
+    //
+    //     cb(start, end);
+    // });
+    //
+    // function renderDataBill(data) {
+    //     let objHtml = '';
+    //     if (data.length > 0) {
+    //         for (let i = 0; i < data.length; i++) {
+    //             objHtml += html_renderer(data[i])
+    //         }
+    //     } else {
+    //         objHtml = '<p>No data</p>'
+    //     }
+    //     $('#bill_body').html(objHtml);
+    // }
+    //
+    // function html_renderer_bill(obj) {
+    //     let html = '';
+    //     html += '<tr>'
+    //     html += '<td>' + obj['date'] + '</td>';
+    //     html += '<td>' + obj['count'] + '</td>';
+    //     html += '</tr>';
+    //     return html;
+    // }
 
 
 </script>
