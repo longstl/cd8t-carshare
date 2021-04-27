@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminRequestController;
@@ -8,6 +9,11 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
+Route::get('/dashboard', [AdminDashboardController::class, 'list'])->name('dashboard');
 
 Route::prefix("models")->group(function () {
     Route::get('', [AdminModelController::class, 'list'])->name('listModel');
