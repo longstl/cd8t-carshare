@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $notifications = [];
             $ride_count = 0;
-            $unread_count = 0;
+  $unread_count = 0;
             $count = 0;
             if (Auth::check()) {
                 $all_notifications = Notification::query()->where('user_id', Auth::id())->orderBy('created_at', 'DESC')->get();
@@ -50,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
                     $q->where('user_id', Auth::id());
                 })->count();
             }
-            $view->with(['notifications' => $notifications, 'unread_count' => $unread_count, 'ride_count' => $ride_count]);
+$view->with(['notifications' => $notifications, 'unread_count' => $unread_count, 'ride_count' => $ride_count]);
         });
     }
 }
