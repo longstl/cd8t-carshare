@@ -44,8 +44,8 @@ class   RideController extends Controller
     public function detail($id)
     {
         $user_id = Auth::id();
-        $ride = Ride::find($id);
-        if($user_id != $ride->user_id){
+        $ride = Ride::query()->where('id', $id)->with(['car'])->first();
+        if($user_id != $ride->car->user_id){
             return view('web/403');
         }
         return view('web/ride_details', [

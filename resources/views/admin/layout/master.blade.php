@@ -69,15 +69,6 @@
         </footer>
     </div>
 </div>
-<div class="fixed-plugin">
-
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            @include('admin.layout.edit_style')
-        </div>
-    </div>
-
-</div>
 <input type="hidden" value="user" id="page_active">
 <!--   Core JS Files   -->
 @include('admin.layout.script')

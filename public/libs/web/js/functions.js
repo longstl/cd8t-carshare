@@ -511,7 +511,7 @@ var SEMICOLON = SEMICOLON || {};
 					durationIn = $body.attr('data-speed-in'),
 					durationOut = $body.attr('data-speed-out'),
 					loaderStyle = $body.attr('data-loader'),
-					loaderColor = $body.attr('data-loader-color'),
+					loaderColor = $body.attr('data-loader-notification'),
 					loaderStyleHtml = '<div class="css3-spinner-bounce1"></div><div class="css3-spinner-bounce2"></div><div class="css3-spinner-bounce3"></div>',
 					loaderBgStyle = '',
 					loaderBorderStyle = '',
@@ -528,12 +528,12 @@ var SEMICOLON = SEMICOLON || {};
 				if( loaderColor ) {
 					if( loaderColor == 'theme' ) {
 						loaderBgClass = ' bgcolor';
-						loaderBorderClass = ' border-color';
+						loaderBorderClass = ' border-notification';
 						loaderBgClass2 = ' class="bgcolor"';
-						loaderBorderClass2 = ' class="border-color"';
+						loaderBorderClass2 = ' class="border-notification"';
 					} else {
-						loaderBgStyle = ' style="background-color:'+ loaderColor +';"';
-						loaderBorderStyle = ' style="border-color:'+ loaderColor +';"';
+						loaderBgStyle = ' style="background-notification:'+ loaderColor +';"';
+						loaderBorderStyle = ' style="border-notification:'+ loaderColor +';"';
 					}
 					loaderStyleHtml = '<div class="css3-spinner-bounce1'+ loaderBgClass +'"'+ loaderBgStyle +'></div><div class="css3-spinner-bounce2'+ loaderBgClass +'"'+ loaderBgStyle +'></div><div class="css3-spinner-bounce3'+ loaderBgClass +'"'+ loaderBgStyle +'></div>'
 				}
@@ -1898,7 +1898,7 @@ var SEMICOLON = SEMICOLON || {};
 					var roundSkillSize = element.attr('data-size');
 					var roundSkillAnimate = element.attr('data-animate');
 					var roundSkillWidth = element.attr('data-width');
-					var roundSkillColor = element.attr('data-color');
+					var roundSkillColor = element.attr('data-notification');
 					var roundSkillTrackColor = element.attr('data-trackcolor');
 
 					if( !roundSkillSize ) { roundSkillSize = 140; }

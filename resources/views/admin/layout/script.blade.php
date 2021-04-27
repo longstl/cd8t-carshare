@@ -15,7 +15,7 @@
 <script src="{{lib_assets('script/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
 <script src="{{url('https://unpkg.com/default-passive-events')}}"></script>
-<script src="{{lib_assets('script/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+<script src="{{lib_assets('script/plpcugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{url('https://buttons.github.io/buttons.js')}}"></script>
 <!-- Chartist JS -->
@@ -48,7 +48,7 @@
                 }
             });
 
-            $('.fixed-plugin .active-color span').click(function () {
+            $('.fixed-plugin .active-notification span').click(function () {
                 $full_page_background = $('.full-page-background');
 
                 $(this).siblings().removeClass('active');
@@ -57,26 +57,26 @@
                 var new_color = $(this).data('color');
 
                 if ($sidebar.length != 0) {
-                    $sidebar.attr('data-color', new_color);
+                    $sidebar.attr('data-notification', new_color);
                 }
 
                 if ($full_page.length != 0) {
-                    $full_page.attr('filter-color', new_color);
+                    $full_page.attr('filter-notification', new_color);
                 }
 
                 if ($sidebar_responsive.length != 0) {
-                    $sidebar_responsive.attr('data-color', new_color);
+                    $sidebar_responsive.attr('data-notification', new_color);
                 }
             });
 
-            $('.fixed-plugin .background-color .badge').click(function () {
+            $('.fixed-plugin .background-notification .badge').click(function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
                 var new_color = $(this).data('background-color');
 
                 if ($sidebar.length != 0) {
-                    $sidebar.attr('data-background-color', new_color);
+                    $sidebar.attr('data-background-notification', new_color);
                 }
             });
 

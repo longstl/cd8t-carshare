@@ -26,7 +26,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $notifications = Notification::query()->where('user_id', Auth::id())->get();
-        View::share('notifications', $notifications);
+        view()->composer('*', function ($view)
+        {
+            $notifications = [];
+            $count = 0;
+            if (Auth::check()) {
+                $notifications = Notification::query()->where('user_id', Auth::id())->get();
+                foreach ($notifications as $notification) {
+                    if (!$notification->is_read) {
+                        $count++;
+                    }
+                }
+            }
+            $view->with(['notifications' => $notifications, 'unread_count' => $count]);
+        });
     }
 }

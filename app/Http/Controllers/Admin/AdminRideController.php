@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
@@ -9,22 +10,26 @@ use App\Models\Notification;
 use App\Models\Ride;
 use App\Notifications\RequestMatched;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
+
 
 
 class AdminRideController extends Controller
 {
     public function list(Request $request)
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query();
         $search = $request->query('search');
-        $search = "";
-            $searchRide = Ride::query()->where('origin_address', 'like', '%' . $search . '%')
-                    ->orWhere('destination_address', 'like', '%' . $search . '%')->get();
+        if ($search!='') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' .$search.'%' )
+                ->orWhere('destination_address','like', '%' .$search.'%')->get();
+        }else{
+            $rides = Ride::query()->get();
+        }
         return view('admin/ride/list', [
             'rides' => $rides,
-            'search' => $searchRide
+
         ]);
     }
 
@@ -50,18 +55,50 @@ class AdminRideController extends Controller
 
     }
 
-    public function findMatch($id)
+    public function findMatch(Request $request, $id)
     {
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        $start_time = $request['travel_start_time'];
+        $newDate = date("h:i", strtotime($start_time));
         $ride = Ride::find($id);
         $travel_date = date("Y-m-d", strtotime($ride['travel_start_time']));
-        $requests = \App\Models\Request::query()
+        $advanced_query = \App\Models\Request::query()
             ->where('status', RequestStatus::WAITING)
             ->where('desired_pickup_time', '>', Carbon::now())
             ->where('seats_occupy', '<=', $ride['seats_available'])
-            ->whereDate('desired_pickup_time', $travel_date)
-            ->get();
+            ->whereDate('desired_pickup_time', $travel_date);
+//        dd($advanced_query->get());
+        if ($origin) {
+            $originKeywords = explode(" ", $origin);
+            $count = count($originKeywords);
+            if ($count > 0) {
+                $advanced_query = $advanced_query->where(function ($query) use ($originKeywords, $count) {
+                    for ($x = 0; $x < $count; $x++) {
+                        $query->orWhere('pickup_address', 'like', '%' . trim($originKeywords[$x]) . '%');
+                    }
+                });
+            }
+        }
+        if ($destination) {
+            $destinationKeywords = explode(" ", $destination);
+            $count = count($destinationKeywords);
+            if ($count > 0) {
+                $advanced_query = $advanced_query->where(function ($query) use ($destinationKeywords, $count) {
+                    for ($x = 0; $x < $count; $x++) {
+                        $query->orWhere('destination_address', 'like', '%' . trim($destinationKeywords[$x]) . '%');
+                    }
+                });
+            }
+        }
+        if ($start_time) {
+//            dd($start_time);
+            $advanced_query = $advanced_query->where('desired_pickup_time', '>', $start_time)->get();
+        } else {
+            $advanced_query = $advanced_query->get();
+        }
         $matched_requests = [];
-        foreach ($requests as $request) {
+        foreach ($advanced_query as $request) {
             $request['destination_difference'] = getDistance($request['destination_address'], $ride['destination_address'])['distance']['value'];
             if ($request['destination_difference'] > 5000) {
                 continue;
@@ -87,6 +124,10 @@ class AdminRideController extends Controller
         return view('admin/ride/matches', [
             'requests' => $matched_requests,
             'ride' => $ride,
+            'origin'=>$origin,
+            'destination'=>$destination,
+            'start_time'=>$start_time
+
         ]);
     }
 
@@ -117,10 +158,18 @@ class AdminRideController extends Controller
 
     public function setRide($id)
     {
-        $ride = Ride::find($id);
+        $ride = Ride::query()->where('id', $id)->with('car')->first();
         $ride->status = RideStatus::CONFIRMED;
         $ride->update();
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $ride->car->user_id,
+            'content' => 'Your ride to '.$ride->destination_address.' has been confirmed. We will notify you when someone books it!',
+            'target' => route('detailRide', $id),
+        ]);
+        $notification->save();
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
+
     }
 }

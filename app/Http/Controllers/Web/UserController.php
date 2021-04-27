@@ -50,7 +50,6 @@ class UserController extends Controller
     {
         $user = User::find(Auth::id());
         $password = $user->password;
-
         if (Hash::check($request['password'], $password)) {
             $user->delete();
             return redirect()->intended('/');
