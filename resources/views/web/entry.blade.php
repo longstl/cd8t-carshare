@@ -11,310 +11,333 @@
 @endsection
 
 @section('content')
-        <section id="content">
-            <div class="content-wrap">
-                <div class="container clearfix">
-                    <div class="col-md-4 nobottommargin">
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="col-md-4 nobottommargin">
 
-                        <div class="well well-lg nobottommargin">
-                            <form id="login-form" name="login-form" class="nobottommargin" action="{{route('loginUser')}}"
-                                  method="post">
-                                @csrf
-                                <h3>Login to your Account</h3>
-                                @if(session('error-login'))
-                                    <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
-                                        {{session('error-login')}}
-                                    </div>
-                                @endif
-                                <div class="col_full">
-                                    <label for="login-form-username">Username:</label>
-                                    <input type="text" id="login-form-username" name="username" value=""
-                                           class="form-control" required/>
+                    <div class="well well-lg nobottommargin">
+                        <form id="login-form" name="login-form" class="nobottommargin" action="{{route('loginUser')}}"
+                              method="post">
+                            @csrf
+                            <h3>Login to your Account</h3>
+                            @if(session('error-login'))
+                                <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
+                                    {{session('error-login')}}
                                 </div>
+                            @endif
+                            <div class="col_full">
+                                <label for="login-form-username">Username:</label>
+                                <input type="text" id="login-form-username" name="username" value=""
+                                       class="form-control" required/>
+                            </div>
 
-                                <div class="col_full">
-                                    <label for="login-form-password">Password:</label>
-                                    <input type="password" id="login-form-password" name="password" value=""
-                                           class="form-control" required/>
-                                </div>
+                            <div class="col_full">
+                                <label for="login-form-password">Password:</label>
+                                <input type="password" id="login-form-password" name="password" value=""
+                                       class="form-control" required/>
+                            </div>
 
-                                <div class="col_full">
-                                    <button class="button button-3d nomargin" id="login-form-submit" value="login">Login
-                                    </button>
-                                    <a href="#" class="fright">Forgot Password?</a>
-                                </div>
+                            <div class="col_full">
+                                <button class="button button-3d nomargin" id="login-form-submit" value="login">Login
+                                </button>
+                                <a href="#" class="fright">Forgot Password?</a>
+                            </div>
 
-                            </form>
-                        </div>
-
+                        </form>
                     </div>
 
-                    <div class="col-md-8 col_last nobottommargin" style="padding-left: 100px">
+                </div>
 
-                        <div class="row">
-                            <h3>Don't have an Account? Register Now.</h3>
-                        </div>
-                        <div class="row">
-                            <form id="register-form" name="register-form" class="nobottommargin" action="{{route('registerUser')}}" method="post">
-                                @csrf
+                <div class="col-md-8 col_last nobottommargin" style="padding-left: 100px">
+
+                    <div class="row">
+                        <h3>Don't have an Account? Register Now.</h3>
+                    </div>
+                    <div class="row">
+                        <form id="register-form" name="register-form" class="nobottommargin"
+                              action="{{route('registerUser')}}" method="post">
+                            @csrf
+                            <div class="row">
                                 <div class="row">
                                     <div class="row">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label class="form-group">Username</label>
-                                                <input type="text" name="username" value="" class="form-control" required/>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-group">Email</label>
-                                                <input type="text" name="email" value="" class="form-control" required/>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <label class="form-group">Username</label>
+                                            <input type="text" name="username" value="" class="form-control" required/>
                                         </div>
-                                        <div class="row" style="padding-top: 20px">
-                                            <div class="col-md-6">
-                                                <label class="form-group">Password</label>
-                                                <input type="text" name="password" value="" class="form-control" required/>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <label class="form-group">Email</label>
+                                            <input type="text" name="email" value="" class="form-control" required/>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 20px">
+                                        <div class="col-md-6">
+                                            <label class="form-group">Password</label>
+                                            <input type="text" name="password" value="" class="form-control" required/>
+                                        </div>
 
-                                            <div class="col-md-6">
-                                                <label class="form-group">Comfirm Password</label>
-                                                <input type="text" name="password" value="" class="form-control" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="padding-top: 20px">
-                                            <div class="col-md-3">
-                                                <label class="form-group">First Name</label>
-                                                <input type="text" name="first_name" value="" class="form-control" required/>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-group">Last Name</label>
-                                                <input type="text" name="last_name" value="" class="form-control" required/>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-group">Phone</label>
-                                                <input type="text" name="phone" value="" class="form-control" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="padding-top: 20px">
-                                            <div class="col-md-12">
-                                                <label class="form-group">Address</label>
-                                                <input type="text" name="address" value="" class="form-control" required/>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <label class="form-group">Comfirm Password</label>
+                                            <input type="text" name="password" value="" class="form-control" required/>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top: 50px">
-                                        <div class="col-md-12" style="padding-left: 3px">
-                                            <div class="form-group">
-                                                <label class="form-group">Drivers license photo</label>
-                                                <div class="d-flex">
-                                                    <input style="display: none" type="file" name="avatar_file"
-                                                           id="myFileInput" required>
-                                                    <input type="hidden" name="drivers_license_photo">
-                                                    <div class="col-md-2 pt-cr-img pt-wrap-plus border-success"
-                                                         onclick="document.getElementById('myFileInput').click();"
-                                                         style="margin-right: 20px;width: 100px;height: 100px;border: #a9afbbd1 2px solid;border-radius:3px;font-size: 35px; cursor: pointer; color: #a9afbbd1;display: flex;justify-content: center;align-items: center">
-                                                        +
-                                                    </div>
-                                                    <div id="img_show" class="d-flex" style="display: none">
-                                                        <img class="img_show" style="width: 100px;height: 100px;border: #a9afbbd1 1px solid;border-radius:3px">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="row" style="padding-top: 20px">
+                                        <div class="col-md-3">
+                                            <label class="form-group">First Name</label>
+                                            <input type="text" name="first_name" value="" class="form-control"
+                                                   required/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-group">Last Name</label>
+                                            <input type="text" name="last_name" value="" class="form-control" required/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-group">Phone</label>
+                                            <input type="text" name="phone" value="" class="form-control" required/>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top: 50px">
+                                    <div class="row" style="padding-top: 20px">
                                         <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-4" style="padding-left: 7px">
-                                                    <label class="form-group">Identification Type :</label>
-                                                </div>
-                                                <div class="col-md-5">
-                                                        <input class="form-check-input" type="radio" name="identification_id" value="1" checked required>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Citizen Identification
-                                                    </label></div>
-                                                <div class="col-md-3">
-                                                    <input class="form-check-input" type="radio" name="identification_id" value="2" checked required>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Passport
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="padding-top: 70px;padding-left: 8px">
-                                            <div class="col-md-6">
-                                                <label class="form-group">Driving License Number</label>
-                                                <input type="text" name="driving_license_number" value=""
-                                                       class="form-control" required/>
-                                            </div>
-                                            <div class="col-md-3"><label class="form-group">Valid from</label>
-                                                <input type="date" name="driving_license_number" value=""
-                                                       class="form-control" required/>
-                                            </div>
-                                            <div class="col-md-3"><label class="form-group">Valid To</label>
-                                                <input type="date" name="driving_license_number" value=""
-                                                       class="form-control" required/>
-                                            </div>
+                                            <label class="form-group">Address</label>
+                                            <input type="text" name="address" value="" class="form-control" required/>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top: 50px; ">
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-4" style="padding-left: 9px">
-                                                        <label class="form-group">Identification Type :</label>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <input class="form-check-input" type="radio" name="identification_id" value="1" checked>
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            Citizen Identification
-                                                        </label></div>
-                                                    <div class="col-md-3">
-                                                        <input class="form-check-input" type="radio" name="identification_id" value="2" checked>
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            Passport
-                                                        </label></div>
-
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-top: 70px;padding-left: 10px">
-                                                <div class="col-md-6">
-                                                    <label class="form-group">Identification ID</label>
-                                                    <input type="text" name="driving_license_number" value=""
-                                                           class="form-control" required/>
-                                                </div>
-                                                <div class="col-md-3"><label class="form-group">Valid from</label>
-                                                    <input type="date" name="driving_license_valid_from" value=""
-                                                           class="form-control" required/></div>
-                                                <div class="col-md-3"><label class="form-group">Valid To</label>
-                                                    <input type="date" name="driving_license_valid_to" value=""
-                                                           class="form-control" required/></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 50px">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email Preference</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" value="0" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Don't send to my email
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" value="1">
-                                                    <label class="form-check-label" for="exampleRadios2">
-                                                        Only send notification ride to email
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="email_preference" value="2">
-                                                    <label class="form-check-label" for="exampleRadios3">
-                                                        Send all notification to my email
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label>Music Preference</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="music_preference" value="0" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        No Music
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="music_preference" value="1">
-                                                    <label class="form-check-label" for="exampleRadios2">
-                                                        Only calm music
-                                                    </label>
-                                                </div>
-                                                <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="music_preference" value="2">
-                                                    <label class="form-check-label" for="exampleRadios3">
-                                                        Loud Music
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label>Chitchat Preference</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="0" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Don't chitchat
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="1">
-                                                    <label class="form-check-label" for="exampleRadios2">
-                                                        Little chitchat
-                                                    </label>
-                                                </div>
-                                                <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="chitchat_preference" value="2">
-                                                    <label class="form-check-label" for="exampleRadios3">
-                                                        Lot chitchat
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="padding-top: 50px;padding-left: 15px">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label>Is Smoking Allowed :</label>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" value="1">
-                                                        <label class="form-check-label" for="exampleRadios2">
-                                                            Yes
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-check disabled">
-                                                        <input class="form-check-input" type="radio" name="is_smoking_allowed" value="0" checked>
-                                                        <label class="form-check-label" for="exampleRadios3">
-                                                            No
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="padding-top: 20px;padding-left: 15px">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label>Is Pet Allowed :</label>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" value="1">
-                                                        <label class="form-check-label" for="exampleRadios2">
-                                                            Yes
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-check disabled">
-                                                        <input class="form-check-input" type="radio" name="is_pet_allowed" value="0" checked>
-                                                        <label class="form-check-label" for="exampleRadios3">
-                                                            No
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
                                 <div class="row" style="padding-top: 50px">
-                                    <button style="width: 25%" class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                                    <div class="col-md-12" style="padding-left: 3px">
+                                        <div class="form-group">
+                                            <label class="form-group">Drivers license photo</label>
+                                            <div class="d-flex">
+                                                <input style="display: none" type="file" name="avatar_file"
+                                                       id="myFileInput" required>
+                                                <input type="hidden" name="drivers_license_photo">
+                                                <div class="col-md-2 pt-cr-img pt-wrap-plus border-success"
+                                                     onclick="document.getElementById('myFileInput').click();"
+                                                     style="margin-right: 20px;width: 100px;height: 100px;border: #a9afbbd1 2px solid;border-radius:3px;font-size: 35px; cursor: pointer; color: #a9afbbd1;display: flex;justify-content: center;align-items: center">
+                                                    +
+                                                </div>
+                                                <div id="img_show" class="d-flex" style="display: none">
+                                                    <img class="img_show"
+                                                         style="width: 100px;height: 100px;border: #a9afbbd1 1px solid;border-radius:3px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="row" style="padding-top: 50px">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-left: 7px">
+                                                <label class="form-group">Identification Type :</label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-check-input" type="radio" name="identification_id"
+                                                       value="1" checked required>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Citizen Identification
+                                                </label></div>
+                                            <div class="col-md-3">
+                                                <input class="form-check-input" type="radio" name="identification_id"
+                                                       value="2" checked required>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Passport
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="padding-top: 70px;padding-left: 8px">
+                                        <div class="col-md-6">
+                                            <label class="form-group">Driving License Number</label>
+                                            <input type="text" name="driving_license_number" value=""
+                                                   class="form-control" required/>
+                                        </div>
+                                        <div class="col-md-3"><label class="form-group">Valid from</label>
+                                            <input type="date" name="driving_license_number" value=""
+                                                   class="form-control" required/>
+                                        </div>
+                                        <div class="col-md-3"><label class="form-group">Valid To</label>
+                                            <input type="date" name="driving_license_number" value=""
+                                                   class="form-control" required/>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="row" style="padding-top: 50px; ">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-left: 9px">
+                                                <label class="form-group">Identification Type :</label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-check-input" type="radio" name="identification_id"
+                                                       value="1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Citizen Identification
+                                                </label></div>
+                                            <div class="col-md-3">
+                                                <input class="form-check-input" type="radio" name="identification_id"
+                                                       value="2" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Passport
+                                                </label></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top: 70px;padding-left: 10px">
+                                        <div class="col-md-6">
+                                            <label class="form-group">Identification ID</label>
+                                            <input type="text" name="driving_license_number" value=""
+                                                   class="form-control" required/>
+                                        </div>
+                                        <div class="col-md-3"><label class="form-group">Valid from</label>
+                                            <input type="date" name="driving_license_valid_from" value=""
+                                                   class="form-control" required/></div>
+                                        <div class="col-md-3"><label class="form-group">Valid To</label>
+                                            <input type="date" name="driving_license_valid_to" value=""
+                                                   class="form-control" required/></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top: 50px">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email Preference</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="email_preference"
+                                                   value="0" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Don't send to my email
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="email_preference"
+                                                   value="1">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Only send notification ride to email
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="email_preference"
+                                                   value="2">
+                                            <label class="form-check-label" for="exampleRadios3">
+                                                Send all notification to my email
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Music Preference</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="music_preference"
+                                                   value="0" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                No Music
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="music_preference"
+                                                   value="1">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Only calm music
+                                            </label>
+                                        </div>
+                                        <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="music_preference"
+                                                   value="2">
+                                            <label class="form-check-label" for="exampleRadios3">
+                                                Loud Music
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Chitchat Preference</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                   value="0" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Don't chitchat
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                   value="1">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Little chitchat
+                                            </label>
+                                        </div>
+                                        <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="chitchat_preference"
+                                                   value="2">
+                                            <label class="form-check-label" for="exampleRadios3">
+                                                Lot chitchat
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 50px;padding-left: 15px">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Is Smoking Allowed :</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="is_smoking_allowed"
+                                                       value="1">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-check disabled">
+                                                <input class="form-check-input" type="radio" name="is_smoking_allowed"
+                                                       value="0" checked>
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 20px;padding-left: 15px">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Is Pet Allowed :</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="is_pet_allowed"
+                                                       value="1">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-check disabled">
+                                                <input class="form-check-input" type="radio" name="is_pet_allowed"
+                                                       value="0" checked>
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 50px">
+                                    <button style="width: 25%" class="button button-3d button-black nomargin"
+                                            id="register-form-submit" name="register-form-submit" value="register">
+                                        Register Now
+                                    </button>
+                                </div>
+                            </div>
                         </form>
-                        </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </section><!-- #content end -->
+        </div>
+        </div>
+    </section><!-- #content end -->
 @endsection
 
 
@@ -489,89 +512,137 @@
 {{--    });--}}
 {{--</script>--}}
 @section('botExtraJs')
-<script>
-    var back_to_profile = document.querySelector('.back_to_profile')
-    const imgurl = document.querySelector('input[name="drivers_license_photo"]')
-    const cloudName = 'ddmgbaegq';
-    const unsignedUploadPreset = 'hrn13yyl';
-    const img = document.querySelector('input[name="avatar_file"]');
-    img.onchange = function () {
-        var file = this.files[0];
-        var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
-        var xhr = new XMLHttpRequest();
+    <script type="application/javascript">
+        var firebaseConfig = {
+            apiKey: "AIzaSyBe99gU85yorlzWEMTh6ttpmFLhLHsmr9Q",
+            authDomain: "daokhanh-201004.firebaseapp.com",
+            databaseURL: "https://daokhanh-201004.firebaseio.com",
+            projectId: "daokhanh-201004",
+            storageBucket: "daokhanh-201004.appspot.com",
+            messagingSenderId: "396333762261",
+            appId: "1:396333762261:web:7401d6e1d01640bb62c45c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
 
-        xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if (this.status === 200) {
-                    var dataJson = JSON.parse(this.responseText)
-                    imgurl.value = dataJson.url
-
-                    var img_review = document.querySelector('.img_show');
-                    img_review.src = dataJson.url;
-                    document.querySelector('#img_show').style.display = "block"
-
-                }
-            }
+        function InitializeFireBaseMessaging() {
+            messaging
+                .requestPermission()
+                .then(function () {
+                    console.log("Notification Permission")
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    console.log("Token: " + token)
+                })
+                .catch(function (reason) {
+                    console.log(reason)
+                })
         }
-        xhr.open('POST', url, true);
-        var ud = new FormData();
-        ud.append('upload_preset', unsignedUploadPreset);
-        ud.append('tags', 'browser_upload')
-        ud.append('file', file)
-        xhr.send(ud)
-    }
-    back_to_profile.onclick = function (){
-        window.location.href = location.protocol+"/profile";
-    }
 
-    // ***** FCM *****
-    var firebaseConfig = {
-        apiKey: "AIzaSyBe99gU85yorlzWEMTh6ttpmFLhLHsmr9Q",
-        authDomain: "daokhanh-201004.firebaseapp.com",
-        databaseURL: "https://daokhanh-201004.firebaseio.com",
-        projectId: "daokhanh-201004",
-        storageBucket: "daokhanh-201004.appspot.com",
-        messagingSenderId: "396333762261",
-        appId: "1:396333762261:web:7401d6e1d01640bb62c45c"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const messaging = firebase.messaging();
-
-    function InitializeFireBaseMessaging() {
-        messaging
-            .requestPermission()
-            .then(function () {
-                console.log("Notification Permission")
-                return messaging.getToken();
-            })
-            .then(function (token) {
-                console.log("Token: " + token)
-                document.getElementById("token").innerHTML = token
-            })
-            .catch(function (reason) {
+        messaging.onMessage(function (payload) {
+            console.log(payload)
+            let notify;
+            notify = new Notification(payload.notification.title, {
+                body: payload.notification.body,
+                image: payload.notification.image,
+            });
+        })
+        messaging.onTokenRefresh(function () {
+            messaging.getToken()
+                .then(function (newToken) {
+                    console.log("New token: " + newToken)
+                }).catch(function (reason) {
                 console.log(reason)
             })
-    }
-
-    messaging.onMessage(function (payload) {
-        console.log(payload)
-        let notify;
-        notify = new Notification(payload.notification.title, {
-            body: payload.notification.body,
-            image: payload.notification.image,
-        });
-    })
-    messaging.onTokenRefresh(function () {
-        messaging.getToken()
-            .then(function (newToken) {
-                console.log("New token: " + newToken)
-            }).catch(function (reason) {
-            console.log(reason)
         })
-    })
 
-    InitializeFireBaseMessaging()
-</script>
+        InitializeFireBaseMessaging()
+    </script>
+    <script>
+        var back_to_profile = document.querySelector('.back_to_profile')
+        const imgurl = document.querySelector('input[name="drivers_license_photo"]')
+        const cloudName = 'ddmgbaegq';
+        const unsignedUploadPreset = 'hrn13yyl';
+        const img = document.querySelector('input[name="avatar_file"]');
+        img.onchange = function () {
+            var file = this.files[0];
+            var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        var dataJson = JSON.parse(this.responseText)
+                        imgurl.value = dataJson.url
+
+                        var img_review = document.querySelector('.img_show');
+                        img_review.src = dataJson.url;
+                        document.querySelector('#img_show').style.display = "block"
+
+                    }
+                }
+            }
+            xhr.open('POST', url, true);
+            var ud = new FormData();
+            ud.append('upload_preset', unsignedUploadPreset);
+            ud.append('tags', 'browser_upload')
+            ud.append('file', file)
+            xhr.send(ud)
+        }
+        back_to_profile.onclick = function () {
+            window.location.href = location.protocol + "/profile";
+        }
+
+        // ***** FCM *****
+        var firebaseConfig = {
+            apiKey: "AIzaSyBe99gU85yorlzWEMTh6ttpmFLhLHsmr9Q",
+            authDomain: "daokhanh-201004.firebaseapp.com",
+            databaseURL: "https://daokhanh-201004.firebaseio.com",
+            projectId: "daokhanh-201004",
+            storageBucket: "daokhanh-201004.appspot.com",
+            messagingSenderId: "396333762261",
+            appId: "1:396333762261:web:7401d6e1d01640bb62c45c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+
+        function InitializeFireBaseMessaging() {
+            messaging
+                .requestPermission()
+                .then(function () {
+                    console.log("Notification Permission")
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    console.log("Token: " + token)
+                    document.getElementById("token").innerHTML = token
+                })
+                .catch(function (reason) {
+                    console.log(reason)
+                })
+        }
+
+        messaging.onMessage(function (payload) {
+            console.log(payload)
+            let notify;
+            notify = new Notification(payload.notification.title, {
+                body: payload.notification.body,
+                image: payload.notification.image,
+            });
+        })
+        messaging.onTokenRefresh(function () {
+            messaging.getToken()
+                .then(function (newToken) {
+                    console.log("New token: " + newToken)
+                }).catch(function (reason) {
+                console.log(reason)
+            })
+        })
+
+        InitializeFireBaseMessaging()
+    </script>
 @endsection
 

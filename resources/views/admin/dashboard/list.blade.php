@@ -6,19 +6,24 @@
 
 @section('content')
     <div class="row">
+        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 50%; height: 10%">
+            <i class="fa fa-calendar"></i>&nbsp;
+            <span></span> <i class="fa fa-caret-down"></i>
+        </div>
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-header card-header-warning">
                     <h4 class="card-title">Daily Rides Stats</h4>
-                    <p class="card-category">{{date("Y-m-d", strtotime( date( "Y-m-d", strtotime( date("Y-m-d") ) ) . "- 1 week" ) )}} - {{date('Y-m-d')}}</p>
+                    <p id="dateHeader" class="card-category">{{date("Y-m-d", strtotime( date( "Y-m-d", strtotime( date("Y-m-d") ) ) . "- 1 week" ) )}} - {{date('Y-m-d')}}</p>
                 </div>
+
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead class="text-warning">
                         <th>Date</th>
                         <th>Total rides</th>
                         </thead>
-                        <tbody>
+                        <tbody id="ride_body">
                         @foreach($ride_stats as $date)
                             <tr>
                                 <td>{{$date->date}}</td>
@@ -26,6 +31,7 @@
                             </tr>
                         @endforeach
                         </tbody>
+                        <div id="paginationDashboard"></div>
                     </table>
                 </div>
             </div>
