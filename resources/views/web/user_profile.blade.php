@@ -90,7 +90,7 @@
                                 <a style="color: white;background: #1ABC9C" href="{{route('update_profile')}}"
                                    class="btn btn-success">Update
                                     Profile</a>
-                                <a style="color: white" href="javascript:void(0)" class="btn btn-danger">Delete</a>
+                                <a style="color: white" href="javascript:void(0)" id="btn-delete" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
 
@@ -122,7 +122,7 @@
                                             <td>{{$request->price}}</td>
                                             <td>{{$request->seats_occupy}}</td>
                                             <td>
-                                                <a href="/request/detail/{{$request->id}}" class="btn"
+                                                <a href="{{route('detailRequest', $request->id)}}" class="btn"
                                                    style="background: #1ABC9C;color: white">Detail</a>
                                             </td>
                                         </tr>
@@ -164,7 +164,7 @@
                                                 {{\App\Enums\RideStatus::getDescription($ride->status)}}
                                             </td>
                                             <td>
-                                                <a href="/ride/detail/{{$ride->id}}">Detail</a>
+                                                <a href="{{route('detailRide', $ride->id)}}">Detail</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -185,7 +185,7 @@
                                         <th>Make</th>
                                         <th>Make Year</th>
                                         <th>Color</th>
-                                        <th>Action</th>
+{{--                                        <th>Action</th>--}}
                                     </tr>
                                     @foreach($cars as $car)
                                         <tr>
@@ -193,10 +193,10 @@
                                             <td> {{$car->model->model}}</td>
                                             <td> {{$car->model->make_year}}</td>
                                             <td> {{$car->color}}</td>
-                                            <td>
-                                                <a href="" type="button" class="btn btn-success">update</a>
-                                                <a href="" type="button" class="btn btn-danger">delete</a>
-                                            </td>
+{{--                                            <td>--}}
+{{--                                                <a href="" type="button" class="btn btn-success">Update</a>--}}
+{{--                                                <a href="" type="button" class="btn btn-danger">Delete</a>--}}
+{{--                                            </td>--}}
                                         </tr>
                                     @endforeach
                                 </table>
