@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}">
 <link rel="stylesheet" href="{{url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{lib_assets('css/material-dashboard.css')}}">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <link rel="stylesheet" href="{{lib_assets('css/table.css')}}">
 
 <title>
