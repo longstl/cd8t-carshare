@@ -89,9 +89,6 @@
                                 </div>
                             </a>
                         @endforeach
-                        <div class="top-cart-action clearfix" style="border-top: 0">
-                            <button class="button button-3d button-small nomargin fright">Clear</button>
-                        </div>
                     </div>
                 </div>
                 @if(\Illuminate\Support\Facades\Auth::check())
