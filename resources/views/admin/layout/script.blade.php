@@ -15,7 +15,7 @@
 <script src="{{lib_assets('script/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js')}}"></script>
 <script src="{{url('https://unpkg.com/default-passive-events')}}"></script>
-<script src="{{lib_assets('script/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+<script src="{{lib_assets('script/plpcugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{url('https://buttons.github.io/buttons.js')}}"></script>
 <!-- Chartist JS -->

@@ -17,6 +17,7 @@
                 @endif
                 <div class="card-header card-header-primary card-container">
                     <h3 class="card-title ">Users</h3>
+
                     <form name="filterForm">
                         <div class="form-group no-border">
                             <input type="text" name="search" value="" placeholder="Search by keyword" required/>
@@ -31,6 +32,7 @@
                             Create new User
                         </button>
                     </a>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
