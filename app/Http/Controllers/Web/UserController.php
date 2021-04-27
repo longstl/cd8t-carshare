@@ -42,11 +42,22 @@ class UserController extends Controller
         ]);
     }
 
-    public function delete()
+    public function form_comfim_password()
+    {
+        return view('web/comfrim_delete_user');
+    }
+    public function delete_user(Request $request)
     {
         $user = User::find(Auth::id());
-        $user->delete();
-        return redirect()->route('index');
+        $password = $user->password;
+
+        if (Hash::check($request['password'], $password)) {
+            $user->delete();
+            return redirect()->intended('/');
+        } else {
+            return back()->with( 'error-password','Password. Please check and try again.');
+        }
+
     }
 
     public function saveuser(UpdateProfileRequest $request)

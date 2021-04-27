@@ -4,8 +4,9 @@
 @endsection
 @section('headExtraJs')
     <script>
-        let markerOptions;
-        let markerShow;
+        let markerOptionsCreateRide;
+        let markerShowCreateRide;
+        let addressCreateRide = '';
 
         function initMap() {
             let $lat = 0;
@@ -25,17 +26,34 @@
                     center: {lat: $lat, lng: $lng},
                     zoom: 18,
                 });
-                let origin = $('#origin-input')
-                origin.val($lat + ',' + $lng)
 
+                new google.maps.Geocoder().geocode({location: {lat: $lat, lng: $lng}}, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            for (let i = 0; i < results[0]['address_components'].length; i++) {
+                                if (i === results[0]['address_components'].length - 1) {
+                                    addressCreateRide += results[0]['address_components'][i]['long_name']
+                                } else {
+                                    addressCreateRide += results[0]['address_components'][i]['long_name'] + ', '
+                                }
+                            }
+                            let origin = $('#originInputCreateRide')
+                            origin.val(addressCreateRide)
+                        } else {
+                            window.alert("No results found");
+                        }
+                    } else {
+                        window.alert("Geocoder failed due to: " + status);
+                    }
+                });
 
-                markerOptions = {
+                markerOptionsCreateRide = {
                     position: {lat: $lat, lng: $lng},
                     map: map,
                     animation: google.maps.Animation.BOUNCE,
                     id: 1
                 };
-                markerShow = new google.maps.Marker(markerOptions);
+                markerShowCreateRide = new google.maps.Marker(markerOptionsCreateRide);
                 new AutocompleteDirectionsHandler(map);
             }
         }
@@ -49,8 +67,8 @@
                 this.directionsService = new google.maps.DirectionsService();
                 this.directionsRenderer = new google.maps.DirectionsRenderer();
                 this.directionsRenderer.setMap(map);
-                const originInput = document.getElementById("origin-input");
-                const destinationInput = document.getElementById("destination-input");
+                const originInput = document.getElementById("originInputCreateRide");
+                const destinationInput = document.getElementById("destinationInputCreateRide");
                 const modeSelector = document.getElementById("mode-selector");
                 const originAutocomplete = new google.maps.places.Autocomplete(
                     originInput
@@ -80,7 +98,7 @@
                 autocomplete.addListener("place_changed", () => {
                     const place = autocomplete.getPlace();
                     if (!place.place_id) {
-                        window.alert("Please select an request from the dropdown list.");
+                        window.alert("Please select an option from the dropdown list.");
                         return;
                     }
 
@@ -94,9 +112,9 @@
             }
 
             route() {
-                console.log(this.map.getBounds().contains(markerOptions['position']))
-                if (this.map.getBounds().contains(markerOptions['position'])) {
-                    markerShow.visible = false;
+                console.log(this.map.getBounds().contains(markerOptionsCreateRide['position']))
+                if (this.map.getBounds().contains(markerOptionsCreateRide['position'])) {
+                    markerShowCreateRide.visible = false;
                 }
                 if (!this.originPlaceId || !this.destinationPlaceId) {
                     return;
@@ -147,20 +165,20 @@
                             <div class="form-process"></div>
 
                             <div class="col_two_third">
-                                <label for="origin-input">Origin</label>
-                                <input type="text" id="origin-input" name="origin_address" value="" placeholder="Enter origin" class="controls pac-target-input valid sm-form-control" required/>
+                                <label for="originInputCreateRide">Origin</label>
+                                <input type="text" id="originInputCreateRide" name="origin_address" value="" placeholder="Enter origin" class="controls pac-target-input valid sm-form-control" required/>
                             </div>
 
                             <div class="col_two_third">
-                                <label for="destination-input">Destination</label>
-                                <input type="text" id="destination-input" name="destination_address"
+                                <label for="destinationInputCreateRide">Destination</label>
+                                <input type="text" id="destinationInputCreateRide" name="destination_address"
                                        class="controls pac-target-input valid  sm-form-control" placeholder="Enter destination" autocomplete="off" aria-invalid="false" required/>
                             </div>
                             <div class="col_two_third">
                                 <label>Start time</label>
                                 <div class="form-group">
                                     <div class="input-group tleft" data-target-input="nearest" data-target=".datetimepicker">
-                                        <input type="datetime-local" name="travel_start_time" class="form-control datetimepicker-input datetimepicker" data-target=".datetimepicker" required/>
+                                        <input type="datetime-local" name="travel_start_time" class="form-control datetimepickerInputCreateRide datetimepicker" data-target=".datetimepicker" required/>
                                     </div>
                                 </div>
                             </div>
@@ -217,13 +235,41 @@
     </section>
 @endsection
 @section('botExtraJs')
+    <script src="{{Url('https://maps.googleapis.com/maps/api/js?key=AIzaSyARQDGY6bvtZHavFPoCWEgmzxk7DLSbmoI&callback=initMap&libraries=places&v=weekly')}}" async></script>
+    <script src="{{lib_assets('web/js/jquery.gmap.js')}}"></script>
     <script>
+        jQuery('#google-map').gMap({
+            address: 'Melbourne, Australia',
+            maptype: 'ROADMAP',
+            zoom: 14,
+            markers: [
+                {
+                    address: "Melbourne, Australia",
+                    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [32,39]
+                    }
+                }
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            }
+        });
+
         //show_distance
-        $('#origin-input').change(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+        $('#originInputCreateRide').change(function () {
+            if ($('#originInputCreateRide').val().length > 1 && $('#destinationInputCreateRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputCreateRide').val(),
+                    "end": $('#destinationInputCreateRide').val()
                 }
 
                 $.ajax({
@@ -243,11 +289,11 @@
                 })
             }
         })
-        $('#destination-input').change(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+        $('#destinationInputCreateRide').change(function () {
+            if ($('#originInputCreateRide').val().length > 1 && $('#destinationInputCreateRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputCreateRide').val(),
+                    "end": $('#destinationInputCreateRide').val()
                 }
 
                 $.ajax({
@@ -268,10 +314,10 @@
             }
         })
         $('#submit').click(function () {
-            if ($('#origin-input').val().length > 1 && $('#destination-input').val().length > 1) {
+            if ($('#originInputCreateRide').val().length > 1 && $('#destinationInputCreateRide').val().length > 1) {
                 $value = {
-                    "start": $('#origin-input').val(),
-                    "end": $('#destination-input').val()
+                    "start": $('#originInputCreateRide').val(),
+                    "end": $('#destinationInputCreateRide').val()
                 }
                 $.ajax({
                     url: "/api/location",
@@ -324,30 +370,3 @@
         });
     </script>
 @endsection
-{{--    <script>--}}
-{{--        jQuery('#google-map').gMap({--}}
-{{--            address: 'Melbourne, Australia',--}}
-{{--            maptype: 'ROADMAP',--}}
-{{--            zoom: 14,--}}
-{{--            markers: [--}}
-{{--                {--}}
-{{--                    address: "Melbourne, Australia",--}}
-{{--                    html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',--}}
-{{--                    icon: {--}}
-{{--                        image: "images/icons/map-icon-red.png",--}}
-{{--                        iconsize: [32, 39],--}}
-{{--                        iconanchor: [32,39]--}}
-{{--                    }--}}
-{{--                }--}}
-{{--            ],--}}
-{{--            doubleclickzoom: false,--}}
-{{--            controls: {--}}
-{{--                panControl: true,--}}
-{{--                zoomControl: true,--}}
-{{--                mapTypeControl: true,--}}
-{{--                scaleControl: false,--}}
-{{--                streetViewControl: false,--}}
-{{--                overviewMapControl: false--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}

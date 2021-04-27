@@ -1,7 +1,15 @@
 @extends('web.layout.master')
+
 @section('title')
     Entry
 @endsection
+
+@section('headExtraJs')
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
+@endsection
+
 @section('content')
     <section id="content">
         <div class="content-wrap">
@@ -10,7 +18,6 @@
             @endif
             <div class="container clearfix">
                 <div class="col-md-4 nobottommargin">
-
                     <div class="well well-lg nobottommargin">
                         <form id="login-form" name="login-form" class="nobottommargin"
                               action="{{route('registerUser')}}"
@@ -23,7 +30,6 @@
                                 <input type="text" id="login-form-username" name="username" value=""
                                        class="form-control" required/>
                             </div>
-
                             <div class="col_full">
                                 <label for="login-form-password">Password:</label>
                                 <input type="password" id="login-form-password" name="password" value=""
@@ -42,7 +48,6 @@
                 </div>
 
                 <div class="col-md-8 col_last nobottommargin" style="padding-left: 100px">
-
                     <div class="row">
                         <h3>Don't have an Account? Register Now.</h3>
 
@@ -160,7 +165,7 @@
                                     <div class="row" style="padding-top: 50px">
                                         <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-4" style="padding-left: 7px">
                                                     <label class="form-group">Identification Type :</label>
                                                 </div>
                                                 <div class="col-md-5">
@@ -176,11 +181,12 @@
                                                            id="exampleRadios1" value="2">
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         Passport
-                                                    </label></div>
-
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row" style="padding-top: 70px;padding-left: 10px">
+
+                                        <div class="row" style="padding-top: 70px;padding-left: 8px">
                                             <div class="col-md-6">
                                                 <label class="form-group">Identification ID</label>
                                                 <input type="text" name="identification_id" value=""
@@ -193,7 +199,6 @@
                                                 <input type="date" name="identification_valid_to" value=""
                                                        class="form-control"/></div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div style="display: none">
@@ -296,10 +301,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-
-
                                             </div>
-
                                         </div>
                                         <div class="row" style="padding-top: 20px;padding-left: 15px">
                                             <div class="row">
@@ -558,4 +560,3 @@
 {{--        });--}}
 {{--    });--}}
 {{--</script>--}}
-

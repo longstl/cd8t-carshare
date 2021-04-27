@@ -62,9 +62,15 @@ class RequestController extends Controller
     public function cancelMatch($id)
     {
         $request = Request::find($id);
-        $ride = $request->ride();
+        $ride = Ride::find($request->ride_id);
         $request->status = RequestStatus::WAITING;
+        $request->ride_id = null;
+        $request->pickup_time = null;
+        $request->price = null;
+        $request->save();
         $ride->status = RideStatus::CONFIRMED;
+        $ride->save();
+        return redirect()->route('detailRequest', $id);
     }
 
     public function cancel($id)

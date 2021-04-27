@@ -24,11 +24,11 @@
                             <tbody>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Driver</h5></td>
-                                <td>{{$data_ride->car->user->first_name}}</td>
+                                <td>{{$data_ride->car->user->first_name}} {{$data_ride->car->user->last_name}}</td>
                             </tr>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Car</h5></td>
-                                <td>{{$data_ride->car->model->make}}</td>
+                                <td>{{$data_ride->car->model->make}} {{$data_ride->car->model->model}}</td>
                             </tr>
                             <tr>
                                 <td><h5 style="margin: 0!important;">Origin</h5></td>
@@ -44,9 +44,16 @@
                             </tr>
                             </tbody>
                         </table>
-                        @if($data_ride->status != \App\Enums\RideStatus::CANCELED && $data_ride->status != \App\Enums\RideStatus::COMPLETED)
-                            <a href="">
-                                <button class="btn btn-danger" style="margin-top:20px;">Cancel Ride</button>
+                        @if($data_request->status == \App\Enums\RequestStatus::MATCHED)
+                            <a href="{{route('bookMatch', $data_request->id)}}">
+                                <button class="btn btn-primary" style="margin-top:20px; margin-bottom: 30px;">Book This
+                                    Ride
+                                </button>
+                            </a>
+                            <a href="{{route('cancelMatch', $data_request->id)}}">
+                                <button class="btn btn-danger" style="margin-top:20px; margin-bottom: 30px;">Cancel
+                                    Match
+                                </button>
                             </a>
                         @endif
                     @endif
@@ -55,6 +62,8 @@
                         <h3>We will notify you when a match is found</h3>
                     @elseif(session('canceled') || $data_request->status == \App\Enums\RequestStatus::CANCELED)
                         <h2>Your request has been canceled</h2>
+                    @elseif($data_request->status == \App\Enums\RequestStatus::WAITING)
+                        <h2>We are finding you a match and will notify you once one is found</h2>
                     @else
                         <h2>Request detail</h2>
                     @endif

@@ -2,28 +2,13 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Web\EntryController;
+use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/rules', function () {
-    return view('web/rules');
-});
-
-Route::get('/contact', function () {
-    return view('web/contact');
-});
-
-Route::get('/profile', function () {
-
-    return view('web/profile');
-});
-
-Route::get('/driving', function () {
-    return view('web/driving_license');
-});
 Route::prefix('admin')->group(function () {
     require_once __DIR__ . '/admin.php';
 });
@@ -37,10 +22,11 @@ Route::post('register', [EntryController::class, 'processRegister'])->name('regi
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
 
 Route::prefix('user')->middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class,'profile'])->name('profile_user');
-    Route::get('update', [UserController::class,'update_profile'])->name('update_profile');
-    Route::post('update', [UserController::class,'saveuser'])->name('saveuser');
-    Route::get('delete', [UserController::class,'delete_user'])->name('delete_user');
+    Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
+    Route::get('update', [UserController::class, 'update_profile'])->name('update_profile');
+    Route::post('update', [UserController::class, 'saveuser'])->name('saveuser');
+    Route::get('delete', [UserController::class, 'form_comfim_password'])->name('form_comfim_password');
+    Route::post('delete', [UserController::class, 'delete_user'])->name('delete_user');
     Route::prefix('license')->group(function () {
         Route::get('create', [UserController::class, 'updateLicense'])->name('updateLicense');
         Route::post('save', [UserController::class, 'saveLicense'])->name('saveLicense');
@@ -61,6 +47,16 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('detail/{id}', [RequestController::class, 'detail'])->name('detailRequest');
         Route::get('cancel/{id}', [RequestController::class, 'cancel'])->name('cancelRequest');
     });
+    Route::prefix('match')->group(function () {
+        Route::get('book/{id}', [RequestController::class, 'book'])->name('bookMatch');
+        Route::get('cancel/{id}', [RequestController::class, 'cancelMatch'])->name('cancelMatch');
+    });
+    Route::prefix('contact')->group(function () {
+        Route::get('', [FeedbackController::class, 'create'])->name('createFeedback');
+        Route::post('store-feedback', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
+        Route::get('thank-you', [FeedbackController::class, 'thankYou'])->name('thankYouFeedback');
+        Route::get('detail/{id}', [FeedbackController::class, 'detail']);
+    });
 });
 Route::prefix('request')->group(function() {
 
@@ -72,3 +68,6 @@ Route::prefix('request')->group(function() {
 Route::get('404',function (){
    return view('web/404');
 });
+Route::get('/rules', function () {
+    return view('web/rules');
+})->name('rules');
