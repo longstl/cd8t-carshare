@@ -172,7 +172,6 @@
         }
 
         #primary-menu {
-            background: white;
             height: 200px !important;
         }
 

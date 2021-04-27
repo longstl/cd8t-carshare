@@ -17,11 +17,12 @@
                 @endif
                 <div class="card-header card-header-primary card-container">
                     <h3 class="card-title ">Users</h3>
+
                     <form name="filterForm">
                         <div class="form-group no-border">
                             <input type="text" name="search" value="" placeholder="Search by keyword" required/>
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
+                                <i class="fa fa-search"></i>
                                 <div class="ripple-container"></div>
                             </button>
                         </div>
@@ -31,6 +32,7 @@
                             Create new User
                         </button>
                     </a>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -103,20 +105,12 @@
 
 @section('pagination')
     <div class="row">
-        <div class="col-md-9">
-            @if(($list_user->currentPage()) > 1)<a class="btn btn-warning" href="user?page=1"><<</a>@else @endif
-            @if(($list_user->currentPage()-1)>0)<a class="btn btn-warning" href="user?page={{$list_user->currentPage()-1}}"><</a>@else @endif
+        <div class="col-md-12 text-center">
+            @if(($list_user->currentPage()) > 1)<a class="btn btn-warning" href="{{route('listUser')}}?page=1"><<</a>@else @endif
+            @if(($list_user->currentPage()-1)>0)<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->currentPage()-1}}"><</a>@else @endif
             <button class="btn btn-warning">{{$list_user->currentPage()}}</button>
-            @if(($list_user->currentPage()+1)<=($list_user->total()))<a class="btn btn-warning" href="user?page={{$list_user->currentPage()+1}}">></a>@else @endif
-            @if (($list_user->currentPage()) != $list_user->total())<a class="btn btn-warning" href="user?page={{$list_user->total()}}">>></a>@else @endif
-        </div>
-        <div class="col-md-3">
-            <select class="form-control form-control-sm" id="limit" name="limit">
-                <option selected hidden disabled>Show entries</option>
-                <option value="1" {{$limit == 1 ? 'selected' : ''}}>25</option>
-                <option value="2" {{$limit == 2 ? 'selected' : ''}}>50</option>
-                <option value="3" {{$limit == 3 ? 'selected' : ''}}>100</option>
-            </select>
+            @if(($list_user->currentPage()+1)<=($list_user->total()))<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->currentPage()+1}}">></a>@else @endif
+            @if (($list_user->currentPage()) != $list_user->total())<a class="btn btn-warning" href="{{route('listUser')}}?page={{$list_user->total()}}">>></a>@else @endif
         </div>
     </div>
 @endsection

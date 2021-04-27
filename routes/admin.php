@@ -45,6 +45,7 @@ Route::prefix("feedbacks")->group(function () {
 Route::prefix("rides")->group(function () {
     Route::get('', [AdminRideController::class, 'list'])->name('listRide');
     Route::get('match/{id}', [AdminRideController::class, 'list'])->name('findMatch');
+    Route::get('setRide/{id}', [AdminRideController::class, 'setRide'])->name('setStatus');
 });
 
 Route::prefix("requests")->group(function () {
@@ -55,3 +56,6 @@ Route::prefix("match")->group(function() {
     Route::get('find/{id}', [AdminRideController::class, 'findMatch'])->name('findMatch');
     Route::get('set/{ride_id}/{request_id}/{duration}', [AdminRideController::class, 'setMatch'])->name('setMatch');
 });
+Route::get("notification",function (){
+   return view('admin/notification/list');
+})->name('formNotification');

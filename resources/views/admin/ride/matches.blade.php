@@ -9,57 +9,20 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card" style="margin-top: 0; margin-bottom: 50px;">
-                <div class="card-header card-header-primary">
-                    <h3 class="card-title" style="margin-right: 30px;display: inline-block">Ride details</h3>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-md-7 td-left">
-                            <table class="table table-sm table-borderless ">
-                                <tbody>
-                                <tr class="td-left">
-                                    <th>Origin:</th>
-                                    <td>{{$ride->origin_address}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Destination:</th>
-                                    <td> {{$ride->destination_address}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Start time:</th>
-                                    <td>{{date('M d, H:i', strtotime($ride->travel_start_time))}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-12 col-md-5 td-left" style="text-align: left!important;">
-                            <table class="table table-sm table-borderless ">
-                                <tbody>
-                                <tr class="td-left">
-                                    <th>Driver:</th>
-                                    <td> {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Seats available:</th>
-                                    <td>{{$ride->seats_available}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="margin-right: 30px;display: inline-block">Found {{sizeof($requests)}}
                         matches</h3>
-                    <form action="#" style="display: inline-block">
+                    <form style="display: inline-block">
+                        @csrf
                         <div class="form-group no-border">
-                            <input type="text" placeholder="Search by keyword"
+                            <input class="ml-4" type="text" value="{{$origin}}" name="origin" placeholder="Search by Origin"
                                    style="background: none;border: none;color: #9c9b9b">
+                            <input type="text" name="destination" value="{{$destination}}" placeholder="Search by Destination"
+                                   style="background: none;border: none;color: #9c9b9b">
+                            <input style="background: none;border: none;color: #9c9b9b" type="datetime-local" value="{{$start_time}}" name="travel_start_time"
+                                   class="form-control datetimepickerInputCreateRide datetimepicker"
+                                   data-target=".datetimepicker" />
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
@@ -126,4 +89,48 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h3 class="card-title" style="margin-right: 30px;display: inline-block">Ride details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-7 td-left">
+                            <table class="table table-sm table-borderless ">
+                                <tbody>
+                                <tr class="td-left">
+                                    <th>Origin:</th>
+                                    <td>{{$ride->origin_address}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Destination:</th>
+                                    <td> {{$ride->destination_address}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Start time:</th>
+                                    <td>{{date('M d, H:i', strtotime($ride->travel_start_time))}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-5 td-left" style="text-align: left!important;">
+                            <table class="table table-sm table-borderless ">
+                                <tbody>
+                                <tr class="td-left">
+                                    <th>Driver:</th>
+                                    <td> {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Seats available:</th>
+                                    <td>{{$ride->seats_available}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 @endsection

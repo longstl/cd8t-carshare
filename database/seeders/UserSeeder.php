@@ -75,7 +75,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Pham',
                 'last_name' => 'Thang',
-                'last_name' => 'Thang',
                 'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'phamthang@gmail.com',
                 'phone' => '0123456789',

@@ -296,12 +296,12 @@ md = {
     if ($(document).scrollTop() > 260) {
       if (transparent) {
         transparent = false;
-        $('.navbar-color-on-scroll').removeClass('navbar-transparent');
+        $('.navbar-notification-on-scroll').removeClass('navbar-transparent');
       }
     } else {
       if (!transparent) {
         transparent = true;
-        $('.navbar-color-on-scroll').addClass('navbar-transparent');
+        $('.navbar-notification-on-scroll').addClass('navbar-transparent');
       }
     }
   }, 17),

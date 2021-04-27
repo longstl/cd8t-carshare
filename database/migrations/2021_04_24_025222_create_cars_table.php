@@ -18,7 +18,7 @@ class CreateCarsTable extends Migration
             $table->integer('user_id');
             $table->integer('model_id');
             $table->string('car_registration_number');
-            $table->string('color')->nullable();
+            $table->string('notification')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

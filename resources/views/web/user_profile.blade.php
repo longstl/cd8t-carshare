@@ -112,8 +112,36 @@
                                             </table>
                                         </div>
                                         <div class="tab-content clearfix" id="tab-replies">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Time:</th>
+                                                    <th>Origin</th>
+                                                    <th>Destination</th>
+                                                    <th>Price</th>
+                                                    <th>Car</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($rides as $ride)
+                                                    <tr>
+                                                        <td>
+                                                            <code>{{date('H:i', strtotime($ride->travel_start_time))}}</code>
+                                                        </td>
+                                                        <td>{{$ride->origin_address}}</td>
+                                                        <td>{{$ride->destination_address}}</td>
+                                                        <td> $ {{$ride->price_total}}</td>
+                                                        <td>  {{$ride->car->model->make}}</td>
+                                                        <td>
+                                                            {{\App\Enums\RideStatus::getDescription($ride->status)}}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
 
-                                            <div class="clear topmargin-sm"></div>
+
 
                                         </div>
                                         <div class="tab-content " id="tab-connections">
@@ -162,9 +190,9 @@
                              aria-hidden="true">
                         </div>
                         <div class="list-group">
-                            <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="icon-user float-right"></i></a>
-                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="icon-laptop2 float-right"></i></a>
-                            <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
+                            <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="far fa-user" style="padding-left: 4%"></i></a>
+                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="fas fa-laptop" style="padding-left: 4%"></i></a>
+                            <a href="#" class="list-group-item list-group-item-action clearfix">Logout<i class="fas fa-sign-out-alt" style="padding-left: 4%"></i></a>
                         </div>
 
                         <div class="fancy-title topmargin title-border">
