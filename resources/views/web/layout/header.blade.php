@@ -18,28 +18,26 @@
                aria-hidden="true"></i>
             <nav id="primary-menu" class="menu_top">
                 <ul class="h-100">
-                    <li class="current"><a href="{{route('index')}}">
+                    <li slot="HOME" class="mega-menu"><a href="{{route('index')}}">
                             <div>HOME</div>
                         </a>
                     </li>
-                    <li class="mega-menu"><a href="{{route('rules')}}">
+                    <li slot="RULES" class="mega-menu"><a href="{{route('rules')}}">
                             <div>RULES</div>
                         </a>
                     </li>
-                    <li><a href="{{route('createRequest')}}">
+                    <li slot="FINDARIDE" class="mega-menu" ><a  href="{{route('createRequest')}}">
                             <div>FIND A RIDE</div>
                         </a>
                     </li>
 
-                    <li class="mega-menu"><a href="{{route('createFeedback')}}">
+                    <li slot="CONTACT" class="mega-menu"><a href="{{route('createFeedback')}}">
                             <div>CONTACT</div>
                         </a>
                     </li>
-                    <li class="mega-menu">
-
+                    <li >
                         <a href="{{route('createRide')}}">
                             <div style="display: inline; background-color: #1ABC9C !important; color: white"
-
                                  class="btn">OFFER A RIDE
                             </div>
                         </a>

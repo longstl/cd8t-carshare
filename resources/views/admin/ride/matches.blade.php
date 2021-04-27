@@ -10,6 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <input type="hidden" value="Rides" id="page_active">
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="margin-right: 30px;display: inline-block">Found {{sizeof($requests)}}
                         matches</h3>

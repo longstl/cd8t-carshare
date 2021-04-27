@@ -12,7 +12,7 @@ use App\Notifications\RequestMatched;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
+
 
 
 class AdminRideController extends Controller

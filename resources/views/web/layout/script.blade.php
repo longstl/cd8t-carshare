@@ -50,4 +50,16 @@
             }
         }
     })
+
+    document.addEventListener("DOMContentLoaded",function (){
+        var that = document.getElementById('page_active')
+        var thiz = document.querySelectorAll('.mega-menu')
+        for (let i = 0; i < thiz.length; i++) {
+            if (thiz[i].slot === that.value){
+                thiz[i].classList.add('current')
+            }else thiz[i].classList.remove('current')
+        }
+    })
+
+
 </script>

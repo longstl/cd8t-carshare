@@ -17,7 +17,7 @@
                 @endif
                 <div class="card-header card-header-primary card-container">
                     <h3 class="card-title ">Users</h3>
-
+                    <input type="hidden" value="user" id="page_active">
                     <form name="filterForm">
                         <div class="form-group no-border">
                             <input type="text" name="search" value="" placeholder="Search by keyword" required/>

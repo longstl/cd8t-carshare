@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminRequestController;
 use App\Http\Controllers\Admin\AdminRideController;
-use App\Http\Controllers\Admin\AdminUserController;
+use \App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;

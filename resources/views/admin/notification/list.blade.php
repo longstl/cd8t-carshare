@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-7" style="margin: auto">
             <div class="card">
+                <input type="hidden" value="Notifications" id="page_active">
                 @if($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>

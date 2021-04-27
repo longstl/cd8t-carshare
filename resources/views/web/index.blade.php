@@ -7,7 +7,7 @@
              style="background: url('{{lib_assets('img/img1 2.jpeg')}}') no-repeat; background-size: cover;padding-top: 200px;height: 400px!important;"
              data-height-xl="600" data-height-lg="500" data-height-md="400" data-height-sm="300" data-height-xs="250">
         <div class="slider-parallax-inner">
-
+            <input type="hidden" value="HOME" id="page_active">
             <div class="container clearfix">
                 <div class="vertical-middle dark center">
 

@@ -12,6 +12,7 @@
     </style>
 </head>
 <body class="stretched">
+<input type="hidden" value="RULES" id="page_active">
 <div id="wrapper" class="clearfix">
     @include('web.layout.header')
     <div class="container" style="max-width: 65%">

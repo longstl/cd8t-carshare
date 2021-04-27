@@ -112,6 +112,7 @@
                         </table>
                     </div>
                 </div>
+                    <input type="hidden" value="Rides" id="page_active">
             </div>
         </div>
         @endsection
@@ -127,7 +128,6 @@
                     }
                 }
                 $('#fillter_by_status').change(function () {
-                    // window.location.href = "http://facebook.com"
                 })
             </script>
 @endsection

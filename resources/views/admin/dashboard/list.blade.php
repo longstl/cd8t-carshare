@@ -31,6 +31,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" value="Dashboard" id="page_active">
 @endsection
 
 @section('botExtraJs')

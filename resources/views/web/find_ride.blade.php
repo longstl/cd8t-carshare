@@ -142,7 +142,7 @@
     <section id="content">
 
         <div class="content-wrap">
-
+            <input type="hidden" value="FINDARIDE" id="page_active">
             <div class="container clearfix">
 
                 <!-- Contact Form-->

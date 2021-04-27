@@ -10,6 +10,9 @@ label.error {
     font-size: 12px !important;
 }
 
+.active {
+    background: #913f9e;
+}
 label.error {
     color: red !important;
     font-size: 12px !important;

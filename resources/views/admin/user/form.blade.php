@@ -17,6 +17,7 @@
     <form method="post" id="formUser" action="{{route('storeUser')}}">
         @csrf
         <div class="row">
+            <input type="hidden" value="user" id="page_active">
             <div class="col-12 col-md-6">
                 <div class="card card-secondary mb-4">
                     <div class="card-header">Log In Info</div>
