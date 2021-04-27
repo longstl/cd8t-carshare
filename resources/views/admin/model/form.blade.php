@@ -29,6 +29,7 @@
     <div class="row">
         <div class="col-md-7" style="margin: auto">
             <div class="card">
+                <input type="hidden" value="models" id="page_active">
                 @if($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -36,7 +37,7 @@
                     </div>
                 @endif
                 <div class="card-header card-header-primary">
-                    <h3 class="card-title ">New Size</h3>
+                    <h3 class="card-title ">New Car</h3>
                     <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
@@ -46,25 +47,25 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Name</label>
-                                    <input type="text" value="{{$data_car ? $data_car->name :''}}" name="name" class="form-control" required/>
+                                    <input type="text" value="{{$data_model ? $data_model->name :''}}" name="name" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating"> Make</label>
-                                    <input type="text" value="{{$data_car ? $data_car->make :''}}" name="make" class="form-control" required/>
+                                    <input type="text" value="{{$data_model ? $data_model->make :''}}" name="make" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Model</label>
-                                    <input type="text" value="{{$data_car ? $data_car->model :''}}" name="model" class="form-control" required/>
+                                    <input type="text" value="{{$data_model ? $data_model->model :''}}" name="model" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Make year</label>
-                                    <input type="number" value="{{$data_car ? $data_car->make_year :''}}" name="make_year" class="form-control required/">
+                                    <input type="number" value="{{$data_model ? $data_model->make_year :''}}" name="make_year" class="form-control required/">
                                 </div>
                             </div>
                         </div>

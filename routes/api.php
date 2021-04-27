@@ -24,6 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('admin/statistics')->group(function () {
     Route::get('rides', [AdminDashboardController::class, 'getRideStats']);
+    Route::get('bills', [AdminDashboardController::class, 'getBillStats']);
 });
 
-Route::get('mark-read', [AdminNotificationController::class, 'markRead']);
+Route::get('mark-read/{user_id}', [AdminNotificationController::class, 'markRead'])->name('markRead');

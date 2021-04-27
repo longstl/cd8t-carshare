@@ -19,14 +19,30 @@
                 @endif
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
-                    <form  style="display: inline-block;margin-right: 30px">
-                        <div class="form-group no-border">
-                            <input type="text" name="search" placeholder="Search by keyword"
-                                   style="background: none;border: none;color: #9c9b9b">
-                            <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
+                    <form style="display: inline-block;margin-right: 30px; width: 35%;" name="filterForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group no-border">
+                                    <input type="text" name="search" placeholder="Search by keyword"
+                                           style="background: none;border: none;color: #9c9b9b">
+                                    <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                                        <i class="material-icons">search</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select name="status" class="form-control" id="status">
+                                        <option value="">All status</option>
+                                        @foreach(\App\Enums\RideStatus::getValues() as $type)
+                                            <option
+                                                value="{{$type}}" {{$status == $type ? 'selected' : ''}}>{{\App\Enums\RideStatus::getDescription($type)}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -98,7 +114,8 @@
                                     </td>
                                     <td>
                                         @if($ride->status == \App\Enums\RideStatus::PENDING)
-                                            <a type="button" class="btn btn-success" data-toggle="modal" data-target="#ConfirmRide{{$ride->id}}">Confirm</a>
+                                            <a type="button" class="btn btn-success" data-toggle="modal"
+                                               data-target="#ConfirmRide{{$ride->id}}">Confirm</a>
                                         @endif
                                         @if($ride->status == \App\Enums\RideStatus::CONFIRMED)
                                             <a href="{{route('findMatch', $ride->id)}}">
@@ -112,6 +129,7 @@
                         </table>
                     </div>
                 </div>
+                    <input type="hidden" value="Rides" id="page_active">
             </div>
         </div>
         @endsection
@@ -121,13 +139,18 @@
             <script>
                 const formSearch = document.forms['filterForm'];
                 const keywordInput = document.querySelector('input[name="search"]');
+                const rideStatus = document.getElementById('status')
                 keywordInput.onkeypress = function (event) {
                     if (event.key == 'Enter') {
                         formSearch.submit();
                     }
                 }
+                if (rideStatus) {
+                    rideStatus.onchange = function () {
+                        formSearch.submit();
+                    }
+                }
                 $('#fillter_by_status').change(function () {
-                    // window.location.href = "http://facebook.com"
                 })
             </script>
 @endsection

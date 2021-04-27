@@ -92,6 +92,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" value="Feedback" id="page_active">
     </div>
 @endsection
 

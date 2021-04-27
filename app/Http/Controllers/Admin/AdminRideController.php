@@ -8,7 +8,6 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Notification;
 use App\Models\Ride;
-use App\Notifications\RequestMatched;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,40 +17,20 @@ class AdminRideController extends Controller
 {
     public function list(Request $request)
     {
+        $status = $request->query('status');
         $rides = Ride::query();
         $search = $request->query('search');
-        if ($search!='') {
-            $rides = $rides->with('car')->where('origin_address', 'like', '%' .$search.'%' )
-                ->orWhere('destination_address','like', '%' .$search.'%')->get();
-        }else{
-            $rides = Ride::query()->get();
+        if ($search != '') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' . $search . '%')
+                ->orWhere('destination_address', 'like', '%' . $search . '%');
+        }
+        if ($status) {
+            $rides = $rides->with('car')->where('status',$status);
         }
         return view('admin/ride/list', [
-            'rides' => $rides,
-
+            'rides' => $rides->get(),
+            'status' => $status
         ]);
-    }
-
-    public function create()
-    {
-    }
-
-    public function store()
-    {
-    }
-
-    public function update()
-    {
-    }
-
-    public function save()
-    {
-
-    }
-
-    public function cancel($id)
-    {
-
     }
 
     public function findMatch(Request $request, $id)
@@ -91,7 +70,6 @@ class AdminRideController extends Controller
             }
         }
         if ($start_time) {
-//            dd($start_time);
             $advanced_query = $advanced_query->where('desired_pickup_time', '>', $start_time)->get();
         } else {
             $advanced_query = $advanced_query->get();
@@ -157,10 +135,17 @@ class AdminRideController extends Controller
 
     public function setRide($id)
     {
-        $ride = Ride::find($id);
+        $ride = Ride::query()->where('id', $id)->with('car')->first();
         $ride->status = RideStatus::CONFIRMED;
         $ride->update();
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $ride->car->user_id,
+            'content' => 'Your ride to '.$ride->destination_address.' has been confirmed. We will notify you when someone books it!',
+            'target' => route('detailRide', $id),
+        ]);
+        $notification->save();
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
 
     }
