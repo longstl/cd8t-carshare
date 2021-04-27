@@ -233,7 +233,7 @@
                 objHtml += html_renderer(data[i])
             }
         }else {
-            objHtml = '<p>data empty!</p>'
+            objHtml = '<p>No data</p>'
         }
         $('#ride_body').html(objHtml);
     }
