@@ -71,14 +71,17 @@
                                         <thead class=" text-primary">
 
                                         <th>
-                                            <h3>Full name</h3>
+                                            <h3 style="float: left">Full name</h3>
                                         </th>
                                         <th>
-                                            <h3>Driving License Number</h3>
+                                            <h3 style="float: left">Driving License Number</h3>
                                         </th>
 
                                         <th>
-                                            <h3>Drivers  License  Photo</h3>
+                                            <h3 style="float: left">Drivers  License  Photo</h3>
+                                        </th>
+                                        <th>
+                                            <h3 style="float: left">Action</h3>
                                         </th>
                                         </thead>
                                         <tbody>
@@ -193,7 +196,7 @@
 
     <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
-            @include('admin.layout.edit_style')
+
         </div>
     </div>
 
