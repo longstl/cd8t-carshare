@@ -65,9 +65,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
-                                                <p>Are you sure you want to confirm driver
-                                                    <b> {{$ride->car->user->first_name}} {{$ride->car->user->last_name}} </b>
-                                                </p>
+                                                <p>Are you sure you want to confirm this ride?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger"
@@ -96,25 +94,17 @@
                                         {{$ride->seats_available}}
                                     </td>
                                     <td>
-                                        @if($ride->status == \App\Enums\RideStatus::PENDING)
-                                            {{\App\Enums\RideStatus::getDescription($ride->status)}}
-                                        @endif
-                                        @if($ride->status == \App\Enums\RideStatus::CONFIRMED)
-                                            {{\App\Enums\RideStatus::getDescription($ride->status)}}
-                                        @endif
+                                        {{\App\Enums\RideStatus::getDescription($ride->status)}}
                                     </td>
                                     <td>
+                                        @if($ride->status == \App\Enums\RideStatus::PENDING)
+                                            <a type="button" class="btn btn-success" data-toggle="modal" data-target="#ConfirmRide{{$ride->id}}">Confirm</a>
+                                        @endif
                                         @if($ride->status == \App\Enums\RideStatus::CONFIRMED)
                                             <a href="{{route('findMatch', $ride->id)}}">
                                                 <button class="btn btn-warning">Match</button>
                                             </a>
                                         @endif
-                                        @if($ride->status == \App\Enums\RideStatus::PENDING)
-                                                <a type="button" class="btn btn-success" data-toggle="modal" data-target="#ConfirmRide{{$ride->id}}">Confirm</a>
-                                        @endif
-                                        <a href="">
-                                            <button class="btn btn-danger">Cancel</button>
-                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -148,7 +148,7 @@
                 <!-- Contact Form-->
                 <div class="col_half">
                     <div class="fancy-title title-dotted-border">
-                        <h3>Find a ride</h3>
+                        <h3>Create a find request</h3>
                     </div>
 
                     <div class="contact-widget">
@@ -200,10 +200,7 @@
                             <div class="clear"></div>
                             <div class="col_full">
                                 <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
-                                        class="button button-3d m-0">Create
-                                </button>
-                                <button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit"
-                                        class="button button-3d m-0">Remove
+                                        class="button button-3d m-0">Submit
                                 </button>
                             </div>
                         </form>

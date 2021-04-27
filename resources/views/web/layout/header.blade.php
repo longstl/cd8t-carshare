@@ -64,30 +64,17 @@
                 <div class="top-cart-content notification"
                      style="box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%);border-top: 2px solid #1ABC9C;right: 0; width: 350px; background: #fff;position: absolute;top: 100%;">
                     <div class="top-cart-title">
-                        <h4>Notification</h4>
+                        <h4>Notifications</h4>
                     </div>
                     <div style="padding: 0 15px 12px 15px;">
-                        @for($i = 0 ; $i < 5; $i++)
-                            @if($i ==1)
-                                <a href="">
-                                    <div style="padding: 15px 0;border-bottom: 1px solid #EEE;"
-                                         class="top-cart-item clearfix border border-danger">
-                                        <span style="color: red">new</span>
-                                        <p style="color: black; margin: 0;"><span style="font-weight: bold">Title : </span>day la
-                                            Notification {{$i+1}}</p>
-                                    </div>
-                                </a>
-                            @endif
-                            <a href="">
+                        @foreach($notifications as $notification)
+                            <a href="{{$notification->target}}">
                                 <div style="padding: 15px 0;border-bottom: 1px solid #EEE;"
                                      class="top-cart-item clearfix border border-danger">
-                                    <p style="color: black; margin: 0;"><span style="font-weight: bold">Title : </span>day la
-                                        Notification {{$i+1}}</p>
+                                    <p style="color: black; margin: 0;">{{$notification->content}}</p>
                                 </div>
                             </a>
-                        @endfor
-
-
+                        @endforeach
                         <div class="top-cart-action clearfix" style="border-top: 0">
                             <button class="button button-3d button-small nomargin fright">Clear</button>
                         </div>
