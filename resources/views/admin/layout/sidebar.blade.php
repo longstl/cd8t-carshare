@@ -8,7 +8,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('listUser')}}">
             <i class="material-icons">person</i>
-            <p>Users Profile</p>
+            <p>Users</p>
         </a>
     </li>
     <li class="nav-item " slot="user">
@@ -34,6 +34,13 @@
         <a class="nav-link" href="{{route('listFeedback')}}">
             <i class="fa fa-comments" aria-hidden="true"></i>
             <p>Feedbacks</p>
+        </a>
+    </li>
+
+    <li class="nav-item" slot="color">
+        <a class="nav-link" href="{{route('listFeedback')}}">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <p>Approve drivers</p>
         </a>
     </li>
 </ul>
