@@ -26,50 +26,30 @@
 
 <body class="stretched">
 
-<!-- Document Wrapper
-============================================= -->
 <div id="wrapper" class="clearfix">
-
-    <!-- Header
-    ============================================= -->
 @include('web.layout.header')
-
-
-
-<!-- Content
-    ============================================= -->
     <section id="content">
 
         <div class="content-wrap">
 
-
             <div class="container clearfix">
-                    <div>
-                        <div class="col_one_third nobottommargin">
-                            <ul class="sidenav">
-                                <li class="ui-tabs-active"><a href="#snav-content1"><i class="fa fa-user"
-                                                                                       aria-hidden="true"></i>Profile</a>
-                                </li>
-                                <li><a href="#snav-content2"><i class="fa fa-inr" aria-hidden="true"></i>My rides</a>
-                                </li>
-                                <li><a href="#snav-content3"><i class="fa fa-flag" aria-hidden="true"></i>My
-                                        requests</a>
-                                </li>
-                                <li><a href="#snav-content4"><i class="fa fa-car" aria-hidden="true"></i>My cars</a>
-                                </li>
 
-                                <br>
+                <div id="side-navigation">
 
+                    <div class="col_one_third nobottommargin">
 
+                        <ul class="sidenav ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" role="tablist">
 
-                            </ul>
-                        </div>
+                            <li><a href="#snav-content2"><i class="fa fa-inr" aria-hidden="true"></i>Profile</a></li>
+                            <li><a href="#snav-content1"><i class="fa fa-user" aria-hidden="true"></i>My rides</a></li>
+                            <li><a href="#snav-content3"><i class="fa fa-flag" aria-hidden="true"></i>My requests</a></li>
+                            <li><a href="#snav-content4"><i class="fa fa-car" aria-hidden="true"></i>My cars</a></li>
+                        </ul>
                     </div>
-
 
                     <div class="col_two_third col_last nobottommargin">
 
-                        <div id="snav-content1">
+                        <div id="snav-content2">
                             <div class="heading-block">
                                 <h3>Profile</h3>
                                 <span>Your account details.</span>
@@ -104,15 +84,17 @@
                             </div>
                             <div class="row" style="margin-left:0">
 
-                                <a style="color: white;background: #1ABC9C" href="{{route('updateLicense')}}" class="btn">Update
+                                <a style="color: white;background: #1ABC9C" href="{{route('updateLicense')}}"
+                                   class="btn">Update
                                     Licence</a>
-                                <a style="color: white;background: #1ABC9C" href="{{route('update_profile')}}" class="btn btn-success">Update
+                                <a style="color: white;background: #1ABC9C" href="{{route('update_profile')}}"
+                                   class="btn btn-success">Update
                                     Profile</a>
                                 <a style="color: white" href="javascript:void(0)" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
 
-                        <div id="snav-content2">
+                        <div id="snav-content1">
                             <div class="heading-block">
                                 <h3>My rides</h3>
                                 <span>Details of your trips.</span>
@@ -131,18 +113,19 @@
 
                                     @foreach($requests as $request)
 
-                                            <tr>
-                                                    <td>
-                                                        <code>{{date('H:i', strtotime($request->desired_pickup_time))}}</code>
-                                                    </td>
-                                                <td>{{$request->pickup_address}}</td>
-                                                <td>{{$request->destination_address}}</td>
-                                                <td>{{$request->price}}</td>
-                                                <td>{{$request->seats_occupy}}</td>
-                                                <td>
-                                                    <a href="/request/detail/{{$request->id}}" class="btn" style="background: #1ABC9C;color: white" >Detail</a>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <code>{{date('H:i', strtotime($request->desired_pickup_time))}}</code>
+                                            </td>
+                                            <td>{{$request->pickup_address}}</td>
+                                            <td>{{$request->destination_address}}</td>
+                                            <td>{{$request->price}}</td>
+                                            <td>{{$request->seats_occupy}}</td>
+                                            <td>
+                                                <a href="/request/detail/{{$request->id}}" class="btn"
+                                                   style="background: #1ABC9C;color: white">Detail</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
 
@@ -219,31 +202,21 @@
                                 </table>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
-
-
                 <div class="clear"></div>
                 <div class="line"></div>
-
             </div>
-
-
         </div>
-
     </section><!-- #content end -->
+</div><!-- #wrapper end -->
 
-    @include('web.layout.footer')
 
+@include('web.layout.footer')
 
-</div>
 <div id="gotoTop" class="icon-angle-up"></div>
 
 @include('web.layout.script')
-
 <script>
     $(function () {
         $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
@@ -252,3 +225,8 @@
 
 </body>
 </html>
+
+
+
+
+
