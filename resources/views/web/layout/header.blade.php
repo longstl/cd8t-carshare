@@ -1,5 +1,9 @@
-<header id="header" class="transparent-header dark full-header" data-sticky-class="not-dark"
-        style="background-color: rgba(0,0,0,0)">
+<style>
+    .log-hover:hover {
+        background-color:  rgba(0,0,0,0.1);
+    }
+</style>
+<header id="header" class="transparent-header dark full-header" data-sticky-class="not-dark" style="background-color: rgba(0,0,0,0)">
     <div id="header-wrap">
         <div class="container clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
@@ -90,14 +94,12 @@
                     </div>
                 </div>
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <div id="account" class="accountn"
-                         style="border-top: 2px solid #1ABC9C;box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%);width: 130px;color: black; background-color: #ffffff;position: absolute;  top: 100%; right: 87px;">
-                        <div style="padding: 5px" class="log-hover">
-                            <a href="{{route('profile_user')}}" class="btn"
-                               style="width: 100%;;color: black;margin-right: 5px"></b>Profile</a>
+                    <div id="account" class="accountn" style="border-top: 2px solid #1ABC9C;box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%);width: 130px;color: black; background-color: #ffffff;position: absolute;  top: 100%; right: 87px;">
+                        <div style="padding: 5px;border-bottom: 1px solid rgba(0,0,0,0.1)" class="log-hover">
+                            <a href="{{route('profile_user')}}" style="display: inline-block;text-align: center;-ms-touch-action: manipulation;border: 1px solid transparent;padding: 6px 12px;line-height: 1.42857143;width: 100%;;color: black;margin-right: 5px"><b>Profile</b></a>
                         </div>
                         <div style="padding: 5px" class="log-hover">
-                            <a href="{{route('logoutUser')}}" class="btn" style="width: 100%;color: black">Logout</a>
+                            <a href="{{route('logoutUser')}}" style="display: inline-block;text-align: center;-ms-touch-action: manipulation;border: 1px solid transparent;padding: 6px 12px;line-height: 1.42857143;width: 100%;color: black"><b>Logout</b><i class="fas fa-sign-out-alt" style="padding-left: 5px"></i></a>
                         </div>
                     </div>
                 @endif

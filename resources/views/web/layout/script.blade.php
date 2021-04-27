@@ -39,5 +39,15 @@
                 window.location.href = "{{{route('form_comfim_password')}}}"
             }
         })
+
+        if (typeof localStorage.getItem('get_name') == "object"){
+
+                $('#show_get_name').text(`LOOKING FOR A RIDE?`)
+
+        }else {
+            if ($('input[name = check_login]').val() === 'out'){
+                $('#show_get_name').text(`HELLO ${localStorage.getItem('get_name')}, LOOKING FOR A RIDE?`)
+            }
+        }
     })
 </script>

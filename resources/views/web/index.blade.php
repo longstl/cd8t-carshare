@@ -14,10 +14,11 @@
                     <div class="heading-block nobottommargin center">
                         <h1 class="txt_baner">
                             @if(!\Illuminate\Support\Facades\Auth::check())
-                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">ARE YOU GOING SOMEWHERE?
+                                <input type="hidden" name="check_login" value="out">
+                                <span class="text-rotater nocolor" id="show_get_name" data-separator="|" data-rotate="flipInX" data-speed="3500">
                             </span>
                             @else
+                                <input type="hidden" name="check_login" value="is">
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
                                       data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, ARE YOU GOING SOMEWHERE?
                                 </span>
@@ -118,5 +119,4 @@
         </div>
     </section>
 @endsection
-
 

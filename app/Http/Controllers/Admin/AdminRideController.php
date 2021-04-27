@@ -17,14 +17,17 @@ class AdminRideController extends Controller
 {
     public function list(Request $request)
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query();
         $search = $request->query('search');
-        $search = "";
-            $searchRide = Ride::query()->where('origin_address', 'like', '%' . $search . '%')
-                    ->orWhere('destination_address', 'like', '%' . $search . '%')->get();
+        if ($search!='') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' .$search.'%' )
+                ->orWhere('destination_address','like', '%' .$search.'%')->get();
+        }else{
+            $rides = Ride::query()->get();
+        }
         return view('admin/ride/list', [
             'rides' => $rides,
-            'search' => $searchRide
+
         ]);
     }
 

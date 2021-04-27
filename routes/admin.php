@@ -55,3 +55,6 @@ Route::prefix("match")->group(function() {
     Route::get('find/{id}', [AdminRideController::class, 'findMatch'])->name('findMatch');
     Route::get('set/{ride_id}/{request_id}/{duration}', [AdminRideController::class, 'setMatch'])->name('setMatch');
 });
+Route::get("notification",function (){
+   return view('admin/notification/list');
+})->name('formNotification');
