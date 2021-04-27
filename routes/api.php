@@ -26,4 +26,4 @@ Route::prefix('admin/statistics')->group(function () {
     Route::get('rides', [AdminDashboardController::class, 'getRideStats']);
 });
 
-Route::get('mark-read', [AdminNotificationController::class, 'markRead']);
+Route::get('mark-read/{user_id}', [AdminNotificationController::class, 'markRead'])->name('markRead');

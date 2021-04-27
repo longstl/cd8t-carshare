@@ -20,13 +20,13 @@ class AdminNotificationController extends Controller
         $notification->save();
     }
 
-    public function markRead()
+    public function markRead($user_id)
     {
-        $notifications = Notification::query()->where('user_id', Auth::id());
+        $notifications = Notification::query()->where('user_id', $user_id)->get();
         foreach ($notifications as $notification) {
             $notification->is_read = true;
             $notification->save();
         }
-        return true;
+        return $notifications;
     }
 }
