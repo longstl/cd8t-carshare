@@ -6,6 +6,7 @@ use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
 use App\Http\Controllers\Web\UserController;
+use App\Http\Controllers\Web\WelcomeController;
 use App\Models\Model;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,13 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('welcome', [WelcomeController::class, 'welcome'])->name('welcome');
 
 Route::get('login', [EntryController::class, 'login'])->name('login');
 Route::post('login', [EntryController::class, 'processLogin'])->name('loginUser');
 Route::get('register', [EntryController::class, 'register'])->name('registerForm');
 Route::post('register', [EntryController::class, 'processRegister'])->name('registerUser');
 Route::get('logout', [EntryController::class, 'logout'])->name('logoutUser');
-
 Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile_user');
     Route::get('update', [UserController::class, 'update_profile'])->name('update_profile');
