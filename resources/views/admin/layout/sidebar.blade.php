@@ -17,6 +17,12 @@
             <p>Rides</p>
         </a>
     </li>
+    <li class="nav-item" slot="upcomingRides">
+        <a class="nav-link" href="{{route('upcomingRide')}}">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <p>Upcoming Ride</p>
+        </a>
+    </li>
     <li class="nav-item " slot="Requests">
         <a class="nav-link" href="{{route('listRequest')}}">
             <i class="fa fa-list" aria-hidden="true"></i>
