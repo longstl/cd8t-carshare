@@ -15,23 +15,22 @@ class AdminUserController extends Controller
 {
     public function list(Request $request)
     {
-        $limit = $request->query('limit') ? $request->query('limit') : 10;
         $search = $request->query('search');
 
         if ($search != "") {
             $listUser = User::where(function ($query) use ($search) {
                 $query->where('username', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%');
-            })
-                ->paginate(1);
+            })->get();
             $listUser->appends([
                 'search' => $search,
             ]);
         } else {
-            $listUser = User::paginate(1);
+            $listUser = User::all();
         }
+
         return view('admin/user/list', ['list_user' => $listUser,
-            'limit' => $limit]);
+            ]);
     }
 
     public function create()

@@ -32,16 +32,12 @@
 
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="display: inline-block;margin-right: 30px">{{$title}}</h3>
-                    <a href="/car/create" class="btn btn-warning">Create</a>
+                    <a href="{{route('createModel')}}" class="btn btn-warning">Create</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
-
-                            <th>
-                                <h3>Name</h3>
-                            </th>
                             <th>
                                 <h3>Make</h3>
                             </th>
@@ -101,9 +97,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <input type="hidden" value="models" id="page_active">
                 </div>
             </div>
         </div>
+        <input type="hidden" value="" id="page_active">
     </div>
 @endsection
 

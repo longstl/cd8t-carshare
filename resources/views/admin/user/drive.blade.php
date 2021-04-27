@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +6,7 @@
 </head>
 
 <body class="dark-edition">
-
+<input type="hidden" value="Approve" id="page_active">
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
         <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
@@ -85,14 +71,17 @@
                                         <thead class=" text-primary">
 
                                         <th>
-                                            <h3>Full name</h3>
+                                            <h3 style="float: left">Full name</h3>
                                         </th>
                                         <th>
-                                            <h3>Driving License Number</h3>
+                                            <h3 style="float: left">Driving License Number</h3>
                                         </th>
 
                                         <th>
-                                            <h3>Drivers  License  Photo</h3>
+                                            <h3 style="float: left">Drivers  License  Photo</h3>
+                                        </th>
+                                        <th>
+                                            <h3 style="float: left">Action</h3>
                                         </th>
                                         </thead>
                                         <tbody>
@@ -207,7 +196,7 @@
 
     <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
-            @include('admin.layout.edit_style')
+
         </div>
     </div>
 

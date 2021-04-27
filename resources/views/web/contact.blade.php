@@ -11,6 +11,7 @@
                             <h3>Send us an Email</h3>
                         </div>
                         <div class="contact-widget">
+                            <input type="hidden" value="CONTACT" id="page_active">
                             <div class="contact-form-result"></div>
                             <form class="nobottommargin" id="template-contactform"
                                   name="template-contactform" action="{{route('storeFeedback')}}" method="post">
