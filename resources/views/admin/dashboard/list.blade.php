@@ -88,8 +88,8 @@
                         <tbody id="top_drivers_body">
                         @foreach($ride_stats as $date)
                             <tr>
-{{--                                <td>{{$date->date}}</td>--}}
-{{--                                <td>{{$date->count}}</td>--}}
+                                <td></td>
+                                <td></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -118,8 +118,8 @@
                         <tbody id="top_riders_body">
                         @foreach($ride_stats as $date)
                             <tr>
-{{--                                <td>{{$date->date}}</td>--}}
-{{--                                <td></td>--}}
+                                <td></td>
+                                <td></td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -17,6 +17,8 @@ Route::get('/', function () {
 Route::get('/dashboard', [AdminDashboardController::class, 'list'])->name('dashboard');
 Route::get('/date-range-ride', [AdminDashboardController::class, 'getRideStats'])->name('getRideStats');
 Route::get('/date-range-bill', [AdminDashboardController::class, 'getBillStats'])->name('getBillStats');
+Route::get('/date-range-top-drivers', [AdminDashboardController::class, 'getTopDrivers'])->name('getTopDrivers');
+Route::get('/date-range-top-riders', [AdminDashboardController::class, 'getTopRiders'])->name('getTopRiders');
 
 Route::prefix("models")->group(function () {
     Route::get('', [AdminModelController::class, 'list'])->name('listModel');

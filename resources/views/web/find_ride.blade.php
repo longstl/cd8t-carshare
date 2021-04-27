@@ -161,6 +161,7 @@
                         <div class="contact-form-result"></div>
 
                         <form class="nobottommargin" id="template-contactform" name="template-contactform"
+                              action="{{route('storeRequest')}}"
                               method="POST">
                             @csrf
 

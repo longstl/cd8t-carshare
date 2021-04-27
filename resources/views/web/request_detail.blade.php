@@ -8,7 +8,6 @@
         <div class="content-wrap">
 
             <div class="container clearfix">
-
                 <!-- Post Content
                 ============================================= -->
                 <div class="postcontent nobottommargin clearfix" style="margin: auto!important; float: none;">
