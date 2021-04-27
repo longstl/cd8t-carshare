@@ -15,7 +15,8 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 Route::get('/dashboard', [AdminDashboardController::class, 'list'])->name('dashboard');
-Route::get('/filter-by-date-range', [AdminDashboardController::class, 'getRideStats'])->name('getRideStats');
+Route::get('/date-range-ride', [AdminDashboardController::class, 'getRideStats'])->name('getRideStats');
+Route::get('/date-range-bill', [AdminDashboardController::class, 'getBillStats'])->name('getBillStats');
 
 Route::prefix("models")->group(function () {
     Route::get('', [AdminModelController::class, 'list'])->name('listModel');
