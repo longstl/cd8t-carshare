@@ -63,7 +63,7 @@
                                 Seats available
                             </th>
                             <th>
-                                Total Price
+                                Price
                             </th>
                             <th>
                                 Status
@@ -110,7 +110,7 @@
                                         {{$ride->seats_available}}
                                     </td>
                                     <td>
-                                        {{$ride->price_total}}$
+                                        ${{$ride->price_total}}
                                     </td>
                                     <td>
                                         {{\App\Enums\RideStatus::getDescription($ride->status)}}

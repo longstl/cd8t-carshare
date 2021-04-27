@@ -82,7 +82,7 @@
         });
 
         $('#btn-delete').click(function (event) {
-            var r = confirm("Press a button!\nEither OK or Cancel.\nDo you want to delete your account ?");
+            var r = confirm("Are you sure you want to delete your profile? This action cannot be undone.");
             event.preventDefault();
             if (r == true) {
                 window.location.href = "{{{route('form_comfim_password')}}}"

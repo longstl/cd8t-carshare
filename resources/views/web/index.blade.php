@@ -102,7 +102,7 @@
                             <a href="#"><img src="{{lib_assets('/img/hoang.jpeg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum repellendus!</p>
+                            <p>I've been carpooling for more than 3 years now. It will take some organizing now and then, but it always pays off for our wallet as well as for the environment.</p>
                             <div class="testi-meta">
                                 John Doe
                                 <span>XYZ Inc.</span>
@@ -116,7 +116,7 @@
                             <a href="#"><img src="{{lib_assets('/img/phuong.jpg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+                            <p>Intuitive and easy to use, Carpool provides quick access to rides, messages and notifications. Ideal to never miss out on a request!</p>
                             <div class="testi-meta">
                                 Collis Ta'eed
                                 <span>Envato Inc.</span>
@@ -130,7 +130,7 @@
                             <a href="#"><img src="{{lib_assets('/img/thuan.jpg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Fugit officia dolor sed harum excepturi ex iusto magnam asperiores molestiae qui natus obcaecati facere sint amet.</p>
+                            <p>I've been carpooling for more than 3 years now. It will take some organizing now and then, but it always pays off for our wallet as well as for the environment.</p>
                             <div class="testi-meta">
                                 Mary Jane
                                 <span>Google Inc.</span>
@@ -144,7 +144,7 @@
                             <a href="#"><img src="{{lib_assets('/img/thuan.jpg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+                            <p>Intuitive and easy to use, Carpool provides quick access to rides, messages and notifications. Ideal to never miss out on a request!</p>
                             <div class="testi-meta">
                                 Steve Jobs
                                 <span>Apple Inc.</span>
@@ -158,7 +158,7 @@
                             <a href="#"><img src="{{lib_assets('/img/hoang.jpeg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, perspiciatis illum totam dolore deleniti labore.</p>
+                            <p>Intuitive and easy to use, Carpool provides quick access to rides, messages and notifications. Ideal to never miss out on a request!</p>
                             <div class="testi-meta">
                                 Jamie Morrison
                                 <span>Adobe Inc.</span>
@@ -172,7 +172,7 @@
                             <a href="#"><img src="{{lib_assets('/img/phuong.jpg')}}" alt="Customer Testimonails"></a>
                         </div>
                         <div class="testi-content">
-                            <p>Porro dolorem saepe reiciendis nihil minus neque. Ducimus rem necessitatibus repellat laborum nemo quod.</p>
+                            <p>Intuitive and easy to use, Carpool provides quick access to rides, messages and notifications. Ideal to never miss out on a request!</p>
                             <div class="testi-meta">
                                 Cyan Ta'eed
                                 <span>Tutsplus</span>
@@ -185,7 +185,7 @@
     </div>
     @if($ride_count)
         <section>
-            <a href="#" class="button button-full center tright">
+            <a href="{{route('profile_user')}}" class="button button-full center tright">
                 <div class="container clearfix">
                     You have {{$ride_count}} upcoming rides planned. <strong>See details.</strong>
                 </div>

@@ -18,6 +18,11 @@
                               method="post">
                             @csrf
                             <h3>Login to your Account</h3>
+                            @if(session('error-login'))
+                                <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
+                                    {{session('error-login')}}
+                                </div>
+                            @endif
                             <div class="col_full">
                                 <label for="login-form-username">Username:</label>
                                 <input type="text" id="login-form-username" name="username" value=""

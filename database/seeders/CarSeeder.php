@@ -20,25 +20,25 @@ class CarSeeder extends Seeder
                 'user_id' => 2,
                 'model_id' => 1,
                 'car_registration_number' => '1234',
-                'notification' => 'Red'
+                'color' => 'Red'
             ],
             [
                 'user_id' => 3,
                 'model_id' => 2,
                 'car_registration_number' => '2345',
-                'notification' => 'Blue'
+                'color' => 'Blue'
             ],
             [
                 'user_id' => 3,
                 'model_id' => 3,
                 'car_registration_number' => '3456',
-                'notification' => 'Yellow'
+                'color' => 'Yellow'
             ],
             [
                 'user_id' => 4,
                 'model_id' => 4,
                 'car_registration_number' => '4567',
-                'notification' => 'Green'
+                'color' => 'Green'
             ],
         ]);
     }
