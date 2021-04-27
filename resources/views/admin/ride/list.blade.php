@@ -14,35 +14,35 @@
                         {{ session()->get( 'status' ) }}
                     </div>
                 @endif
-                <div class="card-header card-header-primary">
-                    <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
-                    <form style="display: inline-block;margin-right: 30px; width: 35%;" name="filterForm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group no-border">
-                                    <input type="text" name="search" placeholder="Search by keyword"
-                                           style="background: none;border: none;color: #9c9b9b">
-                                    <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                                        <i class="material-icons">search</i>
-                                        <div class="ripple-container"></div>
-                                    </button>
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
+                        <form style="display: inline-block;margin-right: 30px; width: 35%;" name="filterForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group no-border">
+                                        <input type="text" name="search" placeholder="Search by keyword"
+                                               style="background: none;border: none;color: #9c9b9b">
+                                        <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <select name="status" class="form-control" id="status">
-                                        <option value="">All status</option>
-                                        @foreach(\App\Enums\RideStatus::getValues() as $type)
-                                            <option
-                                                value="{{$type}}" {{$status == $type ? 'selected' : ''}}>{{\App\Enums\RideStatus::getDescription($type)}}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select name="status" class="form-control" id="status">
+                                            <option value="">All status</option>
+                                            @foreach(\App\Enums\RideStatus::getValues() as $type)
+                                                <option
+                                                    value="{{$type}}" {{$status == $type ? 'selected' : ''}}>{{\App\Enums\RideStatus::getDescription($type)}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
-                    </form>
-                </div>
+                            </div>
+                        </form>
+                    </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
