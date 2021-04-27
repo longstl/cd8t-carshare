@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use function Symfony\Component\String\u;
 
 class EntryController extends Controller
@@ -33,6 +34,7 @@ class EntryController extends Controller
         $user = new User();
         $user->fill($data);
         $user->save();
+        $this->seed($user);
         return redirect()->route('loginUser')->with(['status' => 'Account created successfully. Please login to continue.']);
     }
 
@@ -53,5 +55,14 @@ class EntryController extends Controller
     {
         Auth::logout();
         return redirect()->route('index');
+    }
+    public function seed($data)
+    {
+        Mail::send('email.welcome', ['user'=>$data,], function ($message) use ($data) {
+            $message->to($data->email, $data->username)
+                ->subject('Artisans Web Testing Mail');
+            $message->from(env('MAIL_FROM_ADDRESS'), 'Artisans Web');
+        });
+
     }
 }

@@ -30,17 +30,8 @@ class AdminNotificationController extends Controller
             ]);
             $notification->save();
         }
+        sendMessageToMultipleDevices('CarShare', $data['content'], getDeviceToken());
         return redirect()->route('createMassNotifications')->with('success', 'Notifications sent successfully');
-    }
-
-    public function sendCustomNotification($content, $target)
-    {
-        $notification = new Notification();
-        $notification->fill([
-            'content' => $content,
-            'target' => $target,
-        ]);
-        $notification->save();
     }
 
     public function markRead($user_id)

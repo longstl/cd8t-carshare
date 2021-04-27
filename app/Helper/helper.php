@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use LaravelFCM\Facades\FCMGroup;
 use LaravelFCM\Message\OptionsBuilder;
@@ -72,6 +73,8 @@ function getPriceRate()
 
 function sendMessageToMultipleDevices($title, $content, $tokens)
 {
+
+
     $optionBuilder = new OptionsBuilder();
     $optionBuilder->setTimeToLive(60 * 20);
 
@@ -103,6 +106,19 @@ function sendMessageToMultipleDevices($title, $content, $tokens)
 
 // return Array (key:token, value:error) - in production you should remove from your database the tokens present in this array
     $downstreamResponse->tokensWithError();
+}
+
+function getDeviceToken($user_id = null) {
+    $device_tokens = [];
+    if ($user_id) {
+        array_push($device_tokens, User::find($user_id)->device_token);
+    } else {
+        $users = User::all();
+        foreach ($users as $user) {
+            array_push($device_tokens, $user->device_token);
+        }
+    }
+    return $device_tokens;
 }
 
 

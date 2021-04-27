@@ -64,6 +64,7 @@ class RequestController extends Controller
             'target' => route('detailRide', $request->ride_id),
         ]);
         $notification->save();
+        sendMessageToMultipleDevices('CarShare', 'Someone just booked your ride '.$ride->id.'!', getDeviceToken($ride->car->user_id));
         return redirect()->route('detailRequest', $id)->with('success', 'You have booked this ride. The driver will pick you up at the pickup location specified below.');
     }
 

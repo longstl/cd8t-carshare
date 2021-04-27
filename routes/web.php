@@ -44,6 +44,7 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::post('store', [RideController::class, 'store'])->name('storeRide');
         Route::get('detail/{id}', [RideController::class, 'detail'])->name('detailRide');
         Route::get('cancel/{id}', [RideController::class, 'cancel'])->name('cancelRide');
+        Route::get('complete/{id}', [RideController::class, 'complete'])->name('completeRide');
     });
     Route::prefix('request')->group(function () {
         Route::get('create', [RequestController::class, 'create'])->name('createRequest');
