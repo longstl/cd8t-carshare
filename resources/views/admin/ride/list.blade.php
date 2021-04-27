@@ -19,9 +19,9 @@
                 @endif
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
-                    <form action="#" style="display: inline-block;margin-right: 30px">
+                    <form  style="display: inline-block;margin-right: 30px">
                         <div class="form-group no-border">
-                            <input type="text" placeholder="Search by keyword"
+                            <input type="text" name="search" placeholder="Search by keyword"
                                    style="background: none;border: none;color: #9c9b9b">
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
@@ -129,6 +129,13 @@
         @section('extraJs')
 
             <script>
+                const formSearch = document.forms['filterForm'];
+                const keywordInput = document.querySelector('input[name="search"]');
+                keywordInput.onkeypress = function (event) {
+                    if (event.key == 'Enter') {
+                        formSearch.submit();
+                    }
+                }
                 $('#fillter_by_status').change(function () {
                     // window.location.href = "http://facebook.com"
                 })

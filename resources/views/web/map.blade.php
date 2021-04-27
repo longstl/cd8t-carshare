@@ -57,7 +57,7 @@
 
 {{--        #originInputMap:focus,--}}
 {{--        #destinationInputMap:focus {--}}
-{{--            border-color: #4d90fe;--}}
+{{--            border-notification: #4d90fe;--}}
 {{--        }--}}
 
 
@@ -68,7 +68,7 @@
 {{--        }--}}
 
 {{--        .error {--}}
-{{--            color: red;--}}
+{{--            notification: red;--}}
 {{--            margin-top: 10px;--}}
 {{--        }--}}
 {{--    </style>--}}

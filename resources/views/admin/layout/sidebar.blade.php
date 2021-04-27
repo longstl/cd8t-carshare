@@ -38,9 +38,15 @@
     </li>
 
     <li class="nav-item" slot="color">
-        <a class="nav-link" href="{{route('listFeedback')}}">
-            <i class="fa fa-comments" aria-hidden="true"></i>
+        <a class="nav-link" href="{{route('show_approve_drivers')}}">
+            <i class="fa fa-check" aria-hidden="true"></i>
             <p>Approve drivers</p>
+        </a>
+    </li>
+    <li class="nav-item" slot="color">
+        <a class="nav-link" href="{{route('formNotification')}}">
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            <p>Notifications</p>
         </a>
     </li>
 </ul>
