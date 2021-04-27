@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="{{lib_assets('web/css/components/datepicker.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/components/timepicker.css')}}" type="text/css"/>
 <link rel="stylesheet" href="{{lib_assets('web/css/components/daterangepicker.css')}}" type="text/css"/>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
 <style>
     #content {
         overflow: inherit;

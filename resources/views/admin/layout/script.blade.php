@@ -1,3 +1,52 @@
+<script type="application/javascript">
+    var firebaseConfig = {
+        apiKey: "AIzaSyBe99gU85yorlzWEMTh6ttpmFLhLHsmr9Q",
+        authDomain: "daokhanh-201004.firebaseapp.com",
+        databaseURL: "https://daokhanh-201004.firebaseio.com",
+        projectId: "daokhanh-201004",
+        storageBucket: "daokhanh-201004.appspot.com",
+        messagingSenderId: "396333762261",
+        appId: "1:396333762261:web:7401d6e1d01640bb62c45c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+
+    function InitializeFireBaseMessaging() {
+        messaging
+            .requestPermission()
+            .then(function () {
+                console.log("Notification Permission")
+                return messaging.getToken();
+            })
+            .then(function (token) {
+                console.log("Token: " + token)
+                $('[name="device_token"]').val(token);
+            })
+            .catch(function (reason) {
+                console.log(reason)
+            })
+    }
+
+    messaging.onMessage(function (payload) {
+        console.log(payload)
+        let notify;
+        notify = new Notification(payload.notification.title, {
+            body: payload.notification.body,
+            image: payload.notification.image,
+        });
+    })
+    messaging.onTokenRefresh(function () {
+        messaging.getToken()
+            .then(function (newToken) {
+                console.log("New token: " + newToken)
+            }).catch(function (reason) {
+            console.log(reason)
+        })
+    })
+
+    InitializeFireBaseMessaging()
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var that = document.getElementById('page_active')
