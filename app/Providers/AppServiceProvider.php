@@ -32,11 +32,17 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $notifications = [];
             $ride_count = 0;
+            $unread_count = 0;
             $count = 0;
             if (Auth::check()) {
-                $notifications = Notification::query()->where('user_id', Auth::id())->orderBy('created_at', 'DESC')->get();
-                foreach ($notifications as $notification) {
+                $all_notifications = Notification::query()->where('user_id', Auth::id())->orderBy('created_at', 'DESC')->get();
+                foreach ($all_notifications as $notification) {
                     if (!$notification->is_read) {
+                        array_push($notifications, $notification);
+                        $unread_count++;
+                        $count++;
+                    } else if ($count < 5) {
+                        array_push($notifications, $notification);
                         $count++;
                     }
                 }
@@ -44,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
                     $q->where('user_id', Auth::id());
                 })->count();
             }
-            $view->with(['notifications' => $notifications, 'unread_count' => $count, 'ride_count' => $ride_count]);
+            $view->with(['notifications' => $notifications, 'unread_count' => $unread_count, 'ride_count' => $ride_count]);
         });
     }
 }
