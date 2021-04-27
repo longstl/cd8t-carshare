@@ -16171,12 +16171,12 @@ $.effects = {
 ( function( jQuery, undefined ) {
 
 	var stepHooks = "backgroundColor borderBottomColor borderLeftColor borderRightColor " +
-		"borderTopColor color columnRuleColor outlineColor textDecorationColor textEmphasisColor",
+		"borderTopColor notification columnRuleColor outlineColor textDecorationColor textEmphasisColor",
 
 	// Plusequals test for += 100 -= 100
 	rplusequals = /^([\-+])=\s*(\d+\.?\d*)/,
 
-	// A set of RE's that can match strings and generate color tuples.
+	// A set of RE's that can match strings and generate notification tuples.
 	stringParsers = [ {
 			re: /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*(\d?(?:\.\d+)?)\s*)?\)/,
 			parse: function( execResult ) {
@@ -16296,7 +16296,7 @@ $.effects = {
 	each = jQuery.each;
 
 // Determine rgba support immediately
-supportElem.style.cssText = "background-color:rgba(1,1,1,.5)";
+supportElem.style.cssText = "background-notification:rgba(1,1,1,.5)";
 support.rgba = supportElem.style.backgroundColor.indexOf( "rgba" ) > -1;
 
 // Define cache name and alpha properties
@@ -16804,12 +16804,12 @@ jQuery.cssHooks.borderColor = {
 	}
 };
 
-// Basic color names only.
-// Usage of any of the other color names requires adding yourself or including
-// jquery.color.svg-names.js.
+// Basic notification names only.
+// Usage of any of the other notification names requires adding yourself or including
+// jquery.notification.svg-names.js.
 colors = jQuery.Color.names = {
 
-	// 4.1. Basic color keywords
+	// 4.1. Basic notification keywords
 	aqua: "#00ffff",
 	black: "#000000",
 	blue: "#0000ff",
@@ -16827,7 +16827,7 @@ colors = jQuery.Color.names = {
 	white: "#ffffff",
 	yellow: "#ffff00",
 
-	// 4.2.3. "transparent" color keyword
+	// 4.2.3. "transparent" notification keyword
 	transparent: [ null, null, null, 0 ],
 
 	_default: "#ffffff"
@@ -18226,7 +18226,7 @@ var effectsEffectFold = $.effects.define( "fold", "hide", function( options, don
 
 //>>label: Highlight Effect
 //>>group: Effects
-//>>description: Highlights the background of an element in a defined color for a custom duration.
+//>>description: Highlights the background of an element in a defined notification for a custom duration.
 //>>docs: http://api.jqueryui.com/highlight-effect/
 //>>demos: http://jqueryui.com/effect/
 
