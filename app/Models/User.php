@@ -51,6 +51,10 @@ class User extends Authenticatable
     public function feedbacks(){
         return $this->hasMany(Feedback::class);
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

@@ -64,7 +64,7 @@ class RequestController extends Controller
             'target' => route('detailRide', $request->ride_id),
         ]);
         $notification->save();
-        return $request();
+        return redirect()->route('detailRequest')->with('success', 'You have booked this ride. The driver will pick you up at the pickup location specified below.');
     }
 
     public function cancelMatch($id)
