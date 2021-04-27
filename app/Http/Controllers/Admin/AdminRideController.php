@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminRideController extends Controller
@@ -41,18 +43,50 @@ class AdminRideController extends Controller
 
     }
 
-    public function findMatch($id)
+    public function findMatch(Request $request, $id)
     {
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        $start_time = $request['travel_start_time'];
+        $newDate = date("h:i", strtotime($start_time));
         $ride = Ride::find($id);
         $travel_date = date("Y-m-d", strtotime($ride['travel_start_time']));
-        $requests = \App\Models\Request::query()
+        $advanced_query = \App\Models\Request::query()
             ->where('status', RequestStatus::WAITING)
             ->where('desired_pickup_time', '>', Carbon::now())
             ->where('seats_occupy', '<=', $ride['seats_available'])
-            ->whereDate('desired_pickup_time', $travel_date)
-            ->get();
+            ->whereDate('desired_pickup_time', $travel_date);
+//        dd($advanced_query->get());
+        if ($origin) {
+            $originKeywords = explode(" ", $origin);
+            $count = count($originKeywords);
+            if ($count > 0) {
+                $advanced_query = $advanced_query->where(function ($query) use ($originKeywords, $count) {
+                    for ($x = 0; $x < $count; $x++) {
+                        $query->orWhere('pickup_address', 'like', '%' . trim($originKeywords[$x]) . '%');
+                    }
+                });
+            }
+        }
+        if ($destination) {
+            $destinationKeywords = explode(" ", $destination);
+            $count = count($destinationKeywords);
+            if ($count > 0) {
+                $advanced_query = $advanced_query->where(function ($query) use ($destinationKeywords, $count) {
+                    for ($x = 0; $x < $count; $x++) {
+                        $query->orWhere('destination_address', 'like', '%' . trim($destinationKeywords[$x]) . '%');
+                    }
+                });
+            }
+        }
+        if ($start_time) {
+//            dd($start_time);
+            $advanced_query = $advanced_query->where('desired_pickup_time', '>', $start_time)->get();
+        } else {
+            $advanced_query = $advanced_query->get();
+        }
         $matched_requests = [];
-        foreach ($requests as $request) {
+        foreach ($advanced_query as $request) {
             $request['destination_difference'] = getDistance($request['destination_address'], $ride['destination_address'])['distance']['value'];
             if ($request['destination_difference'] > 5000) {
                 continue;
@@ -68,8 +102,8 @@ class AdminRideController extends Controller
             array_push($matched_requests, $request);
         }
         usort($matched_requests, function ($a, $b) {
-            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference/1000 + $a->pickup_time_difference / 60 / 60;
-            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference/1000 + $b->pickup_time_difference / 60 / 60;
+            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference / 1000 + $a->pickup_time_difference / 60 / 60;
+            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference / 1000 + $b->pickup_time_difference / 60 / 60;
             if ($a_sort_value == $b_sort_value) {
                 return 0;
             }
@@ -78,6 +112,10 @@ class AdminRideController extends Controller
         return view('admin/ride/matches', [
             'requests' => $matched_requests,
             'ride' => $ride,
+            'origin'=>$origin,
+            'destination'=>$destination,
+            'start_time'=>$start_time
+
         ]);
     }
 
@@ -96,6 +134,6 @@ class AdminRideController extends Controller
         $request->save();
         $ride->status = RideStatus::MATCHED;
         $ride->save();
-        return redirect()->route('listRide')->with('success', 'Ride '.$ride_id.' matched!');
+        return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
     }
 }

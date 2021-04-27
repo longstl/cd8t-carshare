@@ -56,10 +56,16 @@
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="margin-right: 30px;display: inline-block">Found {{sizeof($requests)}}
                         matches</h3>
-                    <form action="#" style="display: inline-block">
+                    <form style="display: inline-block">
+                        @csrf
                         <div class="form-group no-border">
-                            <input type="text" placeholder="Search by keyword"
+                            <input class="ml-4" type="text" value="{{$origin}}" name="origin" placeholder="Search by Origin"
                                    style="background: none;border: none;color: #9c9b9b">
+                            <input type="text" name="destination" value="{{$destination}}" placeholder="Search by Destination"
+                                   style="background: none;border: none;color: #9c9b9b">
+                            <input style="background: none;border: none;color: #9c9b9b" type="datetime-local" value="{{$start_time}}" name="travel_start_time"
+                                   class="form-control datetimepickerInputCreateRide datetimepicker"
+                                   data-target=".datetimepicker" />
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
