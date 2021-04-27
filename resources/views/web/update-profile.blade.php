@@ -3,9 +3,7 @@
     Update Profile
 @endsection
 @section('content')
-    @if($errors->any())
-            <strong style="color: red"> {{ implode('', $errors->all(':message')) }}</strong>
-    @endif
+
     <section id="content" class="container">
         <div class="card">
             <form method="POST" id="formUser" action="{{route('saveuser')}}">
