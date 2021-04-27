@@ -37,7 +37,7 @@ class UserController extends Controller
     public function update_profile()
     {
         $user = User::find(Auth::id());
-        return view('web/update-profile', [
+        return view('web/update_profile', [
             'data_user' => $user
         ]);
     }

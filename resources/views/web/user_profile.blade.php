@@ -185,9 +185,9 @@
                             </div>
                         </div>
                         <div class="list-group">
-                            <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="icon-user float-right"></i></a>
-                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="icon-laptop2 float-right"></i></a>
-                            <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
+                            <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="far fa-user" style="padding-left: 4%"></i></a>
+                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="fas fa-laptop" style="padding-left: 4%"></i></a>
+                            <a href="#" class="list-group-item list-group-item-action clearfix">Logout<i class="fas fa-sign-out-alt" style="padding-left: 4%"></i></a>
                         </div>
 
                         <div class="fancy-title topmargin title-border">
