@@ -22,7 +22,7 @@
 
                                     <ul class="tab-nav clearfix">
                                         <li><a href="#tab-feeds"><i class="fas fa-id-badge"></i>Profile</a></li>
-                                        <li><a href="#tab-posts"><i class="fas fa-history"></i> history Passenger</a></li>
+                                        <li><a href="#tab-posts"><i class="fas fa-history"></i>History Passenger</a></li>
                                         <li><a href="#tab-replies"><i class="fas fa-history"></i>history Driver</a></li>
                                         <li><a href="#tab-connections"><i class="fas fa-car"></i> Your Car</a></li>
                                     </ul>
