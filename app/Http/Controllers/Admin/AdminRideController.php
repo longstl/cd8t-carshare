@@ -23,7 +23,7 @@ class AdminRideController extends Controller
                 ->orWhere('destination_address', 'like', '%' . $search . '%');
         }
         if ($status) {
-            $rides = $rides->with('car')->where('status',$status);
+            $rides = $rides->with('car')->where('status', $status);
         }
         return view('admin/ride/list', [
             'rides' => $rides->get(),
@@ -99,9 +99,9 @@ class AdminRideController extends Controller
         return view('admin/ride/matches', [
             'requests' => $matched_requests,
             'ride' => $ride,
-            'origin'=>$origin,
-            'destination'=>$destination,
-            'start_time'=>$start_time
+            'origin' => $origin,
+            'destination' => $destination,
+            'start_time' => $start_time
 
         ]);
     }
@@ -140,11 +140,29 @@ class AdminRideController extends Controller
         $notification = new Notification();
         $notification->fill([
             'user_id' => $ride->car->user_id,
-            'content' => 'Your ride to '.$ride->destination_address.' has been confirmed. We will notify you when someone books it!',
+            'content' => 'Your ride to ' . $ride->destination_address . ' has been confirmed. We will notify you when someone books it!',
             'target' => route('detailRide', $id),
         ]);
         $notification->save();
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
 
+    }
+
+    public function upcomingRide(Request $request)
+    {
+        $search = $request->query('search');
+        $status = $request->query('status');
+        $rides = Ride::query()
+            ->whereIn('status', [RideStatus::PENDING, RideStatus::CONFIRMED])
+            ->where('travel_start_time', '>', Carbon::now());
+
+        if ($search != '') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' . $search . '%')
+                ->orWhere('destination_address', 'like', '%' . $search . '%');
+        }
+        if ($status) {
+            $rides = $rides->with('car')->where('status', $status);
+        }
+        return view('admin/ride/upcoming_rides', ['upcomingRide' => $rides->get(),'status' => $status]);
     }
 }
