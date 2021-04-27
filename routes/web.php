@@ -76,3 +76,5 @@ Route::get('403',function (){
 Route::get('/rules', function () {
     return view('web/rules');
 })->name('rules');
+
+

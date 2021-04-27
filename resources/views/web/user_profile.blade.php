@@ -1,242 +1,257 @@
-@extends('web.layout.master')
-@section('title')
-    User Profile
-@endsection
-@section('content')
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SemiColonWeb"/>
+
+    @include('web.layout.style')
+    <title>User Profile | CarShare</title>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+@include('web.layout.header')
+
+
+
+<!-- Content
+    ============================================= -->
     <section id="content">
 
         <div class="content-wrap">
 
+
             <div class="container clearfix">
 
-                <div class="row clearfix">
+                <div id="side-navigation">
 
-                    <div class="col-md-9">
+                    <div>
+                        <div class="col_one_third nobottommargin">
+                            <ul class="sidenav">
+                                <li class="ui-tabs-active"><a href="#snav-content1"><i class="fa fa-user"
+                                                                                       aria-hidden="true"></i>Profile</a>
+                                </li>
+                                <li><a href="#snav-content2"><i class="fa fa-inr" aria-hidden="true"></i>My rides</a>
+                                </li>
+                                <li><a href="#snav-content3"><i class="fa fa-flag" aria-hidden="true"></i>My
+                                        requests</a>
+                                </li>
+                                <li><a href="#snav-content4"><i class="fa fa-car" aria-hidden="true"></i>My cars</a>
+                                </li>
 
-                        <div class="row clearfix">
+                                <br>
 
-                            <div class="col-lg-12">
 
-                                <div class="tabs tabs-alt clearfix" id="tabs-profile">
 
-                                    <ul class="tab-nav clearfix">
-                                        <li><a href="#tab-feeds"><i class="fas fa-id-badge"></i>Profile</a></li>
-                                        <li><a href="#tab-posts"><i class="fas fa-history"></i> history Passenger</a></li>
-                                        <li><a href="#tab-replies"><i class="fas fa-history"></i>history Driver</a></li>
-                                        <li><a href="#tab-connections"><i class="fas fa-car"></i> Your Car</a></li>
-                                    </ul>
-                                    <div class="tab-container">
-                                        <div class="tab-content clearfix" id="tab-feeds">
-                                            <div class="row topmargin-sm clearfix">
+                            </ul>
+                        </div>
+                    </div>
 
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Email</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->email}}
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Last Name</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->last_name}}
 
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">First Name</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->first_name}}
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Phone</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->phone}}
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Driving license number</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->driving_license_number}}
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Address</h6>
-                                                        </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                            {{$data_user->address}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="col_two_third col_last nobottommargin">
 
-                                        <div class="tab-content clearfix" id="tab-posts">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th>Time:</th>
-                                                    <th>Origin</th>
-                                                    <th>Destination</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($requests as $request)
-                                                <tr>
+                        <div id="snav-content1">
+                            <div class="heading-block">
+                                <h3>Profile</h3>
+                                <span>Your account details.</span>
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{$data_user->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Name</th>
+                                        <td>{{$data_user->last_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <td>{{$data_user->first_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{$data_user->phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Driving license number</th>
+                                        <td>{{$data_user->driving_license_number}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th>
+                                        <td>{{$data_user->address}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row" style="margin-left:0">
+
+                                <a style="color: white;background: #1ABC9C" href="{{route('updateLicense')}}" class="btn">Update
+                                    Licence</a>
+                                <a style="color: white;background: #1ABC9C" href="{{route('update_profile')}}" class="btn btn-success">Update
+                                    Profile</a>
+                                <a style="color: white" href="javascript:void(0)" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+
+                        <div id="snav-content2">
+                            <div class="heading-block">
+                                <h3>My rides</h3>
+                                <span>Details of your trips.</span>
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Origin</th>
+                                        <th>Destination</th>
+                                        <th>Price</th>
+                                        <th>Seats</th>
+                                        <th>Action</th>
+                                    </tr>
+
+
+                                    @foreach($requests as $request)
+
+                                            <tr>
                                                     <td>
                                                         <code>{{date('H:i', strtotime($request->desired_pickup_time))}}</code>
                                                     </td>
-                                                    <td>{{$request->pickup_address}}</td>
-                                                    <td>{{$request->destination_address}}</td>
-                                                </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-content clearfix" id="tab-replies">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th>Time:</th>
-                                                    <th>Origin</th>
-                                                    <th>Destination</th>
-                                                    <th>Price</th>
-                                                    <th>Car</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($rides as $ride)
-                                                    <tr>
-                                                        <td>
-                                                            <code>{{date('H:i', strtotime($ride->travel_start_time))}}</code>
-                                                        </td>
-                                                        <td>{{$ride->origin_address}}</td>
-                                                        <td>{{$ride->destination_address}}</td>
-                                                        <td> $ {{$ride->price_total}}</td>
-                                                        <td>  {{$ride->car->model->make}}</td>
-                                                        <td>
-                                                            {{\App\Enums\RideStatus::getDescription($ride->status)}}
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
+                                                <td>{{$request->pickup_address}}</td>
+                                                <td>{{$request->destination_address}}</td>
+                                                <td>{{$request->price}}</td>
+                                                <td>{{$request->seats_occupy}}</td>
+                                                <td>
+                                                    <a href="/request/detail/{{$request->id}}" class="btn" style="background: #1ABC9C;color: white" >Detail</a>
+                                                </td>
+                                            </tr>
+                                    @endforeach
 
 
-
-                                        </div>
-                                        <div class="tab-content " id="tab-connections">
-
-                                               <table class="table  table-striped">
-                                                   <thead>
-                                                   <tr>
-                                                       <th>Model</th>
-                                                       <th>Make</th>
-                                                       <th>Make Year</th>
-                                                       <th>Color</th>
-                                                       <th>Action</th>
-                                                   </tr>
-                                                   </thead>
-                                                   <tbody>
-                                                   <tr>
-                                                       @foreach($cars as $car)
-                                                           <td>{{$car->model->make}}</td>
-                                                           <td> {{$car->model->model}}</td>
-                                                           <td> {{$car->model->make_year}}</td>
-                                                           <td> {{$car->color}}</td>
-                                                           <td>
-                                                               <a href="" type="button" class="btn btn-success">update</a>
-                                                               <a href="" type="button" class="btn btn-danger">delete</a>
-                                                           </td>
-                                                       @endforeach
-
-                                                   </tr>
-                                                   </tbody>
-                                               </table>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
+                                </table>
                             </div>
-
                         </div>
 
-                    </div>
-                    <div class="col-md-3 clearfix">
-                        <div class="modal fade" id="delete-modal" tabindex="-1"
-                             role="dialog" aria-labelledby="deleteUser"
-                             aria-hidden="true">
+                        <div id="snav-content3">
+                            <div class="heading-block">
+                                <h3>My request</h3>
+                                <span>information about the trips you have searched for.</span>
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Time:</th>
+                                        <th>Origin</th>
+                                        <th>Destination</th>
+                                        <th>Price</th>
+                                        <th>Car</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+
+
+                                    @foreach($rides as $ride)
+                                        <tr>
+                                            <td>
+                                                <code>{{date('H:i', strtotime($ride->travel_start_time))}}</code>
+                                            </td>
+                                            <td>{{$ride->origin_address}}</td>
+                                            <td>{{$ride->destination_address}}</td>
+                                            <td> $ {{$ride->price_total}}</td>
+                                            <td>  {{$ride->car->model->make}}</td>
+                                            <td>
+                                                {{\App\Enums\RideStatus::getDescription($ride->status)}}
+                                            </td>
+                                            <td>
+                                                <a href="/ride/detail/{{$ride->id}}">Detail</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </table>
+                            </div>
                         </div>
-                        <div class="list-group">
-                            <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="far fa-user" style="padding-left: 4%"></i></a>
-                            <a href="javascript:void(0)" class="list-group-item list-group-item-action clearfix" data-toggle="modal" data-target="#delete-modal" id="btn-delete">Delete <i class="fas fa-laptop" style="padding-left: 4%"></i></a>
-                            <a href="#" class="list-group-item list-group-item-action clearfix">Logout<i class="fas fa-sign-out-alt" style="padding-left: 4%"></i></a>
+
+                        <div id="snav-content4">
+                            <div class="heading-block">
+                                <h3>My cars</h3>
+                                <span>information about the vehicles you own.</span>
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Make</th>
+                                        <th>Make Year</th>
+                                        <th>Color</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    @foreach($cars as $car)
+                                        <tr>
+                                            <td>{{$car->model->make}}</td>
+                                            <td> {{$car->model->model}}</td>
+                                            <td> {{$car->model->make_year}}</td>
+                                            <td> {{$car->color}}</td>
+                                            <td>
+                                                <a href="" type="button" class="btn btn-success">update</a>
+                                                <a href="" type="button" class="btn btn-danger">delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
                         </div>
 
-                        <div class="fancy-title topmargin title-border">
-                            <h4>About Me</h4>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>
-
-                        <div class="fancy-title topmargin title-border">
-                            <h4>Social Profiles</h4>
-                        </div>
-
-                        <a href="#" class="social-icon si-facebook si-small si-rounded si-light" title="Facebook">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-gplus si-small si-rounded si-light" title="Google+">
-                            <i class="fab fa-google-plus-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-dribbble si-small si-rounded si-light" title="Dribbble">
-                            <i class="fab fa-dribbble-square"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-flickr si-small si-rounded si-light" title="Flickr">
-                            <i class="fab fa-flickr"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-linkedin si-small si-rounded si-light" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-twitter si-small si-rounded si-light" title="Twitter">
-                            <i class="fab fa-twitter-square"></i>
-                        </a>
 
                     </div>
 
                 </div>
 
+
+                <div class="clear"></div>
+                <div class="line"></div>
+
             </div>
+
 
         </div>
 
-    </section>
+    </section><!-- #content end -->
 
-@endsection
+    @include('web.layout.footer')
 
+
+</div>
+<div id="gotoTop" class="icon-angle-up"></div>
+
+@include('web.layout.script')
+
+<script>
+    $(function () {
+        $("#side-navigation").tabs({show: {effect: "fade", duration: 400}});
+    });
+</script>
+
+</body>
+</html>
