@@ -10,5 +10,5 @@
 <link rel="stylesheet" href="{{lib_assets('css/table.css')}}">
 
 <title>
-    CD8T_Hello
+    CarShare
 </title>
