@@ -105,9 +105,6 @@
 
 @section('extraJs')
     <script>
-        const x = new Date().getFullYear();
-        let date = document.getElementById('date');
-        date.innerHTML = '&copy; ' + x + date.innerHTML;
         const formSearch = document.forms['filterForm'];
         const keywordInput = document.querySelector('input[name="search"]');
         keywordInput.onkeypress = function (event) {

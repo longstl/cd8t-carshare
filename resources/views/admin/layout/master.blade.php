@@ -46,11 +46,10 @@
             <img class="modal-content avatar_user" id="img01">
             <div id="caption"></div>
         </div>
-        @yield('pagination')
         <footer class="footer col-md-12">
             <div class="container-fluid">
-                <div class="copyright" id="date">
-                    © 2021 Coder 8 Tuoi
+                <div class="copyright">
+                      © 2021 Coder 8 Tuoi
                 </div>
             </div>
         </footer>
