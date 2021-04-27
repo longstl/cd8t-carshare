@@ -12,7 +12,7 @@ use App\Models\Ride;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class   RideController extends Controller
+class RideController extends Controller
 {
     public function create()
     {
@@ -70,5 +70,19 @@ class   RideController extends Controller
         }
         $ride->save();
         return redirect()->route('detailRide', $id)->with('canceled', true);
+    }
+
+    public function complete($id)
+    {
+        $ride = Ride::find($id);
+        $ride->status = RideStatus::COMPLETED;
+        $requests = Request::query()->where('ride_id', $id)->get();
+        foreach ($requests as $request)
+        {
+            $request->status = RequestStatus::COMPLETED;
+            $request->save();
+        }
+        $ride->save();
+        return redirect()->route('detailRide', $id)->with('completed', true);
     }
 }
