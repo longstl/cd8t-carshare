@@ -73,42 +73,42 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-group">Username</label>
-                                            <input type="text" name="username" value="" class="form-control"/>
+                                            <input type="text" name="username" value="" class="form-control" required/>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-group">Email</label>
-                                            <input type="text" name="email" value="" class="form-control"/>
+                                            <input type="text" name="email" value="" class="form-control" required/>
                                         </div>
                                     </div>
                                     <div class="row" style="padding-top: 20px">
                                         <div class="col-md-6">
                                             <label class="form-group">Password</label>
-                                            <input type="text" name="password" value="" class="form-control"/>
+                                            <input type="text" name="password" value="" class="form-control" required/>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label class="form-group">Comfirm Password</label>
-                                            <input type="text" name="password" value="" class="form-control"/>
+                                            <input type="text" name="password" value="" class="form-control" required/>
                                         </div>
                                     </div>
                                     <div class="row" style="padding-top: 20px">
                                         <div class="col-md-3">
                                             <label class="form-group">First Name</label>
-                                            <input type="text" name="first_name" value="" class="form-control"/>
+                                            <input type="text" name="first_name" value="" class="form-control" required/>
                                         </div>
                                         <div class="col-md-3">
                                             <label class="form-group">Last Name</label>
-                                            <input type="text" name="last_name" value="" class="form-control"/>
+                                            <input type="text" name="last_name" value="" class="form-control" required/>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-group">Phone</label>
-                                            <input type="text" name="phone" value="" class="form-control"/>
+                                            <input type="text" name="phone" value="" class="form-control" required/>
                                         </div>
                                     </div>
                                     <div class="row" style="padding-top: 20px">
                                         <div class="col-md-12">
                                             <label class="form-group">Address</label>
-                                            <input type="text" name="address" value="" class="form-control"/>
+                                            <input type="text" name="address" value="" class="form-control" required/>
                                         </div>
                                     </div>
                                     <div class="row" style="padding-top: 50px">
