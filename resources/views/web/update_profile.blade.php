@@ -136,11 +136,6 @@
                             <a href="#" class="list-group-item list-group-item-action clearfix">Logout<i class="fas fa-sign-out-alt" style="padding-left: 4%"></i></a>
                         </div>
                         <div class="fancy-title topmargin title-border">
-                            <h4>About Me</h4>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>
-
-                        <div class="fancy-title topmargin title-border">
                             <h4>Social Profiles</h4>
                         </div>
 
