@@ -86,6 +86,103 @@
             </div>
         </div>
     </section>
+    <div class="section topmargin-sm nobottommargin">
+
+        <div class="container clearfix">
+
+            <div class="heading-block center">
+                <h3>Testimonials</h3>
+                <span>Check out some of our Client Reviews</span>
+            </div>
+
+            <ul class="testimonials-grid grid-3 clearfix nobottommargin">
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/hoang.jpeg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum repellendus!</p>
+                            <div class="testi-meta">
+                                John Doe
+                                <span>XYZ Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/phuong.jpg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+                            <div class="testi-meta">
+                                Collis Ta'eed
+                                <span>Envato Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/thuan.jpg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Fugit officia dolor sed harum excepturi ex iusto magnam asperiores molestiae qui natus obcaecati facere sint amet.</p>
+                            <div class="testi-meta">
+                                Mary Jane
+                                <span>Google Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/thuan.jpg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+                            <div class="testi-meta">
+                                Steve Jobs
+                                <span>Apple Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/hoang.jpeg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, perspiciatis illum totam dolore deleniti labore.</p>
+                            <div class="testi-meta">
+                                Jamie Morrison
+                                <span>Adobe Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="testimonial">
+                        <div class="testi-image">
+                            <a href="#"><img src="{{lib_assets('/img/phuong.jpg')}}" alt="Customer Testimonails"></a>
+                        </div>
+                        <div class="testi-content">
+                            <p>Porro dolorem saepe reiciendis nihil minus neque. Ducimus rem necessitatibus repellat laborum nemo quod.</p>
+                            <div class="testi-meta">
+                                Cyan Ta'eed
+                                <span>Tutsplus</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
     @if($ride_count)
         <section>
             <a href="#" class="button button-full center tright">

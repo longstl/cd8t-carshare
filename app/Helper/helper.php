@@ -120,3 +120,5 @@ function getDeviceToken($user_id = null) {
     }
     return $device_tokens;
 }
+
+
