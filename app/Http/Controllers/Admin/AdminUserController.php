@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AdminUserController extends Controller
 {
@@ -45,6 +46,7 @@ class AdminUserController extends Controller
         $hashed_password = Hash::make($request['password']);
         $user->password = $hashed_password;
         $user->save();
+        $user-$this->seed($user->email,$user->username);
         return redirect()->route('listUser')->with(['status' => 'create admin success', 'user' => $user->username]);
     }
 
@@ -93,6 +95,12 @@ class AdminUserController extends Controller
         $user->save();
         return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);
     }
+    public function seed ($user_email, $to_name){
+        Mail::raw(emailForm(), function($message) use ($to_name, $user_email) {
+            $message->to($user_email, $to_name)
+                ->subject('Artisans Web Testing Mail');
+            $message->from(env('MAIL_FROM_ADDRESS'),'Artisans Web');
+        });
 
-    //
+    }
 }
