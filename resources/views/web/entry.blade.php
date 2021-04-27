@@ -145,23 +145,24 @@
                                             </div>
                                         </div>
                                         <div class="row" style="padding-top: 50px">
+                                            <div class="col-md-6">
+                                                <label class="form-group">Driving License Number</label>
+                                                <input type="text" name="driving_license_number" value=""
+                                                       class="form-control"/>
+                                            </div>
+                                            <div class="col-md-3"><label class="form-group">Valid from</label>
+                                                <input type="date" name="driving_license_number" value=""
+                                                       class="form-control"/>
+                                            </div>
+                                            <div class="col-md-3"><label class="form-group">Valid To</label>
+                                                <input type="date" name="driving_license_number" value=""
+                                                       class="form-control"/>
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <label class="form-group">Driving License Number</label>
-                                            <input type="text" name="driving_license_number" value=""
-                                                   class="form-control"/>
-                                        </div>
-                                        <div class="col-md-3"><label class="form-group">Valid from</label>
-                                            <input type="date" name="driving_license_number" value=""
-                                                   class="form-control"/>
-                                        </div>
-                                        <div class="col-md-3"><label class="form-group">Valid To</label>
-                                            <input type="date" name="driving_license_number" value=""
-                                                   class="form-control"/>
-                                        </div>
+
                                     </div>
-                                    <div class="row" style="padding-top: 50px">
+                                    <div class="row" style="padding-top: 50px; padding-left: 10px">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-4" style="padding-left: 7px">
