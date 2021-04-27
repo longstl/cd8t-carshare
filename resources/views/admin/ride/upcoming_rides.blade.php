@@ -14,7 +14,7 @@
                         {{ session()->get( 'status' ) }}
                     </div>
                 @endif
-                    <div class="card-header card-header-primary">
+                <div class="card-header card-header-primary">
                         <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
                         <form style="display: inline-block;margin-right: 30px; width: 35%;" name="filterForm">
                             <div class="row">
@@ -42,7 +42,7 @@
 
                             </div>
                         </form>
-                    </div>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
@@ -74,7 +74,7 @@
 
                             </thead>
                             <tbody>
-                            @foreach($rides as $ride)
+                            @foreach($upcomingRide as $ride)
                                 <div class="modal fade" id="ConfirmRide{{ $ride->id }}" tabindex="-1"
                                      role="dialog" aria-labelledby="ConfirmRide"
                                      aria-hidden="true">
@@ -132,7 +132,7 @@
                         </table>
                     </div>
                 </div>
-                    <input type="hidden" value="Rides" id="page_active">
+                <input type="hidden" value="Rides" id="page_active">
             </div>
         </div>
         @endsection
@@ -144,7 +144,7 @@
                 const keywordInput = document.querySelector('input[name="search"]');
                 const rideStatus = document.getElementById('status')
                 keywordInput.onkeypress = function (event) {
-                    if (event.key == 'Enter') {
+                    if (event.key === 'Enter') {
                         formSearch.submit();
                     }
                 }
