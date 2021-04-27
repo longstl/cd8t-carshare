@@ -7,15 +7,26 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 
 class AdminRideController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
         $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $search = $request->query('search');
+        if ($search != "") {
+            $searchRide = Ride::where(function ($query) use ($search) {
+                $query->where('origin_address', 'like', '%' . $search . '%')
+                    ->orWhere('destination_address', 'like', '%' . $search . '%');
+            });
+            $searchRide->appends(['search' => $search]);
+        }
+
         return view('admin/ride/list', [
-            'rides' => $rides
+            'rides' => $rides,
+            'search' => $searchRide
         ]);
     }
 
@@ -68,8 +79,8 @@ class AdminRideController extends Controller
             array_push($matched_requests, $request);
         }
         usort($matched_requests, function ($a, $b) {
-            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference/1000 + $a->pickup_time_difference / 60 / 60;
-            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference/1000 + $b->pickup_time_difference / 60 / 60;
+            $a_sort_value = $a->origin_difference / 1000 + $a->destination_difference / 1000 + $a->pickup_time_difference / 60 / 60;
+            $b_sort_value = $b->origin_difference / 1000 + $b->destination_difference / 1000 + $b->pickup_time_difference / 60 / 60;
             if ($a_sort_value == $b_sort_value) {
                 return 0;
             }
@@ -96,6 +107,15 @@ class AdminRideController extends Controller
         $request->save();
         $ride->status = RideStatus::MATCHED;
         $ride->save();
-        return redirect()->route('listRide')->with('success', 'Ride '.$ride_id.' matched!');
+        return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
+    }
+
+    public function setRide($id)
+    {
+        $ride = Ride::find($id);
+        $ride->status = RideStatus::CONFIRMED;
+        $ride->update();
+        $ride->save();
+        return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
     }
 }

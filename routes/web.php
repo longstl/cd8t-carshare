@@ -58,7 +58,16 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('detail/{id}', [FeedbackController::class, 'detail']);
     });
 });
+Route::prefix('request')->group(function() {
 
+    Route::get('', [RequestController::class, 'list']);
+    Route::get('create', [RequestController::class, 'create'])->name('create_request');
+    Route::post('create', [RequestController::class, 'store']);
+    Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+});
+Route::get('404',function (){
+   return view('web/404');
+});
 Route::get('/rules', function () {
     return view('web/rules');
 })->name('rules');

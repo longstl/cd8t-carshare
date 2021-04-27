@@ -36,4 +36,11 @@
             <p>Feedback</p>
         </a>
     </li>
+
+    <li class="nav-item" slot="color">
+        <a class="nav-link" href="{{route('listFeedback')}}">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <p>Approve drivers</p>
+        </a>
+    </li>
 </ul>
