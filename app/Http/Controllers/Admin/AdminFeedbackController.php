@@ -10,34 +10,25 @@ class AdminFeedbackController extends Controller
 {
     public function list()
     {
-        $list_feedback = Feedback::query()->with(['user'])->paginate(10)->get();
+        $list_feedback = Feedback::query()->with(['user'])->get();
         return view('admin/feedback/list', [
             'list_feedback' => $list_feedback,
-            'title' => 'List Feedback'
         ]);
     }
 
-    public function create()
+    public function read($id)
     {
-    }
-
-    public function store()
-    {
-    }
-
-    public function update()
-    {
-    }
-
-    public function save()
-    {
+        $feedback = Feedback::find($id);
+        return view('admin/feedback/read', [
+            'feedback' => $feedback,
+        ]);
     }
 
     public function delete($id)
     {
-        $feedback = Feedback::find($id)->with(['user'])->get();
+        $feedback = Feedback::find($id);
         $feedback->delete();
-        return redirect()->route('listFeedback')->with(['status' => 'delete feedback success', 'feedback' => $feedback->user->name]);
+        return redirect()->route('listFeedback')->with(['status' => 'Feedback deleted successfully']);
     }
 
 }

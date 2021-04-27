@@ -160,29 +160,6 @@
                         <div class="modal fade" id="delete-modal" tabindex="-1"
                              role="dialog" aria-labelledby="deleteUser"
                              aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <p>Are you sure you want to delete
-                                        <b> Delete {{\Illuminate\Support\Facades\Auth::user()->last_name.''. \Illuminate\Support\Facades\Auth::user()->first_name}} </b>
-                                    </p>
-                                    <form method="post" action="{{route('delete_user')}}">
-                                        @csrf
-                                        <h6>Please enter your password to confirm deletion of the account</h6>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" id="email" placeholder="Enter password" name="email">
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Delete</button>
-                                    </form>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-primary"
-                                                data-dismiss="modal">Cancel
-                                        </button>
-                                        <a href="{{route('delete_user')}}"
-                                           class="btn btn-primary">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="list-group">
                             <a href="{{route('update_profile')}}" class="list-group-item list-group-item-action clearfix">Update Profile <i class="far fa-user" style="padding-left: 4%"></i></a>
@@ -232,5 +209,6 @@
         </div>
 
     </section>
+
 @endsection
 

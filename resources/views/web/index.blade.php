@@ -1,5 +1,5 @@
 @extends('web.layout.master')
-    @section('title')
+@section('title')
     Home
 @endsection
 @section('content')
@@ -15,18 +15,18 @@
                         <h1 class="txt_baner">
                             @if(!\Illuminate\Support\Facades\Auth::check())
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">LOOKING FOR A RIDE ?
+                                      data-speed="3500">LOOKING FOR A RIDE?
                             </span>
                             @else
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">WELCOME {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE ?
+                                      data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE?
                                 </span>
                             @endif
 
                         </h1>
                         <span class="d-md-block txt_baner">FIND PEOPLE TRAVELLING  TO YOUR DESTINATION</span>
                         <a href="{{route('createRequest')}}"
-                           class="btn btn-outline-dark button buftton-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
+                           class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span
                                 style="color: #0b0b0b" class="find-a-ride">Find a Ride</span></a>
                         <a href=""
                            class="btn btn-outline-dark button button-border  button-rounded tright button-large topmargin d-none d-md-inline-block"><span

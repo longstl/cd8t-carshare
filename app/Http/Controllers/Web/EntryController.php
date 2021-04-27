@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use function Symfony\Component\String\u;
 
 class EntryController extends Controller
@@ -15,22 +16,24 @@ class EntryController extends Controller
     public function register()
     {
         $user = User::all();
-        return view('web/entry',['dataUser' => $user]);
+        return view('web/entry', ['dataUser' => $user]);
     }
+
     public function login()
     {
         $user = User::all();
-        return view('web/entry',['dataUser' => $user]);
+        return view('web/entry', ['dataUser' => $user]);
     }
 
     public function processRegister(UserRequest $request)
     {
         $data = $request->validated();
         $data['role'] = Role::USER;
+        $data['password'] = Hash::make($data['password']);
         $user = new User();
         $user->fill($data);
         $user->save();
-        return redirect()->route('loginUser');
+        return redirect()->route('loginUser')->with(['status' => 'Account created successfully. Please login to continue.']);
     }
 
     public function processLogin(Request $request)
@@ -38,10 +41,13 @@ class EntryController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
+        } else {
+            return back()->with('error-login', 'Invalid account and/or password. Please check and try again.');
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('index');
     }

@@ -44,10 +44,10 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::NONE,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::ADMIN,
-                'is_driving_license_certified'=>false
+                'is_driving_license_certified'=>true
             ],
             [
-                'username' => 'Hoang Dac Phuong',
+                'username' => 'darkphuong',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Hoang Dac',
                 'last_name' => 'Phuong',
@@ -71,10 +71,9 @@ class UserSeeder extends Seeder
                 'is_driving_license_certified'=>true
             ],
             [
-                'username' => 'Pham Thang',
+                'username' => 'thangpd',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Pham',
-                'last_name' => 'Thang',
                 'last_name' => 'Thang',
                 'drivers_license_photo' => 'https://3.bp.blogspot.com/-3EWrYj_FdlQ/W34ToQFB4lI/AAAAAAAAAKQ/wYVbq1oeoCU5eZKGx1HxFhMW_QYDVipwgCLcBGAs/s1600/cap-doi-giay-phep-lai-xe.jpg',
                 'email' => 'phamthang@gmail.com',
@@ -96,7 +95,7 @@ class UserSeeder extends Seeder
                 'is_driving_license_certified'=>false
             ],
             [
-                'username' => 'Nguyen Ngoc Thuan',
+                'username' => 'thuannguyen',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Nguyen Ngoc',
                 'last_name' => 'Thuan',

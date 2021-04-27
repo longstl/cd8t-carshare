@@ -9,6 +9,7 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\RequestRequest;
+use App\Models\Notification;
 use App\Models\Request;
 use App\Models\Ride;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,11 @@ class RequestController extends Controller
 
     public function detail($id)
     {
+        $user_id = Auth::id();
         $data_request = Request::find($id);
+        if($user_id != $data_request->user_id){
+            return view('web/404');
+        }
         $data_ride = null;
         if ($data_request->ride_id) {
             $data_ride = Ride::query()->where('id', $data_request->ride_id)->with(['car.user', 'car.model'])->first();
@@ -46,21 +51,34 @@ class RequestController extends Controller
     public function book($id)
     {
         $request = Request::find($id);
-        $ride = $request->ride();
+        $ride = Ride::find($request->ride_id);
         $request->status = RequestStatus::BOOKED;
         $ride->status = RideStatus::CONFIRMED;
         $ride->seats_available -= $request->seats_occupy;
         $request->save();
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $ride->user_id,
+            'content' => 'Someone just booked your ride! See details here.',
+            'target' => route('detailRide', $request->ride_id),
+        ]);
+        $notification->save();
         return $request();
     }
 
     public function cancelMatch($id)
     {
         $request = Request::find($id);
-        $ride = $request->ride();
+        $ride = Ride::find($request->ride_id);
         $request->status = RequestStatus::WAITING;
+        $request->ride_id = null;
+        $request->pickup_time = null;
+        $request->price = null;
+        $request->save();
         $ride->status = RideStatus::CONFIRMED;
+        $ride->save();
+        return redirect()->route('detailRequest', $id);
     }
 
     public function cancel($id)

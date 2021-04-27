@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminRequestController;
@@ -8,6 +9,11 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
+Route::get('/dashboard', [AdminDashboardController::class, 'list'])->name('dashboard');
 
 Route::prefix("models")->group(function () {
     Route::get('', [AdminModelController::class, 'list'])->name('listModel');
@@ -30,13 +36,15 @@ Route::prefix('users')->group(function () {
 });
 
 Route::prefix("feedbacks")->group(function () {
-    Route::get('', [FeedbackController::class, 'list'])->name('listFeedback');
-    Route::get('delete/{id}', [FeedbackController::class, 'delete'])->name('deleteFeedback');
+    Route::get('', [AdminFeedbackController::class, 'list'])->name('listFeedback');
+    Route::get('delete/{id}', [AdminFeedbackController::class, 'delete'])->name('deleteFeedback');
+    Route::get('read/{id}', [AdminFeedbackController::class, 'read'])->name('readFeedback');
 });
 
 Route::prefix("rides")->group(function () {
     Route::get('', [AdminRideController::class, 'list'])->name('listRide');
     Route::get('match/{id}', [AdminRideController::class, 'list'])->name('findMatch');
+    Route::get('setRide/{id}', [AdminRideController::class, 'setRide'])->name('setStatus');
 });
 
 Route::prefix("requests")->group(function () {
