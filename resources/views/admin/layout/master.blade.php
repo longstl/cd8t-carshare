@@ -24,7 +24,7 @@
 
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-        <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <div class="logo"><a href="{{route('index')}}" class="simple-text logo-normal">
                 CarShare
             </a></div>
         <div class="sidebar-wrapper">
@@ -68,15 +68,6 @@
             </div>
         </footer>
     </div>
-</div>
-<div class="fixed-plugin">
-
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            @include('admin.layout.edit_style')
-        </div>
-    </div>
-
 </div>
 <input type="hidden" value="user" id="page_active">
 <!--   Core JS Files   -->

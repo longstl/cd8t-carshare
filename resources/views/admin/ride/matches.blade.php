@@ -9,49 +9,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card" style="margin-top: 0; margin-bottom: 50px;">
-                <div class="card-header card-header-primary">
-                    <h3 class="card-title" style="margin-right: 30px;display: inline-block">Ride details</h3>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-md-7 td-left">
-                            <table class="table table-sm table-borderless ">
-                                <tbody>
-                                <tr class="td-left">
-                                    <th>Origin:</th>
-                                    <td>{{$ride->origin_address}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Destination:</th>
-                                    <td> {{$ride->destination_address}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Start time:</th>
-                                    <td>{{date('M d, H:i', strtotime($ride->travel_start_time))}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-12 col-md-5 td-left" style="text-align: left!important;">
-                            <table class="table table-sm table-borderless ">
-                                <tbody>
-                                <tr class="td-left">
-                                    <th>Driver:</th>
-                                    <td> {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}</td>
-                                </tr>
-                                <tr class="td-left">
-                                    <th>Seats available:</th>
-                                    <td>{{$ride->seats_available}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="margin-right: 30px;display: inline-block">Found {{sizeof($requests)}}
@@ -132,4 +89,48 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h3 class="card-title" style="margin-right: 30px;display: inline-block">Ride details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-7 td-left">
+                            <table class="table table-sm table-borderless ">
+                                <tbody>
+                                <tr class="td-left">
+                                    <th>Origin:</th>
+                                    <td>{{$ride->origin_address}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Destination:</th>
+                                    <td> {{$ride->destination_address}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Start time:</th>
+                                    <td>{{date('M d, H:i', strtotime($ride->travel_start_time))}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-5 td-left" style="text-align: left!important;">
+                            <table class="table table-sm table-borderless ">
+                                <tbody>
+                                <tr class="td-left">
+                                    <th>Driver:</th>
+                                    <td> {{$ride->car->user->first_name}} {{$ride->car->user->last_name}}</td>
+                                </tr>
+                                <tr class="td-left">
+                                    <th>Seats available:</th>
+                                    <td>{{$ride->seats_available}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 @endsection

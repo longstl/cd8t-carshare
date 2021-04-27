@@ -14,9 +14,9 @@
                 <div class="postcontent nobottommargin clearfix" style="margin: auto!important; float: none;">
                     @if($data_ride)
                         @if($data_request->status == \App\Enums\RequestStatus::MATCHED)
-                            <h2>We found you a match!</h2>
+                            <h2>We found you a match! Please book the ride, or cancel to find another match</h2>
                         @else
-                            <h2>Ride details</h2>
+                            <h2>You have booked this ride</h2>
                         @endif
                         <table class="table" style="margin-bottom: 0 !important;">
                             <thead>
@@ -31,9 +31,20 @@
                                 <td>{{$data_ride->car->model->make}} {{$data_ride->car->model->model}}</td>
                             </tr>
                             <tr>
-                                <td><h5 style="margin: 0!important;">Origin</h5></td>
-                                <td>{{$data_ride->origin_address}}</td>
+                                <td><h5 style="margin: 0!important;">Pickup time</h5></td>
+                                <td>{{ $data_request->pickup_time }}</td>
                             </tr>
+                            @if($data_request->status == \App\Enums\RequestStatus::MATCHED)
+                                <tr>
+                                    <td><h5 style="margin: 0!important;">Origin</h5></td>
+                                    <td>{{$data_ride->origin_address}}</td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td><h5 style="margin: 0!important;">Pickup address</h5></td>
+                                    <td>{{ $data_request->pickup_address}}</td>
+                                </tr>
+                            @endif
                             <tr>
                                 <td><h5 style="margin: 0!important;">Destination</h5></td>
                                 <td>{{$data_ride->destination_address}}</td>
@@ -41,6 +52,10 @@
                             <tr>
                                 <td><h5 style="margin: 0!important;">Seats available</h5></td>
                                 <td>{{$data_ride->seats_available}}</td>
+                            </tr>
+                            <tr>
+                                <td><h5 style="margin: 0!important;">Price</h5></td>
+                                <td>${{ $data_ride->price_total }}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -65,7 +80,7 @@
                     @elseif($data_request->status == \App\Enums\RequestStatus::WAITING)
                         <h2>We are finding you a match and will notify you once one is found</h2>
                     @else
-                        <h2>Request detail</h2>
+                        <h2 style="margin-top: 30px;">Your carpool request</h2>
                     @endif
                     <table class="table" style="margin-bottom: 0 !important;">
                         <tbody>
@@ -81,21 +96,10 @@
                             <td><h5 style="margin: 0!important;">Seats occupy</h5></td>
                             <td>{{ $data_request->seats_occupy}}</td>
                         </tr>
-                        @if($data_request->status == \App\Enums\RequestStatus::MATCHED || $data_request->status == \App\Enums\RequestStatus::BOOKED)
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Pickup time</h5></td>
-                                <td>${{ $data_request->pickup_time }}</td>
-                            </tr>
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Price</h5></td>
-                                <td>${{ $data_request->price }}</td>
-                            </tr>
-                        @else
-                            <tr>
-                                <td><h5 style="margin: 0!important;">Desired pickup time</h5></td>
-                                <td>{{ $data_request->desired_pickup_time}}</td>
-                            </tr>
-                        @endif
+                        <tr>
+                            <td><h5 style="margin: 0!important;">Desired pickup time</h5></td>
+                            <td>{{ $data_request->desired_pickup_time}}</td>
+                        </tr>
                         <tr>
                             <td><h5 style="margin: 0!important;">Status</h5></td>
                             <td>{{ \App\Enums\RequestStatus::getDescription($data_request->status) }}</td>

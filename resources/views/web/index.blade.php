@@ -1,5 +1,5 @@
 @extends('web.layout.master')
-    @section('title')
+@section('title')
     Home
 @endsection
 @section('content')
@@ -14,10 +14,12 @@
                     <div class="heading-block nobottommargin center">
                         <h1 class="txt_baner">
                             @if(!\Illuminate\Support\Facades\Auth::check())
-                                <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
-                                      data-speed="3500">LOOKING FOR A RIDE?
+                                <input type="hidden" name="check_login" value="out">
+                                <span class="text-rotater nocolor" id="show_get_name" data-separator="|" data-rotate="flipInX" data-speed="3500">
+
                             </span>
                             @else
+                                <input type="hidden" name="check_login" value="is">
                                 <span class="text-rotater nocolor" data-separator="|" data-rotate="flipInX"
                                       data-speed="3500">HELLO {{\Illuminate\Support\Facades\Auth::user()->first_name}}, LOOKING FOR A RIDE?
                                 </span>
@@ -118,5 +120,4 @@
         </div>
     </section>
 @endsection
-
 

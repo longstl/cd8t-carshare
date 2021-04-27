@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminModelController;
 use App\Http\Controllers\Admin\AdminFeedbackController;
 use App\Http\Controllers\Admin\AdminRequestController;
@@ -8,6 +9,11 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\RideController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
+Route::get('/dashboard', [AdminDashboardController::class, 'list'])->name('dashboard');
 
 Route::prefix("models")->group(function () {
     Route::get('', [AdminModelController::class, 'list'])->name('listModel');
@@ -38,6 +44,7 @@ Route::prefix("feedbacks")->group(function () {
 Route::prefix("rides")->group(function () {
     Route::get('', [AdminRideController::class, 'list'])->name('listRide');
     Route::get('match/{id}', [AdminRideController::class, 'list'])->name('findMatch');
+    Route::get('setRide/{id}', [AdminRideController::class, 'setRide'])->name('setStatus');
 });
 
 Route::prefix("requests")->group(function () {
@@ -48,3 +55,6 @@ Route::prefix("match")->group(function() {
     Route::get('find/{id}', [AdminRideController::class, 'findMatch'])->name('findMatch');
     Route::get('set/{ride_id}/{request_id}/{duration}', [AdminRideController::class, 'setMatch'])->name('setMatch');
 });
+Route::get("notification",function (){
+   return view('admin/notification/list');
+})->name('formNotification');

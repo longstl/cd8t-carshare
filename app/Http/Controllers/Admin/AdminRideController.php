@@ -6,18 +6,30 @@ use Illuminate\Http\Request;
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\Ride;
+use App\Notifications\RequestMatched;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 
 class AdminRideController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
-        $rides = Ride::query()->with(['car', 'car.user'])->get();
+        $rides = Ride::query();
+        $search = $request->query('search');
+        if ($search!='') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' .$search.'%' )
+                ->orWhere('destination_address','like', '%' .$search.'%')->get();
+        }else{
+            $rides = Ride::query()->get();
+        }
         return view('admin/ride/list', [
-            'rides' => $rides
+            'rides' => $rides,
+
         ]);
     }
 
@@ -134,6 +146,23 @@ class AdminRideController extends Controller
         $request->save();
         $ride->status = RideStatus::MATCHED;
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $request->user_id,
+            'content' => 'We found a match for your CarShare request. See details and book now!',
+            'target' => route('detailRequest', $request_id),
+        ]);
+        $notification->save();
         return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
+    }
+
+    public function setRide($id)
+    {
+        $ride = Ride::find($id);
+        $ride->status = RideStatus::CONFIRMED;
+        $ride->update();
+        $ride->save();
+        return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
+
     }
 }
