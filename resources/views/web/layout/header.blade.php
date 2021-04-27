@@ -1,5 +1,9 @@
 
 <header id="header" class="transparent-header dark full-header" data-sticky-class="not-dark" style="background-color: rgba(0,0,0,0)">
+
+
+
+
     <div id="header-wrap">
         <div class="container clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
