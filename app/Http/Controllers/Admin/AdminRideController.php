@@ -158,10 +158,17 @@ class AdminRideController extends Controller
 
     public function setRide($id)
     {
-        $ride = Ride::find($id);
+        $ride = Ride::query()->where('id', $id)->with('car')->first();
         $ride->status = RideStatus::CONFIRMED;
         $ride->update();
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $ride->car->user_id,
+            'content' => 'Your ride to '.$ride->destination_address.' has been confirmed. We will notify you when someone books it!',
+            'target' => route('detailRide', $id),
+        ]);
+        $notification->save();
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
 
     }

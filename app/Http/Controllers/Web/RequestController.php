@@ -51,7 +51,7 @@ class RequestController extends Controller
     public function book($id)
     {
         $request = Request::find($id);
-        $ride = Ride::find($request->ride_id);
+        $ride = Ride::query()->where('id', $request->ride_id)->with('car')->first();
         $request->status = RequestStatus::BOOKED;
         $ride->status = RideStatus::CONFIRMED;
         $ride->seats_available -= $request->seats_occupy;
@@ -59,12 +59,12 @@ class RequestController extends Controller
         $ride->save();
         $notification = new Notification();
         $notification->fill([
-            'user_id' => $ride->user_id,
+            'user_id' => $ride->car->user_id,
             'content' => 'Someone just booked your ride! See details here.',
             'target' => route('detailRide', $request->ride_id),
         ]);
         $notification->save();
-        return redirect()->route('detailRequest')->with('success', 'You have booked this ride. The driver will pick you up at the pickup location specified below.');
+        return redirect()->route('detailRequest', $id)->with('success', 'You have booked this ride. The driver will pick you up at the pickup location specified below.');
     }
 
     public function cancelMatch($id)
