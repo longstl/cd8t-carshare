@@ -75,17 +75,26 @@
         </div>
     </section>
     <section id="slider2" class=" swiper_wrapper">
-        <div class="col-md-10" style="position: absolute;right: 0">
+        <div class="container">
             <div class="col_one_third bottommargin-sm center ml-5">
                 <img data-animate="fadeInLeft" src="https://cdn.blablacar.com/kairos/assets/build/images/indicate-your-route-fef6b1a4c9dac38c77c092858d73add3.svg">
             </div>
             <div class="col_two_third bottommargin-sm col_last abc">
                 <p class="text-P" style="margin-bottom: 10px !important;font-size: 250%; margin-top: 2%;">To work, festivals and more</p>
                 <p class="text-P">Driving together allows you to share costs, makes driving more fun and helps protect the environment. Let's make this your least expensive journey ever.</p>
-                <a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">Offer a ride</a>
+                <a href="{{route('createRide')}}" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm mt-5 text-P">Offer a ride</a>
             </div>
         </div>
     </section>
+    @if($ride_count)
+        <section>
+            <a href="#" class="button button-full center tright">
+                <div class="container clearfix">
+                    You have {{$ride_count}} upcoming rides planned. <strong>See details.</strong>
+                </div>
+            </a>
+        </section>
+    @endif
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
