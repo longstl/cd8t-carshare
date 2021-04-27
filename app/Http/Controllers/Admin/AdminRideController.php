@@ -7,6 +7,7 @@ use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Ride;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 
@@ -16,14 +17,9 @@ class AdminRideController extends Controller
     {
         $rides = Ride::query()->with(['car', 'car.user'])->get();
         $search = $request->query('search');
-        if ($search != "") {
-            $searchRide = Ride::where(function ($query) use ($search) {
-                $query->where('origin_address', 'like', '%' . $search . '%')
-                    ->orWhere('destination_address', 'like', '%' . $search . '%');
-            });
-            $searchRide->appends(['search' => $search]);
-        }
-
+        $search = "";
+            $searchRide = Ride::query()->where('origin_address', 'like', '%' . $search . '%')
+                    ->orWhere('destination_address', 'like', '%' . $search . '%')->get();
         return view('admin/ride/list', [
             'rides' => $rides,
             'search' => $searchRide
