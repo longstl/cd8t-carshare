@@ -113,7 +113,9 @@ function getDeviceToken($user_id = null) {
     } else {
         $users = User::all();
         foreach ($users as $user) {
-            array_push($device_tokens, $user->device_token);
+            if ($user->device_token) {
+                array_push($device_tokens, $user->device_token);
+            }
         }
     }
     return $device_tokens;
