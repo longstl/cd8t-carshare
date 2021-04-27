@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header card-header-warning">
-                    <h4 class="card-title">Bills</h4>
+                    <h4 class="card-title">Daily Bills Stats</h4>
                     <div id="reportrangeBill" style="cursor: pointer; padding: 5px 10px; width: 50%; height: 10%; color: white;">
                         <i class="fa fa-calendar"></i>&nbsp;
                         <span></span> <i class="fa fa-caret-down"></i>
@@ -83,7 +83,7 @@
                     <table class="table table-hover">
                         <thead class="text-warning">
                         <th>Username</th>
-                        <th>Bill</th>
+                        <th>Total</th>
                         </thead>
                         <tbody id="top_drivers_body">
                         @foreach($ride_stats as $date)
@@ -113,7 +113,7 @@
                     <table class="table table-hover">
                         <thead class="text-warning">
                         <th>Username</th>
-                        <th>Bill</th>
+                        <th>Total</th>
                         </thead>
                         <tbody id="top_riders_body">
                         @foreach($ride_stats as $date)
