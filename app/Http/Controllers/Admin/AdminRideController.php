@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\RequestStatus;
 use App\Enums\RideStatus;
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\Ride;
+use App\Notifications\RequestMatched;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -107,6 +109,13 @@ class AdminRideController extends Controller
         $request->save();
         $ride->status = RideStatus::MATCHED;
         $ride->save();
+        $notification = new Notification();
+        $notification->fill([
+            'user_id' => $request->user_id,
+            'content' => 'We found a match for your CarShare request. See details and book now!',
+            'target' => route('detailRequest', $request_id),
+        ]);
+        $notification->save();
         return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
     }
 

@@ -18,9 +18,9 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->role != Role::ADMIN) {
-            return view('web/404');
+        if (Auth::check() && Auth::user()->role == Role::ADMIN) {
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->route('index');
     }
 }
