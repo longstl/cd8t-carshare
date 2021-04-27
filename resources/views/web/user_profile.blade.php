@@ -112,8 +112,36 @@
                                             </table>
                                         </div>
                                         <div class="tab-content clearfix" id="tab-replies">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Time:</th>
+                                                    <th>Origin</th>
+                                                    <th>Destination</th>
+                                                    <th>Price</th>
+                                                    <th>Car</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($rides as $ride)
+                                                    <tr>
+                                                        <td>
+                                                            <code>{{date('H:i', strtotime($ride->travel_start_time))}}</code>
+                                                        </td>
+                                                        <td>{{$ride->origin_address}}</td>
+                                                        <td>{{$ride->destination_address}}</td>
+                                                        <td> $ {{$ride->price_total}}</td>
+                                                        <td>  {{$ride->car->model->make}}</td>
+                                                        <td>
+                                                            {{\App\Enums\RideStatus::getDescription($ride->status)}}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
 
-                                            <div class="clear topmargin-sm"></div>
+
 
                                         </div>
                                         <div class="tab-content " id="tab-connections">
