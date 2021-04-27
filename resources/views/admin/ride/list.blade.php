@@ -127,6 +127,7 @@
         @endsection
 
         @section('extraJs')
+
             <script>
                 $('#fillter_by_status').change(function () {
                     // window.location.href = "http://facebook.com"
