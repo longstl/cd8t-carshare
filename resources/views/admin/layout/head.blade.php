@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="{{lib_assets('css/material-dashboard.css')}}">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <link rel="stylesheet" href="{{lib_assets('css/table.css')}}">
-
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
 <title>
     CarShare
 </title>
