@@ -76,7 +76,7 @@ div.select {
 }
 
 .table tr td {
-    text-align: center;
+    /*text-align: center;*/
 }
 .td-left, .td-left tr td{
     text-align: left;

@@ -44,10 +44,10 @@ class UserSeeder extends Seeder
                 'music_preference' => MusicPreference::NONE,
                 'chitchat_preference'=> ChitChatPreference::NONE,
                 'role' => Role::ADMIN,
-                'is_driving_license_certified'=>false
+                'is_driving_license_certified'=>true
             ],
             [
-                'username' => 'Hoang Dac Phuong',
+                'username' => 'darkphuong',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Hoang Dac',
                 'last_name' => 'Phuong',
@@ -71,7 +71,7 @@ class UserSeeder extends Seeder
                 'is_driving_license_certified'=>true
             ],
             [
-                'username' => 'Pham Thang',
+                'username' => 'thangpd',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Pham',
                 'last_name' => 'Thang',
@@ -96,7 +96,7 @@ class UserSeeder extends Seeder
                 'is_driving_license_certified'=>false
             ],
             [
-                'username' => 'Nguyen Ngoc Thuan',
+                'username' => 'thuannguyen',
                 'password' => Hash::make('abc123456'),
                 'first_name' => 'Nguyen Ngoc',
                 'last_name' => 'Thuan',

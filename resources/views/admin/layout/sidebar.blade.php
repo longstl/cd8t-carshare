@@ -1,6 +1,6 @@
 <ul class="nav">
     <li class="nav-item " slot="">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
         </a>
@@ -26,14 +26,14 @@
     <li class="nav-item" slot="car">
         <a class="nav-link" href="{{route('listModel')}}">
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            <p>Models</p>
+            <p>Car models</p>
         </a>
     </li>
 
     <li class="nav-item" slot="color">
         <a class="nav-link" href="{{route('listFeedback')}}">
             <i class="fa fa-comments" aria-hidden="true"></i>
-            <p>Feedbacks</p>
+            <p>Feedback</p>
         </a>
     </li>
 

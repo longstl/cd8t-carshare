@@ -17,34 +17,34 @@ class FeedbackSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('feedbacks')->insert([
+        DB::table('feedback')->insert([
             [
                 'user_id' => 2, // 1 admin
                 'title' => 'I want to hitchhike',
                 'content' => 'help me'
             ],
             [
-                'user_id' => 3, // 1 admin
+                'user_id' => 3,
                 'title' => 'My model is broken',
                 'content' => 'help me'
             ],
             [
-                'user_id' => 4, // 1 admin
+                'user_id' => 4,
                 'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
-                'user_id' => 4, // 1 admin
+                'user_id' => 4,
                 'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
-                'user_id' => 4, // 1 admin
+                'user_id' => 4,
                 'title' => 'I do not have a model',
                 'content' => 'help me'
             ],
             [
-                'user_id' => 5, // 1 admin
+                'user_id' => 1,
                 'title' => 'I do not have a model',
                 'content' => 'help me'
             ],

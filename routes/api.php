@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminRideController;
 use App\Http\Controllers\Web\RequestController;
 use App\Http\Controllers\Web\RideController;
@@ -20,11 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('ride')->group(function() {
-    Route::get('', [RideController::class, 'list']);
-    Route::post('', [RideController::class, 'store']);
+Route::prefix('admin/statistics')->group(function () {
+    Route::get('rides', [AdminDashboardController::class, 'getRideStats']);
 });
-
-
-
-Route::get('admin/ride/match/{id}', [AdminRideController::class, 'findMatch']);
