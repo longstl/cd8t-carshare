@@ -19,7 +19,7 @@
                 @endif
                 <div class="card-header card-header-primary">
                     <h3 class="card-title " style="display: inline-block;margin-right: 30px">Rides</h3>
-                    <form style="display: inline-block;margin-right: 30px" name="filterForm">
+                    <form style="display: inline-block;margin-right: 30px; width: 35%;" name="filterForm">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group no-border">
