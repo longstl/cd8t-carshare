@@ -73,6 +73,8 @@ function getPriceRate()
 
 function sendMessageToMultipleDevices($title, $content, $tokens)
 {
+
+
     $optionBuilder = new OptionsBuilder();
     $optionBuilder->setTimeToLive(60 * 20);
 
