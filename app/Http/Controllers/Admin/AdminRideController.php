@@ -46,7 +46,6 @@ class AdminRideController extends Controller
             ->where('desired_pickup_time', '>', Carbon::now())
             ->where('seats_occupy', '<=', $ride['seats_available'])
             ->whereDate('desired_pickup_time', $travel_date);
-//        dd($advanced_query->get());
         if ($origin) {
             $originKeywords = explode(" ", $origin);
             $count = count($originKeywords);
@@ -130,6 +129,7 @@ class AdminRideController extends Controller
             'target' => route('detailRequest', $request_id),
         ]);
         $notification->save();
+        sendMessageToMultipleDevices('CarShare', 'We found a match for your CarShare request.', getDeviceToken($request->user_id));
         return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
     }
 
@@ -146,7 +146,7 @@ class AdminRideController extends Controller
             'target' => route('detailRide', $id),
         ]);
         $notification->save();
+        sendMessageToMultipleDevices('CarShare', 'Your ride '.$ride->id.'has been confirmed.', getDeviceToken($ride->car->user_id));
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
-
     }
 }
