@@ -12,7 +12,7 @@ use App\Models\Ride;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class RideController extends Controller
+class   RideController extends Controller
 {
     public function create()
     {
@@ -43,7 +43,12 @@ class RideController extends Controller
 
     public function detail($id)
     {
+        $user_id = Auth::id();
         $ride = Ride::find($id);
+        $id_user = Ride::query()->where('user_id')->with('car');
+        if($user_id != $id_user){
+            return view('web/404');
+        }
         return view('web/ride_details', [
             'data_ride' => $ride
         ]);

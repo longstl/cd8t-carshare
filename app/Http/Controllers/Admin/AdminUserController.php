@@ -90,7 +90,7 @@ class AdminUserController extends Controller
         $user->is_driving_license_certified = 1;
         $user->update();
         $user->save();
-        return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);;
+        return redirect()->route('show_approve_drivers')->with(['status' => 'Update success']);
     }
 
     //

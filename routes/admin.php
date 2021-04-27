@@ -37,6 +37,7 @@ Route::prefix("feedbacks")->group(function () {
 Route::prefix("rides")->group(function () {
     Route::get('', [AdminRideController::class, 'list'])->name('listRide');
     Route::get('match/{id}', [AdminRideController::class, 'list'])->name('findMatch');
+    Route::get('setRide/{id}', [AdminRideController::class, 'setRide'])->name('setStatus');
 });
 
 Route::prefix("requests")->group(function () {

@@ -32,7 +32,11 @@ class RequestController extends Controller
 
     public function detail($id)
     {
+        $user_id = Auth::id();
         $data_request = Request::find($id);
+        if($user_id != $data_request->user_id){
+            return view('web/404');
+        }
         $data_ride = null;
         if ($data_request->ride_id) {
             $data_ride = Ride::query()->where('id', $data_request->ride_id)->with(['car.user', 'car.model'])->first();

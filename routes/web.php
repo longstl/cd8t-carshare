@@ -62,14 +62,13 @@ Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('cancel/{id}', [RequestController::class, 'cancel'])->name('cancelRequest');
     });
 });
-
-
-
-
 Route::prefix('request')->group(function() {
 
     Route::get('', [RequestController::class, 'list']);
     Route::get('create', [RequestController::class, 'create'])->name('create_request');
     Route::post('create', [RequestController::class, 'store']);
     Route::get('detail/{id}', [RequestController::class, 'detail'])->name('request_detail');
+});
+Route::get('404',function (){
+   return view('web/404');
 });
