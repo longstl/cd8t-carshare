@@ -39,4 +39,21 @@ class AdminDashboardController extends Controller
         }
         return $ride_stats->get();
     }
+
+    public function getBillStats(Request $request)
+    {
+        $start_date = $request->query('start_date');
+        $end_date = $request->query('end_date');
+        $ride_stats = DB::table('rides')
+            ->select(DB::raw('DATE(travel_start_time) as date'), DB::raw('sum(price_total) as sum'))
+            ->where('status', '=', RideStatus::COMPLETED)
+            ->groupBy('date');
+        if ($start_date) {
+            $ride_stats = $ride_stats->having('date', '>=', $start_date);
+        }
+        if ($end_date) {
+            $ride_stats = $ride_stats->having('date', '<=', $end_date);
+        }
+        return $ride_stats->get();
+    }
 }

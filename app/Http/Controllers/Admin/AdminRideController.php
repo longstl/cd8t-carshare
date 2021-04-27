@@ -9,23 +9,27 @@ use App\Http\Controllers\Controller;
 use App\Models\Notification;
 use App\Models\Ride;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class AdminRideController extends Controller
 {
     public function list(Request $request)
     {
+        $status = $request->query('status');
         $rides = Ride::query();
         $search = $request->query('search');
-        if ($search!='') {
-            $rides = $rides->with('car')->where('origin_address', 'like', '%' .$search.'%' )
-                ->orWhere('destination_address','like', '%' .$search.'%')->get();
-        }else{
-            $rides = Ride::query()->get();
+        if ($search != '') {
+            $rides = $rides->with('car')->where('origin_address', 'like', '%' . $search . '%')
+                ->orWhere('destination_address', 'like', '%' . $search . '%');
+        }
+        if ($status) {
+            $rides = $rides->with('car')->where('status',$status);
         }
         return view('admin/ride/list', [
-            'rides' => $rides,
-
+            'rides' => $rides->get(),
+            'status' => $status
         ]);
     }
 
@@ -42,7 +46,6 @@ class AdminRideController extends Controller
             ->where('desired_pickup_time', '>', Carbon::now())
             ->where('seats_occupy', '<=', $ride['seats_available'])
             ->whereDate('desired_pickup_time', $travel_date);
-//        dd($advanced_query->get());
         if ($origin) {
             $originKeywords = explode(" ", $origin);
             $count = count($originKeywords);
@@ -126,6 +129,7 @@ class AdminRideController extends Controller
             'target' => route('detailRequest', $request_id),
         ]);
         $notification->save();
+        sendMessageToMultipleDevices('CarShare', 'We found a match for your CarShare request.', getDeviceToken($request->user_id));
         return redirect()->route('listRide')->with('success', 'Ride ' . $ride_id . ' matched!');
     }
 
@@ -142,7 +146,7 @@ class AdminRideController extends Controller
             'target' => route('detailRide', $id),
         ]);
         $notification->save();
+        sendMessageToMultipleDevices('CarShare', 'Your ride '.$ride->id.'has been confirmed.', getDeviceToken($ride->car->user_id));
         return redirect()->route('listRide')->with(['status' => 'You have successfully confirmed']);
-
     }
 }

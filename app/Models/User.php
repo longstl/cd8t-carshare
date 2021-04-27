@@ -40,7 +40,8 @@ class User extends Authenticatable
         'music_preference',
         'chitchat_preference',
         'role',
-        'is_driving_license_certified'
+        'is_driving_license_certified',
+        'device_token',
     ];
     public function cars(){
         return $this->hasMany(Car::class);

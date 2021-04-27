@@ -44,9 +44,6 @@
 
 
             <div class="container clearfix">
-
-                <div id="side-navigation">
-
                     <div>
                         <div class="col_one_third nobottommargin">
                             <ul class="sidenav">
